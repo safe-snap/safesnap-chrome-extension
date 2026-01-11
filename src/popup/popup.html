@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeSnap</title>
+    <style>
+      body {
+        width: 400px;
+        min-height: 500px;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      .tabs {
+        display: flex;
+        border-bottom: 2px solid #e5e7eb;
+      }
+
+      .tab {
+        flex: 1;
+        padding: 12px;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-size: 14px;
+        font-weight: 500;
+        color: #6b7280;
+        transition: all 0.2s;
+      }
+
+      .tab.active {
+        color: #4f46e5;
+        border-bottom: 2px solid #4f46e5;
+        margin-bottom: -2px;
+      }
+
+      .tab-content {
+        display: none;
+        padding: 20px;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .pii-types {
+        margin: 20px 0;
+      }
+
+      .checkbox-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .btn-half {
+        width: calc(50% - 4px);
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-row {
+        display: flex;
+        gap: 8px;
+        margin: 8px 0;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-primary {
+        background-color: #4f46e5;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #4338ca;
+      }
+
+      .btn-secondary {
+        background-color: #e5e7eb;
+        color: #374151;
+      }
+
+      .btn-secondary:hover {
+        background-color: #d1d5db;
+      }
+
+      .status {
+        padding: 12px;
+        margin-top: 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        text-align: center;
+        word-break: break-word;
+        line-height: 1.5;
+      }
+
+      .status.ready {
+        background-color: #dbeafe;
+        color: #1e40af;
+      }
+
+      .status.protected {
+        background-color: #d1fae5;
+        color: #065f46;
+      }
+
+      .status.error {
+        background-color: #fee2e2;
+        color: #991b1b;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px;
+        background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        color: white;
+      }
+
+      .header img {
+        width: 32px;
+        height: 32px;
+        background: white;
+        border-radius: 8px;
+        padding: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="assets/icons/logo.svg" alt="" />
+      <h1></h1>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="protect"></button>
+      <button class="tab" data-tab="settings"></button>
+      <button class="tab" data-tab="about"></button>
+    </div>
+
+    <div id="protect-tab" class="tab-content active">
+      <div class="pii-types">
+        <h3 style="margin-top: 0; font-size: 16px"></h3>
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="properNouns" checked />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="money" checked />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="quantities" checked />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="emails" />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="phones" />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="addresses" />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="dates" />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="urls" />
+            <span></span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="ips" />
+            <span></span>
+          </label>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="toggleProtectBtn"></button>
+      <div class="btn-row">
+        <button class="btn-half btn-secondary" id="screenshotBtn"></button>
+        <button class="btn-half btn-secondary" id="clipboardBtn"></button>
+      </div>
+
+      <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb">
+        <button class="btn btn-secondary" id="highlightBtn">👁️ Highlight Detections</button>
+        <div
+          style="
+            font-size: 12px;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 8px;
+            line-height: 1.4;
+          "
+        >
+          See what SafeSnap detects on this page
+        </div>
+      </div>
+
+      <div
+        id="environment"
+        style="margin-top: 16px; font-size: 13px; color: #6b7280; text-align: center"
+      ></div>
+    </div>
+
+    <div id="settings-tab" class="tab-content">
+      <h3 style="margin-top: 0"></h3>
+
+      <div style="margin-bottom: 20px">
+        <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px">
+        </label>
+        <select
+          id="bannerPosition"
+          style="
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+          "
+        >
+          <option value="top-left"></option>
+          <option value="top-right"></option>
+          <option value="bottom-left"></option>
+          <option value="bottom-right"></option>
+          <option value="top-bar"></option>
+          <option value="bottom-bar"></option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px">
+        </label>
+        <input type="range" id="fadeDistance" min="50" max="150" value="100" style="width: 100%" />
+        <div style="text-align: center; font-size: 12px; color: #6b7280; margin-top: 4px">
+          <span id="fadeDistanceValue">100</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px">
+        </label>
+        <input
+          type="range"
+          id="magnitudeVariance"
+          min="10"
+          max="50"
+          value="30"
+          style="width: 100%"
+        />
+        <div style="text-align: center; font-size: 12px; color: #6b7280; margin-top: 4px">
+          <span id="magnitudeVarianceValue">30</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px">
+        <label
+          for="redactionMode"
+          style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px"
+          >Redaction Mode</label
+        >
+        <select
+          id="redactionMode"
+          style="
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+          "
+        >
+          <option value="random">Random Data</option>
+          <option value="blackout">Blackout (███)</option>
+        </select>
+      </div>
+
+      <button class="btn btn-secondary" id="openSettingsBtn"></button>
+    </div>
+
+    <div id="about-tab" class="tab-content">
+      <h3 style="margin-top: 0"></h3>
+      <p style="font-size: 14px; line-height: 1.6; color: #374151"></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeSnap Settings</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #f9fafb;
+        color: #111827;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        color: #6b7280;
+        margin-bottom: 40px;
+      }
+
+      .section {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .section h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .checkbox-group {
+        margin: 16px 0;
+      }
+
+      .checkbox-item {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        margin-bottom: 8px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .checkbox-item:hover {
+        background-color: #f9fafb;
+        border-color: #4f46e5;
+      }
+
+      .checkbox-item input[type='checkbox'] {
+        margin-right: 12px;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      .checkbox-item label {
+        cursor: pointer;
+        flex: 1;
+        font-weight: 500;
+      }
+
+      .checkbox-item .description {
+        font-size: 13px;
+        color: #6b7280;
+        margin-top: 4px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 14px;
+        font-family: inherit;
+      }
+
+      .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+        font-family: 'Courier New', monospace;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background-color: #4f46e5;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #4338ca;
+      }
+
+      .btn-secondary {
+        background-color: #f3f4f6;
+        color: #374151;
+      }
+
+      .btn-secondary:hover {
+        background-color: #e5e7eb;
+      }
+
+      .btn-danger {
+        background-color: #ef4444;
+        color: white;
+      }
+
+      .btn-danger:hover {
+        background-color: #dc2626;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .info-box {
+        background-color: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin: 16px 0;
+        font-size: 14px;
+        color: #1e40af;
+      }
+
+      .success-box {
+        background-color: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin: 16px 0;
+        font-size: 14px;
+        color: #166534;
+      }
+
+      .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 16px 0;
+      }
+
+      .slider {
+        flex: 1;
+        height: 6px;
+        border-radius: 3px;
+        background: #e5e7eb;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #4f46e5;
+        cursor: pointer;
+      }
+
+      .slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #4f46e5;
+        cursor: pointer;
+        border: none;
+      }
+
+      .slider-value {
+        min-width: 60px;
+        text-align: right;
+        font-weight: 600;
+        color: #4f46e5;
+      }
+
+      .disabled-overlay {
+        position: relative;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin: 16px 0;
+      }
+
+      .stat-card {
+        background: #f9fafb;
+        padding: 16px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #4f46e5;
+        margin-bottom: 4px;
+      }
+
+      .stat-label {
+        font-size: 13px;
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SafeSnap Settings</h1>
+    <p class="subtitle">Configure your PII protection preferences</p>
+
+    <!-- Default PII Types -->
+    <div class="section">
+      <h2>Default PII Types to Protect</h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
+        Select which types of PII to protect by default when you click "Protect PII".
+      </p>
+
+      <div class="checkbox-group" id="pii-types">
+        <!-- Will be populated by JavaScript -->
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="select-all">Select All</button>
+        <button class="btn btn-secondary" id="select-none">Select None</button>
+      </div>
+    </div>
+
+    <!-- Environment Patterns -->
+    <div class="section">
+      <h2>Environment Detection Patterns</h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
+        Customize URL patterns for environment detection.
+      </p>
+
+      <div class="form-group">
+        <label>Production Pattern</label>
+        <input type="text" id="pattern-production" placeholder="\.(prod|production)($|\/|:)" />
+      </div>
+
+      <div class="form-group">
+        <label>Development Pattern</label>
+        <input type="text" id="pattern-development" placeholder="\.(dev|development)($|\/|:)" />
+      </div>
+
+      <div class="form-group">
+        <label>Staging Pattern</label>
+        <input type="text" id="pattern-staging" placeholder="\.(staging|stg|stage)($|\/|:)" />
+      </div>
+
+      <div class="form-group">
+        <label>Local Pattern</label>
+        <input
+          type="text"
+          id="pattern-local"
+          placeholder="(localhost|127\.0\.0\.1|192\.168\.|10\.0\.)"
+        />
+      </div>
+
+      <button class="btn btn-secondary" id="reset-patterns">Reset to Defaults</button>
+    </div>
+
+    <!-- Banner Customization -->
+    <div class="section">
+      <h2>Banner Customization</h2>
+
+      <div class="form-group">
+        <label>Banner Position</label>
+        <select id="banner-position">
+          <option value="top-right">Top Right</option>
+          <option value="top-left">Top Left</option>
+          <option value="bottom-right">Bottom Right</option>
+          <option value="bottom-left">Bottom Left</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Banner Opacity (%)</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="100" value="100" class="slider" id="banner-opacity" />
+          <span class="slider-value" id="opacity-value">100%</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fade Distance (pixels)</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="300" value="100" class="slider" id="fade-distance" />
+          <span class="slider-value" id="fade-value">100px</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Regex Patterns -->
+    <div class="section">
+      <h2>Custom Regex Patterns</h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
+        Add custom regex patterns to detect proprietary PII formats.
+      </p>
+
+      <div class="form-group">
+        <label>Custom Pattern Name</label>
+        <input type="text" placeholder="e.g., Employee ID" />
+      </div>
+
+      <div class="form-group">
+        <label>Regex Pattern</label>
+        <textarea placeholder="e.g., EMP-\d{6}"></textarea>
+      </div>
+
+      <button class="btn btn-primary">Add Pattern</button>
+    </div>
+
+    <!-- Dictionary Management -->
+    <div class="section">
+      <h2>Dictionary Management</h2>
+
+      <div class="stats-grid" id="dictionary-stats">
+        <!-- Will be populated by JavaScript -->
+      </div>
+
+      <div class="info-box">
+        The full dictionary (80,000 words) improves proper noun detection accuracy. Download
+        recommended after 5 uses.
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" id="download-dictionary">Download Full Dictionary</button>
+        <button class="btn btn-danger" id="clear-dictionary">Clear Dictionary Cache</button>
+      </div>
+    </div>
+
+    <!-- Magnitude Variance -->
+    <div class="section">
+      <h2>Magnitude Variance</h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
+        Control how much money and quantity values vary (±percentage).
+      </p>
+
+      <div class="form-group">
+        <label>Variance Percentage (%)</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="50" value="30" class="slider" />
+          <span class="slider-value">±30%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Redaction Mode -->
+    <div class="section">
+      <h2>Redaction Mode</h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
+        Choose between replacing PII with random data or black bars.
+      </p>
+
+      <div class="form-group">
+        <label>Mode</label>
+        <select id="redaction-mode" class="input">
+          <option value="random">Random Data (e.g., John → Jane)</option>
+          <option value="blackout">Blackout (███████)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Export/Import Settings -->
+    <div class="section">
+      <h2>Export / Import Settings</h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
+        Backup your settings or transfer them to another browser.
+      </p>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="export-settings">📥 Export Settings</button>
+        <button class="btn btn-secondary" id="import-settings">📤 Import Settings</button>
+      </div>
+      <input type="file" id="import-file" accept=".json" style="display: none" />
+    </div>
+
+    <!-- About / Status -->
+    <div class="section">
+      <h2>About SafeSnap</h2>
+      <p style="color: #6b7280; line-height: 1.6">
+        <strong>Version:</strong> 1.0.0<br />
+        <strong>Detection Engine:</strong> Dictionary-based<br />
+        <strong>Storage Used:</strong> <span id="storage-used">Calculating...</span>
+      </p>
+    </div>
+
+    <div
+      id="toast"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #10b981;
+        color: white;
+        padding: 16px 24px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        font-weight: 600;
+        z-index: 10000;
+      "
+    >
+      Settings saved!
+    </div>
+
+    <script src="settings.js"></script>
+  </body>
+</html>

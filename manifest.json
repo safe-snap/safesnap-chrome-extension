@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "SafeSnap",
+  "version": "1.0.0",
+  "description": "Share screenshots without exposing PII. Privacy-first tool for QA teams and product managers.",
+  "author": "SafeSnap Community",
+
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    },
+    "default_title": "SafeSnap - PII Protection Screenshot Tool"
+  },
+
+  "permissions": ["activeTab", "storage", "tabs", "downloads"],
+
+  "host_permissions": ["<all_urls>"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["banner.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "options_page": "settings.html",
+
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/dictionaries/*.json", "assets/icons/*.svg"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
