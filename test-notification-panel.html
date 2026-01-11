@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeSnap - Notification Panel Position Test</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        padding: 40px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      h1 {
+        color: #1f2937;
+        margin-bottom: 20px;
+      }
+      .test-section {
+        background: #f3f4f6;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .test-section h2 {
+        margin-top: 0;
+        color: #374151;
+        font-size: 18px;
+      }
+      .test-section p {
+        margin: 10px 0;
+        color: #6b7280;
+      }
+      button {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+      button:hover {
+        background: #2563eb;
+      }
+      button.secondary {
+        background: #6b7280;
+      }
+      button.secondary:hover {
+        background: #4b5563;
+      }
+      .info {
+        background: #dbeafe;
+        border-left: 4px solid #3b82f6;
+        padding: 12px 16px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+      .info strong {
+        color: #1e40af;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔧 SafeSnap Notification Panel Test</h1>
+
+    <div class="info">
+      <strong>Testing Instructions:</strong>
+      <ol>
+        <li>Load this page with SafeSnap extension installed</li>
+        <li>Click "Enable Highlight Mode" to show the legend panel</li>
+        <li>Open the SafeSnap popup and change the "Banner Position" dropdown</li>
+        <li>Verify the legend panel moves to the new position immediately</li>
+        <li>Move your mouse near the panel - it should fade out (no close button needed!)</li>
+      </ol>
+    </div>
+
+    <div class="test-section">
+      <h2>📋 Test Panel</h2>
+      <p>Sample PII for detection:</p>
+      <ul>
+        <li>Email: john.doe@example.com</li>
+        <li>Phone: (555) 123-4567</li>
+        <li>Name: Alice Johnson</li>
+        <li>Credit Card: 4111-1111-1111-1111</li>
+        <li>Company: Acme Corporation</li>
+      </ul>
+
+      <button id="enableHighlights">Enable Highlight Mode</button>
+      <button id="disableHighlights" class="secondary">Disable Highlight Mode</button>
+    </div>
+
+    <div class="test-section">
+      <h2>✅ Expected Behavior</h2>
+      <ul>
+        <li>Legend panel appears in the position set in SafeSnap settings</li>
+        <li>Changing banner position in popup immediately moves the panel</li>
+        <li>Panel fades when mouse approaches (within 150px by default)</li>
+        <li>Panel becomes invisible when mouse is within 20px</li>
+        <li>No close button on the panel</li>
+        <li>Both legend and protected mode indicator use the same position</li>
+      </ul>
+    </div>
+
+    <div class="test-section">
+      <h2>🎨 Position Options</h2>
+      <p>Test with these positions from the popup dropdown:</p>
+      <ul>
+        <li><strong>Top Left</strong> - Panel in top-left corner</li>
+        <li><strong>Top Right</strong> - Panel in top-right corner (default)</li>
+        <li><strong>Bottom Left</strong> - Panel in bottom-left corner</li>
+        <li><strong>Bottom Right</strong> - Panel in bottom-right corner</li>
+        <li><strong>Top Bar</strong> - Panel centered at top</li>
+        <li><strong>Bottom Bar</strong> - Panel centered at bottom</li>
+      </ul>
+    </div>
+
+    <script>
+      // Simple test buttons to trigger highlight mode via extension
+      document.getElementById('enableHighlights').addEventListener('click', async () => {
+        try {
+          const response = await chrome.runtime.sendMessage({ action: 'toggleHighlightMode' });
+          console.log('Highlight mode response:', response);
+          alert(
+            'Highlight mode enabled! Now try changing the Banner Position in the SafeSnap popup.'
+          );
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Make sure SafeSnap extension is installed and active.');
+        }
+      });
+
+      document.getElementById('disableHighlights').addEventListener('click', async () => {
+        try {
+          const response = await chrome.runtime.sendMessage({ action: 'toggleHighlightMode' });
+          console.log('Highlight mode response:', response);
+          alert('Highlight mode disabled.');
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      });
+    </script>
+  </body>
+</html>

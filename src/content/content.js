@@ -15,12 +15,12 @@ import {
   initializeHighlightMode,
   refreshHighlightsWithSettings,
 } from './modules/highlight-mode.js';
+import { loadSettings, getSetting, detectEnvironment } from './modules/settings.js';
 import {
-  loadSettings,
-  getSetting,
-  getBannerPositionStyles,
-  detectEnvironment,
-} from './modules/settings.js';
+  showProtectedModeIndicator,
+  hideNotificationPanel,
+  refreshAllPanelPositions,
+} from './modules/notification-panel.js';
 
 // Prevent multiple initializations
 if (window.safesnapInitialized) {
@@ -129,14 +129,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     case 'RELOAD_SETTINGS':
       loadSettings()
-        .then(() => {
-          // If watermark is showing, update its position
-          const watermark = document.getElementById('safesnap-watermark');
-          if (watermark && isPIIProtected) {
-            removePersistentWatermark();
-            showPersistentWatermark();
-          }
-          sendResponse({ success: true, message: 'Settings reloaded' });
+        .then(async () => {
+          // Refresh positions of all active notification panels
+          await refreshAllPanelPositions();
+
+          sendResponse({ success: true, message: 'Settings reloaded and panels updated' });
         })
         .catch((error) => {
           sendResponse({ success: false, error: error.message });
@@ -705,90 +702,18 @@ function showDictionaryDownloadBanner() {
 }
 
 /**
- * Show persistent watermark
+ * Show persistent watermark (now using unified notification panel)
  */
 function showPersistentWatermark() {
-  // Remove existing watermark if present
-  const existing = document.getElementById('safesnap-watermark');
-  if (existing) {
-    return; // Already showing
-  }
-
-  const watermark = document.createElement('div');
-  watermark.id = 'safesnap-watermark';
-
-  // Get banner position from settings
-  const bannerPosition = getSetting('bannerPosition');
-  const positionStyles = getBannerPositionStyles(bannerPosition);
-
-  watermark.style.cssText = `
-    position: fixed;
-    ${positionStyles}
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-    z-index: 999998;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    pointer-events: none;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  `;
-
-  watermark.innerHTML = `
-    <span style="font-size: 16px;">${i18n.emojiLock}</span>
-    <span>${i18n.watermarkProtectedMode}</span>
-  `;
-
-  document.body.appendChild(watermark);
-
-  // Fade on mouse proximity
-  const fadeHandler = (e) => {
-    const rect = watermark.getBoundingClientRect();
-
-    // Calculate distance from cursor to nearest edge of the watermark
-    const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
-    const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    const fadeDistance = getSetting('fadeDistance');
-    const invisibleRadius = 20; // Fully invisible within 20px from edge
-
-    if (distance < invisibleRadius) {
-      watermark.style.opacity = 0;
-    } else if (distance < fadeDistance) {
-      // Fade from 0 to 1 between invisibleRadius and fadeDistance
-      const opacity = (distance - invisibleRadius) / (fadeDistance - invisibleRadius);
-      watermark.style.opacity = opacity;
-    } else {
-      watermark.style.opacity = 1;
-    }
-  };
-
-  // Store handler so we can remove it later
-  watermark._fadeHandler = fadeHandler;
-  document.addEventListener('mousemove', fadeHandler);
+  // Show the protected mode indicator using unified notification panel
+  showProtectedModeIndicator();
 }
 
 /**
  * Remove persistent watermark
  */
 function removePersistentWatermark() {
-  const watermark = document.getElementById('safesnap-watermark');
-  if (watermark) {
-    // Remove event listener
-    if (watermark._fadeHandler) {
-      document.removeEventListener('mousemove', watermark._fadeHandler);
-    }
-    watermark.remove();
-  }
+  hideNotificationPanel('protected-mode');
 }
 
 /**

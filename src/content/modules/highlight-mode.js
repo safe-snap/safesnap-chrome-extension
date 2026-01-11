@@ -3,7 +3,7 @@
  * Handles visual highlighting of PII detection candidates for debugging/transparency
  */
 
-import i18n from '../../i18n/en.js';
+import { showHighlightLegend, hideNotificationPanel } from './notification-panel.js';
 
 // State
 let highlightCandidates = [];
@@ -125,8 +125,8 @@ export async function enableHighlightMode(detector) {
   // Render highlights
   renderHighlights();
 
-  // Add legend
-  addHighlightLegend();
+  // Show unified notification panel with legend
+  showHighlightLegend();
 
   // Refresh highlights every 1 second to keep them aligned during scrolling
   console.log('[SafeSnap] Starting highlight refresh interval (1 second)');
@@ -393,75 +393,7 @@ function createHighlight(candidate) {
   }
 }
 
-/**
- * Add a legend showing what the colors mean
- */
-function addHighlightLegend() {
-  const legend = document.createElement('div');
-  legend.id = 'safesnap-highlight-legend';
-  legend.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: white;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 1000000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 13px;
-    pointer-events: auto;
-  `;
-
-  legend.innerHTML = `
-    <div style="font-weight: bold; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-      👁️ ${i18n.highlightLegendTitle}
-      <button id="safesnap-highlight-close" style="
-        margin-left: auto;
-        background: #ef4444;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 4px 8px;
-        cursor: pointer;
-        font-size: 11px;
-      ">${i18n.highlightLegendClose}</button>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 6px;">
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <div style="width: 16px; height: 16px; background: rgba(59, 130, 246, 0.4); border: 2px solid #3b82f6; border-radius: 3px;"></div>
-        <span><strong>Blue:</strong> Pattern Match (Email, Phone, etc.)</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <div style="width: 16px; height: 16px; background: rgba(16, 185, 129, 0.4); border: 2px solid #10b981; border-radius: 3px;"></div>
-        <span><strong>Green:</strong> ${i18n.highlightLegendGreen}</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <div style="width: 16px; height: 16px; background: rgba(245, 158, 11, 0.4); border: 2px solid #f59e0b; border-radius: 3px;"></div>
-        <span><strong>Orange:</strong> ${i18n.highlightLegendOrange}</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <div style="width: 16px; height: 16px; background: rgba(239, 68, 68, 0.4); border: 2px solid #ef4444; border-radius: 3px;"></div>
-        <span><strong>Red:</strong> ${i18n.highlightLegendRed}</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <div style="width: 16px; height: 16px; background: rgba(156, 163, 175, 0.4); border: 2px solid #9ca3af; border-radius: 3px;"></div>
-        <span><strong>Gray:</strong> ${i18n.highlightLegendGray}</span>
-      </div>
-    </div>
-    <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #6b7280;">
-      ${i18n.highlightLegendHoverHint}
-    </div>
-  `;
-
-  document.body.appendChild(legend);
-
-  // Add close button functionality
-  document
-    .getElementById('safesnap-highlight-close')
-    .addEventListener('click', disableHighlightMode);
-}
+// addHighlightLegend() function removed - now using unified notification panel
 
 /**
  * Disable highlight mode - remove all highlights
@@ -483,10 +415,8 @@ export function disableHighlightMode() {
     overlay.remove();
   }
 
-  const legend = document.getElementById('safesnap-highlight-legend');
-  if (legend) {
-    legend.remove();
-  }
+  // Hide unified notification panel
+  hideNotificationPanel('highlight-legend');
 
   // Clear stored candidates and detector
   highlightCandidates = [];
