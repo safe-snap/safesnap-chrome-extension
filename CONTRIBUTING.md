@@ -33,9 +33,9 @@ We welcome feature suggestions! Please open an issue with:
 1. **Fork the repository** and create a new branch from `main`
 2. **Make your changes** following our code style guidelines
 3. **Write or update tests** to cover your changes
-4. **Ensure all tests pass** with `npm test`
-5. **Run the linter** with `npm run lint` and fix any issues
-6. **Build the extension** with `npm run build` to verify
+4. **Ensure all tests pass** with `bun test`
+5. **Run the linter** with `bun run lint` and fix any issues
+6. **Build the extension** with `bun run build` to verify
 7. **Commit your changes** using clear, descriptive commit messages
 8. **Push to your fork** and submit a pull request
 
@@ -47,19 +47,19 @@ git clone https://github.com/YOUR_USERNAME/safesnap.git
 cd safesnap
 
 # Install dependencies
-npm install
+bun install
 
 # Run tests
-npm test
+bun test
 
 # Run linter
-npm run lint
+bun run lint
 
 # Build the extension
-npm run build
+bun run build
 
 # Watch mode for development
-npm run watch
+bun run watch
 ```
 
 ## Code Style Guidelines
@@ -121,26 +121,26 @@ test: add unit tests for pattern matcher
 
 All pull requests must:
 
-- Pass all existing tests (`npm test`)
+- Pass all existing tests (`bun test`)
 - Include tests for new functionality
 - Maintain or improve code coverage (>80%)
-- Pass ESLint checks (`npm run lint`)
-- Build successfully (`npm run build`)
+- Pass ESLint checks (`bun run lint`)
+- Build successfully (`bun run build`)
 
 ### Running Tests
 
 ```bash
 # Run all tests
-npm test
+bun test
 
 # Run tests in watch mode
-npm run test:watch
+bun run test:watch
 
 # Run tests with coverage
-npm run test:coverage
+bun run test:coverage
 
 # Run specific test file
-npm test -- path/to/test.test.js
+bun test -- path/to/test.test.js
 ```
 
 ## Pull Request Process
@@ -148,9 +148,9 @@ npm test -- path/to/test.test.js
 1. **Update documentation** if you're changing functionality
 2. **Update CHANGELOG.md** with your changes under "Unreleased"
 3. **Ensure CI checks pass** - GitHub Actions will automatically run:
-   - **Linting** (`npm run lint`) - Code quality checks
-   - **Tests** (`npm test`) - All tests must pass
-   - **Build** (`npm run build`) - Extension must build successfully
+   - **Linting** (`bun run lint`) - Code quality checks
+   - **Tests** (`bun test`) - All tests must pass
+   - **Build** (`bun run build`) - Extension must build successfully
    - These checks are **required** and PRs cannot be merged until all pass ✅
 4. **Request review** from maintainers
 5. **Address feedback** and make requested changes

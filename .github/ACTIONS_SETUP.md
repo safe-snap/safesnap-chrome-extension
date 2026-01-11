@@ -67,15 +67,15 @@ To enforce checks before merging:
 
 Every PR/commit is automatically checked for:
 
-1. **Linting**: `npm run lint`
+1. **Linting**: `bun run lint`
    - Checks code style and quality
    - Must have 0 errors and 0 warnings
 
-2. **Tests**: `npm test`
+2. **Tests**: `bun test`
    - Runs all Jest tests
    - Must have 100% pass rate
 
-3. **Build**: `npm run build`
+3. **Build**: `bun run build`
    - Ensures extension builds successfully
    - Verifies manifest.json exists in dist/
 
@@ -85,13 +85,13 @@ Contributors should run these **before pushing**:
 
 ```bash
 # Fix linting issues
-npm run lint:fix
+bun run lint:fix
 
 # Run tests
-npm test
+bun test
 
 # Build extension
-npm run build
+bun run build
 ```
 
 This ensures CI will pass when they push.

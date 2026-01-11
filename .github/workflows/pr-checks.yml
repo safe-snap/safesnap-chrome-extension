@@ -20,20 +20,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: '18'
-          cache: 'npm'
+          bun-version: latest
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install
 
       - name: Run linting
         id: lint
         run: |
           echo "Running ESLint..."
-          npm run lint > lint-output.txt 2>&1 || echo "LINT_FAILED=true" >> $GITHUB_ENV
+          bun run lint > lint-output.txt 2>&1 || echo "LINT_FAILED=true" >> $GITHUB_ENV
           cat lint-output.txt
         continue-on-error: true
 
@@ -41,7 +40,7 @@ jobs:
         id: test
         run: |
           echo "Running tests..."
-          npm test -- --coverage --json --outputFile=test-results.json > test-output.txt 2>&1 || echo "TEST_FAILED=true" >> $GITHUB_ENV
+          bun run test:coverage --json --outputFile=test-results.json > test-output.txt 2>&1 || echo "TEST_FAILED=true" >> $GITHUB_ENV
           cat test-output.txt
         continue-on-error: true
 
@@ -49,7 +48,7 @@ jobs:
         id: build
         run: |
           echo "Building extension..."
-          npm run build > build-output.txt 2>&1 || echo "BUILD_FAILED=true" >> $GITHUB_ENV
+          bun run build > build-output.txt 2>&1 || echo "BUILD_FAILED=true" >> $GITHUB_ENV
           cat build-output.txt
         continue-on-error: true
 

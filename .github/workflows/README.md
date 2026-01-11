@@ -2,6 +2,15 @@
 
 This directory contains CI/CD workflows for the SafeSnap Chrome Extension.
 
+## 🚀 Using Bun
+
+All workflows use [Bun](https://bun.sh) instead of npm for **faster dependency installation and test execution**:
+
+- ⚡ **3-5x faster** than npm for installing dependencies
+- 🔥 **Native TypeScript support** (future-proof)
+- ✅ **Drop-in replacement** for npm (same package.json, same commands)
+- 📦 **Works with all npm packages** (100% compatible)
+
 ## Workflows
 
 ### 1. `ci.yml` - Continuous Integration
@@ -61,19 +70,19 @@ Before pushing, you can run the same checks locally:
 
 ```bash
 # Run linting
-npm run lint
+bun run lint
 
 # Fix linting issues automatically
-npm run lint:fix
+bun run lint:fix
 
 # Run tests
-npm test
+bun test
 
 # Run tests with coverage
-npm test -- --coverage
+bun test -- --coverage
 
 # Build the extension
-npm run build
+bun run build
 ```
 
 ## Workflow Features
@@ -131,7 +140,7 @@ To make checks less strict during development, you can:
 
 ## Troubleshooting
 
-### "npm ci" fails
+### "bun install" fails
 
 - Check that `package-lock.json` is committed
 - Verify Node.js version compatibility

@@ -4,19 +4,20 @@
   "description": "Privacy-first screenshot tool with automatic PII detection",
   "main": "src/background/background.js",
   "scripts": {
+    "preinstall": "node scripts/check-package-manager.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:integration": "jest --testMatch='**/test/integration/**/*.test.js'",
-    "test:e2e": "playwright test",
+    "test:e2e": "bunx playwright test",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix",
     "format": "prettier --write \"src/**/*.{js,css,html}\"",
-    "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "dev": "webpack --mode development --watch",
-    "package": "npm run build && node scripts/package.js",
-    "generate-icons": "node scripts/generate-icons.js"
+    "build": "bun run webpack --mode production",
+    "build:dev": "bun run webpack --mode development",
+    "dev": "bun run webpack --mode development --watch",
+    "package": "bun run build && bun run scripts/package.js",
+    "generate-icons": "bun run scripts/generate-icons.js"
   },
   "keywords": [
     "chrome-extension",

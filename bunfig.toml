@@ -1,0 +1,8 @@
+# Bun Configuration
+# This project uses Jest for testing (not Bun's test runner)
+# See TESTING.md for details
+
+[test]
+# Preload warning when using 'bun test' (deprecated)
+# Users should use 'bun run test' (Jest) for 100% compatibility
+preload = ["./test/bun-test-warning.ts"]

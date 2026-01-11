@@ -72,13 +72,13 @@ Automatically detects and protects:
 2. Install dependencies:
 
    ```bash
-   npm install
+   bun install
    ```
 
 3. Build the extension:
 
    ```bash
-   npm run build
+   bun run build
    ```
 
 4. Load in Chrome:
@@ -141,22 +141,22 @@ Your screenshot is now safe to share without exposing sensitive data!
 # Clone and install
 git clone https://github.com/yourusername/safesnap.git
 cd safesnap
-npm install
+bun install
 
 # Development build with watch mode
-npm run dev
+bun run dev
 
 # Run tests
-npm test
+bun test
 
 # Run linter
-npm run lint
+bun run lint
 
 # Production build
-npm run build
+bun run build
 
 # Create package for distribution
-npm run package
+bun run package
 ```
 
 ### Project Structure
@@ -182,31 +182,31 @@ safesnap/
 
 ```bash
 # Run all tests
-npm test
+bun test
 
 # Watch mode for TDD
-npm run test:watch
+bun run test:watch
 
 # Coverage report
-npm run test:coverage
+bun run test:coverage
 
 # Run specific test
-npm test -- path/to/test.test.js
+bun test path/to/test.test.js
 ```
 
-Current test status: **298 tests passing** with ~80% coverage.
+Current test status: **338 tests passing** with ~80% coverage.
 
 ### Code Quality
 
 ```bash
 # Lint code
-npm run lint
+bun run lint
 
 # Auto-fix lint issues
-npm run lint:fix
+bun run lint:fix
 
 # Format with Prettier
-npm run format
+bun run format
 ```
 
 ## Architecture
@@ -241,7 +241,7 @@ Quick checklist:
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes with tests
-4. Ensure `npm test` and `npm run lint` pass
+4. Ensure `bun test` and `bun run lint` pass
 5. Submit a pull request
 
 ## License
