@@ -147,10 +147,24 @@ npm test -- path/to/test.test.js
 
 1. **Update documentation** if you're changing functionality
 2. **Update CHANGELOG.md** with your changes under "Unreleased"
-3. **Ensure CI checks pass** (tests, linting, build)
+3. **Ensure CI checks pass** - GitHub Actions will automatically run:
+   - **Linting** (`npm run lint`) - Code quality checks
+   - **Tests** (`npm test`) - All tests must pass
+   - **Build** (`npm run build`) - Extension must build successfully
+   - These checks are **required** and PRs cannot be merged until all pass ✅
 4. **Request review** from maintainers
 5. **Address feedback** and make requested changes
 6. **Squash commits** if requested before merge
+
+### GitHub Actions CI
+
+When you create or update a PR, you'll see automated checks running at the bottom of your PR:
+
+- 🟢 Green checkmark = All checks passed (ready to merge)
+- 🔴 Red X = Some checks failed (needs fixing)
+- 🟡 Yellow dot = Checks are running (please wait)
+
+A bot will also post a comment summarizing the check results. If checks fail, click "Details" to see the error logs.
 
 ### Pull Request Checklist
 
