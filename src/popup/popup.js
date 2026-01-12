@@ -618,7 +618,7 @@ function updateStatusBadge(isPIIProtected, isHighlightsEnabled) {
 
   if (isPIIProtected && isHighlightsEnabled) {
     // Both active
-    badge.textContent = '🛡️ PII Protected • 👁️ Highlights ON';
+    badge.textContent = '🛡️ PII Protected • Highlights ON';
     badge.style.background = 'linear-gradient(135deg, #d1fae5 0%, #dbeafe 100%)';
     badge.style.color = '#065f46';
     badge.style.border = '2px solid #10b981';
@@ -630,15 +630,8 @@ function updateStatusBadge(isPIIProtected, isHighlightsEnabled) {
     badge.style.color = '#065f46';
     badge.style.border = '2px solid #10b981';
     badge.style.display = 'block';
-  } else if (isHighlightsEnabled) {
-    // Only highlights active
-    badge.textContent = '👁️ Showing Detections';
-    badge.style.background = '#dbeafe';
-    badge.style.color = '#1e40af';
-    badge.style.border = '2px solid #3b82f6';
-    badge.style.display = 'block';
   } else {
-    // Nothing active - hide badge
+    // Highlights only or nothing active - hide badge
     badge.style.display = 'none';
   }
 }

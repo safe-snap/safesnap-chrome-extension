@@ -414,7 +414,7 @@ async function protectPII(enabledTypes) {
     if (isHighlightEnabled()) {
       setTimeout(() => {
         disableHighlightMode();
-        enableHighlightMode();
+        enableHighlightMode(detector);
       }, 100); // Small delay to let DOM settle
     }
 
