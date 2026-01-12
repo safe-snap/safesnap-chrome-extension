@@ -60,7 +60,7 @@ describe('CompanyPool', () => {
       let hasPrefix = false;
       for (let i = 0; i < 50; i++) {
         const company = companyPool.getRandomCompany();
-        if (companyPool.prefixes.some(prefix => company.startsWith(prefix))) {
+        if (companyPool.prefixes.some((prefix) => company.startsWith(prefix))) {
           hasPrefix = true;
           break;
         }
@@ -72,7 +72,7 @@ describe('CompanyPool', () => {
       let hasSuffix = false;
       for (let i = 0; i < 50; i++) {
         const company = companyPool.getRandomCompany();
-        if (companyPool.suffixes.some(suffix => company.includes(suffix))) {
+        if (companyPool.suffixes.some((suffix) => company.includes(suffix))) {
           hasSuffix = true;
           break;
         }
@@ -82,9 +82,7 @@ describe('CompanyPool', () => {
 
     test('should include a company type', () => {
       const company = companyPool.getRandomCompany();
-      const hasType = companyPool.companyTypes.some(type => 
-        company.includes(type)
-      );
+      const hasType = companyPool.companyTypes.some((type) => company.includes(type));
       expect(hasType).toBe(true);
     });
   });
@@ -127,25 +125,25 @@ describe('CompanyPool', () => {
 
   describe('Data Quality', () => {
     test('all prefixes should be capitalized', () => {
-      companyPool.prefixes.forEach(prefix => {
+      companyPool.prefixes.forEach((prefix) => {
         expect(prefix[0]).toBe(prefix[0].toUpperCase());
       });
     });
 
     test('all company types should be capitalized', () => {
-      companyPool.companyTypes.forEach(type => {
+      companyPool.companyTypes.forEach((type) => {
         expect(type[0]).toBe(type[0].toUpperCase());
       });
     });
 
     test('all suffixes should be capitalized', () => {
-      companyPool.suffixes.forEach(suffix => {
+      companyPool.suffixes.forEach((suffix) => {
         expect(suffix[0]).toBe(suffix[0].toUpperCase());
       });
     });
 
     test('TLDs should start with dot', () => {
-      companyPool.tlds.forEach(tld => {
+      companyPool.tlds.forEach((tld) => {
         expect(tld).toMatch(/^\.[a-z]{2,}$/);
       });
     });
@@ -171,7 +169,7 @@ describe('CompanyPool', () => {
     });
 
     test('company types should be reasonable length', () => {
-      companyPool.companyTypes.forEach(type => {
+      companyPool.companyTypes.forEach((type) => {
         expect(type.length).toBeGreaterThanOrEqual(2);
         expect(type.length).toBeLessThanOrEqual(15);
       });
@@ -182,11 +180,11 @@ describe('CompanyPool', () => {
     test('should produce varied distribution of companies', () => {
       const companies = new Set();
       const iterations = 100;
-      
+
       for (let i = 0; i < iterations; i++) {
         companies.add(companyPool.getRandomCompany());
       }
-      
+
       // Should generate at least 50 unique companies out of 100
       expect(companies.size).toBeGreaterThan(50);
     });
@@ -194,11 +192,11 @@ describe('CompanyPool', () => {
     test('should produce varied distribution of domains', () => {
       const domains = new Set();
       const iterations = 100;
-      
+
       for (let i = 0; i < iterations; i++) {
         domains.add(companyPool.getRandomDomain());
       }
-      
+
       // Should generate at least 50 unique domains out of 100
       expect(domains.size).toBeGreaterThan(50);
     });
@@ -206,13 +204,13 @@ describe('CompanyPool', () => {
     test('should use different TLDs', () => {
       const tlds = new Set();
       const iterations = 100;
-      
+
       for (let i = 0; i < iterations; i++) {
         const domain = companyPool.getRandomDomain();
         const tld = '.' + domain.split('.').pop();
         tlds.add(tld);
       }
-      
+
       // Should use at least 3 different TLDs
       expect(tlds.size).toBeGreaterThanOrEqual(3);
     });
@@ -232,7 +230,7 @@ describe('CompanyPool', () => {
     test('domain should be derived from company components', () => {
       const domain = companyPool.getRandomDomain();
       const domainBase = domain.split('.')[0];
-      
+
       // Should be alphanumeric with possible hyphens
       expect(domainBase).toMatch(/^[a-z0-9-]+$/);
       expect(domainBase.length).toBeGreaterThan(3);
@@ -269,7 +267,7 @@ describe('CompanyPool', () => {
   describe('Realistic Company Names', () => {
     test('should generate realistic sounding company names', () => {
       const company = companyPool.getRandomCompany();
-      
+
       // Should have at least one word from the pool
       const words = company.split(/\s+/);
       expect(words.length).toBeGreaterThanOrEqual(2);
@@ -277,18 +275,28 @@ describe('CompanyPool', () => {
     });
 
     test('should include business entity type', () => {
-      const businessTypes = ['Inc', 'Corp', 'LLC', 'Ltd', 'Group', 'Partners', 'Solutions', 'Systems', 'Technologies'];
-      
+      const businessTypes = [
+        'Inc',
+        'Corp',
+        'LLC',
+        'Ltd',
+        'Group',
+        'Partners',
+        'Solutions',
+        'Systems',
+        'Technologies',
+      ];
+
       // Check multiple companies to account for randomness (suffix only added 70% of the time)
       let hasBusinessType = false;
       for (let i = 0; i < 10; i++) {
         const company = companyPool.getRandomCompany();
-        if (businessTypes.some(type => company.includes(type))) {
+        if (businessTypes.some((type) => company.includes(type))) {
           hasBusinessType = true;
           break;
         }
       }
-      
+
       expect(hasBusinessType).toBe(true);
     });
   });
@@ -323,7 +331,11 @@ describe('CompanyPool', () => {
 
     test('should not include suffix', () => {
       const company = companyPool.getShortCompanyName();
-      const hasSuffix = companyPool.suffixes.some(suffix => company.includes(suffix));
+      // Check for suffix as a separate token (e.g., ", Inc" or " LLC")
+      // Not just as substring (which would incorrectly match "Corporation" containing "Corp")
+      const hasSuffix = companyPool.suffixes.some(
+        (suffix) => company.includes(`, ${suffix}`) || company.endsWith(` ${suffix}`)
+      );
       expect(hasSuffix).toBe(false);
     });
 
@@ -356,7 +368,7 @@ describe('CompanyPool', () => {
       for (let i = 0; i < 20; i++) {
         companies.push(companyPool.getFullCompanyName());
       }
-      const withSuffix = companies.filter(c => companyPool.suffixes.some(s => c.includes(s)));
+      const withSuffix = companies.filter((c) => companyPool.suffixes.some((s) => c.includes(s)));
       expect(withSuffix.length).toBeGreaterThan(0);
     });
   });
@@ -415,7 +427,7 @@ describe('CompanyPool', () => {
 
     test('should accept style parameter', () => {
       const domains = companyPool.getRandomCompanies(3, 'domain');
-      domains.forEach(domain => {
+      domains.forEach((domain) => {
         expect(domain).toMatch(/\.[a-z]{2,}$/);
       });
     });
