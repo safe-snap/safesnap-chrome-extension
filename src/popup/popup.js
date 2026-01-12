@@ -26,8 +26,6 @@ function initializeUIText() {
     `<span style="font-size: 16px; margin-right: 6px;">${i18n.emojiCamera}</span>${i18n.btnTakeScreenshot}`;
   document.querySelector('#clipboardBtn').innerHTML =
     `<span style="font-size: 16px; margin-right: 6px;">${i18n.emojiClipboard}</span>${i18n.btnCopyToClipboard}`;
-  document.querySelector('#environment').textContent =
-    `${i18n.environmentLabel} ${i18n.environmentNotDetected}`;
 
   // PII type labels
   const piiLabels = {
@@ -119,8 +117,6 @@ async function initializePopup() {
       tab.url.startsWith('about:')
     ) {
       updateStatus(i18n.errorCannotRunOnThisPage, 'error');
-      document.getElementById('environment').textContent =
-        `${i18n.environmentLabel} ${i18n.environmentNotDetected}`;
       return;
     }
 
@@ -146,16 +142,6 @@ async function initializePopup() {
     }
 
     if (response && response.success) {
-      // Update environment display
-      const envEl = document.getElementById('environment');
-      if (response.environment) {
-        envEl.textContent = `${i18n.environmentLabel} ${response.environment}`;
-        envEl.style.color = '#059669'; // Green for detected
-      } else {
-        envEl.textContent = `${i18n.environmentLabel} ${i18n.environmentNotDetected}`;
-        envEl.style.color = '#6b7280'; // Gray
-      }
-
       // Update button state if already protected
       if (response.isPIIProtected) {
         updateToggleButton(true);
@@ -163,17 +149,18 @@ async function initializePopup() {
         updateToggleButton(false);
       }
 
-      // Update highlight button state if highlights are showing
+      // Update highlight toggle state if highlights are showing
       if (response.isHighlightModeEnabled) {
         updateHighlightButton(true);
       } else {
         updateHighlightButton(false);
       }
+
+      // Update status badge
+      updateStatusBadge(response.isPIIProtected, response.isHighlightModeEnabled);
     }
   } catch (error) {
     console.log('Could not connect to content script:', error);
-    document.getElementById('environment').textContent =
-      `${i18n.environmentLabel} ${i18n.environmentDetecting}`;
   }
 }
 
@@ -209,6 +196,17 @@ document.getElementById('toggleProtectBtn').addEventListener('click', async () =
 
       if (response.success) {
         updateToggleButton(false);
+
+        // Re-query status to sync highlight button state
+        try {
+          const statusResponse = await chrome.tabs.sendMessage(tab.id, { type: 'GET_STATUS' });
+          if (statusResponse && statusResponse.success) {
+            updateHighlightButton(statusResponse.isHighlightModeEnabled);
+            updateStatusBadge(false, statusResponse.isHighlightModeEnabled);
+          }
+        } catch (error) {
+          console.log('Could not sync highlight button state:', error);
+        }
       } else {
         throw new Error(response.error || i18n.errorRestoreFailed);
       }
@@ -234,6 +232,18 @@ document.getElementById('toggleProtectBtn').addEventListener('click', async () =
 
       if (response.success) {
         updateToggleButton(true);
+
+        // Re-query status to sync highlight button state
+        // (protectPII may disable/re-enable highlights)
+        try {
+          const statusResponse = await chrome.tabs.sendMessage(tab.id, { type: 'GET_STATUS' });
+          if (statusResponse && statusResponse.success) {
+            updateHighlightButton(statusResponse.isHighlightModeEnabled);
+            updateStatusBadge(true, statusResponse.isHighlightModeEnabled);
+          }
+        } catch (error) {
+          console.log('Could not sync highlight button state:', error);
+        }
       } else {
         throw new Error(response.error || i18n.errorProtectionFailed);
       }
@@ -312,8 +322,8 @@ document.getElementById('clipboardBtn').addEventListener('click', async () => {
   }
 });
 
-// Highlight detections button
-document.getElementById('highlightBtn').addEventListener('click', async () => {
+// Highlight detections toggle
+document.getElementById('highlightToggleContainer').addEventListener('click', async () => {
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     console.log('[SafeSnap Popup] Sending toggleHighlightMode message');
@@ -323,8 +333,18 @@ document.getElementById('highlightBtn').addEventListener('click', async () => {
 
     console.log('[SafeSnap Popup] Toggle response:', response);
     if (response && response.enabled !== undefined) {
-      console.log('[SafeSnap Popup] Updating button to:', response.enabled);
-      updateHighlightButton(response.enabled);
+      console.log('[SafeSnap Popup] Updating toggle to:', response.enabled);
+      updateHighlightToggle(response.enabled);
+
+      // Update status badge - need to know if PII is protected
+      chrome.tabs
+        .sendMessage(tab.id, { type: 'GET_STATUS' })
+        .then((statusResponse) => {
+          if (statusResponse && statusResponse.success) {
+            updateStatusBadge(statusResponse.isPIIProtected, response.enabled);
+          }
+        })
+        .catch(() => {});
     } else {
       console.error('[SafeSnap Popup] Invalid response:', response);
     }
@@ -565,19 +585,60 @@ function updateToggleButton(isProtected) {
 }
 
 /**
- * Update highlight button state
+ * Update highlight toggle state
  */
-function updateHighlightButton(isEnabled) {
-  const btn = document.getElementById('highlightBtn');
+function updateHighlightToggle(isEnabled) {
+  const toggle = document.getElementById('highlightToggle');
+  const label = document.getElementById('highlightToggleLabel');
+  const container = document.getElementById('highlightToggleContainer');
+
   if (isEnabled) {
-    btn.innerHTML = `<span style="font-size: 16px; margin-right: 6px;">❌</span>${i18n.btnRemoveHighlights}`;
-    btn.style.setProperty('background', '#ef4444', 'important'); // Red
-    btn.style.setProperty('color', 'white', 'important');
-    btn.disabled = false;
+    toggle.classList.add('active');
+    label.textContent = i18n.btnRemoveHighlights;
+    container.style.borderColor = '#10b981';
+    container.style.background = '#d1fae5';
   } else {
-    btn.innerHTML = `<span style="font-size: 16px; margin-right: 6px;">👁️</span>${i18n.btnHighlightDetections}`;
-    btn.style.setProperty('background', '#fef3c7', 'important'); // Yellow
-    btn.style.setProperty('color', '#92400e', 'important');
-    btn.disabled = false;
+    toggle.classList.remove('active');
+    label.textContent = i18n.btnHighlightDetections;
+    container.style.borderColor = '#e5e7eb';
+    container.style.background = '#f9fafb';
+  }
+}
+
+// Backwards compatibility alias
+function updateHighlightButton(isEnabled) {
+  updateHighlightToggle(isEnabled);
+}
+
+/**
+ * Update status badge showing current mode
+ */
+function updateStatusBadge(isPIIProtected, isHighlightsEnabled) {
+  const badge = document.getElementById('statusBadge');
+
+  if (isPIIProtected && isHighlightsEnabled) {
+    // Both active
+    badge.textContent = '🛡️ PII Protected • 👁️ Highlights ON';
+    badge.style.background = 'linear-gradient(135deg, #d1fae5 0%, #dbeafe 100%)';
+    badge.style.color = '#065f46';
+    badge.style.border = '2px solid #10b981';
+    badge.style.display = 'block';
+  } else if (isPIIProtected) {
+    // Only protection active
+    badge.textContent = '🛡️ PII Protected';
+    badge.style.background = '#d1fae5';
+    badge.style.color = '#065f46';
+    badge.style.border = '2px solid #10b981';
+    badge.style.display = 'block';
+  } else if (isHighlightsEnabled) {
+    // Only highlights active
+    badge.textContent = '👁️ Showing Detections';
+    badge.style.background = '#dbeafe';
+    badge.style.color = '#1e40af';
+    badge.style.border = '2px solid #3b82f6';
+    badge.style.display = 'block';
+  } else {
+    // Nothing active - hide badge
+    badge.style.display = 'none';
   }
 }
