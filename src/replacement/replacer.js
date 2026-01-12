@@ -359,8 +359,9 @@ export class Replacer {
       return original;
     }
 
-    // Randomize ±2 months (60 days)
-    const daysOffset = Math.floor(Math.random() * 120) - 60;
+    // Randomize ±2 months (60 days), ensuring offset is never 0
+    let daysOffset = Math.floor(Math.random() * 120) - 60;
+    if (daysOffset === 0) daysOffset = 1; // Ensure date always changes
     date.setDate(date.getDate() + daysOffset);
 
     // Month name arrays for textual formats
