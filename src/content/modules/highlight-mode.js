@@ -7,9 +7,9 @@ import { showHighlightLegend, hideNotificationPanel } from './notification-panel
 
 // State
 let highlightCandidates = [];
-let highlightRefreshInterval = null;
 let isHighlightModeEnabled = false;
 let currentDetector = null; // Store detector reference for re-detection
+let scrollThrottleTimeout = null; // Throttle timer for scroll refresh
 
 /**
  * Initialize highlight mode - check for persisted state and restore if needed
@@ -128,20 +128,26 @@ export async function enableHighlightMode(detector) {
   // Show unified notification panel with legend
   showHighlightLegend();
 
-  // Refresh highlights every 1 second to keep them aligned during scrolling
-  console.log('[SafeSnap] Starting highlight refresh interval (1 second)');
-  highlightRefreshInterval = setInterval(() => {
-    console.log(
-      '[SafeSnap] Refresh tick - isEnabled:',
-      isHighlightModeEnabled,
-      'candidates:',
-      highlightCandidates.length
-    );
-    if (isHighlightModeEnabled && highlightCandidates.length > 0) {
-      console.log('[SafeSnap] Re-rendering highlights');
-      renderHighlights();
-    }
-  }, 1000);
+  // Refresh highlights on scroll to keep them aligned (throttled to prevent performance issues)
+  console.log('[SafeSnap] Adding scroll listener to refresh highlights');
+  const scrollHandler = () => {
+    // Throttle: only re-render at most once per 100ms
+    if (scrollThrottleTimeout) return;
+
+    scrollThrottleTimeout = setTimeout(() => {
+      if (isHighlightModeEnabled && highlightCandidates.length > 0) {
+        console.log('[SafeSnap] Scroll detected - re-rendering highlights');
+        renderHighlights();
+      }
+      scrollThrottleTimeout = null;
+    }, 100);
+  };
+
+  // Store handler reference for cleanup
+  window._safesnapScrollHandler = scrollHandler;
+
+  // Use passive listener for better scroll performance
+  window.addEventListener('scroll', scrollHandler, { passive: true });
 }
 
 /**
@@ -373,13 +379,24 @@ function createHighlight(candidate) {
 
         highlight.appendChild(tooltip);
 
-        // Show/hide tooltip on hover
+        // Show/hide tooltip on hover with delay
+        let hideTimer = null;
+
         highlight.addEventListener('mouseenter', () => {
+          // Cancel any pending hide
+          if (hideTimer) {
+            clearTimeout(hideTimer);
+            hideTimer = null;
+          }
           tooltip.style.opacity = '1';
         });
 
         highlight.addEventListener('mouseleave', () => {
-          tooltip.style.opacity = '0';
+          // Delay hiding by 800ms so users can read the tooltip
+          hideTimer = setTimeout(() => {
+            tooltip.style.opacity = '0';
+            hideTimer = null;
+          }, 800);
         });
       }
 
@@ -401,13 +418,19 @@ function createHighlight(candidate) {
 export function disableHighlightMode() {
   console.log('👁️ Disabling highlight mode');
 
-  // Clear refresh interval
-  if (highlightRefreshInterval) {
-    console.log('[SafeSnap] Clearing highlight refresh interval');
-    clearInterval(highlightRefreshInterval);
-    highlightRefreshInterval = null;
+  // Remove scroll listener
+  if (window._safesnapScrollHandler) {
+    console.log('[SafeSnap] Removing scroll listener');
+    window.removeEventListener('scroll', window._safesnapScrollHandler);
+    window._safesnapScrollHandler = null;
   } else {
-    console.log('[SafeSnap] No interval to clear');
+    console.log('[SafeSnap] No scroll listener to remove');
+  }
+
+  // Clear any pending throttle timeout
+  if (scrollThrottleTimeout) {
+    clearTimeout(scrollThrottleTimeout);
+    scrollThrottleTimeout = null;
   }
 
   const overlay = document.getElementById('safesnap-highlight-overlay');
