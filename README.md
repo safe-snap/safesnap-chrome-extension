@@ -41,6 +41,7 @@ Automatically detects and protects:
 - **Context awareness** (skips labels, headings, buttons)
 - **Form input protection** before screenshots
 - **Consistent replacements** (same input = same output)
+- **Global replacement** ensures all occurrences of detected PII are replaced across the entire page
 - **Magnitude variance** for realistic money/quantity replacement
 
 ### Environment Indicators

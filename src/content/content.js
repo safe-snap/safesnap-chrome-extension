@@ -321,12 +321,18 @@ async function protectPII(enabledTypes) {
     // Auto-link related entities
     consistencyMapper.autoLinkRelated(entities);
 
-    // Apply replacements
-    console.time('PII Replacement');
-    let replacementCount = 0;
+    // Phase 1: Generate all replacements and build consistency map
+    console.time('Generate Replacements');
+    const replacementMap = new Map(); // Map of type+original -> replacement
 
     for (const entity of entities) {
-      const { node, original, type, start, end } = entity;
+      const { original, type } = entity;
+      const key = `${type}:${original}`;
+
+      // Skip if we already have a replacement for this
+      if (replacementMap.has(key)) {
+        continue;
+      }
 
       // Get or generate replacement
       let replacement;
@@ -379,21 +385,65 @@ async function protectPII(enabledTypes) {
         consistencyMapper.propagateToRelated(type, original, replacement);
       }
 
-      // Store original content if not already stored
-      if (!originalContent.has(node)) {
-        originalContent.set(node, node.textContent);
+      replacementMap.set(key, replacement);
+    }
+    console.timeEnd('Generate Replacements');
+
+    // Phase 2: Apply all replacements across the entire DOM using a comprehensive pass
+    console.time('Apply Replacements');
+    let replacementCount = 0;
+
+    // Walk through ALL text nodes in the document
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        // Skip script, style, and other non-visible elements
+        const skipTags = ['script', 'style', 'noscript', 'iframe', 'object', 'embed'];
+        if (skipTags.includes(parent.tagName.toLowerCase())) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        if (!node.textContent || !node.textContent.trim()) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    let currentNode;
+    while ((currentNode = walker.nextNode())) {
+      // Store original content before any modification
+      if (!originalContent.has(currentNode)) {
+        originalContent.set(currentNode, currentNode.textContent);
       }
 
-      // Apply replacement to the text node
-      const nodeText = node.textContent;
-      const newText = nodeText.substring(0, start) + replacement + nodeText.substring(end);
-      node.textContent = newText;
+      let nodeText = currentNode.textContent;
+      let modified = false;
 
-      replacementCount++;
+      // Apply all replacements to this text node
+      for (const [key, replacement] of replacementMap) {
+        // Extract original value from the key (format: "type:original")
+        const original = key.substring(key.indexOf(':') + 1);
+
+        // Use global replace to catch ALL occurrences in this node
+        // Escape special regex characters in the original text
+        const escapedOriginal = original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(escapedOriginal, 'g');
+
+        if (regex.test(nodeText)) {
+          nodeText = nodeText.replace(regex, replacement);
+          modified = true;
+          replacementCount++;
+        }
+      }
+
+      if (modified) {
+        currentNode.textContent = nodeText;
+      }
     }
 
-    console.timeEnd('PII Replacement');
-    console.log(`Applied ${replacementCount} replacements`);
+    console.timeEnd('Apply Replacements');
+    console.log(`Applied replacements to ${replacementCount} occurrences`);
 
     // Protect form inputs
     protectFormInputs(enabledTypes);

@@ -70,10 +70,10 @@ export class Replacer {
   }
 
   /**
-   * Replace a proper noun (person or company name)
-   * @param {string} name - Original name
-   * @param {string} context - Context hint ('person', 'company', or 'auto')
-   * @returns {string} Replacement name
+   * Replace a proper noun with a random name or company
+   * @param {string} name - Original proper noun
+   * @param {string} context - Context hint: 'person', 'company', or 'auto'
+   * @returns {string} Random replacement name or company
    */
   replaceProperNoun(name, context = 'auto') {
     // Check if blackout mode
@@ -91,18 +91,27 @@ export class Replacer {
       }
     }
 
-    if (context === 'company') {
-      return this.companyPool.getRandomCompany();
-    } else {
-      // Check if full name or just first/last
-      const parts = name.trim().split(/\s+/);
-      if (parts.length >= 2) {
-        return this.namePool.getRandomFullName();
+    let replacement;
+    let attempts = 0;
+    const maxAttempts = 100;
+
+    do {
+      if (context === 'company') {
+        replacement = this.companyPool.getRandomCompany();
       } else {
-        // Single name - could be first or last
-        return this.namePool.getRandomFirstName();
+        // Check if full name or just first/last
+        const parts = name.trim().split(/\s+/);
+        if (parts.length >= 2) {
+          replacement = this.namePool.getRandomFullName();
+        } else {
+          // Single name - could be first or last
+          replacement = this.namePool.getRandomFirstName();
+        }
       }
-    }
+      attempts++;
+    } while (replacement === name && attempts < maxAttempts);
+
+    return replacement;
   }
 
   /**
@@ -125,7 +134,13 @@ export class Replacer {
     // If not set, initialize it (shouldn't happen if resetMultipliers was called)
     if (this.moneyMultiplier === null) {
       const variance = this.magnitudeVariance / 100;
-      this.moneyMultiplier = 1 + (Math.random() * 2 - 1) * variance;
+      // Generate multiplier ensuring it's not exactly 1.0
+      // This guarantees the value will change
+      let multiplier;
+      do {
+        multiplier = 1 + (Math.random() * 2 - 1) * variance;
+      } while (Math.abs(multiplier - 1.0) < 0.01); // Ensure at least 1% difference
+      this.moneyMultiplier = multiplier;
     }
 
     let newValue = numericValue * this.moneyMultiplier;
@@ -142,15 +157,18 @@ export class Replacer {
     }
 
     // Add currency symbol
+    let replacement;
     if (hasSymbol) {
       if (symbolPosition === 'before') {
-        return currency + formatted;
+        replacement = currency + formatted;
       } else {
-        return formatted + currency;
+        replacement = formatted + currency;
       }
+    } else {
+      replacement = formatted;
     }
 
-    return formatted;
+    return replacement;
   }
 
   /**
@@ -173,7 +191,13 @@ export class Replacer {
     // If not set, initialize it (shouldn't happen if resetMultipliers was called)
     if (this.quantityMultiplier === null) {
       const variance = this.magnitudeVariance / 100;
-      this.quantityMultiplier = 1 + (Math.random() * 2 - 1) * variance;
+      // Generate multiplier ensuring it's not exactly 1.0
+      // This guarantees the value will change
+      let multiplier;
+      do {
+        multiplier = 1 + (Math.random() * 2 - 1) * variance;
+      } while (Math.abs(multiplier - 1.0) < 0.01); // Ensure at least 1% difference
+      this.quantityMultiplier = multiplier;
     }
 
     let newValue = numericValue * this.quantityMultiplier;
@@ -203,19 +227,28 @@ export class Replacer {
       return this.generateBlackout(original);
     }
 
-    const firstName = this.namePool.getRandomFirstName().toLowerCase();
-    const lastName = this.namePool.getRandomSurname().toLowerCase();
-    const domain = this.companyPool.getRandomDomain();
+    let replacement;
+    let attempts = 0;
+    const maxAttempts = 100;
 
-    // Vary the format
-    const formats = [
-      `${firstName}.${lastName}@${domain}`,
-      `${firstName}${lastName}@${domain}`,
-      `${firstName.charAt(0)}${lastName}@${domain}`,
-      `${firstName}@${domain}`,
-    ];
+    do {
+      const firstName = this.namePool.getRandomFirstName().toLowerCase();
+      const lastName = this.namePool.getRandomSurname().toLowerCase();
+      const domain = this.companyPool.getRandomDomain();
 
-    return formats[Math.floor(Math.random() * formats.length)];
+      // Vary the format
+      const formats = [
+        `${firstName}.${lastName}@${domain}`,
+        `${firstName}${lastName}@${domain}`,
+        `${firstName.charAt(0)}${lastName}@${domain}`,
+        `${firstName}@${domain}`,
+      ];
+
+      replacement = formats[Math.floor(Math.random() * formats.length)];
+      attempts++;
+    } while (replacement === original && attempts < maxAttempts);
+
+    return replacement;
   }
 
   /**
