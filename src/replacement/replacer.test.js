@@ -377,9 +377,9 @@ describe('Replacer', () => {
         const original1 = new Date(2024, 0, 15); // Jan 15, 2024
         const original2 = new Date(2024, 1, 15); // Feb 15, 2024
 
-        // Calculate day differences
-        const diff1 = Math.floor((replaced1 - original1) / (1000 * 60 * 60 * 24));
-        const diff2 = Math.floor((replaced2 - original2) / (1000 * 60 * 60 * 24));
+        // Calculate day differences (use Math.round to handle timezone/DST issues)
+        const diff1 = Math.round((replaced1 - original1) / (1000 * 60 * 60 * 24));
+        const diff2 = Math.round((replaced2 - original2) / (1000 * 60 * 60 * 24));
 
         // Should be same offset
         expect(diff1).toBe(diff2);
@@ -400,10 +400,10 @@ describe('Replacer', () => {
           return new Date(y, m - 1, day);
         });
 
-        // Calculate offsets
+        // Calculate offsets (use Math.round to handle timezone/DST issues)
         const offsets = originalDates.map((orig, i) => {
           const replaced = parsedReplacements[i];
-          return Math.floor((replaced - orig) / (1000 * 60 * 60 * 24));
+          return Math.round((replaced - orig) / (1000 * 60 * 60 * 24));
         });
 
         // All offsets should be the same
