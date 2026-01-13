@@ -1,0 +1,98 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Trigger on version tags like v1.0.0, v1.2.3, etc.
+
+permissions:
+  contents: write # Required to create releases
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run tests
+        run: bun run test
+
+      - name: Run linter
+        run: bun run lint
+
+      - name: Build extension
+        run: bun run build
+
+      - name: Package extension
+        run: bun run package
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Version: ${VERSION}"
+
+      - name: Verify version matches manifest.json
+        run: |
+          MANIFEST_VERSION=$(node -p "require('./manifest.json').version")
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          echo "Manifest version: ${MANIFEST_VERSION}"
+          echo "Tag version: ${TAG_VERSION}"
+          if [ "${MANIFEST_VERSION}" != "${TAG_VERSION}" ]; then
+            echo "ERROR: Version mismatch!"
+            echo "manifest.json version (${MANIFEST_VERSION}) does not match tag version (${TAG_VERSION})"
+            exit 1
+          fi
+          echo "✅ Versions match!"
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Extract changelog section for this version if CHANGELOG.md exists
+          if [ -f "CHANGELOG.md" ]; then
+            # Try to extract the section for this version
+            VERSION="${{ steps.version.outputs.version }}"
+            CHANGELOG=$(sed -n "/## \[${VERSION}\]/,/## \[/p" CHANGELOG.md | sed '$d' | tail -n +2)
+            
+            if [ -z "$CHANGELOG" ]; then
+              # If no version-specific changelog found, use a default message
+              CHANGELOG="Release version ${VERSION}"
+            fi
+          else
+            CHANGELOG="Release version ${{ steps.version.outputs.version }}"
+          fi
+
+          # Save changelog to file for GitHub release
+          echo "$CHANGELOG" > release_notes.md
+          echo "Changelog generated"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: SafeSnap v${{ steps.version.outputs.version }}
+          body_path: release_notes.md
+          files: |
+            safesnap-*.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload extension package
+        uses: actions/upload-artifact@v4
+        with:
+          name: safesnap-v${{ steps.version.outputs.version }}
+          path: safesnap-*.zip
+          retention-days: 90

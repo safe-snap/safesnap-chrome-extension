@@ -99,9 +99,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const newState = !isEnabled;
     console.log('[SafeSnap Content] Highlight mode toggled to:', newState);
 
-    // Save state to storage for persistence
-    chrome.storage.local.set({ highlightModeEnabled: newState });
-
     if (newState) {
       console.log('[SafeSnap Content] Enabling highlight mode');
       enableHighlightMode(detector, getOriginalTextForNode);

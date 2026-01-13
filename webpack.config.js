@@ -1,6 +1,8 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const manifest = require('./manifest.json');
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode === 'development';
@@ -8,20 +10,20 @@ module.exports = (env, argv) => {
   return {
     mode: argv.mode || 'development',
     devtool: isDevelopment ? 'inline-source-map' : false,
-    
+
     entry: {
       background: './src/background/background.js',
       content: './src/content/content.js',
       popup: './src/popup/popup.js',
       settings: './src/settings/settings.js',
     },
-    
+
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
       clean: true,
     },
-    
+
     module: {
       rules: [
         {
@@ -37,8 +39,12 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    
+
     plugins: [
+      new webpack.DefinePlugin({
+        __APP_VERSION__: JSON.stringify(manifest.version),
+      }),
+
       new CopyWebpackPlugin({
         patterns: [
           { from: 'manifest.json', to: 'manifest.json' },
@@ -47,7 +53,7 @@ module.exports = (env, argv) => {
           { from: 'src/settings/settings.html', to: 'settings.html' },
         ],
       }),
-      
+
       new HtmlWebpackPlugin({
         template: './src/popup/popup.html',
         filename: 'popup.html',
@@ -56,11 +62,11 @@ module.exports = (env, argv) => {
         minify: false,
       }),
     ],
-    
+
     optimization: {
       minimize: !isDevelopment,
     },
-    
+
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),

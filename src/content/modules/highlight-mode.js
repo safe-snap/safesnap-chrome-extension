@@ -15,14 +15,11 @@ let resizeObserver = null; // ResizeObserver for layout changes
 let mutationObserver = null; // MutationObserver for DOM changes
 
 /**
- * Initialize highlight mode - check for persisted state and restore if needed
+ * Initialize highlight mode - always starts disabled, user must enable manually
+ * Note: Highlights do not persist across page loads - user must enable on each page
  */
 export async function initializeHighlightMode() {
-  const highlightState = await chrome.storage.local.get(['highlightModeEnabled']);
-  if (highlightState.highlightModeEnabled === true) {
-    console.log('[SafeSnap] Restoring highlight mode from storage');
-    return true; // Signal that highlights should be enabled
-  }
+  // Always start with highlights disabled - user must enable manually on each page
   return false;
 }
 
@@ -127,8 +124,8 @@ export async function enableHighlightMode(detector, getOriginalValue = null) {
   // Update state BEFORE rendering
   isHighlightModeEnabled = true;
 
-  // Save state to storage for persistence
-  chrome.storage.local.set({ highlightModeEnabled: true });
+  // NOTE: Do not persist to storage - highlights should not carry over to new pages
+  // User must manually enable highlights on each page
 
   // Render highlights
   renderHighlights();
@@ -568,9 +565,6 @@ export function disableHighlightMode() {
 
   // Update state
   isHighlightModeEnabled = false;
-
-  // Save state to storage
-  chrome.storage.local.set({ highlightModeEnabled: false });
 }
 
 /**

@@ -101,7 +101,9 @@ function initializeUIText() {
   // About tab
   document.querySelector('#about-tab h3').textContent = i18n.headingAboutSafesnap;
   const aboutP = document.querySelector('#about-tab p');
-  aboutP.innerHTML = `<strong>${i18n.aboutVersion}</strong> 1.0.0<br /><br />${i18n.aboutDescription}`;
+  // eslint-disable-next-line no-undef
+  const version = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0';
+  aboutP.innerHTML = `<strong>${i18n.aboutVersion}</strong> ${version}<br /><br />${i18n.aboutDescription}`;
 }
 
 // Initialize UI text first
