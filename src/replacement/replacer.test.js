@@ -288,4 +288,137 @@ describe('Replacer', () => {
       expect(result).toBe(text);
     });
   });
+
+  describe('Consistent Transformations', () => {
+    describe('resetMultipliers', () => {
+      test('should set money multiplier and date offset', () => {
+        replacer.resetMultipliers();
+        expect(replacer.moneyMultiplier).not.toBeNull();
+        expect(replacer.dateOffset).not.toBeNull();
+      });
+
+      test('should ensure multiplier is not exactly 1.0', () => {
+        replacer.resetMultipliers();
+        expect(Math.abs(replacer.moneyMultiplier - 1.0)).toBeGreaterThanOrEqual(0.01);
+      });
+
+      test('should ensure date offset is not 0', () => {
+        replacer.resetMultipliers();
+        expect(replacer.dateOffset).not.toBe(0);
+      });
+
+      test('should generate date offset within expected range', () => {
+        replacer.resetMultipliers();
+        expect(replacer.dateOffset).toBeGreaterThanOrEqual(-60);
+        expect(replacer.dateOffset).toBeLessThanOrEqual(60);
+      });
+    });
+
+    describe('Money and Quantity Consistency', () => {
+      test('should use same multiplier for money and quantities', () => {
+        replacer.resetMultipliers();
+
+        const money1 = replacer.replaceMoney('$100.00');
+        const money2 = replacer.replaceMoney('$200.00');
+        const quantity1 = replacer.replaceQuantity('100 kg');
+        const quantity2 = replacer.replaceQuantity('200 kg');
+
+        // Extract numeric values
+        const moneyValue1 = parseFloat(money1.replace('$', '').replace(',', ''));
+        const moneyValue2 = parseFloat(money2.replace('$', '').replace(',', ''));
+        const quantityValue1 = parseFloat(quantity1.replace(' kg', ''));
+        const quantityValue2 = parseFloat(quantity2.replace(' kg', ''));
+
+        // Calculate ratios
+        const moneyRatio = moneyValue2 / moneyValue1;
+        const quantityRatio = quantityValue2 / quantityValue1;
+
+        // Should be same ratio (within floating point tolerance)
+        // Using 0.02 (2%) tolerance to account for rounding in toFixed()
+        expect(Math.abs(moneyRatio - quantityRatio)).toBeLessThan(0.02);
+      });
+
+      test('should apply consistent growth rate across all money and quantity values', () => {
+        replacer.resetMultipliers();
+
+        // Test multiple values
+        const values = ['$50.00', '$100.00', '$150.00', '50 units', '100 units', '150 units'];
+        const replacements = values.map((v) =>
+          v.includes('$') ? replacer.replaceMoney(v) : replacer.replaceQuantity(v)
+        );
+
+        // Extract all numeric values
+        const numericValues = replacements.map((r) =>
+          parseFloat(r.replace(/[$,]/g, '').replace(/ units/g, ''))
+        );
+
+        // Calculate all ratios (should all be close to the same multiplier)
+        const ratio1 = numericValues[1] / 100; // $100 replacement / 100
+        const ratio2 = numericValues[4] / 100; // 100 units replacement / 100
+
+        // Money and quantity should use same multiplier
+        expect(Math.abs(ratio1 - ratio2)).toBeLessThan(0.01);
+      });
+    });
+
+    describe('Date Consistency', () => {
+      test('should add same number of days to all dates', () => {
+        replacer.resetMultipliers();
+
+        const date1 = replacer.replaceDate('1/15/2024');
+        const date2 = replacer.replaceDate('2/15/2024');
+
+        // Parse replaced dates
+        const [m1, d1, y1] = date1.split('/').map(Number);
+        const [m2, d2, y2] = date2.split('/').map(Number);
+
+        const replaced1 = new Date(y1, m1 - 1, d1);
+        const replaced2 = new Date(y2, m2 - 1, d2);
+        const original1 = new Date(2024, 0, 15); // Jan 15, 2024
+        const original2 = new Date(2024, 1, 15); // Feb 15, 2024
+
+        // Calculate day differences
+        const diff1 = Math.floor((replaced1 - original1) / (1000 * 60 * 60 * 24));
+        const diff2 = Math.floor((replaced2 - original2) / (1000 * 60 * 60 * 24));
+
+        // Should be same offset
+        expect(diff1).toBe(diff2);
+      });
+
+      test('should consistently shift multiple dates', () => {
+        replacer.resetMultipliers();
+
+        // Test with different date formats
+        const dates = ['1/1/2024', '6/15/2024', '12/31/2024'];
+        const replacedDates = dates.map((d) => replacer.replaceDate(d));
+
+        // Parse all dates
+        const originalDates = [new Date(2024, 0, 1), new Date(2024, 5, 15), new Date(2024, 11, 31)];
+
+        const parsedReplacements = replacedDates.map((d) => {
+          const [m, day, y] = d.split('/').map(Number);
+          return new Date(y, m - 1, day);
+        });
+
+        // Calculate offsets
+        const offsets = originalDates.map((orig, i) => {
+          const replaced = parsedReplacements[i];
+          return Math.floor((replaced - orig) / (1000 * 60 * 60 * 24));
+        });
+
+        // All offsets should be the same
+        expect(offsets[0]).toBe(offsets[1]);
+        expect(offsets[1]).toBe(offsets[2]);
+      });
+
+      test('should ensure dates always change', () => {
+        replacer.resetMultipliers();
+
+        const originalDate = '3/15/2024';
+        const replacedDate = replacer.replaceDate(originalDate);
+
+        expect(replacedDate).not.toBe(originalDate);
+      });
+    });
+  });
 });

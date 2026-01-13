@@ -88,6 +88,10 @@
       "**/__tests__/**/*.js",
       "**/?(*.)+(spec|test).js"
     ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/test/e2e/"
+    ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
       "^@config/(.*)$": "<rootDir>/config/$1"

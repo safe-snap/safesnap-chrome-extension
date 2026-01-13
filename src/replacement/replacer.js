@@ -17,8 +17,8 @@ export class Replacer {
     this.patternMatcher = new PatternMatcher();
     this.magnitudeVariance = APP_CONFIG.defaults?.magnitudeVariance || 30; // default
     this.redactionMode = APP_CONFIG.defaults?.redactionMode || 'random'; // 'random' or 'blackout'
-    this.moneyMultiplier = null; // Will be set once per protection session
-    this.quantityMultiplier = null; // Will be set once per protection session
+    this.moneyMultiplier = null; // Will be set once per protection session (used for both money and quantities)
+    this.dateOffset = null; // Days to add to all dates (set once per protection session)
   }
 
   /**
@@ -59,14 +59,25 @@ export class Replacer {
 
   /**
    * Reset multipliers for a new protection session
-   * This ensures all money/quantities use the same multiplier
+   * This ensures all money/quantities use the same multiplier and all dates use the same offset
    */
   resetMultipliers() {
     const variance = this.magnitudeVariance / 100;
-    // Generate one multiplier for all money values
-    this.moneyMultiplier = 1 + (Math.random() * 2 - 1) * variance;
-    // Generate one multiplier for all quantity values
-    this.quantityMultiplier = 1 + (Math.random() * 2 - 1) * variance;
+
+    // Generate one multiplier for both money and quantity values
+    // Ensure it's not exactly 1.0 so values always change
+    let multiplier;
+    do {
+      multiplier = 1 + (Math.random() * 2 - 1) * variance;
+    } while (Math.abs(multiplier - 1.0) < 0.01); // Ensure at least 1% difference
+    this.moneyMultiplier = multiplier;
+
+    // Generate one date offset for all dates (±60 days, ensuring offset is never 0)
+    let offset;
+    do {
+      offset = Math.floor(Math.random() * 120) - 60; // Random offset between -60 and +60 days
+    } while (offset === 0); // Ensure date always changes
+    this.dateOffset = offset;
   }
 
   /**
@@ -187,9 +198,9 @@ export class Replacer {
 
     const { numericValue, unit, hasCommas, decimalPlaces } = match;
 
-    // Use the same multiplier for all quantity values on the page
+    // Use the same multiplier as money values (for consistency across all numeric values)
     // If not set, initialize it (shouldn't happen if resetMultipliers was called)
-    if (this.quantityMultiplier === null) {
+    if (this.moneyMultiplier === null) {
       const variance = this.magnitudeVariance / 100;
       // Generate multiplier ensuring it's not exactly 1.0
       // This guarantees the value will change
@@ -197,10 +208,10 @@ export class Replacer {
       do {
         multiplier = 1 + (Math.random() * 2 - 1) * variance;
       } while (Math.abs(multiplier - 1.0) < 0.01); // Ensure at least 1% difference
-      this.quantityMultiplier = multiplier;
+      this.moneyMultiplier = multiplier;
     }
 
-    let newValue = numericValue * this.quantityMultiplier;
+    let newValue = numericValue * this.moneyMultiplier;
 
     // Use decimal places from match
     newValue = parseFloat(newValue.toFixed(decimalPlaces));
@@ -392,10 +403,17 @@ export class Replacer {
       return original;
     }
 
-    // Randomize ±2 months (60 days), ensuring offset is never 0
-    let daysOffset = Math.floor(Math.random() * 120) - 60;
-    if (daysOffset === 0) daysOffset = 1; // Ensure date always changes
-    date.setDate(date.getDate() + daysOffset);
+    // Use consistent date offset for all dates on the page
+    // If not set, initialize it (shouldn't happen if resetMultipliers was called)
+    if (this.dateOffset === null) {
+      let offset;
+      do {
+        offset = Math.floor(Math.random() * 120) - 60; // Random offset between -60 and +60 days
+      } while (offset === 0); // Ensure date always changes
+      this.dateOffset = offset;
+    }
+
+    date.setDate(date.getDate() + this.dateOffset);
 
     // Month name arrays for textual formats
     const shortMonths = [

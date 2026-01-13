@@ -11,6 +11,8 @@ let isHighlightModeEnabled = false;
 let currentDetector = null; // Store detector reference for re-detection
 let scrollThrottleTimeout = null; // Throttle timer for scroll refresh
 let getOriginalValueFn = null; // Function to get original values when PII is protected
+let resizeObserver = null; // ResizeObserver for layout changes
+let mutationObserver = null; // MutationObserver for DOM changes
 
 /**
  * Initialize highlight mode - check for persisted state and restore if needed
@@ -134,26 +136,82 @@ export async function enableHighlightMode(detector, getOriginalValue = null) {
   // Show unified notification panel with legend
   showHighlightLegend();
 
-  // Refresh highlights on scroll to keep them aligned (throttled to prevent performance issues)
-  console.log('[SafeSnap] Adding scroll listener to refresh highlights');
-  const scrollHandler = () => {
+  // Create a throttled refresh function to reuse across all events
+  const throttledRefresh = (eventName) => {
     // Throttle: only re-render at most once per 100ms
     if (scrollThrottleTimeout) return;
 
     scrollThrottleTimeout = setTimeout(() => {
       if (isHighlightModeEnabled && highlightCandidates.length > 0) {
-        console.log('[SafeSnap] Scroll detected - re-rendering highlights');
+        console.log(`[SafeSnap] ${eventName} detected - re-rendering highlights`);
         renderHighlights();
       }
       scrollThrottleTimeout = null;
     }, 100);
   };
 
-  // Store handler reference for cleanup
+  // 1. Refresh highlights on scroll (already implemented, now using shared throttle)
+  console.log('[SafeSnap] Adding scroll listener to refresh highlights');
+  const scrollHandler = () => throttledRefresh('Scroll');
   window._safesnapScrollHandler = scrollHandler;
-
-  // Use passive listener for better scroll performance
   window.addEventListener('scroll', scrollHandler, { passive: true });
+
+  // 2. Refresh highlights on window resize (viewport changes, text reflow)
+  console.log('[SafeSnap] Adding resize listener to refresh highlights');
+  const resizeHandler = () => throttledRefresh('Resize');
+  window._safesnapResizeHandler = resizeHandler;
+  window.addEventListener('resize', resizeHandler, { passive: true });
+
+  // 3. Refresh highlights on orientation change (mobile rotation)
+  console.log('[SafeSnap] Adding orientation change listener to refresh highlights');
+  const orientationHandler = () => throttledRefresh('Orientation change');
+  window._safesnapOrientationHandler = orientationHandler;
+  window.addEventListener('orientationchange', orientationHandler, { passive: true });
+
+  // 4. Refresh highlights on font loading (web fonts changing text dimensions)
+  if (document.fonts) {
+    console.log('[SafeSnap] Adding font load listener to refresh highlights');
+    const fontLoadHandler = () => throttledRefresh('Font loaded');
+    window._safesnapFontLoadHandler = fontLoadHandler;
+    document.fonts.addEventListener('loadingdone', fontLoadHandler);
+  }
+
+  // 5. Watch for DOM mutations that might move text (collapsible sections, tabs, modals, etc.)
+  console.log('[SafeSnap] Setting up MutationObserver for DOM changes');
+  mutationObserver = new MutationObserver((mutations) => {
+    // Only refresh if mutations affect layout (not just attributes/classes)
+    const hasLayoutChange = mutations.some(
+      (mutation) =>
+        mutation.type === 'childList' ||
+        (mutation.type === 'attributes' &&
+          (mutation.attributeName === 'style' ||
+            mutation.attributeName === 'class' ||
+            mutation.attributeName === 'hidden'))
+    );
+
+    if (hasLayoutChange) {
+      throttledRefresh('DOM mutation');
+    }
+  });
+
+  // Observe the entire document for changes
+  mutationObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['style', 'class', 'hidden'],
+  });
+
+  // 6. Watch for element resize (CSS transitions, animations, dynamic content)
+  if (window.ResizeObserver) {
+    console.log('[SafeSnap] Setting up ResizeObserver for element size changes');
+    resizeObserver = new ResizeObserver(() => {
+      throttledRefresh('Element resize');
+    });
+
+    // Observe body for any size changes
+    resizeObserver.observe(document.body);
+  }
 }
 
 /**
@@ -452,8 +510,41 @@ export function disableHighlightMode() {
     console.log('[SafeSnap] Removing scroll listener');
     window.removeEventListener('scroll', window._safesnapScrollHandler);
     window._safesnapScrollHandler = null;
-  } else {
-    console.log('[SafeSnap] No scroll listener to remove');
+  }
+
+  // Remove resize listener
+  if (window._safesnapResizeHandler) {
+    console.log('[SafeSnap] Removing resize listener');
+    window.removeEventListener('resize', window._safesnapResizeHandler);
+    window._safesnapResizeHandler = null;
+  }
+
+  // Remove orientation change listener
+  if (window._safesnapOrientationHandler) {
+    console.log('[SafeSnap] Removing orientation change listener');
+    window.removeEventListener('orientationchange', window._safesnapOrientationHandler);
+    window._safesnapOrientationHandler = null;
+  }
+
+  // Remove font load listener
+  if (window._safesnapFontLoadHandler && document.fonts) {
+    console.log('[SafeSnap] Removing font load listener');
+    document.fonts.removeEventListener('loadingdone', window._safesnapFontLoadHandler);
+    window._safesnapFontLoadHandler = null;
+  }
+
+  // Disconnect MutationObserver
+  if (mutationObserver) {
+    console.log('[SafeSnap] Disconnecting MutationObserver');
+    mutationObserver.disconnect();
+    mutationObserver = null;
+  }
+
+  // Disconnect ResizeObserver
+  if (resizeObserver) {
+    console.log('[SafeSnap] Disconnecting ResizeObserver');
+    resizeObserver.disconnect();
+    resizeObserver = null;
   }
 
   // Clear any pending throttle timeout
@@ -473,6 +564,7 @@ export function disableHighlightMode() {
   // Clear stored candidates and detector
   highlightCandidates = [];
   currentDetector = null;
+  getOriginalValueFn = null;
 
   // Update state
   isHighlightModeEnabled = false;

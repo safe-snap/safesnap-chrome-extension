@@ -5,7 +5,7 @@ This project uses **Jest** for testing (not Bun's built-in test runner).
 ## ⚠️ Important: Use `bun run test`, NOT `bun test`
 
 ```bash
-# ✅ CORRECT - Runs Jest through Bun (all 338 tests pass)
+# ✅ CORRECT - Runs Jest through Bun (all 343 tests pass)
 bun run test
 
 # ❌ WRONG - Uses Bun's test runner (2 tests fail due to matcher differences)
@@ -17,7 +17,7 @@ bun test
 
 While Bun's built-in test runner is compatible with most Jest tests, some Jest-specific matchers like `expect(...).resolves.not.toThrow()` behave differently. We use Jest because:
 
-1. **Full compatibility** - All 338 tests pass
+1. **Full compatibility** - All 343 tests pass
 2. **Better mocking** - jest-webextension-mock works perfectly
 3. **Coverage reporting** - Jest's coverage is more mature
 4. **Team familiarity** - Most contributors know Jest
@@ -39,7 +39,8 @@ bun run test:coverage
 # Run specific test file
 bun run test path/to/test.test.js
 
-# Integration tests only
+# Integration tests only (currently 1 placeholder test)
+# TODO: Add real integration tests - see test/integration/placeholder.test.js
 bun run test:integration
 
 # E2E tests with Playwright
@@ -67,3 +68,21 @@ If you accidentally run `bun test`, you'll immediately see a large warning box a
 ## CI/CD
 
 GitHub Actions workflows correctly use `bun run test`, so all checks pass in CI.
+
+## Test Suite Summary
+
+The project has comprehensive test coverage across multiple areas:
+
+- **Unit Tests**: 342 tests
+  - Detection engine (PIIDetector, Dictionary, PatternMatcher)
+  - Replacement logic (Replacer, ConsistencyMapper, name/company pools)
+  - Content script (global PII replacement, highlight mode)
+  - Background worker
+  - Settings management
+- **Integration Tests**: 1 test (placeholder - needs implementation)
+  - See `test/integration/placeholder.test.js` for integration test TODOs
+- **E2E Tests**: Playwright tests (separate command)
+  - Full browser automation testing
+  - User workflow validation
+
+**Total**: 343 tests pass ✅

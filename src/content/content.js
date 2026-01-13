@@ -406,6 +406,22 @@ async function protectPII(enabledTypes) {
     console.time('Apply Replacements');
     let replacementCount = 0;
 
+    // Sort replacements by length (longest first) to prevent substring conflicts
+    // Example: "3/30/2026" should be replaced before "30" to avoid corrupting the date
+    const sortedReplacements = Array.from(replacementMap.entries()).sort((a, b) => {
+      const originalA = a[0].substring(a[0].indexOf(':') + 1);
+      const originalB = b[0].substring(b[0].indexOf(':') + 1);
+      // Sort by length descending, then alphabetically for deterministic order
+      if (originalB.length !== originalA.length) {
+        return originalB.length - originalA.length;
+      }
+      return originalA.localeCompare(originalB);
+    });
+
+    console.log(
+      `[SafeSnap] Sorted ${sortedReplacements.length} replacements by length (longest first)`
+    );
+
     // Walk through ALL text nodes in the document
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: (node) => {
@@ -433,8 +449,8 @@ async function protectPII(enabledTypes) {
       let nodeText = currentNode.textContent;
       let modified = false;
 
-      // Apply all replacements to this text node
-      for (const [key, replacement] of replacementMap) {
+      // Apply all replacements to this text node (sorted by length, longest first)
+      for (const [key, replacement] of sortedReplacements) {
         // Extract original value from the key (format: "type:original")
         const original = key.substring(key.indexOf(':') + 1);
 

@@ -274,5 +274,72 @@ describe('Content Script - Global PII Replacement', () => {
       const occurrences = (node1.textContent.match(new RegExp(replacement, 'g')) || []).length;
       expect(occurrences).toBe(2); // Both instances should be replaced
     });
+
+    test('should replace longer patterns before shorter ones to avoid substring conflicts', () => {
+      const { textNodes, createTextNode } = setupDOMEnvironment();
+
+      // Date "3/30/2026" contains quantity "30" - date should be replaced first
+      const node1 = createTextNode('The deadline is 3/30/2026 for completion.', 'p');
+
+      const mockEntities = [
+        { type: 'date', original: '3/30/2026', context: 'date' },
+        { type: 'quantity', original: '30', context: 'quantity' },
+      ];
+
+      const replacementMap = new Map();
+      for (const entity of mockEntities) {
+        const { original, type } = entity;
+        const key = `${type}:${original}`;
+        let replacement;
+        if (type === 'date') {
+          replacement = replacer.replaceDate(original);
+        } else if (type === 'quantity') {
+          replacement = replacer.replaceQuantity(original);
+        }
+        replacementMap.set(key, replacement);
+        consistencyMapper.set(type, original, replacement);
+      }
+
+      // Sort replacements by length (longest first) to prevent substring conflicts
+      const sortedReplacements = Array.from(replacementMap.entries()).sort((a, b) => {
+        const originalA = a[0].substring(a[0].indexOf(':') + 1);
+        const originalB = b[0].substring(b[0].indexOf(':') + 1);
+        if (originalB.length !== originalA.length) {
+          return originalB.length - originalA.length;
+        }
+        return originalA.localeCompare(originalB);
+      });
+
+      // Apply replacements with sorting - directly iterate through textNodes
+      for (const currentNode of textNodes) {
+        let nodeText = currentNode.textContent;
+        let modified = false;
+
+        for (const [key, replacement] of sortedReplacements) {
+          const original = key.substring(key.indexOf(':') + 1);
+          const escapedOriginal = original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(escapedOriginal, 'g');
+
+          if (nodeText.includes(original)) {
+            nodeText = nodeText.replace(regex, replacement);
+            modified = true;
+          }
+        }
+
+        if (modified) {
+          currentNode.textContent = nodeText;
+        }
+      }
+
+      const dateReplacement = replacementMap.get('date:3/30/2026');
+
+      // Verify the date was replaced correctly (not corrupted by quantity replacement)
+      expect(node1.textContent).toContain(dateReplacement);
+      expect(node1.textContent).not.toContain('3/30/2026');
+      expect(node1.textContent).not.toContain('3/33/'); // Should not have corrupted date
+
+      // The date replacement should be a valid date format (month/day/year)
+      expect(dateReplacement).toMatch(/^\d{1,2}\/\d{1,2}\/\d{4}$/);
+    });
   });
 });

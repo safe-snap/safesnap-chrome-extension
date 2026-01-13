@@ -11,7 +11,7 @@ on:
 
 jobs:
   required-checks:
-    name: Required Checks (Lint & Test)
+    name: Required Checks (Lint, Test & E2E)
     runs-on: ubuntu-latest
 
     steps:
@@ -34,3 +34,9 @@ jobs:
 
       - name: Build extension
         run: bun run build
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Run E2E tests
+        run: bun run test:e2e
