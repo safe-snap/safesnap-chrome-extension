@@ -10,6 +10,7 @@ let highlightCandidates = [];
 let isHighlightModeEnabled = false;
 let currentDetector = null; // Store detector reference for re-detection
 let scrollThrottleTimeout = null; // Throttle timer for scroll refresh
+let getOriginalValueFn = null; // Function to get original values when PII is protected
 
 /**
  * Initialize highlight mode - check for persisted state and restore if needed
@@ -83,12 +84,17 @@ async function getEnabledPIITypes() {
 
 /**
  * Enable highlight mode - show visual highlighting of all detection candidates
+ * @param {Object} detector - The PII detector instance
+ * @param {Function} getOriginalValue - Optional function to get original value for a text node (when PII is protected)
  */
-export async function enableHighlightMode(detector) {
+export async function enableHighlightMode(detector, getOriginalValue = null) {
   console.log('👁️ Enabling highlight mode');
 
   // Remove any existing overlays
   disableHighlightMode();
+
+  // Store the function to get original values
+  getOriginalValueFn = getOriginalValue;
 
   // Get enabled PII types from storage
   const enabledTypes = await getEnabledPIITypes();
@@ -342,10 +348,32 @@ function createHighlight(candidate) {
 
         // Build tooltip content based on type
         let tooltipContent;
+
+        // Try to get the original value if PII is protected
+        let displayValue = candidate.original;
+        let showingOriginal = false;
+
+        if (getOriginalValueFn && candidate.node) {
+          const nodeOriginal = getOriginalValueFn(candidate.node);
+          if (nodeOriginal && nodeOriginal !== candidate.node.textContent) {
+            // The node has been modified (PII protected)
+            // Extract the original value that corresponds to this candidate
+            const start = candidate.start || 0;
+            const end = candidate.end || candidate.original.length;
+            const originalValue = nodeOriginal.substring(start, Math.min(end, nodeOriginal.length));
+
+            if (originalValue && originalValue.trim()) {
+              displayValue = originalValue;
+              showingOriginal = true;
+            }
+          }
+        }
+
         if (patternTypes.includes(type)) {
           // For pattern-based matches, show type and value
+          const valueLabel = showingOriginal ? 'Original' : 'Value';
           tooltipContent = `
-            <div style="font-weight: bold; margin-bottom: 6px; color: ${borderColor};">${label}: "${candidate.original}"</div>
+            <div style="font-weight: bold; margin-bottom: 6px; color: ${borderColor};">${label} ${valueLabel}: "${displayValue}"</div>
             <div style="margin-bottom: 6px;">Type: ${label}</div>
             <div style="font-size: 11px; opacity: 0.9;">Pattern Match (Always Protected)</div>
           `;
@@ -368,8 +396,9 @@ function createHighlight(candidate) {
             ? `Score: ${confidence.toFixed(2)} (Protected)`
             : `Score: ${confidence.toFixed(2)} (Needs ${threshold} to protect)`;
 
+          const valueLabel = showingOriginal ? 'Original' : 'Detected';
           tooltipContent = `
-            <div style="font-weight: bold; margin-bottom: 6px; color: ${borderColor};">${label}: "${candidate.original}"</div>
+            <div style="font-weight: bold; margin-bottom: 6px; color: ${borderColor};">${label} ${valueLabel}: "${displayValue}"</div>
             <div style="margin-bottom: 6px;">${statusText}</div>
             <div style="font-size: 11px; opacity: 0.9;">${breakdownText}</div>
           `;

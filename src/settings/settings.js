@@ -66,85 +66,106 @@ document.addEventListener('DOMContentLoaded', async () => {
  */
 function initializeUIText() {
   try {
-    // Page title and subtitle
+    // Page title (in <title> and <h1>)
+    document.title = i18n.settingsPageTitle;
     document.querySelector('h1').textContent = i18n.settingsPageTitle;
     document.querySelector('.subtitle').textContent = i18n.settingsPageSubtitle;
 
-    // Section headings
+    // Section headings - get all h2 elements in order
     const sections = document.querySelectorAll('.section h2');
-    if (sections.length >= 9) {
-      sections[0].textContent = i18n.settingsDefaultPiiTypes;
-      sections[1].textContent = i18n.settingsEnvironmentPatterns;
-      sections[2].textContent = i18n.settingsBannerCustomization;
-      sections[3].textContent = i18n.settingsCustomRegexPatterns;
-      sections[4].textContent = i18n.settingsDictionaryManagement;
-      // sections[5] is Debug Mode (has emoji, skip i18n)
-      sections[6].textContent = i18n.settingsMagnitudeVariance;
-      sections[7].textContent = i18n.settingsExportImport;
-      sections[8].textContent = i18n.settingsAbout;
-    } else {
-      console.error('[SafeSnap Settings] Expected 9 sections, found:', sections.length);
-    }
+    sections[0].textContent = i18n.settingsDefaultPiiTypes; // Default PII Types
+    sections[1].textContent = i18n.settingsEnvironmentPatterns; // Environment Patterns
+    sections[2].textContent = i18n.settingsBannerCustomization; // Banner Customization
+    sections[3].textContent = i18n.settingsCustomRegexPatterns; // Custom Regex Patterns
+    sections[4].textContent = i18n.settingsDictionaryManagement; // Dictionary Management
+    sections[5].textContent = i18n.settingsMagnitudeVariance; // Magnitude Variance
+    sections[6].textContent = i18n.settingsRedactionMode; // Redaction Mode
+    sections[7].textContent = i18n.settingsExportImport; // Export/Import
+    sections[8].textContent = i18n.settingsAbout; // About
 
-    // Section descriptions
-    const descriptions = document.querySelectorAll('.section p');
-    if (descriptions.length > 5) {
-      descriptions[0].textContent = i18n.settingsDefaultPiiTypesDesc;
-      descriptions[1].textContent = i18n.settingsEnvironmentPatternsDesc;
-      descriptions[5].textContent = i18n.settingsExportImportDesc;
-    }
+    // Section descriptions (p tags inside sections)
+    const descriptions = document.querySelectorAll('.section > p[style*="color: #6b7280"]');
+    descriptions[0].textContent = i18n.settingsDefaultPiiTypesDesc;
+    descriptions[1].textContent = i18n.settingsEnvironmentPatternsDesc;
+    descriptions[2].textContent = i18n.settingsCustomRegexDesc;
+    descriptions[3].textContent = i18n.settingsMagnitudeVarianceDesc;
+    descriptions[4].textContent = i18n.settingsRedactionModeDesc;
+    descriptions[5].textContent = i18n.settingsExportImportDesc;
 
-    // Form labels
-    const labels = document.querySelectorAll('.form-group label');
-    if (labels.length >= 7) {
-      labels[0].textContent = i18n.settingsPatternProduction;
-      labels[1].textContent = i18n.settingsPatternDevelopment;
-      labels[2].textContent = i18n.settingsPatternStaging;
-      labels[3].textContent = i18n.settingsPatternLocal;
-      labels[4].textContent = i18n.labelBannerPosition;
-      labels[5].textContent = i18n.settingsBannerOpacity;
-      labels[6].textContent = i18n.settingsFadeDistance;
-    }
-
-    // Banner position options
-    const bannerSelect = document.getElementById('banner-position');
-    if (bannerSelect && bannerSelect.options.length >= 4) {
-      bannerSelect.options[0].textContent = i18n.positionTopRight;
-      bannerSelect.options[1].textContent = i18n.positionTopLeft;
-      bannerSelect.options[2].textContent = i18n.positionBottomRight;
-      bannerSelect.options[3].textContent = i18n.positionBottomLeft;
-    }
-
-    // Buttons
-    const selectAll = document.getElementById('select-all');
-    const selectNone = document.getElementById('select-none');
-    const resetPatterns = document.getElementById('reset-patterns');
-    const downloadDict = document.getElementById('download-dictionary');
-    const clearDict = document.getElementById('clear-dictionary');
-    const exportBtn = document.getElementById('export-settings');
-    const importBtn = document.getElementById('import-settings');
-
-    if (selectAll) selectAll.textContent = i18n.btnSelectAll;
-    if (selectNone) selectNone.textContent = i18n.btnSelectNone;
-    if (resetPatterns) resetPatterns.textContent = i18n.btnResetToDefaults;
-    if (downloadDict) downloadDict.textContent = i18n.btnDownloadFullDictionary;
-    if (clearDict) clearDict.textContent = i18n.btnClearDictionaryCache;
-    if (exportBtn) exportBtn.innerHTML = `${i18n.emojiDownload} ${i18n.btnExportSettings}`;
-    if (importBtn) importBtn.innerHTML = `${i18n.emojiUpload} ${i18n.btnImportSettings}`;
-
-    // About section
-    const aboutParagraphs = document.querySelectorAll('.section p');
-    if (aboutParagraphs.length > 6) {
-      aboutParagraphs[6].innerHTML = `<strong>${i18n.aboutVersion}</strong> 1.0.0<br><strong>${i18n.aboutDetectionEngine}</strong> ${i18n.settingsDetectionEngine}<br><strong>${i18n.aboutStorageUsed}</strong> <span id="storage-used">${i18n.aboutStorageCalculating}</span>`;
-    }
-
-    // Info box
+    // Info box (Dictionary Management section)
     const infoBox = document.querySelector('.info-box');
     if (infoBox) infoBox.textContent = i18n.settingsDictionaryInfoDesc;
 
+    // Form labels - Environment Patterns section
+    const patternLabels = document.querySelectorAll('.section:nth-child(3) .form-group label');
+    patternLabels[0].textContent = i18n.settingsPatternProduction;
+    patternLabels[1].textContent = i18n.settingsPatternDevelopment;
+    patternLabels[2].textContent = i18n.settingsPatternStaging;
+    patternLabels[3].textContent = i18n.settingsPatternLocal;
+
+    // Placeholders for environment pattern inputs
+    document.getElementById('pattern-production').placeholder = i18n.placeholderPatternProduction;
+    document.getElementById('pattern-development').placeholder = i18n.placeholderPatternDevelopment;
+    document.getElementById('pattern-staging').placeholder = i18n.placeholderPatternStaging;
+    document.getElementById('pattern-local').placeholder = i18n.placeholderPatternLocal;
+
+    // Banner Customization labels
+    const bannerLabels = document.querySelectorAll('.section:nth-child(4) .form-group label');
+    bannerLabels[0].textContent = i18n.labelBannerPosition;
+    bannerLabels[1].textContent = i18n.settingsBannerOpacity;
+    bannerLabels[2].textContent = i18n.settingsFadeDistance;
+
+    // Banner position select options
+    const bannerSelect = document.getElementById('banner-position');
+    bannerSelect.options[0].textContent = i18n.positionTopRight;
+    bannerSelect.options[1].textContent = i18n.positionTopLeft;
+    bannerSelect.options[2].textContent = i18n.positionBottomRight;
+    bannerSelect.options[3].textContent = i18n.positionBottomLeft;
+
+    // Custom Regex Patterns labels
+    const regexLabels = document.querySelectorAll('.section:nth-child(5) .form-group label');
+    regexLabels[0].textContent = i18n.settingsCustomPatternName;
+    regexLabels[1].textContent = i18n.settingsCustomPatternRegex;
+
+    // Custom Regex Patterns placeholders
+    const customNameInput = document.querySelector('.section:nth-child(5) input[type="text"]');
+    const customRegexTextarea = document.querySelector('.section:nth-child(5) textarea');
+    if (customNameInput) customNameInput.placeholder = i18n.placeholderCustomPatternName;
+    if (customRegexTextarea) customRegexTextarea.placeholder = i18n.placeholderCustomPatternRegex;
+
+    // Magnitude Variance label
+    const magnitudeLabel = document.querySelector('.section:nth-child(7) .form-group label');
+    if (magnitudeLabel) magnitudeLabel.textContent = i18n.settingsVariancePercentage;
+
+    // Redaction Mode label and select options
+    const redactionLabel = document.querySelector('.section:nth-child(8) .form-group label');
+    if (redactionLabel) redactionLabel.textContent = i18n.settingsRedactionMode;
+    const redactionSelect = document.getElementById('redaction-mode');
+    if (redactionSelect) {
+      redactionSelect.options[0].textContent = i18n.redactionModeRandom;
+      redactionSelect.options[1].textContent = i18n.redactionModeBlackout;
+    }
+
+    // About section text
+    const aboutSection = document.querySelectorAll('.section:nth-child(10) p strong');
+    aboutSection[0].textContent = i18n.aboutVersion + ':';
+    aboutSection[1].textContent = i18n.settingsDetectionEngine;
+    aboutSection[2].textContent = i18n.settingsStorageUsed;
+    document.getElementById('detection-engine').textContent = i18n.settingsDetectionEngineFree;
+    document.getElementById('storage-used').textContent = i18n.settingsStorageCalculating;
+
+    // Buttons
+    document.getElementById('select-all').textContent = i18n.btnSelectAll;
+    document.getElementById('select-none').textContent = i18n.btnSelectNone;
+    document.getElementById('reset-patterns').textContent = i18n.btnResetToDefaults;
+    document.querySelector('.section:nth-child(5) .btn-primary').textContent = i18n.btnAddPattern;
+    document.getElementById('download-dictionary').textContent = i18n.btnDownloadFullDictionary;
+    document.getElementById('clear-dictionary').textContent = i18n.btnClearDictionaryCache;
+    document.getElementById('export-settings').textContent = i18n.btnExportSettings;
+    document.getElementById('import-settings').textContent = i18n.btnImportSettings;
+
     // Toast
-    const toast = document.getElementById('toast');
-    if (toast) toast.textContent = i18n.toastSettingsSaved;
+    document.getElementById('toast').textContent = i18n.toastSettingsSaved;
   } catch (error) {
     console.error('[SafeSnap Settings] Error in initializeUIText:', error);
   }

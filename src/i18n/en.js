@@ -40,6 +40,7 @@ export const en = {
   btnAdvancedSettings: 'Advanced Settings',
   btnHighlightDetections: 'Highlight Detections',
   btnRemoveHighlights: 'Remove Highlights',
+  labelHighlightDetections: 'Highlight Detections',
 
   // Popup - Headings
   headingSelectPii: 'Select PII to Protect:',
@@ -63,7 +64,7 @@ export const en = {
   // Redaction Mode Options
   redactionModeRandom: 'Random Data',
   redactionModeRandomDesc: 'Replace with realistic fake data (e.g., John → Jane)',
-  redactionModeBlackout: 'Blackout',
+  redactionModeBlackout: 'Blackout (███)',
   redactionModeBlackoutDesc: 'Cover with black bars like legal documents',
 
   // Popup - Environment Status
@@ -123,6 +124,7 @@ export const en = {
   settingsDetectionEngineFree: 'Dictionary-based',
   settingsStorageUsed: 'Storage Used:',
   settingsStorageCalculating: 'Calculating...',
+  settingsModeLabel: 'Mode',
 
   // Settings Page - Buttons
   btnSelectAll: 'Select All',
@@ -131,8 +133,8 @@ export const en = {
   btnAddPattern: 'Add Pattern',
   btnDownloadFullDictionary: 'Download Full Dictionary',
   btnClearDictionaryCache: 'Clear Dictionary Cache',
-  btnExportSettings: 'Export Settings',
-  btnImportSettings: 'Import Settings',
+  btnExportSettings: '📥 Export Settings',
+  btnImportSettings: '📤 Import Settings',
 
   // Settings Page - Dictionary Stats
   statsCoreWords: 'Core Words',
@@ -145,6 +147,10 @@ export const en = {
   // Settings Page - Placeholders
   placeholderCustomPatternName: 'e.g., Employee ID',
   placeholderCustomPatternRegex: 'e.g., EMP-\\d{6}',
+  placeholderPatternProduction: '\\.(prod|production)($|\\/|:)',
+  placeholderPatternDevelopment: '\\.(dev|development)($|\\/|:)',
+  placeholderPatternStaging: '\\.(staging|stg|stage)($|\\/|:)',
+  placeholderPatternLocal: '(localhost|127\\.0\\.0\\.1|192\\.168\\.|10\\.0\\.)',
 
   // Settings Page - Toasts
   toastPiiTypesUpdated: 'PII types updated!',

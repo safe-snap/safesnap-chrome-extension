@@ -47,7 +47,7 @@ function setupDOMEnvironment() {
     body: {},
     readyState: 'complete',
     addEventListener: jest.fn(),
-    createTreeWalker: jest.fn((root, whatToShow, filter) => {
+    createTreeWalker: jest.fn((_root, _whatToShow, _filter) => {
       let index = -1;
       return {
         nextNode: () => {

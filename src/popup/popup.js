@@ -50,6 +50,9 @@ function initializeUIText() {
   // Settings tab
   document.querySelector('#settings-tab h3').textContent = i18n.headingSettings;
 
+  // Highlight toggle label
+  document.querySelector('#highlightToggleLabel').textContent = i18n.labelHighlightDetections;
+
   // Banner position label
   const bannerPosLabel = document.querySelector('#settings-tab > div:nth-child(2) > label');
   if (bannerPosLabel) bannerPosLabel.textContent = i18n.labelBannerPosition;
@@ -72,6 +75,15 @@ function initializeUIText() {
     magDisplayDiv.appendChild(document.createTextNode(i18n.unitPlusMinus));
     magDisplayDiv.appendChild(valueSpan);
     magDisplayDiv.appendChild(document.createTextNode(i18n.unitPercent));
+  }
+
+  // Redaction mode label and options
+  const redactionLabel = document.querySelector('label[for="redactionMode"]');
+  if (redactionLabel) redactionLabel.textContent = i18n.labelRedactionMode;
+  const redactionSelect = document.getElementById('redactionMode');
+  if (redactionSelect) {
+    redactionSelect.options[0].textContent = i18n.redactionModeRandom;
+    redactionSelect.options[1].textContent = i18n.redactionModeBlackout;
   }
 
   document.querySelector('#openSettingsBtn').innerHTML =
@@ -155,9 +167,6 @@ async function initializePopup() {
       } else {
         updateHighlightButton(false);
       }
-
-      // Update status badge
-      updateStatusBadge(response.isPIIProtected, response.isHighlightModeEnabled);
     }
   } catch (error) {
     console.log('Could not connect to content script:', error);
@@ -202,7 +211,6 @@ document.getElementById('toggleProtectBtn').addEventListener('click', async () =
           const statusResponse = await chrome.tabs.sendMessage(tab.id, { type: 'GET_STATUS' });
           if (statusResponse && statusResponse.success) {
             updateHighlightButton(statusResponse.isHighlightModeEnabled);
-            updateStatusBadge(false, statusResponse.isHighlightModeEnabled);
           }
         } catch (error) {
           console.log('Could not sync highlight button state:', error);
@@ -239,7 +247,6 @@ document.getElementById('toggleProtectBtn').addEventListener('click', async () =
           const statusResponse = await chrome.tabs.sendMessage(tab.id, { type: 'GET_STATUS' });
           if (statusResponse && statusResponse.success) {
             updateHighlightButton(statusResponse.isHighlightModeEnabled);
-            updateStatusBadge(true, statusResponse.isHighlightModeEnabled);
           }
         } catch (error) {
           console.log('Could not sync highlight button state:', error);
@@ -339,10 +346,8 @@ document.getElementById('highlightToggleContainer').addEventListener('click', as
       // Update status badge - need to know if PII is protected
       chrome.tabs
         .sendMessage(tab.id, { type: 'GET_STATUS' })
-        .then((statusResponse) => {
-          if (statusResponse && statusResponse.success) {
-            updateStatusBadge(statusResponse.isPIIProtected, response.enabled);
-          }
+        .then((_statusResponse) => {
+          // Status updated, no badge needed
         })
         .catch(() => {});
     } else {
@@ -610,28 +615,5 @@ function updateHighlightButton(isEnabled) {
   updateHighlightToggle(isEnabled);
 }
 
-/**
- * Update status badge showing current mode
- */
-function updateStatusBadge(isPIIProtected, isHighlightsEnabled) {
-  const badge = document.getElementById('statusBadge');
-
-  if (isPIIProtected && isHighlightsEnabled) {
-    // Both active
-    badge.textContent = '🛡️ PII Protected • Highlights ON';
-    badge.style.background = 'linear-gradient(135deg, #d1fae5 0%, #dbeafe 100%)';
-    badge.style.color = '#065f46';
-    badge.style.border = '2px solid #10b981';
-    badge.style.display = 'block';
-  } else if (isPIIProtected) {
-    // Only protection active
-    badge.textContent = '🛡️ PII Protected';
-    badge.style.background = '#d1fae5';
-    badge.style.color = '#065f46';
-    badge.style.border = '2px solid #10b981';
-    badge.style.display = 'block';
-  } else {
-    // Highlights only or nothing active - hide badge
-    badge.style.display = 'none';
-  }
-}
+// Initialize on load
+initializePopup();

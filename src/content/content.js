@@ -61,7 +61,7 @@ let currentEnvironment = null;
     const shouldEnableHighlights = await initializeHighlightMode();
     if (shouldEnableHighlights) {
       console.log('[SafeSnap] DOM ready, restoring highlights');
-      enableHighlightMode(detector);
+      enableHighlightMode(detector, getOriginalTextForNode);
     }
   };
 
@@ -75,6 +75,19 @@ let currentEnvironment = null;
     await enableHighlightsIfNeeded();
   }
 })();
+
+/**
+ * Helper function to get the original text content of a node before PII protection
+ * @param {Node} node - The text node to get original content for
+ * @returns {string|null} Original text content or null if not found
+ */
+function getOriginalTextForNode(node) {
+  if (!isPIIProtected) {
+    // If PII is not protected, return null (no original to show)
+    return null;
+  }
+  return originalContent.get(node) || null;
+}
 
 // Listen for messages from popup
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -91,7 +104,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     if (newState) {
       console.log('[SafeSnap Content] Enabling highlight mode');
-      enableHighlightMode(detector);
+      enableHighlightMode(detector, getOriginalTextForNode);
     } else {
       console.log('[SafeSnap Content] Disabling highlight mode');
       disableHighlightMode();
@@ -464,7 +477,7 @@ async function protectPII(enabledTypes) {
     if (isHighlightEnabled()) {
       setTimeout(() => {
         disableHighlightMode();
-        enableHighlightMode(detector);
+        enableHighlightMode(detector, getOriginalTextForNode);
       }, 100); // Small delay to let DOM settle
     }
 
@@ -810,7 +823,7 @@ function restoreOriginal() {
   if (isHighlightEnabled()) {
     setTimeout(() => {
       disableHighlightMode();
-      enableHighlightMode();
+      enableHighlightMode(detector, getOriginalTextForNode);
     }, 100); // Small delay to let DOM settle
   }
 

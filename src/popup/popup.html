@@ -246,7 +246,7 @@
         <div class="toggle-container" id="highlightToggleContainer">
           <div class="toggle-label">
             <span class="icon">👁️</span>
-            <span id="highlightToggleLabel">Highlight Detections</span>
+            <span id="highlightToggleLabel"></span>
           </div>
           <div class="toggle-switch" id="highlightToggle"></div>
         </div>
@@ -299,20 +299,6 @@
         <button class="btn-half btn-secondary" id="screenshotBtn"></button>
         <button class="btn-half btn-secondary" id="clipboardBtn"></button>
       </div>
-
-      <!-- Status Badge -->
-      <div
-        id="statusBadge"
-        style="
-          margin-top: 16px;
-          padding: 10px 16px;
-          border-radius: 8px;
-          font-size: 13px;
-          font-weight: 500;
-          text-align: center;
-          display: none;
-        "
-      ></div>
     </div>
 
     <div id="settings-tab" class="tab-content">
@@ -369,8 +355,7 @@
         <label
           for="redactionMode"
           style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px"
-          >Redaction Mode</label
-        >
+        ></label>
         <select
           id="redactionMode"
           style="
@@ -381,8 +366,8 @@
             font-size: 14px;
           "
         >
-          <option value="random">Random Data</option>
-          <option value="blackout">Blackout (███)</option>
+          <option value="random"></option>
+          <option value="blackout"></option>
         </select>
       </div>
 

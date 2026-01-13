@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SafeSnap Settings</title>
+    <title></title>
     <style>
       * {
         margin: 0;
@@ -264,76 +264,68 @@
     </style>
   </head>
   <body>
-    <h1>SafeSnap Settings</h1>
-    <p class="subtitle">Configure your PII protection preferences</p>
+    <h1></h1>
+    <p class="subtitle"></p>
 
     <!-- Default PII Types -->
     <div class="section">
-      <h2>Default PII Types to Protect</h2>
-      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
-        Select which types of PII to protect by default when you click "Protect PII".
-      </p>
+      <h2></h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px"></p>
 
       <div class="checkbox-group" id="pii-types">
         <!-- Will be populated by JavaScript -->
       </div>
 
       <div class="btn-group">
-        <button class="btn btn-secondary" id="select-all">Select All</button>
-        <button class="btn btn-secondary" id="select-none">Select None</button>
+        <button class="btn btn-secondary" id="select-all"></button>
+        <button class="btn btn-secondary" id="select-none"></button>
       </div>
     </div>
 
     <!-- Environment Patterns -->
     <div class="section">
-      <h2>Environment Detection Patterns</h2>
-      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
-        Customize URL patterns for environment detection.
-      </p>
+      <h2></h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px"></p>
 
       <div class="form-group">
-        <label>Production Pattern</label>
-        <input type="text" id="pattern-production" placeholder="\.(prod|production)($|\/|:)" />
+        <label></label>
+        <input type="text" id="pattern-production" placeholder="" />
       </div>
 
       <div class="form-group">
-        <label>Development Pattern</label>
-        <input type="text" id="pattern-development" placeholder="\.(dev|development)($|\/|:)" />
+        <label></label>
+        <input type="text" id="pattern-development" placeholder="" />
       </div>
 
       <div class="form-group">
-        <label>Staging Pattern</label>
-        <input type="text" id="pattern-staging" placeholder="\.(staging|stg|stage)($|\/|:)" />
+        <label></label>
+        <input type="text" id="pattern-staging" placeholder="" />
       </div>
 
       <div class="form-group">
-        <label>Local Pattern</label>
-        <input
-          type="text"
-          id="pattern-local"
-          placeholder="(localhost|127\.0\.0\.1|192\.168\.|10\.0\.)"
-        />
+        <label></label>
+        <input type="text" id="pattern-local" placeholder="" />
       </div>
 
-      <button class="btn btn-secondary" id="reset-patterns">Reset to Defaults</button>
+      <button class="btn btn-secondary" id="reset-patterns"></button>
     </div>
 
     <!-- Banner Customization -->
     <div class="section">
-      <h2>Banner Customization</h2>
+      <h2></h2>
 
       <div class="form-group">
-        <label>Banner Position</label>
+        <label></label>
         <select id="banner-position">
-          <option value="top-right">Top Right</option>
-          <option value="top-left">Top Left</option>
-          <option value="bottom-right">Bottom Right</option>
-          <option value="bottom-left">Bottom Left</option>
+          <option value="top-right"></option>
+          <option value="top-left"></option>
+          <option value="bottom-right"></option>
+          <option value="bottom-left"></option>
         </select>
       </div>
 
       <div class="form-group">
-        <label>Banner Opacity (%)</label>
+        <label></label>
         <div class="slider-container">
           <input type="range" min="0" max="100" value="100" class="slider" id="banner-opacity" />
           <span class="slider-value" id="opacity-value">100%</span>
@@ -341,7 +333,7 @@
       </div>
 
       <div class="form-group">
-        <label>Fade Distance (pixels)</label>
+        <label></label>
         <div class="slider-container">
           <input type="range" min="0" max="300" value="100" class="slider" id="fade-distance" />
           <span class="slider-value" id="fade-value">100px</span>
@@ -351,52 +343,45 @@
 
     <!-- Custom Regex Patterns -->
     <div class="section">
-      <h2>Custom Regex Patterns</h2>
-      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
-        Add custom regex patterns to detect proprietary PII formats.
-      </p>
+      <h2></h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px"></p>
 
       <div class="form-group">
-        <label>Custom Pattern Name</label>
-        <input type="text" placeholder="e.g., Employee ID" />
+        <label></label>
+        <input type="text" placeholder="" />
       </div>
 
       <div class="form-group">
-        <label>Regex Pattern</label>
-        <textarea placeholder="e.g., EMP-\d{6}"></textarea>
+        <label></label>
+        <textarea placeholder=""></textarea>
       </div>
 
-      <button class="btn btn-primary">Add Pattern</button>
+      <button class="btn btn-primary"></button>
     </div>
 
     <!-- Dictionary Management -->
     <div class="section">
-      <h2>Dictionary Management</h2>
+      <h2></h2>
 
       <div class="stats-grid" id="dictionary-stats">
         <!-- Will be populated by JavaScript -->
       </div>
 
-      <div class="info-box">
-        The full dictionary (80,000 words) improves proper noun detection accuracy. Download
-        recommended after 5 uses.
-      </div>
+      <div class="info-box"></div>
 
       <div class="btn-group">
-        <button class="btn btn-primary" id="download-dictionary">Download Full Dictionary</button>
-        <button class="btn btn-danger" id="clear-dictionary">Clear Dictionary Cache</button>
+        <button class="btn btn-primary" id="download-dictionary"></button>
+        <button class="btn btn-danger" id="clear-dictionary"></button>
       </div>
     </div>
 
     <!-- Magnitude Variance -->
     <div class="section">
-      <h2>Magnitude Variance</h2>
-      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
-        Control how much money and quantity values vary (±percentage).
-      </p>
+      <h2></h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px"></p>
 
       <div class="form-group">
-        <label>Variance Percentage (%)</label>
+        <label></label>
         <div class="slider-container">
           <input type="range" min="0" max="50" value="30" class="slider" />
           <span class="slider-value">±30%</span>
@@ -406,41 +391,37 @@
 
     <!-- Redaction Mode -->
     <div class="section">
-      <h2>Redaction Mode</h2>
-      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
-        Choose between replacing PII with random data or black bars.
-      </p>
+      <h2></h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px"></p>
 
       <div class="form-group">
-        <label>Mode</label>
+        <label></label>
         <select id="redaction-mode" class="input">
-          <option value="random">Random Data (e.g., John → Jane)</option>
-          <option value="blackout">Blackout (███████)</option>
+          <option value="random"></option>
+          <option value="blackout"></option>
         </select>
       </div>
     </div>
 
     <!-- Export/Import Settings -->
     <div class="section">
-      <h2>Export / Import Settings</h2>
-      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
-        Backup your settings or transfer them to another browser.
-      </p>
+      <h2></h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px"></p>
 
       <div class="btn-group">
-        <button class="btn btn-secondary" id="export-settings">📥 Export Settings</button>
-        <button class="btn btn-secondary" id="import-settings">📤 Import Settings</button>
+        <button class="btn btn-secondary" id="export-settings"></button>
+        <button class="btn btn-secondary" id="import-settings"></button>
       </div>
       <input type="file" id="import-file" accept=".json" style="display: none" />
     </div>
 
     <!-- About / Status -->
     <div class="section">
-      <h2>About SafeSnap</h2>
+      <h2></h2>
       <p style="color: #6b7280; line-height: 1.6">
-        <strong>Version:</strong> 1.0.0<br />
-        <strong>Detection Engine:</strong> Dictionary-based<br />
-        <strong>Storage Used:</strong> <span id="storage-used">Calculating...</span>
+        <strong></strong> <span id="version">1.0.0</span><br />
+        <strong></strong> <span id="detection-engine"></span><br />
+        <strong></strong> <span id="storage-used"></span>
       </p>
     </div>
 
@@ -459,9 +440,7 @@
         font-weight: 600;
         z-index: 10000;
       "
-    >
-      Settings saved!
-    </div>
+    ></div>
 
     <script src="settings.js"></script>
   </body>
