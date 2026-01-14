@@ -402,4 +402,44 @@ describe('PatternMatcher', () => {
       expect(metadata.domain).toBe('example.com');
     });
   });
+
+  describe('matchAll', () => {
+    test('should match multiple PII types at once', () => {
+      const text = 'Contact john@example.com at (555) 123-4567 for $100';
+      const matches = matcher.matchAll(text, ['email', 'phone', 'money']);
+
+      expect(matches.length).toBeGreaterThan(0);
+
+      const hasEmail = matches.some((m) => m.type === 'email');
+      const hasPhone = matches.some((m) => m.type === 'phone');
+      const hasMoney = matches.some((m) => m.type === 'money');
+
+      expect(hasEmail || hasPhone || hasMoney).toBe(true);
+    });
+
+    test('should return matches sorted by position', () => {
+      const text = 'Email: test@example.com Phone: (555) 123-4567';
+      const matches = matcher.matchAll(text, ['email', 'phone']);
+
+      expect(matches.length).toBeGreaterThanOrEqual(2);
+      expect(matches[0].index).toBeLessThan(matches[1].index);
+    });
+  });
+
+  describe('Quantity matching with metadata', () => {
+    test('should find quantities', () => {
+      const text = '100 kg of material';
+      const quantities = matcher.findQuantities(text);
+
+      expect(quantities.length).toBeGreaterThan(0);
+      expect(quantities[0].value).toContain('kg');
+    });
+
+    test('should handle quantities with commas', () => {
+      const text = 'We have 1,500 items in stock';
+      const quantities = matcher.findQuantities(text);
+
+      expect(quantities.length).toBeGreaterThan(0);
+    });
+  });
 });

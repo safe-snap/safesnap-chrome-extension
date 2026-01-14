@@ -776,4 +776,296 @@ describe('PIIDetector', () => {
       expect(score).toBeLessThanOrEqual(1.0);
     });
   });
+
+  describe('_shouldSkipElementForDebug', () => {
+    test('should skip script tags', () => {
+      const scriptEl = {
+        tagName: 'SCRIPT',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(scriptEl)).toBe(true);
+    });
+
+    test('should skip style tags', () => {
+      const styleEl = {
+        tagName: 'STYLE',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(styleEl)).toBe(true);
+    });
+
+    test('should skip noscript tags', () => {
+      const noscriptEl = {
+        tagName: 'NOSCRIPT',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(noscriptEl)).toBe(true);
+    });
+
+    test('should not skip paragraph tags', () => {
+      const pEl = {
+        tagName: 'P',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(pEl)).toBe(false);
+    });
+
+    test('should not skip div tags', () => {
+      const divEl = {
+        tagName: 'DIV',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(divEl)).toBe(false);
+    });
+  });
+
+  describe('_shouldSkipElement', () => {
+    test('should skip script tags', () => {
+      const scriptEl = {
+        tagName: 'SCRIPT',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElement(scriptEl)).toBe(true);
+    });
+
+    test('should skip style tags', () => {
+      const styleEl = {
+        tagName: 'STYLE',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElement(styleEl)).toBe(true);
+    });
+
+    test('should skip heading tags', () => {
+      expect(
+        detector._shouldSkipElement({
+          tagName: 'H1',
+          classList: { contains: () => false },
+          getAttribute: () => null,
+        })
+      ).toBe(true);
+      expect(
+        detector._shouldSkipElement({
+          tagName: 'H2',
+          classList: { contains: () => false },
+          getAttribute: () => null,
+        })
+      ).toBe(true);
+      expect(
+        detector._shouldSkipElement({
+          tagName: 'H3',
+          classList: { contains: () => false },
+          getAttribute: () => null,
+        })
+      ).toBe(true);
+      expect(
+        detector._shouldSkipElement({
+          tagName: 'H4',
+          classList: { contains: () => false },
+          getAttribute: () => null,
+        })
+      ).toBe(true);
+      expect(
+        detector._shouldSkipElement({
+          tagName: 'H5',
+          classList: { contains: () => false },
+          getAttribute: () => null,
+        })
+      ).toBe(true);
+      expect(
+        detector._shouldSkipElement({
+          tagName: 'H6',
+          classList: { contains: () => false },
+          getAttribute: () => null,
+        })
+      ).toBe(true);
+    });
+
+    test('should skip button tags', () => {
+      const buttonEl = {
+        tagName: 'BUTTON',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElement(buttonEl)).toBe(true);
+    });
+
+    test('should skip label tags', () => {
+      const labelEl = {
+        tagName: 'LABEL',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElement(labelEl)).toBe(true);
+    });
+
+    test('should not skip paragraph tags', () => {
+      const pEl = {
+        tagName: 'P',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElement(pEl)).toBe(false);
+    });
+  });
+
+  describe('_detectAllProperNounCandidates', () => {
+    test('should return all proper noun candidates including low-score ones', () => {
+      const text = 'Contact Mr. John Doe and visit Acme Corp';
+      const candidates = detector._detectAllProperNounCandidates(text);
+
+      expect(Array.isArray(candidates)).toBe(true);
+      expect(candidates.length).toBeGreaterThan(0);
+
+      candidates.forEach((candidate) => {
+        expect(candidate).toHaveProperty('type', 'properNoun');
+        expect(candidate).toHaveProperty('confidence');
+        expect(candidate).toHaveProperty('scoreBreakdown');
+      });
+    });
+
+    test('should include candidates below threshold', () => {
+      const text = 'Smith works here'; // Single word at sentence start = low score
+      const candidates = detector._detectAllProperNounCandidates(text);
+
+      // Should return at least the candidate even if score is below 0.8
+      expect(candidates.length).toBeGreaterThan(0);
+    });
+
+    test('should return empty array for text with no capitalized words', () => {
+      const text = 'this is all lowercase text';
+      const candidates = detector._detectAllProperNounCandidates(text);
+
+      expect(candidates).toEqual([]);
+    });
+
+    test('should handle empty text', () => {
+      const candidates = detector._detectAllProperNounCandidates('');
+      expect(candidates).toEqual([]);
+    });
+
+    test('should detect company names with suffixes', () => {
+      const text = 'Works at Microsoft Corporation';
+      const candidates = detector._detectAllProperNounCandidates(text);
+
+      const company = candidates.find((c) => c.context === 'company');
+      expect(company).toBeDefined();
+    });
+  });
+
+  describe('detectWithDebugInfo', () => {
+    let mockRootElement;
+    let mockTextNodes;
+
+    beforeEach(() => {
+      mockTextNodes = [
+        {
+          textContent: 'Contact Mr. John Doe at john@example.com',
+          parentElement: { tagName: 'P', classList: { contains: () => false } },
+        },
+        {
+          textContent: 'Meeting on 01/15/2026',
+          parentElement: { tagName: 'DIV', classList: { contains: () => false } },
+        },
+      ];
+
+      let currentIndex = 0;
+      global.document.createTreeWalker = jest.fn(() => ({
+        nextNode: jest.fn(() => mockTextNodes[currentIndex++] || null),
+      }));
+
+      mockRootElement = {
+        textContent: 'Contact Mr. John Doe at john@example.com. Meeting on 01/15/2026',
+      };
+    });
+
+    test('should return all candidates with debug info', () => {
+      const candidates = detector.detectWithDebugInfo(mockRootElement, ['properNouns', 'email']);
+
+      expect(Array.isArray(candidates)).toBe(true);
+      expect(candidates.length).toBeGreaterThan(0);
+
+      // Should include node information
+      candidates.forEach((candidate) => {
+        expect(candidate).toHaveProperty('node');
+        expect(candidate).toHaveProperty('nodeText');
+      });
+    });
+
+    test('should detect emails in debug mode', () => {
+      const candidates = detector.detectWithDebugInfo(mockRootElement, ['email']);
+      const emails = candidates.filter((c) => c.type === 'email');
+
+      expect(emails.length).toBeGreaterThan(0);
+      expect(emails[0].original).toContain('@');
+    });
+
+    test('should detect proper nouns in debug mode', () => {
+      const candidates = detector.detectWithDebugInfo(mockRootElement, ['properNouns']);
+      const properNouns = candidates.filter((c) => c.type === 'properNoun');
+
+      expect(properNouns.length).toBeGreaterThan(0);
+    });
+
+    test('should detect multiple types in debug mode', () => {
+      const candidates = detector.detectWithDebugInfo(mockRootElement, [
+        'properNouns',
+        'email',
+        'date',
+      ]);
+
+      const types = new Set(candidates.map((c) => c.type));
+      expect(types.size).toBeGreaterThan(1);
+    });
+
+    test('should use default types when not specified', () => {
+      const candidates = detector.detectWithDebugInfo(mockRootElement);
+
+      expect(Array.isArray(candidates)).toBe(true);
+    });
+
+    test('should include all PII types when enabled', () => {
+      mockTextNodes = [
+        {
+          textContent: 'Call (555) 123-4567 or visit https://example.com',
+          parentElement: { tagName: 'P', classList: { contains: () => false } },
+        },
+      ];
+
+      let currentIndex = 0;
+      global.document.createTreeWalker = jest.fn(() => ({
+        nextNode: jest.fn(() => mockTextNodes[currentIndex++] || null),
+      }));
+
+      const candidates = detector.detectWithDebugInfo(mockRootElement, ['phone', 'url']);
+
+      expect(candidates.length).toBeGreaterThan(0);
+    });
+
+    test('should detect money in debug mode', () => {
+      mockTextNodes = [
+        {
+          textContent: 'Price is $199.99',
+          parentElement: { tagName: 'P', classList: { contains: () => false } },
+        },
+      ];
+
+      let currentIndex = 0;
+      global.document.createTreeWalker = jest.fn(() => ({
+        nextNode: jest.fn(() => mockTextNodes[currentIndex++] || null),
+      }));
+
+      const candidates = detector.detectWithDebugInfo(mockRootElement, ['money']);
+      const money = candidates.filter((c) => c.type === 'money');
+
+      expect(money.length).toBeGreaterThan(0);
+    });
+  });
 });

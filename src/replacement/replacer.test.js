@@ -421,4 +421,254 @@ describe('Replacer', () => {
       });
     });
   });
+
+  describe('Redaction Modes', () => {
+    describe('setRedactionMode', () => {
+      test('should set redaction mode to blackout', () => {
+        replacer.setRedactionMode('blackout');
+        expect(replacer.redactionMode).toBe('blackout');
+      });
+
+      test('should set redaction mode to random', () => {
+        replacer.setRedactionMode('random');
+        expect(replacer.redactionMode).toBe('random');
+      });
+    });
+
+    describe('generateBlackout', () => {
+      test('should generate blackout bars for text', () => {
+        const text = 'John Doe';
+        const blackout = replacer.generateBlackout(text);
+
+        expect(blackout).toContain('█');
+        expect(blackout).not.toBe(text);
+      });
+
+      test('should preserve whitespace', () => {
+        const text = 'John Doe';
+        const blackout = replacer.generateBlackout(text);
+
+        // Should have space between words
+        expect(blackout).toContain(' ');
+      });
+
+      test('should handle empty string', () => {
+        const blackout = replacer.generateBlackout('');
+        expect(blackout).toBe('');
+      });
+    });
+
+    describe('Blackout mode replacements', () => {
+      beforeEach(() => {
+        replacer.setRedactionMode('blackout');
+      });
+
+      test('should blackout proper nouns directly', () => {
+        const replacement = replacer.replaceProperNoun('John');
+        expect(replacement).toContain('█');
+        expect(replacement).not.toBe('John');
+      });
+
+      test('should blackout proper nouns via applyReplacements', () => {
+        const text = 'Contact John';
+        const entities = [{ type: 'properNoun', original: 'John', start: 8, end: 12 }];
+        const consistencyMap = new Map();
+
+        const result = replacer.applyReplacements(text, entities, consistencyMap);
+
+        expect(result).toContain('█');
+        expect(result).not.toContain('John');
+      });
+
+      test('should blackout emails', () => {
+        const replacement = replacer.replaceEmail('test@example.com');
+        expect(replacement).toContain('█');
+        expect(replacement).not.toContain('@');
+      });
+
+      test('should blackout phones', () => {
+        const replacement = replacer.replacePhone('(555) 123-4567');
+        expect(replacement).toContain('█');
+        expect(replacement).not.toContain('555');
+      });
+
+      test('should blackout money', () => {
+        const replacement = replacer.replaceMoney('$123.45');
+        expect(replacement).toContain('█');
+        expect(replacement).not.toContain('$');
+      });
+
+      test('should blackout multiple entities', () => {
+        const text = 'John at john@example.com, call (555) 123-4567';
+        const entities = [
+          { type: 'properNoun', original: 'John', start: 0, end: 4 },
+          { type: 'email', original: 'john@example.com', start: 8, end: 24 },
+          { type: 'phone', original: '(555) 123-4567', start: 32, end: 46 },
+        ];
+        const consistencyMap = new Map();
+
+        const result = replacer.applyReplacements(text, entities, consistencyMap);
+
+        expect(result).toContain('█');
+        expect(result).not.toContain('John');
+        expect(result).not.toContain('@');
+        expect(result).not.toContain('555');
+      });
+    });
+  });
+
+  describe('setMagnitudeVariance', () => {
+    test('should set magnitude variance', () => {
+      replacer.setMagnitudeVariance(50);
+      expect(replacer.magnitudeVariance).toBe(50);
+    });
+  });
+
+  describe('Edge Cases', () => {
+    beforeEach(() => {
+      replacer.resetMultipliers(); // Ensure fresh multipliers
+    });
+
+    test('should handle empty string inputs for money', () => {
+      expect(replacer.replaceMoney('')).toBe('');
+    });
+
+    test('should handle empty string inputs for phone', () => {
+      expect(replacer.replacePhone('')).toBe('');
+    });
+
+    test('should handle malformed money values', () => {
+      const replacement = replacer.replaceMoney('$abc');
+      expect(replacement).toBe('$abc');
+    });
+
+    test('should handle very large money values', () => {
+      const replacement = replacer.replaceMoney('$1,000,000.00');
+      expect(replacement).toMatch(/\$/);
+      expect(replacement).not.toBe('$1,000,000.00');
+    });
+
+    test('should handle very long names', () => {
+      const longName = 'John Jacob Jingleheimer Schmidt Sr.';
+      const replacement = replacer.replaceProperNoun(longName, 'person');
+      expect(typeof replacement).toBe('string');
+      expect(replacement.length).toBeGreaterThan(0);
+    });
+
+    test('should handle money with different formats', () => {
+      const replacement1 = replacer.replaceMoney('$50');
+      const replacement2 = replacer.replaceMoney('$1,234.56');
+
+      expect(replacement1).toMatch(/\$/);
+      expect(replacement2).toMatch(/\$/);
+      expect(replacement1).not.toBe('$50');
+      expect(replacement2).not.toBe('$1,234.56');
+    });
+
+    test('should handle quantities with commas', () => {
+      const replacement = replacer.replaceQuantity('1,500 kg');
+      expect(replacement).toContain('kg');
+      expect(replacement).not.toBe('1,500 kg');
+    });
+
+    test('should handle quantities with decimals', () => {
+      const replacement = replacer.replaceQuantity('123.45 meters');
+      expect(replacement).toContain('meters');
+      expect(replacement).not.toBe('123.45 meters');
+    });
+
+    test('should handle different phone formats', () => {
+      const formats = [
+        '+1-555-123-4567', // International with dashes
+        '+1 555 123 4567', // International with spaces
+        '555.123.4567', // Dot separated
+        '555 123 4567', // Space separated
+        '5551234567', // No separators
+      ];
+
+      formats.forEach((phone) => {
+        const replacement = replacer.replacePhone(phone);
+        expect(replacement).not.toBe(phone);
+        expect(replacement.length).toBeGreaterThan(0);
+      });
+    });
+
+    test('should blackout URLs in blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceURL('https://example.com');
+      expect(replacement).toContain('█');
+      replacer.setRedactionMode('random'); // Reset
+    });
+
+    test('should blackout addresses in blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceAddress('123 Main St');
+      expect(replacement).toContain('█');
+      replacer.setRedactionMode('random'); // Reset
+    });
+
+    test('should handle invalid URLs gracefully', () => {
+      const replacement = replacer.replaceURL('not a valid url');
+      expect(typeof replacement).toBe('string');
+      expect(replacement.length).toBeGreaterThan(0);
+    });
+
+    test('should blackout dates in blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceDate('01/15/2024');
+      expect(replacement).toContain('█');
+      replacer.setRedactionMode('random'); // Reset
+    });
+
+    test('should handle malformed dates gracefully', () => {
+      replacer.resetMultipliers();
+      const replacement1 = replacer.replaceDate('99/99/9999');
+      const replacement2 = replacer.replaceDate('invalid date');
+
+      expect(typeof replacement1).toBe('string');
+      expect(typeof replacement2).toBe('string');
+    });
+
+    test('should handle different date formats', () => {
+      replacer.resetMultipliers();
+      const formats = [
+        '2024-01-15', // ISO format
+        '01/15/2024', // US format
+        '1/15/2024', // US format without leading zero
+      ];
+
+      formats.forEach((date) => {
+        const replacement = replacer.replaceDate(date);
+        expect(replacement).not.toBe(date);
+      });
+    });
+
+    test('should blackout SSN in blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceSSN('123-45-6789');
+      expect(replacement).toContain('█');
+      replacer.setRedactionMode('random'); // Reset
+    });
+
+    test('should blackout credit cards in blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceCreditCard('4532-1234-5678-9010');
+      expect(replacement).toContain('█');
+      replacer.setRedactionMode('random'); // Reset
+    });
+
+    test('should blackout IP addresses in blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceIPAddress('192.168.1.1');
+      expect(replacement).toContain('█');
+      replacer.setRedactionMode('random'); // Reset
+    });
+
+    test('should blackout quantities in blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceQuantity('100 kg');
+      expect(replacement).toContain('█');
+      replacer.setRedactionMode('random'); // Reset
+    });
+  });
 });

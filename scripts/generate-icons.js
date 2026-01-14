@@ -1,19 +1,19 @@
 #!/usr/bin/env node
+/* eslint-env node */
 /**
  * Generate PNG icons from SVG
- * 
+ *
  * This script requires one of the following tools to be installed:
  * - ImageMagick (convert or magick)
  * - rsvg-convert (from librsvg)
  * - Inkscape
- * 
+ *
  * Install one with:
  * - macOS: brew install imagemagick or brew install librsvg
  * - Ubuntu: apt-get install imagemagick or apt-get install librsvg2-bin
  */
 
 const { execSync } = require('child_process');
-const fs = require('fs');
 const path = require('path');
 
 const svgPath = path.join(__dirname, '../assets/icons/logo.svg');
@@ -24,10 +24,30 @@ const sizes = [16, 48, 128];
 // Check which tool is available
 function findConversionTool() {
   const tools = [
-    { cmd: 'rsvg-convert', test: 'rsvg-convert --version', convert: (size) => `rsvg-convert -w ${size} -h ${size} -b none "${svgPath}" -o "${iconsDir}/icon${size}.png"` },
-    { cmd: 'inkscape', test: 'inkscape --version', convert: (size) => `inkscape "${svgPath}" -o "${iconsDir}/icon${size}.png" -w ${size} -h ${size}` },
-    { cmd: 'magick', test: 'magick --version', convert: (size) => `magick "${svgPath}" -background none -resize ${size}x${size} "${iconsDir}/icon${size}.png"` },
-    { cmd: 'convert', test: 'convert --version', convert: (size) => `convert -background none "${svgPath}" -resize ${size}x${size} "${iconsDir}/icon${size}.png"` },
+    {
+      cmd: 'rsvg-convert',
+      test: 'rsvg-convert --version',
+      convert: (size) =>
+        `rsvg-convert -w ${size} -h ${size} -b none "${svgPath}" -o "${iconsDir}/icon${size}.png"`,
+    },
+    {
+      cmd: 'inkscape',
+      test: 'inkscape --version',
+      convert: (size) =>
+        `inkscape "${svgPath}" -o "${iconsDir}/icon${size}.png" -w ${size} -h ${size}`,
+    },
+    {
+      cmd: 'magick',
+      test: 'magick --version',
+      convert: (size) =>
+        `magick "${svgPath}" -background none -resize ${size}x${size} "${iconsDir}/icon${size}.png"`,
+    },
+    {
+      cmd: 'convert',
+      test: 'convert --version',
+      convert: (size) =>
+        `convert -background none "${svgPath}" -resize ${size}x${size} "${iconsDir}/icon${size}.png"`,
+    },
   ];
 
   for (const tool of tools) {

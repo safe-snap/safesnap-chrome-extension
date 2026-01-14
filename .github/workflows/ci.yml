@@ -49,6 +49,19 @@ jobs:
       - name: Run tests
         run: bun run test:coverage
 
+      - name: Generate coverage badge
+        if: github.ref == 'refs/heads/main'
+        run: node scripts/generate-coverage-badge.js
+
+      - name: Commit coverage badge
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .github/badges/coverage.svg
+          git diff --staged --quiet || git commit -m "chore: update coverage badge [skip ci]"
+          git push
+
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
         if: success()

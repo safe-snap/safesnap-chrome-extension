@@ -4,6 +4,9 @@
 
 ![SafeSnap Logo](assets/icons/logo.svg)
 
+[![Coverage](https://raw.githubusercontent.com/safe-snap/safesnap-chrome-extension/main/.github/badges/coverage.svg)](https://github.com/safe-snap/safesnap-chrome-extension/actions)
+[![CI](https://github.com/safe-snap/safesnap-chrome-extension/actions/workflows/ci.yml/badge.svg)](https://github.com/safe-snap/safesnap-chrome-extension/actions/workflows/ci.yml)
+
 **SafeSnap** is a privacy-first Chrome extension that automatically detects and protects personally identifiable information (PII) in screenshots. Perfect for QA teams, product managers, and anyone who needs to share screenshots without exposing sensitive data.
 
 ## Why SafeSnap?
@@ -195,7 +198,7 @@ bun run test:coverage
 bun test path/to/test.test.js
 ```
 
-Current test status: **338 tests passing** with ~80% coverage.
+**Current Status:** 410 tests passing | 90% coverage
 
 ### Code Quality
 

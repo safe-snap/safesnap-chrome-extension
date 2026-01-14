@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-env node */
 /**
  * Version Bump Script
  *
@@ -55,10 +56,11 @@ function bumpVersion(currentVersion, type) {
     case 'patch':
       parts.patch += 1;
       break;
-    default:
+    default: {
       // Check if it's a specific version
       const newParts = parseVersion(type);
       return formatVersion(newParts);
+    }
   }
 
   return formatVersion(parts);
