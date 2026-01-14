@@ -10,6 +10,9 @@ on:
       - main
       - develop
 
+permissions:
+  contents: write
+
 jobs:
   lint:
     name: Lint Code
@@ -37,6 +40,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -50,17 +56,21 @@ jobs:
         run: bun run test:coverage
 
       - name: Generate coverage badge
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: node scripts/generate-coverage-badge.js
 
       - name: Commit coverage badge
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .github/badges/coverage.svg
-          git diff --staged --quiet || git commit -m "chore: update coverage badge [skip ci]"
-          git push
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update coverage badge [skip ci]"
+            git push
+          else
+            echo "No changes to coverage badge"
+          fi
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
