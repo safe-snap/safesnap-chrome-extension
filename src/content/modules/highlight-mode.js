@@ -13,6 +13,8 @@ let scrollThrottleTimeout = null; // Throttle timer for scroll refresh
 let getOriginalValueFn = null; // Function to get original values when PII is protected
 let resizeObserver = null; // ResizeObserver for layout changes
 let mutationObserver = null; // MutationObserver for DOM changes
+let isRendering = false; // Flag to prevent observer from triggering during our own renders
+let currentVisibleTooltip = null; // Track currently visible tooltip for single-tooltip UX
 
 /**
  * Initialize highlight mode - always starts disabled, user must enable manually
@@ -176,15 +178,53 @@ export async function enableHighlightMode(detector, getOriginalValue = null) {
   // 5. Watch for DOM mutations that might move text (collapsible sections, tabs, modals, etc.)
   console.log('[SafeSnap] Setting up MutationObserver for DOM changes');
   mutationObserver = new MutationObserver((mutations) => {
-    // Only refresh if mutations affect layout (not just attributes/classes)
-    const hasLayoutChange = mutations.some(
-      (mutation) =>
+    // Skip if we're currently rendering (to avoid infinite loops)
+    if (isRendering) {
+      console.log('[SafeSnap] Ignoring mutations - currently rendering');
+      return;
+    }
+
+    // Ignore mutations from our own highlight elements
+    const hasLayoutChange = mutations.some((mutation) => {
+      // Skip if mutation is on our highlight overlay or its children
+      const target = mutation.target;
+
+      // Debug: Log what's causing mutations
+      if (
+        target.id === 'safesnap-highlight-overlay' ||
+        target.closest?.('#safesnap-highlight-overlay') ||
+        target.classList?.contains('safesnap-highlight') ||
+        target.classList?.contains('safesnap-highlight-tooltip')
+      ) {
+        console.log('[SafeSnap] Ignoring mutation on highlight element:', {
+          targetId: target.id,
+          targetClass: target.className,
+          mutationType: mutation.type,
+          attributeName: mutation.attributeName,
+        });
+        return false;
+      }
+
+      // Only refresh if mutations affect layout (not just attributes/classes)
+      const isLayoutChange =
         mutation.type === 'childList' ||
         (mutation.type === 'attributes' &&
           (mutation.attributeName === 'style' ||
             mutation.attributeName === 'class' ||
-            mutation.attributeName === 'hidden'))
-    );
+            mutation.attributeName === 'hidden'));
+
+      if (isLayoutChange) {
+        console.log('[SafeSnap] Layout change detected:', {
+          targetTag: target.tagName,
+          targetId: target.id,
+          targetClass: target.className,
+          mutationType: mutation.type,
+          attributeName: mutation.attributeName,
+        });
+      }
+
+      return isLayoutChange;
+    });
 
     if (hasLayoutChange) {
       throttledRefresh('DOM mutation');
@@ -217,6 +257,9 @@ export async function enableHighlightMode(detector, getOriginalValue = null) {
 function renderHighlights() {
   console.log('[SafeSnap] renderHighlights() called - candidates:', highlightCandidates.length);
 
+  // Set flag to prevent mutation observer from triggering
+  isRendering = true;
+
   // Remove existing overlay if present
   const existingOverlay = document.getElementById('safesnap-highlight-overlay');
   if (existingOverlay) {
@@ -224,6 +267,7 @@ function renderHighlights() {
   }
 
   if (highlightCandidates.length === 0) {
+    isRendering = false;
     return;
   }
 
@@ -249,6 +293,12 @@ function renderHighlights() {
   });
 
   document.body.appendChild(overlay);
+
+  // Clear flag after rendering is complete
+  // Use setTimeout to ensure DOM has settled
+  setTimeout(() => {
+    isRendering = false;
+  }, 0);
 }
 
 /**
@@ -332,6 +382,40 @@ function createHighlight(candidate) {
     // Create a container for all highlight boxes (for multi-line text)
     const container = document.createDocumentFragment();
 
+    // Shared tooltip state for all boxes
+    let tooltip = null;
+    let hideTimer = null;
+
+    const showTooltip = () => {
+      if (!tooltip) return;
+
+      // Hide any other visible tooltip first
+      if (currentVisibleTooltip && currentVisibleTooltip !== tooltip) {
+        currentVisibleTooltip.style.opacity = '0';
+      }
+
+      // Cancel any pending hide
+      if (hideTimer) {
+        clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+
+      tooltip.style.opacity = '1';
+      currentVisibleTooltip = tooltip;
+    };
+
+    const hideTooltip = () => {
+      if (!tooltip) return;
+      // Delay hiding by 500ms so users can read the tooltip
+      hideTimer = setTimeout(() => {
+        tooltip.style.opacity = '0';
+        if (currentVisibleTooltip === tooltip) {
+          currentVisibleTooltip = null;
+        }
+        hideTimer = null;
+      }, 500);
+    };
+
     // Create a highlight box for each line
     Array.from(rects).forEach((rect, index) => {
       if (rect.width === 0 || rect.height === 0) return;
@@ -379,24 +463,29 @@ function createHighlight(candidate) {
       // Only add tooltip to the first box (to avoid duplicates)
       if (index === 0) {
         // Create tooltip with score breakdown
-        const tooltip = document.createElement('div');
+        tooltip = document.createElement('div');
         tooltip.className = 'safesnap-highlight-tooltip';
+
+        // Calculate tooltip position (above the highlight, centered horizontally)
+        // Use same coordinate system as highlights: absolute positioning with scroll-adjusted coords
+        const tooltipLeft = absoluteLeft + rect.width / 2;
+        const tooltipTop = absoluteTop - 8; // 8px gap above highlight
+
         tooltip.style.cssText = `
           position: absolute;
-          bottom: 100%;
-          left: 50%;
-          transform: translateX(-50%);
+          left: ${tooltipLeft}px;
+          top: ${tooltipTop}px;
+          transform: translate(-50%, -100%);
           background: #1f2937;
           color: white;
           padding: 12px;
           border-radius: 6px;
           font-size: 12px;
           white-space: nowrap;
-          margin-bottom: 8px;
           opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.2s;
-          z-index: 1000000;
+          pointer-events: auto;
+          transition: opacity 0.3s ease;
+          z-index: 1000001;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         `;
@@ -461,28 +550,18 @@ function createHighlight(candidate) {
 
         tooltip.innerHTML = tooltipContent;
 
-        highlight.appendChild(tooltip);
+        // Append tooltip to overlay (not highlight) for proper positioning
+        // But we'll still track it with the highlight's hover events
+        container.appendChild(tooltip);
 
-        // Show/hide tooltip on hover with delay
-        let hideTimer = null;
-
-        highlight.addEventListener('mouseenter', () => {
-          // Cancel any pending hide
-          if (hideTimer) {
-            clearTimeout(hideTimer);
-            hideTimer = null;
-          }
-          tooltip.style.opacity = '1';
-        });
-
-        highlight.addEventListener('mouseleave', () => {
-          // Delay hiding by 800ms so users can read the tooltip
-          hideTimer = setTimeout(() => {
-            tooltip.style.opacity = '0';
-            hideTimer = null;
-          }, 800);
-        });
+        // Also handle tooltip hover to keep it visible
+        tooltip.addEventListener('mouseenter', showTooltip);
+        tooltip.addEventListener('mouseleave', hideTooltip);
       }
+
+      // Add hover handlers to ALL highlight boxes (not just first one)
+      highlight.addEventListener('mouseenter', showTooltip);
+      highlight.addEventListener('mouseleave', hideTooltip);
 
       container.appendChild(highlight);
     });
