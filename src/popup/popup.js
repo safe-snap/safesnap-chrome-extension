@@ -57,33 +57,17 @@ function initializeUIText() {
   const bannerPosLabel = document.querySelector('#settings-tab > div:nth-child(2) > label');
   if (bannerPosLabel) bannerPosLabel.textContent = i18n.labelBannerPosition;
 
-  // Fade distance label and unit
-  const fadeLabelDiv = document.querySelector('#settings-tab > div:nth-child(3) > label');
-  if (fadeLabelDiv) fadeLabelDiv.textContent = i18n.labelFadeDistance;
-  const fadeUnitSpan = document.querySelector('#fadeDistanceValue').nextSibling;
-  if (fadeUnitSpan) fadeUnitSpan.textContent = ` ${i18n.unitPixels}`;
-
-  // Magnitude variance label and unit
-  const magLabelDiv = document.querySelector('#settings-tab > div:nth-child(4) > label');
-  if (magLabelDiv) magLabelDiv.textContent = i18n.labelMagnitudeVariance;
-
-  // Update the magnitude variance display text (±30%)
-  const magDisplayDiv = document.querySelector('#magnitudeVarianceValue').parentElement;
-  if (magDisplayDiv) {
-    const valueSpan = magDisplayDiv.querySelector('#magnitudeVarianceValue');
-    magDisplayDiv.textContent = ''; // Clear
-    magDisplayDiv.appendChild(document.createTextNode(i18n.unitPlusMinus));
-    magDisplayDiv.appendChild(valueSpan);
-    magDisplayDiv.appendChild(document.createTextNode(i18n.unitPercent));
-  }
-
-  // Redaction mode label and options
-  const redactionLabel = document.querySelector('label[for="redactionMode"]');
+  // Redaction mode label and options (now using radio buttons)
+  const redactionLabel = document.querySelector('#settings-tab > div:nth-child(3) > label');
   if (redactionLabel) redactionLabel.textContent = i18n.labelRedactionMode;
-  const redactionSelect = document.getElementById('redactionMode');
-  if (redactionSelect) {
-    redactionSelect.options[0].textContent = i18n.redactionModeRandom;
-    redactionSelect.options[1].textContent = i18n.redactionModeBlackout;
+
+  // Update radio button labels
+  const radioLabels = document.querySelectorAll('.radio-label');
+  if (radioLabels[0]) {
+    radioLabels[0].querySelector('span').textContent = i18n.redactionModeRandom;
+  }
+  if (radioLabels[1]) {
+    radioLabels[1].querySelector('span').textContent = i18n.redactionModeBlackout;
   }
 
   document.querySelector('#openSettingsBtn').innerHTML =
@@ -371,25 +355,11 @@ document.getElementById('bannerPosition').addEventListener('change', async (e) =
   await saveSetting('bannerPosition', e.target.value);
 });
 
-document.getElementById('fadeDistance').addEventListener('change', async (e) => {
-  await saveSetting('fadeDistance', parseInt(e.target.value));
-});
-
-document.getElementById('magnitudeVariance').addEventListener('change', async (e) => {
-  await saveSetting('magnitudeVariance', parseInt(e.target.value));
-});
-
-document.getElementById('redactionMode').addEventListener('change', async (e) => {
-  await saveSetting('redactionMode', e.target.value);
-});
-
-// Update range slider displays
-document.getElementById('fadeDistance').addEventListener('input', (e) => {
-  document.getElementById('fadeDistanceValue').textContent = e.target.value;
-});
-
-document.getElementById('magnitudeVariance').addEventListener('input', (e) => {
-  document.getElementById('magnitudeVarianceValue').textContent = e.target.value;
+// Redaction mode radio buttons
+document.querySelectorAll('input[name="redactionMode"]').forEach((radio) => {
+  radio.addEventListener('change', async (e) => {
+    await saveSetting('redactionMode', e.target.value);
+  });
 });
 
 // Add change listeners to all PII type checkboxes
@@ -431,21 +401,14 @@ async function loadSettings() {
       document.getElementById('bannerPosition').value = settings.bannerPosition;
     }
 
-    // Set fade distance
-    if (settings.fadeDistance) {
-      document.getElementById('fadeDistance').value = settings.fadeDistance;
-      document.getElementById('fadeDistanceValue').textContent = settings.fadeDistance;
-    }
-
-    // Set magnitude variance
-    if (settings.magnitudeVariance) {
-      document.getElementById('magnitudeVariance').value = settings.magnitudeVariance;
-      document.getElementById('magnitudeVarianceValue').textContent = settings.magnitudeVariance;
-    }
-
-    // Set redaction mode
+    // Set redaction mode (radio buttons)
     if (settings.redactionMode) {
-      document.getElementById('redactionMode').value = settings.redactionMode;
+      const radioButton = document.querySelector(
+        `input[name="redactionMode"][value="${settings.redactionMode}"]`
+      );
+      if (radioButton) {
+        radioButton.checked = true;
+      }
     }
   } catch (error) {
     console.error('Error loading settings:', error);

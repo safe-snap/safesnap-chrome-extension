@@ -822,6 +822,15 @@ describe('PIIDetector', () => {
       };
       expect(detector._shouldSkipElementForDebug(divEl)).toBe(false);
     });
+
+    test('should skip link (anchor) tags', () => {
+      const linkEl = {
+        tagName: 'A',
+        classList: { contains: () => false },
+        getAttribute: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(linkEl)).toBe(true);
+    });
   });
 
   describe('_shouldSkipElement', () => {

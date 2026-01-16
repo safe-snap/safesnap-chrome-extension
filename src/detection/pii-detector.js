@@ -699,6 +699,7 @@ export class PIIDetector {
       'footer',
       'aside',
       'title',
+      'a', // Skip links (navigation elements)
     ];
     if (skipTags.includes(tagName)) return true;
 
