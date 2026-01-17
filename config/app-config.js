@@ -86,6 +86,7 @@ export const APP_CONFIG = {
       nearOtherPII: 0.25, // Within window of email/phone (increased from 0.2)
       matchesEmailDomain: 0.3, // Matches company name from nearby email domain
       insideLink: 0.25, // Text is inside an <a> tag (author bylines, profile links, company links)
+      knownLocation: 0.5, // Matches known location in gazetteer (New York, Delaware, Paris, etc.)
     },
 
     // Window size (in characters) to check for nearby PII context

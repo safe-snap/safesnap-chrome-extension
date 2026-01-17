@@ -552,6 +552,9 @@ export class PIIDetector {
       // Check if text is inside a link (author bylines, profile links, etc.)
       const insideLink = node && node.parentElement && node.parentElement.tagName === 'A';
 
+      // Check if candidate is a known location (New York, Paris, Delaware, etc.)
+      const isKnownLocation = this._isKnownLocation(candidate);
+
       const context = {
         hasHonorific,
         hasJobTitle,
@@ -562,6 +565,7 @@ export class PIIDetector {
         isDepartmentName,
         emailDomainMatch,
         insideLink,
+        isKnownLocation,
         isStandaloneJobTitle, // NEW: Flag for standalone job titles
         hasJobDescriptionPrefix, // NEW: Flag for job description prefixes
       };
@@ -710,6 +714,18 @@ export class PIIDetector {
   }
 
   /**
+   * Check if candidate is a known location in the gazetteer
+   * @private
+   */
+  _isKnownLocation(candidate) {
+    if (!this.patternMatcher || !this.patternMatcher.locationGazetteer) {
+      return false;
+    }
+    const normalized = candidate.toLowerCase().trim();
+    return this.patternMatcher.locationGazetteer.has(normalized);
+  }
+
+  /**
    * Calculate proper noun confidence score
    * @private
    */
@@ -773,6 +789,13 @@ export class PIIDetector {
       breakdown.insideLink = weights.insideLink || 0.25;
       breakdown.insideLink_detail = 'text_in_link';
       score += breakdown.insideLink;
+    }
+
+    // Signal 9: Known location (New York, Paris, Delaware, etc.)
+    if (context.isKnownLocation) {
+      breakdown.knownLocation = weights.knownLocation || 0.5;
+      breakdown.knownLocation_detail = 'location_gazetteer';
+      score += breakdown.knownLocation;
     }
 
     // Penalty: Department name (strong negative signal)

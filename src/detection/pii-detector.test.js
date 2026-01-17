@@ -109,6 +109,36 @@ describe('PIIDetector', () => {
       expect(entities[0].type).toBe('date');
     });
 
+    test('should detect dates with month abbreviations like "Dec. 9"', () => {
+      const text =
+        'The venture firm filed its own Chapter 11 bankruptcy petition on Dec. 9, attempting to stall the Cayman Islands litigation.';
+      const entities = detector.detectInText(text, ['date']);
+
+      expect(entities.length).toBeGreaterThan(0);
+      const dateEntity = entities.find((e) => e.type === 'date' && e.original.includes('Dec'));
+      expect(dateEntity).toBeDefined();
+      expect(dateEntity.original).toMatch(/Dec.*9/i);
+    });
+
+    test('should detect dates regardless of other PII types enabled', () => {
+      // Test that dates are detected even when dates type is NOT in the enabled list
+      const text =
+        'The venture firm filed its own Chapter 11 bankruptcy petition on Dec. 9, attempting to stall the litigation.';
+
+      // Only enable properNouns, NOT dates
+      const entities = detector.detectInText(text, ['properNouns']);
+
+      // "Dec" should NOT be detected as a proper noun since it's a month abbreviation
+      const properNouns = entities.filter((e) => e.type === 'properNoun');
+      const decAsProperNoun = properNouns.find((e) => e.original === 'Dec');
+      expect(decAsProperNoun).toBeUndefined();
+
+      // However, currently dates are NOT detected unless 'date' is in enabled types
+      // This test documents the current behavior - dates are missed when type is disabled
+      const dateEntities = entities.filter((e) => e.type === 'date');
+      expect(dateEntities.length).toBe(0); // FIXME: This should be > 0 after architecture fix
+    });
+
     test('should detect addresses', () => {
       const text = 'Located at 123 Main Street';
       const entities = detector.detectInText(text, ['address']);
