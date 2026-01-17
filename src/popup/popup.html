@@ -283,6 +283,45 @@
         </div>
       </div>
 
+      <!-- Proper Noun Sensitivity Slider -->
+      <div style="margin-bottom: 20px; padding: 16px; background: #f9fafb; border-radius: 8px">
+        <label
+          for="popup-threshold"
+          style="
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+          "
+        >
+          🎯 Proper Noun Detection Sensitivity
+        </label>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <input
+            type="range"
+            min="50"
+            max="100"
+            value="75"
+            step="5"
+            id="popup-threshold"
+            style="flex: 1; accent-color: #4f46e5"
+          />
+          <span
+            id="popup-threshold-value"
+            style="font-size: 14px; font-weight: 600; color: #4f46e5; min-width: 40px"
+          >
+            0.75
+          </span>
+        </div>
+        <p
+          id="popup-threshold-description"
+          style="font-size: 11px; color: #6b7280; margin: 6px 0 0 0"
+        >
+          Balanced - Good accuracy with minimal false positives
+        </p>
+      </div>
+
       <div class="pii-types">
         <h3 style="margin-top: 0; font-size: 16px"></h3>
         <div class="checkbox-group">

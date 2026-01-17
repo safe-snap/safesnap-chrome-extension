@@ -131,8 +131,23 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     case 'RELOAD_SETTINGS':
       loadSettings()
         .then(async () => {
+          // Update detector's threshold from newly loaded settings
+          if (detector) {
+            const threshold = getSetting('properNounThreshold');
+            if (threshold !== undefined) {
+              detector.setProperNounThreshold(threshold);
+            }
+          }
+
           // Refresh positions of all active notification panels
           await refreshAllPanelPositions();
+
+          // If highlight mode is active, refresh highlights with new settings
+          // This ensures changes to threshold, etc. are immediately visible
+          if (isHighlightEnabled()) {
+            console.log('[SafeSnap] Settings changed, refreshing highlights');
+            await refreshHighlightsWithSettings();
+          }
 
           sendResponse({ success: true, message: 'Settings reloaded and panels updated' });
         })

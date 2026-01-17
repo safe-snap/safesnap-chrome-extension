@@ -34,8 +34,8 @@ export class PatternMatcher {
       creditCard: /\b(?:\d{4}[-\s]?){3}\d{4}\b/g,
 
       // Dates - multiple formats
-      // Matches: MM/DD/YYYY, YYYY-MM-DD, "Dec 10, 2024", "Dec. 9" (with or without year)
-      date: /\b(?:\d{1,2}[-/]\d{1,2}[-/]\d{2,4}|\d{4}[-/]\d{1,2}[-/]\d{1,2}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}(?:,?\s+\d{4})?)\b/gi,
+      // Matches: MM/DD/YYYY, YYYY-MM-DD, "Dec 10, 2024", "Dec. 9" (with or without year), "December", "January" (standalone months)
+      date: /\b(?:\d{1,2}[-/]\d{1,2}[-/]\d{2,4}|\d{4}[-/]\d{1,2}[-/]\d{1,2}|(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)(?:\.?\s+\d{1,2}(?:,?\s+\d{4})?)?)\b/gi,
 
       // US Street addresses
       address:

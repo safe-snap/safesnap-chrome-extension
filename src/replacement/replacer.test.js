@@ -240,9 +240,30 @@ describe('Replacer', () => {
       expect(replacement).not.toMatch(/^\d{4}-\d{2}-\d{2}$/);
     });
 
+    test('should handle standalone month names', () => {
+      // Full month names
+      const replacement1 = replacer.replaceDate('December');
+      expect(replacement1).toMatch(
+        /^(January|February|March|April|May|June|July|August|September|October|November|December)$/
+      );
+      expect(replacement1).not.toBe('December');
+
+      // Short month names
+      const replacement2 = replacer.replaceDate('Dec');
+      expect(replacement2).toMatch(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/);
+      expect(replacement2).not.toBe('Dec');
+
+      // With period
+      const replacement3 = replacer.replaceDate('Dec.');
+      expect(replacement3).toMatch(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.$/);
+      expect(replacement3).not.toBe('Dec.');
+    });
+
     test('should return original if invalid', () => {
-      const replacement = replacer.replaceDate('not a date');
-      expect(replacement).toBe('not a date');
+      const invalid = replacer.replaceDate('notadate');
+      expect(invalid).toBe('notadate');
+      const invalid2 = replacer.replaceDate('not a date');
+      expect(invalid2).toBe('not a date');
     });
   });
 

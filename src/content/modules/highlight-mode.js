@@ -285,6 +285,20 @@ function renderHighlights() {
   `;
 
   // Add each candidate as a highlight
+  const headingCandidates = highlightCandidates.filter((c) =>
+    ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(c.node?.parentElement?.tagName)
+  );
+
+  console.log('[SafeSnap Debug] Rendering highlights:', {
+    totalCandidates: highlightCandidates.length,
+    headingCandidates: headingCandidates.length,
+    headingDetails: headingCandidates.map((c) => ({
+      tag: c.node?.parentElement?.tagName,
+      value: c.original,
+      type: c.type,
+    })),
+  });
+
   highlightCandidates.forEach((candidate) => {
     const highlight = createHighlight(candidate);
     if (highlight) {
@@ -308,6 +322,18 @@ function renderHighlights() {
 function createHighlight(candidate) {
   try {
     const { node, start, end, confidence, scoreBreakdown, threshold } = candidate;
+    const isHeading = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(node?.parentElement?.tagName);
+
+    if (isHeading) {
+      console.log('[SafeSnap Debug] Creating highlight for heading:', {
+        tag: node.parentElement.tagName,
+        value: candidate.original,
+        type: candidate.type,
+        start,
+        end,
+        nodeLength: node.textContent.length,
+      });
+    }
 
     // Get the bounding rect of the text
     const range = document.createRange();
@@ -315,6 +341,14 @@ function createHighlight(candidate) {
 
     // Ensure the range is valid
     if (start >= textNode.textContent.length || end > textNode.textContent.length) {
+      if (isHeading) {
+        console.warn('[SafeSnap Debug] Invalid range for heading:', {
+          tag: node.parentElement.tagName,
+          start,
+          end,
+          nodeLength: textNode.textContent.length,
+        });
+      }
       return null;
     }
 
@@ -361,22 +395,62 @@ function createHighlight(candidate) {
       backgroundColor = 'rgba(59, 130, 246, 0.2)'; // Blue for pattern matches
       borderColor = '#3b82f6';
       label = type.charAt(0).toUpperCase() + type.slice(1);
-    } else if (confidence >= 0.8) {
-      backgroundColor = 'rgba(16, 185, 129, 0.2)'; // Green
+    } else if (type === 'location') {
+      // Locations are always protected (gazetteer-based)
+      backgroundColor = 'rgba(16, 185, 129, 0.2)'; // Green for locations
       borderColor = '#10b981';
-      label = 'Protected';
-    } else if (confidence >= 0.6) {
-      backgroundColor = 'rgba(245, 158, 11, 0.2)'; // Orange
-      borderColor = '#f59e0b';
-      label = 'Close';
-    } else if (confidence >= 0.4) {
-      backgroundColor = 'rgba(239, 68, 68, 0.2)'; // Red
-      borderColor = '#ef4444';
-      label = 'Low';
+      label = 'Location';
+    } else if (type === 'properNoun') {
+      // For proper nouns, check if confidence meets threshold
+      const meetsThreshold = threshold !== undefined ? confidence >= threshold : confidence >= 0.75;
+
+      if (meetsThreshold) {
+        // Would be protected with current threshold
+        if (confidence >= 0.9) {
+          backgroundColor = 'rgba(16, 185, 129, 0.2)'; // Dark green - high confidence
+          borderColor = '#10b981';
+          label = 'High Confidence';
+        } else if (confidence >= threshold + 0.1) {
+          backgroundColor = 'rgba(34, 197, 94, 0.2)'; // Light green - comfortably above threshold
+          borderColor = '#22c55e';
+          label = 'Above Threshold';
+        } else {
+          backgroundColor = 'rgba(245, 158, 11, 0.2)'; // Orange - just above threshold
+          borderColor = '#f59e0b';
+          label = 'Barely Passes';
+        }
+      } else {
+        // Would NOT be protected with current threshold
+        const gap = threshold - confidence;
+        if (gap <= 0.1) {
+          backgroundColor = 'rgba(239, 68, 68, 0.2)'; // Red - close but below
+          borderColor = '#ef4444';
+          label = 'Below Threshold';
+        } else {
+          backgroundColor = 'rgba(156, 163, 175, 0.2)'; // Gray - well below
+          borderColor = '#9ca3af';
+          label = 'Rejected';
+        }
+      }
     } else {
-      backgroundColor = 'rgba(156, 163, 175, 0.2)'; // Gray
-      borderColor = '#9ca3af';
-      label = 'Rejected';
+      // Other types - use confidence levels
+      if (confidence >= 0.8) {
+        backgroundColor = 'rgba(16, 185, 129, 0.2)'; // Green
+        borderColor = '#10b981';
+        label = 'Protected';
+      } else if (confidence >= 0.6) {
+        backgroundColor = 'rgba(245, 158, 11, 0.2)'; // Orange
+        borderColor = '#f59e0b';
+        label = 'Close';
+      } else if (confidence >= 0.4) {
+        backgroundColor = 'rgba(239, 68, 68, 0.2)'; // Red
+        borderColor = '#ef4444';
+        label = 'Low';
+      } else {
+        backgroundColor = 'rgba(156, 163, 175, 0.2)'; // Gray
+        borderColor = '#9ca3af';
+        label = 'Rejected';
+      }
     }
 
     // Create a container for all highlight boxes (for multi-line text)
@@ -529,38 +603,77 @@ function createHighlight(candidate) {
           }
         }
 
-        if (patternTypes.includes(type)) {
-          // For pattern-based matches, show type and value
-          const valueLabel = showingOriginal ? 'Original' : 'Value';
-          tooltipContent = `
-            <div style="font-weight: bold; margin-bottom: 6px; color: ${borderColor};">${label} ${valueLabel}: "${displayValue}"</div>
-            <div style="margin-bottom: 6px;">Type: ${label}</div>
-            <div style="font-size: 11px; opacity: 0.9;">Pattern Match (Always Protected)</div>
-          `;
-        } else {
-          // For proper nouns, show detailed scoring breakdown
-          const breakdownText = Object.entries(scoreBreakdown)
-            .filter(([key]) => !key.endsWith('_detail'))
+        // Map type to readable names
+        const typeNames = {
+          email: 'Email',
+          phone: 'Phone',
+          ssn: 'SSN',
+          creditCard: 'Credit Card',
+          date: 'Date',
+          money: 'Money',
+          address: 'Address',
+          url: 'URL',
+          ipAddress: 'IP Address',
+          location: 'Location',
+          properNoun: 'Proper Noun',
+          quantity: 'Quantity',
+        };
+        const typeName = typeNames[candidate.type] || candidate.type;
+
+        // Build tooltip with: Type, Value, Confidence, Score Breakdown
+        const valueLabel = showingOriginal ? 'Original' : 'Value';
+        const confidencePercent = Math.round(confidence * 100);
+
+        tooltipContent = `
+          <div style="font-weight: bold; color: ${borderColor}; margin-bottom: 6px;">
+            ${typeName}
+          </div>
+          <div style="font-size: 11px; opacity: 0.9;">
+            ${valueLabel}: "${displayValue}"
+          </div>
+          <div style="font-size: 11px; opacity: 0.9; margin-top: 4px;">
+            Confidence: ${confidencePercent}%
+          </div>
+        `;
+
+        // Add score breakdown if available (for proper nouns)
+        if (scoreBreakdown && Object.keys(scoreBreakdown).length > 0) {
+          const breakdownItems = Object.entries(scoreBreakdown)
+            .filter(([_, value]) => value > 0)
             .map(([key, value]) => {
-              const detail = scoreBreakdown[`${key}_detail`];
-              const displayKey = key
+              // Format the key nicely
+              const formattedKey = key
+                .replace(/_/g, ' ')
                 .replace(/([A-Z])/g, ' $1')
-                .replace(/^./, (str) => str.toUpperCase());
-              return `${displayKey}: ${typeof value === 'number' ? value.toFixed(1) : value}${detail ? ` (${detail})` : ''}`;
+                .trim()
+                .split(' ')
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+
+              // Show detail if available
+              const detailKey = `${key}_detail`;
+              const detail = scoreBreakdown[detailKey];
+              const displayValue = detail ? `${detail}` : `+${(value * 100).toFixed(0)}%`;
+
+              return `${formattedKey}: ${displayValue}`;
             })
             .join('<br>');
 
-          // Determine protection status
-          const isProtected = confidence >= threshold;
-          const statusText = isProtected
-            ? `Score: ${confidence.toFixed(2)} (Protected)`
-            : `Score: ${confidence.toFixed(2)} (Needs ${threshold} to protect)`;
+          if (breakdownItems) {
+            tooltipContent += `
+              <div style="font-size: 10px; opacity: 0.8; margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.2);">
+                ${breakdownItems}
+              </div>
+            `;
+          }
+        }
 
-          const valueLabel = showingOriginal ? 'Original' : 'Detected';
-          tooltipContent = `
-            <div style="font-weight: bold; margin-bottom: 6px; color: ${borderColor};">${label} ${valueLabel}: "${displayValue}"</div>
-            <div style="margin-bottom: 6px;">${statusText}</div>
-            <div style="font-size: 11px; opacity: 0.9;">${breakdownText}</div>
+        // Show threshold for proper nouns
+        if (candidate.type === 'properNoun' && threshold !== undefined) {
+          tooltipContent += `
+            <div style="font-size: 10px; opacity: 0.7; margin-top: 4px;">
+              Threshold: ${Math.round(threshold * 100)}%
+            </div>
           `;
         }
 

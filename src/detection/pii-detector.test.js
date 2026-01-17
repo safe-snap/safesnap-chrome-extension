@@ -33,6 +33,23 @@ describe('PIIDetector', () => {
       expect(detector.dictionary).toBeDefined();
       expect(detector.initialized).toBe(true);
     });
+
+    test('should allow updating proper noun threshold', () => {
+      // Initial threshold (default or from settings)
+      const initialThreshold = detector.properNounThreshold;
+      expect(initialThreshold).toBeDefined();
+
+      // Update threshold
+      detector.setProperNounThreshold(0.9);
+      expect(detector.properNounThreshold).toBe(0.9);
+
+      // Update again
+      detector.setProperNounThreshold(0.5);
+      expect(detector.properNounThreshold).toBe(0.5);
+
+      // Restore original
+      detector.setProperNounThreshold(initialThreshold);
+    });
   });
 
   describe('detectInText', () => {
@@ -120,23 +137,40 @@ describe('PIIDetector', () => {
       expect(dateEntity.original).toMatch(/Dec.*9/i);
     });
 
-    test('should detect dates regardless of other PII types enabled', () => {
-      // Test that dates are detected even when dates type is NOT in the enabled list
+    test('should detect dates regardless of enabled types (detection-first, filter-later architecture)', () => {
       const text =
         'The venture firm filed its own Chapter 11 bankruptcy petition on Dec. 9, attempting to stall the litigation.';
 
-      // Only enable properNouns, NOT dates
-      const entities = detector.detectInText(text, ['properNouns']);
+      // Test 1: With only properNouns enabled, dates are DETECTED but FILTERED OUT
+      const entitiesFiltered = detector.detectInText(text, ['properNouns']);
 
-      // "Dec" should NOT be detected as a proper noun since it's a month abbreviation
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-      const decAsProperNoun = properNouns.find((e) => e.original === 'Dec');
+      // Filtered results should NOT include dates (date type is not enabled)
+      const dateEntitiesFiltered = entitiesFiltered.filter((e) => e.type === 'date');
+      expect(dateEntitiesFiltered.length).toBe(0);
+
+      // "Dec" should NOT be detected as proper noun (date has higher priority - 90 vs 10)
+      const properNouns = entitiesFiltered.filter((e) => e.type === 'properNoun');
+      const decAsProperNoun = properNouns.find((e) => e.original.includes('Dec'));
       expect(decAsProperNoun).toBeUndefined();
 
-      // However, currently dates are NOT detected unless 'date' is in enabled types
-      // This test documents the current behavior - dates are missed when type is disabled
-      const dateEntities = entities.filter((e) => e.type === 'date');
-      expect(dateEntities.length).toBe(0); // FIXME: This should be > 0 after architecture fix
+      // Test 2: Manually call _detectAllTypes to see ALL detected entities (bypassing filter)
+      // This demonstrates that dates ARE detected internally, even when filtered out
+      const allDetected = detector._detectAllTypes(text);
+      const datesDetectedInternally = allDetected.filter((e) => e.type === 'date');
+      expect(datesDetectedInternally.length).toBeGreaterThan(0);
+      const dec9Internal = datesDetectedInternally.find((e) => e.original.includes('Dec'));
+      expect(dec9Internal).toBeDefined();
+      expect(dec9Internal.original).toMatch(/Dec.*9/);
+
+      // Test 3: With both types enabled, date should be detected (not proper noun)
+      const entitiesBoth = detector.detectInText(text, ['date', 'properNouns']);
+      const dateEntitiesBoth = entitiesBoth.filter((e) => e.type === 'date');
+      expect(dateEntitiesBoth.length).toBeGreaterThan(0);
+
+      // "Dec" should still not be a proper noun (date wins priority conflict)
+      const properNounsBoth = entitiesBoth.filter((e) => e.type === 'properNoun');
+      const decAsProperNounBoth = properNounsBoth.find((e) => e.original.includes('Dec'));
+      expect(decAsProperNounBoth).toBeUndefined();
     });
 
     test('should detect addresses', () => {
@@ -924,6 +958,179 @@ describe('PIIDetector', () => {
     });
   });
 
+  describe('type priority conflict resolution', () => {
+    test('should prioritize date over properNoun for "Dec"', () => {
+      const text = 'Meeting scheduled for Dec. 9';
+      const allEntities = detector._detectAllTypes(text);
+
+      // "Dec. 9" should be detected as date (priority 90), NOT "Dec" as proper noun (priority 10)
+      const dates = allEntities.filter((e) => e.type === 'date');
+      expect(dates.length).toBeGreaterThan(0);
+      const decDate = dates.find((e) => e.original.includes('Dec'));
+      expect(decDate).toBeDefined();
+      expect(decDate.type).toBe('date');
+
+      // Should NOT have "Dec" as separate proper noun (date won the priority conflict)
+      const properNouns = allEntities.filter((e) => e.type === 'properNoun');
+      const decAsProperNoun = properNouns.find((e) => e.original === 'Dec');
+      expect(decAsProperNoun).toBeUndefined();
+    });
+
+    test('should prioritize email over url for overlapping matches', () => {
+      const text = 'Contact test@example.com for more info';
+      const allEntities = detector._detectAllTypes(text);
+
+      // Should detect as email (priority 100) not URL (priority 70) if they overlap
+      const emails = allEntities.filter((e) => e.type === 'email');
+      expect(emails.length).toBe(1);
+      expect(emails[0].original).toBe('test@example.com');
+
+      // If there's a URL entity, it shouldn't overlap with the email
+      const urls = allEntities.filter((e) => e.type === 'url');
+      for (const url of urls) {
+        const urlStart = url.start;
+        const urlEnd = url.end;
+        const emailStart = emails[0].start;
+        const emailEnd = emails[0].end;
+        // Check no overlap
+        expect(urlEnd <= emailStart || urlStart >= emailEnd).toBe(true);
+      }
+    });
+
+    test('should prioritize location over properNoun for known cities', () => {
+      const text = 'Traveling to Paris tomorrow';
+      const allEntities = detector._detectAllTypes(text);
+
+      // "Paris" should be location (priority 50) not proper noun (priority 10)
+      const locations = allEntities.filter((e) => e.type === 'location');
+      const paris = locations.find((e) => e.original === 'Paris');
+      expect(paris).toBeDefined();
+      expect(paris.type).toBe('location');
+
+      // Should NOT have "Paris" as a separate proper noun
+      const properNouns = allEntities.filter((e) => e.type === 'properNoun');
+      const parisAsProperNoun = properNouns.find((e) => e.original === 'Paris');
+      expect(parisAsProperNoun).toBeUndefined();
+    });
+
+    test('should use confidence as tiebreaker for same priority', () => {
+      // Two proper nouns that might overlap should use confidence to decide
+      const text = 'Dr. Smith LLC is a company';
+      const allEntities = detector._detectAllTypes(text);
+
+      const properNouns = allEntities.filter((e) => e.type === 'properNoun');
+      expect(properNouns.length).toBeGreaterThan(0);
+
+      // Check no overlapping proper nouns (deduplication worked)
+      for (let i = 1; i < properNouns.length; i++) {
+        const prev = properNouns[i - 1];
+        const current = properNouns[i];
+        expect(current.start).toBeGreaterThanOrEqual(prev.end);
+      }
+    });
+
+    test('should use length as final tiebreaker for same priority and confidence', () => {
+      const text = 'New York City is amazing';
+      const allEntities = detector._detectAllTypes(text);
+
+      // Should prefer longer location match "New York" over shorter matches
+      const locations = allEntities.filter((e) => e.type === 'location');
+
+      // Either no locations detected, or at least one is longer than "New"
+      const hasLongMatch =
+        locations.length === 0 || locations.some((loc) => loc.original.length > 3);
+      expect(hasLongMatch).toBe(true);
+
+      // Check no overlapping entities
+      for (let i = 1; i < allEntities.length; i++) {
+        const prev = allEntities[i - 1];
+        const current = allEntities[i];
+        expect(current.start).toBeGreaterThanOrEqual(prev.end);
+      }
+    });
+
+    test('should handle multiple priority conflicts in same text', () => {
+      const text = 'Email john@example.com on Dec. 15 about the Paris trip';
+      const allEntities = detector._detectAllTypes(text);
+
+      // Should have email (not URL), date (not proper noun "Dec"), location (not proper noun "Paris")
+      const emails = allEntities.filter((e) => e.type === 'email');
+      expect(emails.length).toBe(1);
+
+      const dates = allEntities.filter((e) => e.type === 'date');
+      expect(dates.length).toBeGreaterThan(0);
+
+      const locations = allEntities.filter((e) => e.type === 'location');
+      const paris = locations.find((e) => e.original === 'Paris');
+      expect(paris).toBeDefined();
+
+      // "Dec" should not be a proper noun (date won)
+      const properNouns = allEntities.filter((e) => e.type === 'properNoun');
+      const decAsProperNoun = properNouns.find((e) => e.original === 'Dec');
+      expect(decAsProperNoun).toBeUndefined();
+
+      // Check no overlaps
+      for (let i = 1; i < allEntities.length; i++) {
+        const prev = allEntities[i - 1];
+        const current = allEntities[i];
+        expect(current.start).toBeGreaterThanOrEqual(prev.end);
+      }
+    });
+
+    test('should not remove candidates from different text nodes with same positions', () => {
+      // Bug: Deduplication treats candidates from different nodes as overlapping
+      // if they have the same start/end positions (positions are node-relative, not document-relative)
+      //
+      // Example: H1 has "Bay Area" at position 78-86
+      //          P has "something" at position 78-86
+      // These should NOT be considered overlapping because they're in different nodes!
+
+      // Create mock text nodes
+      const headingNode = {
+        textContent:
+          "'The situation is dire': Dispute with Russian billionaire leads to 4 Bay Area bankruptcies",
+        parentElement: { tagName: 'H1' },
+      };
+
+      const bodyNode = {
+        textContent:
+          'This is a long paragraph with some text at the same position offsets as the heading but in a different node',
+        parentElement: { tagName: 'P' },
+      };
+
+      // Heading candidate: "Bay Area" at position 78-86 in H1
+      const headingCandidate = {
+        type: 'location',
+        original: 'Bay Area',
+        start: 78,
+        end: 86,
+        confidence: 0.9,
+        node: headingNode,
+        nodeText: headingNode.textContent,
+      };
+
+      // Body candidate: some word at SAME position 78-86 but in DIFFERENT node
+      const bodyCandidate = {
+        type: 'properNoun',
+        original: 'position',
+        start: 78,
+        end: 86,
+        confidence: 0.7,
+        node: bodyNode,
+        nodeText: bodyNode.textContent,
+      };
+
+      // Both candidates should survive deduplication because they're in different nodes
+      const allCandidates = [headingCandidate, bodyCandidate];
+      const deduplicated = detector._deduplicateWithPriority(allCandidates);
+
+      // Both should be present (they're from different nodes, so no real overlap)
+      expect(deduplicated.length).toBe(2);
+      expect(deduplicated.some((c) => c.original === 'Bay Area')).toBe(true);
+      expect(deduplicated.some((c) => c.original === 'position')).toBe(true);
+    });
+  });
+
   describe('getStats', () => {
     test('should return statistics', () => {
       const entities = [
@@ -1231,6 +1438,97 @@ describe('PIIDetector', () => {
         getAttribute: () => null,
       };
       expect(detector._shouldSkipElementForDebug(linkEl)).toBe(false);
+    });
+
+    test('should skip elements with safesnap- id prefix', () => {
+      const mockElement = {
+        tagName: 'DIV',
+        id: 'safesnap-notification-panel',
+        className: '',
+        getAttribute: () => null,
+        closest: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(mockElement)).toBe(true);
+    });
+
+    test('should skip elements with safesnap- in className', () => {
+      const mockElement = {
+        tagName: 'DIV',
+        id: '',
+        className: 'safesnap-highlight-overlay',
+        getAttribute: () => null,
+        closest: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(mockElement)).toBe(true);
+    });
+
+    test('should skip descendants of safesnap elements (id check)', () => {
+      const mockElement = {
+        tagName: 'SPAN',
+        id: '',
+        className: '',
+        getAttribute: () => null,
+        closest: (selector) => (selector === '[id^="safesnap-"]' ? {} : null),
+      };
+      expect(detector._shouldSkipElementForDebug(mockElement)).toBe(true);
+    });
+
+    test('should skip descendants of safesnap elements (class check)', () => {
+      const mockElement = {
+        tagName: 'SPAN',
+        id: '',
+        className: '',
+        getAttribute: () => null,
+        closest: (selector) => (selector === '[class*="safesnap-"]' ? {} : null),
+      };
+      expect(detector._shouldSkipElementForDebug(mockElement)).toBe(true);
+    });
+
+    test('should handle SVG elements with non-string className', () => {
+      const mockSVG = {
+        tagName: 'RECT',
+        id: '',
+        className: { baseVal: 'some-class', animVal: 'some-class' }, // SVGAnimatedString
+        getAttribute: () => null,
+        closest: () => null,
+      };
+      // Should not throw and should not skip (no safesnap- prefix)
+      expect(() => detector._shouldSkipElementForDebug(mockSVG)).not.toThrow();
+      expect(detector._shouldSkipElementForDebug(mockSVG)).toBe(false);
+    });
+
+    test('should not skip regular elements without safesnap prefix', () => {
+      const mockElement = {
+        tagName: 'DIV',
+        id: 'regular-div',
+        className: 'regular-class',
+        getAttribute: () => null,
+        closest: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(mockElement)).toBe(false);
+    });
+
+    test('should skip elements with role="navigation"', () => {
+      const mockElement = {
+        tagName: 'DIV',
+        id: '',
+        className: '',
+        getAttribute: (attr) => (attr === 'role' ? 'navigation' : null),
+        closest: () => null,
+      };
+      expect(detector._shouldSkipElementForDebug(mockElement)).toBe(true);
+    });
+
+    test('should allow heading elements in debug mode', () => {
+      const mockElement = {
+        tagName: 'H1',
+        id: '',
+        className: '',
+        getAttribute: () => null,
+        closest: () => null,
+      };
+      // Headings should NOT be skipped in debug mode (for visualization)
+      expect(detector._shouldSkipElementForDebug(mockElement)).toBe(false);
     });
   });
 

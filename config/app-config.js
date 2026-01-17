@@ -128,6 +128,31 @@ export const APP_CONFIG = {
 
     // Enable debug mode highlighting (can be toggled in settings)
     debugMode: false,
+
+    // Type priority system for conflict resolution
+    // When multiple PII types overlap (e.g., "Dec" could be date or proper noun),
+    // higher priority types win. Pattern-based types have highest priority.
+    typePriorities: {
+      // Pattern matches (highest priority - they're precise)
+      email: 100,
+      phone: 100,
+      ssn: 100,
+      creditCard: 100,
+      ipAddress: 100,
+
+      // Structured data (high priority)
+      date: 90,
+      money: 85,
+      address: 75,
+      url: 70,
+      quantity: 60,
+
+      // Geographic (medium priority)
+      location: 50,
+
+      // Proper nouns (lowest priority - they're fuzzy/ambiguous)
+      properNoun: 10,
+    },
   },
 
   // Replacement Pools Sizes

@@ -363,6 +363,36 @@ document.querySelectorAll('input[name="redactionMode"]').forEach((radio) => {
   });
 });
 
+// Proper Noun Detection Sensitivity Slider
+const thresholdSlider = document.getElementById('popup-threshold');
+const thresholdValue = document.getElementById('popup-threshold-value');
+const thresholdDescription = document.getElementById('popup-threshold-description');
+
+// Helper function to get threshold description
+function getThresholdDescription(value) {
+  const numValue = parseFloat(value);
+  if (numValue < 0.7) {
+    return 'Aggressive - Detects more names, may include job titles';
+  } else if (numValue <= 0.8) {
+    return 'Balanced - Good accuracy with minimal false positives';
+  } else {
+    return 'Conservative - Only very confident name matches';
+  }
+}
+
+// Update slider value display as user drags
+thresholdSlider.addEventListener('input', (e) => {
+  const value = (parseInt(e.target.value) / 100).toFixed(2);
+  thresholdValue.textContent = value;
+  thresholdDescription.textContent = getThresholdDescription(value);
+});
+
+// Save when user releases slider
+thresholdSlider.addEventListener('change', async (e) => {
+  const value = parseInt(e.target.value) / 100;
+  await saveSetting('properNounThreshold', value);
+});
+
 // Add change listeners to all PII type checkboxes
 document.querySelectorAll('.checkbox-group input[type="checkbox"]').forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
@@ -410,6 +440,18 @@ async function loadSettings() {
       if (radioButton) {
         radioButton.checked = true;
       }
+    }
+
+    // Set proper noun threshold slider
+    const threshold = settings.properNounThreshold || 0.75; // Default to 0.75
+    const thresholdSlider = document.getElementById('popup-threshold');
+    const thresholdValue = document.getElementById('popup-threshold-value');
+    const thresholdDescription = document.getElementById('popup-threshold-description');
+
+    if (thresholdSlider && thresholdValue && thresholdDescription) {
+      thresholdSlider.value = Math.round(threshold * 100);
+      thresholdValue.textContent = threshold.toFixed(2);
+      thresholdDescription.textContent = getThresholdDescription(threshold);
     }
   } catch (error) {
     console.error('Error loading settings:', error);

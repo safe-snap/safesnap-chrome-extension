@@ -42,184 +42,257 @@ export class PIIDetector {
   }
 
   /**
+   * Update proper noun detection threshold
+   * Used when user changes sensitivity setting
+   * @param {number} threshold - New threshold value (0.0 to 1.0)
+   */
+  setProperNounThreshold(threshold) {
+    this.properNounThreshold = threshold;
+    console.log(`[PIIDetector] Threshold updated to: ${threshold}`);
+  }
+
+  /**
    * Detect PII in text string
+   * Always detects ALL types, then filters by enabledTypes
    * @param {string} text - Text to analyze
-   * @param {Array<string>} enabledTypes - PII types to detect
+   * @param {Array<string>} enabledTypes - Types to include in results (filter, not detection control)
    * @returns {Array<Object>} Array of detected PII entities
    */
   detectInText(text, enabledTypes = null) {
-    const types = enabledTypes ||
-      APP_CONFIG.defaults?.enabledPIITypes || ['properNouns', 'money', 'quantities'];
+    // ALWAYS detect all types
+    const allEntities = this._detectAllTypes(text);
+
+    // Filter by enabled types if specified
+    if (enabledTypes && enabledTypes.length > 0) {
+      return this._filterByEnabledTypes(allEntities, enabledTypes);
+    }
+
+    // No filter specified, use defaults or return all
+    const defaultTypes = APP_CONFIG.defaults?.enabledPIITypes;
+    if (defaultTypes && defaultTypes.length > 0) {
+      return this._filterByEnabledTypes(allEntities, defaultTypes);
+    }
+
+    return allEntities;
+  }
+
+  /**
+   * Detect all PII types in text (ignores enabledTypes parameter)
+   * This is the core detection logic that always runs on all types
+   * @private
+   * @param {string} text - Text to analyze
+   * @returns {Array<Object>} All detected entities
+   */
+  _detectAllTypes(text) {
     const entities = [];
 
-    // Pattern-based detection (emails, phones, money, etc.)
-    if (types.includes('emails') || types.includes('email')) {
-      const emails = this.patternMatcher.findEmails(text);
-      entities.push(
-        ...emails.map((match) => ({
-          type: 'email',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-        }))
-      );
+    // Pattern-based detection (always run)
+    const emails = this.patternMatcher.findEmails(text);
+    entities.push(
+      ...emails.map((m) => ({
+        type: 'email',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+      }))
+    );
+
+    const phones = this.patternMatcher.findPhones(text);
+    entities.push(
+      ...phones.map((m) => ({
+        type: 'phone',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+      }))
+    );
+
+    const money = this.patternMatcher.findMoney(text);
+    entities.push(
+      ...money.map((m) => ({
+        type: 'money',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+        metadata: m,
+      }))
+    );
+
+    const quantities = this.patternMatcher.findQuantities(text);
+    entities.push(
+      ...quantities.map((m) => ({
+        type: 'quantity',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+        metadata: m,
+      }))
+    );
+
+    const urls = this.patternMatcher.findURLs(text);
+    entities.push(
+      ...urls.map((m) => ({
+        type: 'url',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+      }))
+    );
+
+    const ipAddresses = this.patternMatcher.findIPAddresses(text);
+    entities.push(
+      ...ipAddresses.map((m) => ({
+        type: 'ipAddress',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+      }))
+    );
+
+    const ssns = this.patternMatcher.findSSNs(text);
+    entities.push(
+      ...ssns.map((m) => ({
+        type: 'ssn',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+      }))
+    );
+
+    const creditCards = this.patternMatcher.findCreditCards(text);
+    entities.push(
+      ...creditCards.map((m) => ({
+        type: 'creditCard',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 1.0,
+        metadata: m,
+      }))
+    );
+
+    const dates = this.patternMatcher.findDates(text);
+    entities.push(
+      ...dates.map((m) => ({
+        type: 'date',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 0.8,
+      }))
+    );
+
+    const addresses = this.patternMatcher.findAddresses(text);
+    entities.push(
+      ...addresses.map((m) => ({
+        type: 'address',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: 0.7,
+      }))
+    );
+
+    // Locations (geographic entities)
+    const locations = this.patternMatcher.findLocations(text);
+    entities.push(
+      ...locations.map((m) => ({
+        type: 'location',
+        original: m.value,
+        start: m.start,
+        end: m.end,
+        confidence: m.matchType === 'gazetteer' ? 0.95 : 0.9,
+        metadata: { matchType: m.matchType },
+      }))
+    );
+
+    // Proper nouns (always run, but lowest priority)
+    const properNouns = this._detectProperNouns(text);
+    entities.push(...properNouns);
+
+    // Deduplicate with type priority
+    return this._deduplicateWithPriority(entities);
+  }
+
+  /**
+   * Filter detected entities by enabled types
+   * @private
+   * @param {Array<Object>} entities - All detected entities
+   * @param {Array<string>} enabledTypes - Types to include in results
+   * @returns {Array<Object>} Filtered entities
+   */
+  _filterByEnabledTypes(entities, enabledTypes) {
+    if (!enabledTypes || enabledTypes.length === 0) {
+      return entities; // No filter, return all
     }
 
-    if (types.includes('phones') || types.includes('phone')) {
-      const phones = this.patternMatcher.findPhones(text);
-      entities.push(
-        ...phones.map((match) => ({
-          type: 'phone',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-        }))
-      );
+    // Normalize type names (handle singular/plural variations)
+    const normalizedTypes = new Set();
+    for (const type of enabledTypes) {
+      normalizedTypes.add(type);
+      // Add common variations
+      if (type === 'email' || type === 'emails') {
+        normalizedTypes.add('email');
+        normalizedTypes.add('emails');
+      }
+      if (type === 'phone' || type === 'phones') {
+        normalizedTypes.add('phone');
+        normalizedTypes.add('phones');
+      }
+      if (type === 'address' || type === 'addresses') {
+        normalizedTypes.add('address');
+        normalizedTypes.add('addresses');
+      }
+      if (type === 'location' || type === 'locations') {
+        normalizedTypes.add('location');
+        normalizedTypes.add('locations');
+      }
+      if (type === 'properNoun' || type === 'properNouns') {
+        normalizedTypes.add('properNoun');
+        normalizedTypes.add('properNouns');
+      }
+      if (type === 'quantity' || type === 'quantities') {
+        normalizedTypes.add('quantity');
+        normalizedTypes.add('quantities');
+      }
+      if (type === 'date' || type === 'dates') {
+        normalizedTypes.add('date');
+        normalizedTypes.add('dates');
+      }
+      if (type === 'url' || type === 'urls') {
+        normalizedTypes.add('url');
+        normalizedTypes.add('urls');
+      }
+      if (type === 'ip' || type === 'ips' || type === 'ipAddress') {
+        normalizedTypes.add('ip');
+        normalizedTypes.add('ips');
+        normalizedTypes.add('ipAddress');
+      }
     }
 
-    if (types.includes('money')) {
-      const money = this.patternMatcher.findMoney(text);
-      entities.push(
-        ...money.map((match) => ({
-          type: 'money',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-          metadata: match,
-        }))
-      );
-    }
-
-    if (types.includes('quantities')) {
-      const quantities = this.patternMatcher.findQuantities(text);
-      entities.push(
-        ...quantities.map((match) => ({
-          type: 'quantity',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-          metadata: match,
-        }))
-      );
-    }
-
-    if (types.includes('urls') || types.includes('url')) {
-      const urls = this.patternMatcher.findURLs(text);
-      entities.push(
-        ...urls.map((match) => ({
-          type: 'url',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-        }))
-      );
-    }
-
-    if (types.includes('ips') || types.includes('ipAddress')) {
-      const ips = this.patternMatcher.findIPAddresses(text);
-      entities.push(
-        ...ips.map((match) => ({
-          type: 'ipAddress',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-        }))
-      );
-    }
-
-    if (types.includes('ssn')) {
-      const ssns = this.patternMatcher.findSSNs(text);
-      entities.push(
-        ...ssns.map((match) => ({
-          type: 'ssn',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-        }))
-      );
-    }
-
-    if (types.includes('creditCard')) {
-      const cards = this.patternMatcher.findCreditCards(text);
-      entities.push(
-        ...cards.map((match) => ({
-          type: 'creditCard',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 1.0,
-        }))
-      );
-    }
-
-    if (types.includes('dates') || types.includes('date')) {
-      const dates = this.patternMatcher.findDates(text);
-      entities.push(
-        ...dates.map((match) => ({
-          type: 'date',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 0.8, // Lower confidence for dates
-        }))
-      );
-    }
-
-    if (types.includes('addresses') || types.includes('address')) {
-      const addresses = this.patternMatcher.findAddresses(text);
-      entities.push(
-        ...addresses.map((match) => ({
-          type: 'address',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: 0.7, // Lower confidence for addresses
-        }))
-      );
-    }
-
-    if (types.includes('locations') || types.includes('location')) {
-      const locations = this.patternMatcher.findLocations(text);
-      entities.push(
-        ...locations.map((match) => ({
-          type: 'location',
-          original: match.value,
-          start: match.start,
-          end: match.end,
-          confidence: match.matchType === 'gazetteer' ? 0.95 : 0.9, // High confidence for locations
-          metadata: { matchType: match.matchType }, // 'pattern' or 'gazetteer'
-        }))
-      );
-    }
-
-    // Proper noun detection (names, companies)
-    if (types.includes('properNouns')) {
-      const properNouns = this._detectProperNouns(text);
-      entities.push(...properNouns);
-    }
-
-    // Sort by position and remove overlaps
-    return this._deduplicateEntities(entities);
+    return entities.filter((entity) => {
+      // Check if entity type is in normalized types
+      return normalizedTypes.has(entity.type);
+    });
   }
 
   /**
    * Detect all PII candidates for debug/highlight mode
    * Returns ALL candidates including those below threshold for debugging
+   * Always detects all types, then filters by enabledTypes
    * @param {Element} rootElement - Root element to scan
-   * @param {Array<string>} enabledTypes - PII types to detect
+   * @param {Array<string>} enabledTypes - Types to include in results (filter, not detection control)
    * @returns {Array<Object>} Array of all candidates with scores and debug info
    */
   detectWithDebugInfo(rootElement, enabledTypes = null) {
     const allCandidates = [];
-    const types = enabledTypes ||
-      APP_CONFIG.defaults?.enabledPIITypes || ['properNouns', 'money', 'quantities'];
 
     const walker = document.createTreeWalker(rootElement, NodeFilter.SHOW_TEXT, {
       acceptNode: (node) => {
@@ -237,194 +310,252 @@ export class PIIDetector {
     let currentNode;
     while ((currentNode = walker.nextNode())) {
       const text = currentNode.textContent;
+      const parentTag = currentNode.parentElement?.tagName;
+      const isHeading = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(parentTag);
 
-      // Process proper nouns if enabled
-      if (types.includes('properNouns')) {
-        const properNounCandidates = this._detectAllProperNounCandidates(text, currentNode);
-        properNounCandidates.forEach((candidate) => {
-          allCandidates.push({
-            ...candidate,
-            node: currentNode,
-            nodeText: text,
-          });
+      // Debug logging for heading elements
+      if (isHeading) {
+        console.log('[SafeSnap Debug] Processing heading text:', {
+          tag: parentTag,
+          text: text.substring(0, 100),
+          textLength: text.length,
         });
       }
 
-      // Process emails if enabled
-      if (types.includes('emails') || types.includes('email')) {
-        const emailMatches = this.patternMatcher.matchType(text, 'email');
-        emailMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'email',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process proper nouns
+      const properNounCandidates = this._detectAllProperNounCandidates(text, currentNode);
+      properNounCandidates.forEach((candidate) => {
+        allCandidates.push({
+          ...candidate,
+          node: currentNode,
+          nodeText: text,
+        });
+      });
+
+      // Debug logging for heading proper noun candidates
+      if (isHeading && properNounCandidates.length > 0) {
+        console.log('[SafeSnap Debug] Found proper noun candidates in heading:', {
+          tag: parentTag,
+          count: properNounCandidates.length,
+          candidates: properNounCandidates.map((c) => ({
+            value: c.original,
+            score: c.score,
+            confidence: c.confidence,
+          })),
         });
       }
 
-      // Process phones if enabled
-      if (types.includes('phones') || types.includes('phone')) {
-        const phoneMatches = this.patternMatcher.matchType(text, 'phone');
-        phoneMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'phone',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process emails
+      const emailMatches = this.patternMatcher.matchType(text, 'email');
+      emailMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'email',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process money if enabled
-      if (types.includes('money')) {
-        const moneyMatches = this.patternMatcher.matchType(text, 'money');
-        moneyMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'money',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process phones
+      const phoneMatches = this.patternMatcher.matchType(text, 'phone');
+      phoneMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'phone',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process quantities if enabled
-      if (types.includes('quantities')) {
-        const quantityMatches = this.patternMatcher.matchType(text, 'quantity');
-        quantityMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'quantity',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process money
+      const moneyMatches = this.patternMatcher.matchType(text, 'money');
+      moneyMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'money',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process addresses if enabled
-      if (types.includes('addresses') || types.includes('address')) {
-        const addressMatches = this.patternMatcher.matchType(text, 'address');
-        addressMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'address',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process quantities
+      const quantityMatches = this.patternMatcher.matchType(text, 'quantity');
+      quantityMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'quantity',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process URLs if enabled
-      if (types.includes('urls') || types.includes('url')) {
-        const urlMatches = this.patternMatcher.matchType(text, 'url');
-        urlMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'url',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process addresses
+      const addressMatches = this.patternMatcher.matchType(text, 'address');
+      addressMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'address',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 0.7,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process credit cards if enabled
-      if (types.includes('creditCards') || types.includes('creditCard')) {
-        const creditCardMatches = this.patternMatcher.matchType(text, 'creditCard');
-        creditCardMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'creditCard',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process URLs
+      const urlMatches = this.patternMatcher.matchType(text, 'url');
+      urlMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'url',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process dates if enabled
-      if (types.includes('dates') || types.includes('date')) {
-        const dateMatches = this.patternMatcher.matchType(text, 'date');
-        dateMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'date',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process IP addresses
+      const ipMatches = this.patternMatcher.matchType(text, 'ipAddress');
+      ipMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'ipAddress',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process IPs if enabled
-      if (types.includes('ips') || types.includes('ip')) {
-        const ipv4Matches = this.patternMatcher.matchType(text, 'ipv4');
-        ipv4Matches.forEach((match) => {
-          allCandidates.push({
-            type: 'ip',
-            original: match.value,
-            start: match.index,
-            end: match.index + match.length,
-            confidence: 1.0,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: { patternMatch: 1.0 },
-          });
+      // ALWAYS process SSNs
+      const ssnMatches = this.patternMatcher.matchType(text, 'ssn');
+      ssnMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'ssn',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
 
-      // Process locations if enabled
-      if (types.includes('locations') || types.includes('location')) {
-        const locationMatches = this.patternMatcher.findLocations(text);
-        locationMatches.forEach((match) => {
-          allCandidates.push({
-            type: 'location',
-            original: match.value,
-            start: match.start,
-            end: match.end,
-            confidence: match.matchType === 'gazetteer' ? 0.95 : 0.9,
-            node: currentNode,
-            nodeText: text,
-            scoreBreakdown: {
-              patternMatch: match.matchType === 'pattern' ? 1.0 : 0,
-              gazetteerMatch: match.matchType === 'gazetteer' ? 1.0 : 0,
-            },
-          });
+      // ALWAYS process credit cards
+      const creditCardMatches = this.patternMatcher.matchType(text, 'creditCard');
+      creditCardMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'creditCard',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 1.0,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
         });
-      }
+      });
+
+      // ALWAYS process dates
+      const dateMatches = this.patternMatcher.matchType(text, 'date');
+      dateMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'date',
+          original: match.value,
+          start: match.index,
+          end: match.index + match.length,
+          confidence: 0.8,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: { patternMatch: 1.0 },
+        });
+      });
+
+      // ALWAYS process locations
+      const locationMatches = this.patternMatcher.findLocations(text);
+      locationMatches.forEach((match) => {
+        allCandidates.push({
+          type: 'location',
+          original: match.value,
+          start: match.start,
+          end: match.end,
+          confidence: match.matchType === 'gazetteer' ? 0.95 : 0.9,
+          node: currentNode,
+          nodeText: text,
+          scoreBreakdown: {
+            patternMatch: match.matchType === 'pattern' ? 1.0 : 0,
+            gazetteerMatch: match.matchType === 'gazetteer' ? 1.0 : 0,
+          },
+        });
+      });
     }
 
-    return allCandidates;
+    console.log('[SafeSnap Debug] BEFORE deduplication - all candidates:', {
+      total: allCandidates.length,
+      headingCandidates: allCandidates.filter((c) =>
+        ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(c.node?.parentElement?.tagName)
+      ),
+    });
+
+    // Deduplicate with priority BEFORE filtering
+    const deduplicated = this._deduplicateWithPriority(allCandidates);
+
+    console.log('[SafeSnap Debug] AFTER deduplication:', {
+      totalCandidates: allCandidates.length,
+      afterDedup: deduplicated.length,
+      headingCandidatesLeft: deduplicated.filter((c) =>
+        ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(c.node?.parentElement?.tagName)
+      ),
+    });
+
+    // Filter by enabled types if specified
+    if (enabledTypes && enabledTypes.length > 0) {
+      const filtered = this._filterByEnabledTypes(deduplicated, enabledTypes);
+      console.log('[SafeSnap Debug] After filtering by enabled types:', {
+        enabledTypes,
+        beforeFilter: deduplicated.length,
+        afterFilter: filtered.length,
+        headingCandidatesBeforeFilter: deduplicated.filter((c) =>
+          ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(c.node?.parentElement?.tagName)
+        ),
+        headingCandidatesAfterFilter: filtered.filter((c) =>
+          ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(c.node?.parentElement?.tagName)
+        ),
+      });
+      return filtered;
+    }
+
+    // No filter specified, use defaults or return all
+    const defaultTypes = APP_CONFIG.defaults?.enabledPIITypes;
+    if (defaultTypes && defaultTypes.length > 0) {
+      return this._filterByEnabledTypes(deduplicated, defaultTypes);
+    }
+
+    return deduplicated;
   }
 
   /**
@@ -976,6 +1107,19 @@ export class PIIDetector {
     const tagName = element.tagName.toUpperCase();
     const config = APP_CONFIG.skipElements;
 
+    // Skip SafeSnap's own UI elements (notification panels, highlight overlays, etc.)
+    const elementId = element.id || '';
+    // className can be a string or SVGAnimatedString object, convert to string
+    const elementClass = typeof element.className === 'string' ? element.className : '';
+    if (
+      elementId.startsWith('safesnap-') ||
+      elementClass.includes('safesnap-') ||
+      element.closest?.('[id^="safesnap-"]') ||
+      element.closest?.('[class*="safesnap-"]')
+    ) {
+      return true;
+    }
+
     // In debug mode, skip: common elements + debug-only (non-text content)
     // Do NOT skip: replacement elements (headings, formatting) - we want to visualize those
     const skipTags = [
@@ -999,12 +1143,91 @@ export class PIIDetector {
   }
 
   /**
-   * Remove overlapping entities (keep highest confidence)
+   * Remove overlapping entities using type priority and confidence
    * @private
    * @param {Array<Object>} entities - Array of entities
    * @returns {Array<Object>} Deduplicated entities
    */
+  _deduplicateWithPriority(entities) {
+    if (entities.length === 0) return [];
+
+    const priorities = APP_CONFIG.properNounDetection?.typePriorities || {};
+
+    // Group entities by their text node
+    // This ensures we only compare overlaps within the same text node
+    const byNode = new Map();
+    for (const entity of entities) {
+      const nodeKey = entity.node || 'unknown';
+      if (!byNode.has(nodeKey)) {
+        byNode.set(nodeKey, []);
+      }
+      byNode.get(nodeKey).push(entity);
+    }
+
+    // Deduplicate within each text node separately
+    const allDeduplicated = [];
+    for (const nodeEntities of byNode.values()) {
+      // Sort by position first, then by priority (high to low)
+      const sorted = [...nodeEntities].sort((a, b) => {
+        if (a.start !== b.start) {
+          return a.start - b.start;
+        }
+        // If same start position, prioritize by type
+        const priorityA = priorities[a.type] || 0;
+        const priorityB = priorities[b.type] || 0;
+        return priorityB - priorityA; // Higher priority first
+      });
+
+      let lastEnd = -1;
+
+      for (const entity of sorted) {
+        if (entity.start >= lastEnd) {
+          // No overlap, add it
+          allDeduplicated.push(entity);
+          lastEnd = entity.end;
+        } else {
+          // Overlap detected - decide which to keep
+          const lastEntity = allDeduplicated[allDeduplicated.length - 1];
+
+          const priorityNew = priorities[entity.type] || 0;
+          const priorityLast = priorities[lastEntity.type] || 0;
+
+          if (priorityNew > priorityLast) {
+            // Replace with higher priority type
+            allDeduplicated[allDeduplicated.length - 1] = entity;
+            lastEnd = entity.end;
+          } else if (priorityNew === priorityLast) {
+            // Same priority - use confidence as tiebreaker
+            if (entity.confidence > lastEntity.confidence) {
+              allDeduplicated[allDeduplicated.length - 1] = entity;
+              lastEnd = entity.end;
+            } else if (entity.confidence === lastEntity.confidence) {
+              // Same confidence - use length (longer match wins)
+              const lengthNew = entity.end - entity.start;
+              const lengthLast = lastEntity.end - lastEntity.start;
+              if (lengthNew > lengthLast) {
+                allDeduplicated[allDeduplicated.length - 1] = entity;
+                lastEnd = entity.end;
+              }
+            }
+          }
+          // Otherwise keep existing entity (has higher priority/confidence/length)
+        }
+      }
+    }
+
+    return allDeduplicated;
+  }
+
+  /**
+   * Remove overlapping entities (keep highest confidence)
+   * @private
+   * @param {Array<Object>} entities - Array of entities
+   * @returns {Array<Object>} Deduplicated entities
+   * @deprecated Use _deduplicateWithPriority instead
+   */
   _deduplicateEntities(entities) {
+    // Keep old method for backward compatibility during transition
     // Sort by position
     const sorted = [...entities].sort((a, b) => a.start - b.start);
 

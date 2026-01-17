@@ -418,12 +418,72 @@ export class Replacer {
     // Parse the date
     let date;
     try {
+      // Check if it's a standalone month name (no day/year)
+      const monthOnlyPattern =
+        /^(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?$/i;
+      if (monthOnlyPattern.test(original.trim())) {
+        // For standalone months, just replace with another month
+        const months = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ];
+        const shortMonths = [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec',
+        ];
+
+        // Determine if it's short or long format
+        const isShort = original.length <= 4;
+        const currentMonth = isShort
+          ? shortMonths.findIndex((m) => original.toLowerCase().startsWith(m.toLowerCase()))
+          : months.findIndex((m) => m.toLowerCase() === original.toLowerCase().replace('.', ''));
+
+        if (currentMonth !== -1) {
+          // Pick a different random month
+          let newMonth;
+          do {
+            newMonth = Math.floor(Math.random() * 12);
+          } while (newMonth === currentMonth);
+
+          const replacement = isShort ? shortMonths[newMonth] : months[newMonth];
+          return original.endsWith('.') ? replacement + '.' : replacement;
+        }
+        // If we can't find the month, return original
+        return original;
+      }
+
       date = new Date(original);
       if (isNaN(date.getTime())) {
         // Try common formats manually
         const parts = original.match(/\d+/g);
         if (parts && parts.length >= 3) {
           date = new Date(parts[2], parts[0] - 1, parts[1]);
+          // Validate the parsed date
+          if (isNaN(date.getTime())) {
+            return original;
+          }
+        } else {
+          return original;
         }
       }
     } catch (e) {
