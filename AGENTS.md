@@ -24,7 +24,7 @@ bun run build:dev          # Development build with source maps
 bun run dev                # Development build with watch mode
 
 # Testing - CRITICAL: Always use "bun run test", NOT "bun test"
-bun run test               # Run all tests (338 tests)
+bun run test               # Run all tests 
 bun run test:watch         # Watch mode for TDD
 bun run test:coverage      # Generate coverage report (>80% required)
 bun run test path/to/file.test.js  # Run single test file
@@ -60,7 +60,81 @@ bun run test -- --coverage --collectCoverageFrom=src/detection/pii-detector.js
 - **ALWAYS** use `bun run test` (runs Jest through Bun)
 - **NEVER** use `bun test` (uses Bun's test runner, causes 2 test failures)
 - See TESTING.md for detailed explanation of test runner differences
-- CI/CD uses `bun run test` and all 338 tests pass
+- CI/CD uses `bun run test` and all 433 tests pass
+
+## Automated Quality Checks Workflow
+
+**REQUIRED:** After making ANY code changes, automatically run the following checks:
+
+### Step 1: Lint
+
+```bash
+bun run lint:fix
+```
+
+- Catches code style issues and potential bugs
+- Must pass with zero errors
+- If errors found, fix them before proceeding
+
+### Step 2: Test
+
+```bash
+bun run test
+```
+
+- Verifies all functionality still works
+- Must pass all 433 tests
+- If failures found, fix them before proceeding
+
+### Step 3: Build
+
+```bash
+bun run build
+```
+
+- Ensures code compiles without errors
+- Verifies webpack bundling works
+- Must complete successfully
+
+### Workflow Example
+
+```bash
+# After making code changes:
+bun run lint && bun run test && bun run build
+
+# If all pass ✅ → Report success to user
+# If any fail ❌ → Fix issues and re-run
+```
+
+### When to Run Checks
+
+Run the full quality check workflow after:
+
+- ✅ Modifying source code (src/\*_/_.js)
+- ✅ Modifying configuration (config/\*\*, webpack.config.js)
+- ✅ Modifying tests (\*_/_.test.js)
+- ✅ Adding new files or dependencies
+- ❌ Reading files or searching code (no checks needed)
+- ❌ Discussing or planning changes (no checks needed)
+
+### Reporting to User
+
+Always include check results in your response:
+
+```
+✅ Lint: Passed (no errors)
+✅ Tests: 433 passed
+✅ Build: Successful (892ms)
+```
+
+Or if issues found:
+
+```
+❌ Lint: 2 errors found
+  - src/detection/pii-detector.js:123 - Unused variable 'foo'
+  - src/detection/pii-detector.js:456 - Missing semicolon
+→ Fixing issues...
+```
 
 ## Code Style Guidelines
 

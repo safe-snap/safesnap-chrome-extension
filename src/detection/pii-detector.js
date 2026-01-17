@@ -240,7 +240,7 @@ export class PIIDetector {
 
       // Process proper nouns if enabled
       if (types.includes('properNouns')) {
-        const properNounCandidates = this._detectAllProperNounCandidates(text);
+        const properNounCandidates = this._detectAllProperNounCandidates(text, currentNode);
         properNounCandidates.forEach((candidate) => {
           allCandidates.push({
             ...candidate,
@@ -432,9 +432,10 @@ export class PIIDetector {
    * Used for debug mode visualization
    * @private
    * @param {string} text - Text to analyze
+   * @param {Node} node - DOM node containing the text (optional, for context signals)
    * @returns {Array<Object>} Array of all candidates with scores
    */
-  _detectAllProperNounCandidates(text) {
+  _detectAllProperNounCandidates(text, node = null) {
     const candidates = [];
     const minimumScore = this.properNounThreshold; // Use instance variable from initialize()
 
@@ -548,6 +549,9 @@ export class PIIDetector {
       const isDepartmentName = this._isDepartmentName(candidate);
       const emailDomainMatch = this._matchesNearbyEmailDomain(text, candidate, start, end);
 
+      // Check if text is inside a link (author bylines, profile links, etc.)
+      const insideLink = node && node.parentElement && node.parentElement.tagName === 'A';
+
       const context = {
         hasHonorific,
         hasJobTitle,
@@ -557,6 +561,7 @@ export class PIIDetector {
         nearPII,
         isDepartmentName,
         emailDomainMatch,
+        insideLink,
         isStandaloneJobTitle, // NEW: Flag for standalone job titles
         hasJobDescriptionPrefix, // NEW: Flag for job description prefixes
       };
@@ -763,6 +768,13 @@ export class PIIDetector {
       score += breakdown.matchesEmailDomain;
     }
 
+    // Signal 8: Inside link (author bylines, profile links)
+    if (context.insideLink) {
+      breakdown.insideLink = weights.insideLink || 0.25;
+      breakdown.insideLink_detail = 'text_in_link';
+      score += breakdown.insideLink;
+    }
+
     // Penalty: Department name (strong negative signal)
     if (context.isDepartmentName) {
       breakdown.isDepartmentName = -0.9;
@@ -872,34 +884,23 @@ export class PIIDetector {
 
   /**
    * Check if an element should be skipped during detection
+   * Used during replacement/protection (detectInDOM)
    * @private
    * @param {Element} element - DOM element to check
    * @returns {boolean} True if element should be skipped
    */
   _shouldSkipElement(element) {
-    const tagName = element.tagName.toLowerCase();
+    const tagName = element.tagName.toUpperCase();
+    const config = APP_CONFIG.skipElements;
 
-    // Skip labels, headings, buttons, navigation, etc.
+    // Build combined skip list from config
     const skipTags = [
-      'label',
-      'h1',
-      'h2',
-      'h3',
-      'h4',
-      'h5',
-      'h6',
-      'button',
-      'strong',
-      'b',
-      'em',
-      'i',
-      'nav',
-      'header',
-      'footer',
-      'aside',
-      'title',
-      // Note: Not skipping 'a' tags - author names in links are legitimate PII
+      ...config.common, // Always skip: LABEL, TH, DT, BUTTON
+      ...config.replacement, // Skip during replacement: headings, formatting, structural
+      ...config.debug, // Skip non-text content: SCRIPT, STYLE, etc.
     ];
+
+    // Check if tag is in skip list
     if (skipTags.includes(tagName)) return true;
 
     // Skip elements with certain roles
@@ -937,37 +938,33 @@ export class PIIDetector {
     const text = element.textContent || '';
     if (text.trim().endsWith(':')) return true;
 
-    // Skip script, style, and other non-content elements
-    if (['script', 'style', 'noscript', 'iframe', 'svg'].includes(tagName)) return true;
-
     return false;
   }
 
   /**
-   * Check if an element should be skipped during debug/highlight mode
+   * Check if element should be skipped in debug/highlight mode
    * Less restrictive than _shouldSkipElement - allows headings for visualization
+   * Used during highlighting/preview (detectWithDebugInfo)
    * @private
    * @param {Element} element - DOM element to check
    * @returns {boolean} True if element should be skipped
    */
   _shouldSkipElementForDebug(element) {
-    const tagName = element.tagName.toLowerCase();
+    const tagName = element.tagName.toUpperCase();
+    const config = APP_CONFIG.skipElements;
 
-    // In debug mode, only skip truly structural elements
+    // In debug mode, skip: common elements + debug-only (non-text content)
+    // Do NOT skip: replacement elements (headings, formatting) - we want to visualize those
     const skipTags = [
-      'script',
-      'style',
-      'noscript',
-      'iframe',
-      'svg',
-      'label',
-      'button',
-      'nav',
-      'footer',
-      'aside',
-      'title',
-      // Note: Not skipping 'a' tags - author names in links are legitimate PII
+      ...config.common, // Always skip: LABEL, TH, DT, BUTTON
+      ...config.debug, // Skip non-text: SCRIPT, STYLE, NOSCRIPT, IFRAME, SVG
+      'NAV',
+      'FOOTER',
+      'ASIDE',
+      'TITLE', // Additional structural elements
     ];
+
+    // Check if tag is in skip list
     if (skipTags.includes(tagName)) return true;
 
     // Skip elements with certain roles

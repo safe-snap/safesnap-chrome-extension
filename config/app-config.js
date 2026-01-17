@@ -85,6 +85,7 @@ export const APP_CONFIG = {
       notSentenceStart: 0.15, // Not at beginning of sentence (increased from 0.1)
       nearOtherPII: 0.25, // Within window of email/phone (increased from 0.2)
       matchesEmailDomain: 0.3, // Matches company name from nearby email domain
+      insideLink: 0.25, // Text is inside an <a> tag (author bylines, profile links, company links)
     },
 
     // Window size (in characters) to check for nearby PII context
@@ -137,8 +138,41 @@ export const APP_CONFIG = {
     domains: 50,
   },
 
-  // HTML Elements to Skip (labels, headings, etc.)
-  skipElements: ['LABEL', 'TH', 'DT', 'BUTTON', 'A'],
+  // HTML Elements to Skip (structural elements that typically contain UI text, not user data)
+  // Used by both detectInDOM (replacement) and detectWithDebugInfo (highlighting)
+  // Note: 'A' (links) are NOT skipped - author names and profile links are legitimate PII
+  skipElements: {
+    // Always skip these tags (contain structural/UI text, not user data)
+    common: ['LABEL', 'TH', 'DT', 'BUTTON'],
+
+    // Skip during replacement (detectInDOM) - includes formatting and semantic elements
+    replacement: [
+      'H1',
+      'H2',
+      'H3',
+      'H4',
+      'H5',
+      'H6', // Headings
+      'STRONG',
+      'B',
+      'EM',
+      'I', // Formatting
+      'NAV',
+      'HEADER',
+      'FOOTER',
+      'ASIDE',
+      'TITLE', // Structural
+    ],
+
+    // Skip during highlighting (detectWithDebugInfo) - only truly structural elements
+    debug: [
+      'SCRIPT',
+      'STYLE',
+      'NOSCRIPT',
+      'IFRAME',
+      'SVG', // Non-text content
+    ],
+  },
 
   // HTML Attributes that indicate labels
   skipAttributes: ['role', 'aria-label', 'aria-labelledby', 'for'],

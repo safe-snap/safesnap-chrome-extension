@@ -761,6 +761,72 @@ describe('PIIDetector', () => {
     // End of Email Domain Extraction Tests
     // ========================================================================
 
+    // ========================================================================
+    // Inside Link Signal Tests
+    // ========================================================================
+
+    test('should boost confidence for names inside link tags', () => {
+      // Create mock DOM structure: <p>By <a>Stephen Council</a></p>
+      const container = document.createElement('div');
+      container.innerHTML = '<p>By <a href="/author/stephen">Stephen Council</a></p>';
+
+      const candidates = detector.detectWithDebugInfo(container, ['properNouns']);
+      const stephenEntity = candidates.find((e) => /Stephen Council/i.test(e.original));
+
+      // Should detect Stephen Council with insideLink signal
+      expect(stephenEntity).toBeDefined();
+      expect(stephenEntity.scoreBreakdown.insideLink).toBeDefined();
+      expect(stephenEntity.scoreBreakdown.insideLink).toBe(0.25);
+      expect(stephenEntity.scoreBreakdown.insideLink_detail).toBe('text_in_link');
+    });
+
+    test('should NOT add insideLink signal for text outside links', () => {
+      // Create mock DOM structure: <p>By Stephen Council</p>
+      const container = document.createElement('div');
+      container.innerHTML = '<p>By Stephen Council</p>';
+
+      const candidates = detector.detectWithDebugInfo(container, ['properNouns']);
+      const stephenEntity = candidates.find((e) => /Stephen Council/i.test(e.original));
+
+      // Should detect Stephen Council but without insideLink signal
+      expect(stephenEntity).toBeDefined();
+      expect(stephenEntity.scoreBreakdown.insideLink).toBeUndefined();
+    });
+
+    test('should apply insideLink signal to company names in links', () => {
+      // Create mock DOM structure: <p>Visit <a>Acme Corp</a> for details</p>
+      const container = document.createElement('div');
+      container.innerHTML = '<p>Visit <a href="https://acme.com">Acme Corp</a> for details</p>';
+
+      const candidates = detector.detectWithDebugInfo(container, ['properNouns']);
+      const acmeEntity = candidates.find((e) => /Acme Corp/i.test(e.original));
+
+      // Should detect Acme Corp with insideLink signal
+      expect(acmeEntity).toBeDefined();
+      expect(acmeEntity.scoreBreakdown.insideLink).toBeDefined();
+      expect(acmeEntity.confidence).toBeGreaterThan(0.7); // Higher confidence due to link
+    });
+
+    test('should use insideLink signal in _calculateProperNounScore', () => {
+      const context = {
+        hasHonorific: false,
+        hasCompanySuffix: false,
+        wordCount: 2,
+        isSentenceStart: false,
+        nearPII: false,
+        insideLink: true,
+      };
+      const { score, breakdown } = detector._calculateProperNounScore('Stephen Council', context);
+
+      expect(breakdown.insideLink).toBeDefined();
+      expect(breakdown.insideLink).toBe(0.25);
+      expect(breakdown.insideLink_detail).toBe('text_in_link');
+      expect(score).toBeGreaterThan(0.5);
+    });
+
+    // End of Inside Link Signal Tests
+    // ========================================================================
+
     // End of Scoring System Tests
     // ========================================================================
 
