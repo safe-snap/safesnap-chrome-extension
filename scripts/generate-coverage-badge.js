@@ -82,13 +82,13 @@ if (!fs.existsSync(badgesDir)) {
 
 // Use lines coverage as the single metric (most intuitive)
 // Lines coverage shows what % of your code lines are executed by tests
-const coverage = lines;
-const color = getColor(parseFloat(coverage));
+const coverage = Math.round(lines); // Round to integer for cleaner badge display
+const color = getColor(parseFloat(lines)); // Use original value for color determination
 const badge = generateBadge('coverage', `${coverage}%`, color);
 fs.writeFileSync(path.join(badgesDir, 'coverage.svg'), badge);
 
 // Output summary
 console.log('✅ Coverage badge generated:');
-console.log(`   ${coverage}% of code lines tested`);
+console.log(`   ${coverage}% of code lines tested (rounded from ${lines}%)`);
 console.log(`   Color: ${color}`);
 console.log(`   Location: .github/badges/coverage.svg`);
