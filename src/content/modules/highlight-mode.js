@@ -386,7 +386,7 @@ function createHighlight(candidate) {
     let tooltip = null;
     let hideTimer = null;
 
-    const showTooltip = () => {
+    const showTooltip = (event) => {
       if (!tooltip) return;
 
       // Hide any other visible tooltip first
@@ -400,7 +400,22 @@ function createHighlight(candidate) {
         hideTimer = null;
       }
 
+      // Reposition tooltip based on the HOVERED element (not just first box)
+      // This prevents tooltips from appearing over wrong highlights
+      const hoveredElement = event.currentTarget;
+
+      // Only reposition if hovering a highlight box, not the tooltip itself
+      if (hoveredElement && hoveredElement.classList.contains('safesnap-highlight')) {
+        const rect = hoveredElement.getBoundingClientRect();
+        const tooltipLeft = rect.left + window.scrollX + rect.width / 2;
+        const tooltipTop = rect.top + window.scrollY - 8; // 8px gap above highlight
+
+        tooltip.style.left = `${tooltipLeft}px`;
+        tooltip.style.top = `${tooltipTop}px`;
+      }
+
       tooltip.style.opacity = '1';
+      tooltip.style.pointerEvents = 'auto';
       currentVisibleTooltip = tooltip;
     };
 
@@ -409,6 +424,7 @@ function createHighlight(candidate) {
       // Delay hiding by 500ms so users can read the tooltip
       hideTimer = setTimeout(() => {
         tooltip.style.opacity = '0';
+        tooltip.style.pointerEvents = 'none';
         if (currentVisibleTooltip === tooltip) {
           currentVisibleTooltip = null;
         }
@@ -483,7 +499,7 @@ function createHighlight(candidate) {
           font-size: 12px;
           white-space: nowrap;
           opacity: 0;
-          pointer-events: auto;
+          pointer-events: none;
           transition: opacity 0.3s ease;
           z-index: 1000001;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
