@@ -1443,10 +1443,8 @@ describe('PIIDetector', () => {
 
         // Either the full phrase is detected (with job title prefix)
         // OR just the name is detected (if job title was stripped)
-        // Both are acceptable outcomes
-        if (fullPhrase) {
-          expect(fullPhrase.confidence).toBeGreaterThanOrEqual(0.5); // Lower threshold due to penalty
-        }
+        // Both are acceptable outcomes - verify only if found
+        expect(fullPhrase === undefined || fullPhrase.confidence >= 0.5).toBe(true);
       }
     });
 

@@ -436,7 +436,6 @@ export class PIIDetector {
    */
   _detectAllProperNounCandidates(text) {
     const candidates = [];
-    const config = APP_CONFIG.properNounDetection;
     const minimumScore = this.properNounThreshold; // Use instance variable from initialize()
 
     // Enhanced pattern to handle apostrophes, hyphens, ampersands, and more company/job title indicators
