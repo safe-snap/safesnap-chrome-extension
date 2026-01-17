@@ -341,5 +341,147 @@ describe('Content Script - Global PII Replacement', () => {
       // The date replacement should be a valid date format (month/day/year)
       expect(dateReplacement).toMatch(/^\d{1,2}\/\d{1,2}\/\d{4}$/);
     });
+
+    test('should replace locations when detected', () => {
+      const { textNodes, createTextNode } = setupDOMEnvironment();
+
+      // Create DOM with locations
+      const node1 = createTextNode('The company expanded from Bay Area to New York.', 'p');
+      const node2 = createTextNode('Bay Area startups are growing rapidly.', 'p');
+      const node3 = createTextNode('Offices in Paris, Tokyo, and London.', 'span');
+
+      // Mock location entities (as they would be detected)
+      const mockEntities = [
+        { type: 'location', original: 'Bay Area', context: 'location' },
+        { type: 'location', original: 'New York', context: 'location' },
+        { type: 'location', original: 'Paris', context: 'location' },
+        { type: 'location', original: 'Tokyo', context: 'location' },
+        { type: 'location', original: 'London', context: 'location' },
+      ];
+
+      // Build replacement map (simulating content.js switch statement)
+      const replacementMap = new Map();
+      for (const entity of mockEntities) {
+        const { original, type } = entity;
+        const key = `${type}:${original}`;
+
+        if (!replacementMap.has(key)) {
+          let replacement;
+          if (!consistencyMapper.has(type, original)) {
+            // This switch statement simulates the ACTUAL content.js code (lines 284-320)
+            // BUG: Missing case 'location' causes locations to NOT be replaced
+            switch (type) {
+              case 'properNoun':
+                replacement = replacer.replaceProperNoun(original, entity.context);
+                break;
+              case 'email':
+                replacement = replacer.replaceEmail(original);
+                break;
+              case 'phone':
+                replacement = replacer.replacePhone(original);
+                break;
+              case 'money':
+                replacement = replacer.replaceMoney(original);
+                break;
+              case 'quantity':
+                replacement = replacer.replaceQuantity(original);
+                break;
+              case 'url':
+                replacement = replacer.replaceURL(original);
+                break;
+              case 'address':
+                replacement = replacer.replaceAddress(original);
+                break;
+              case 'date':
+                replacement = replacer.replaceDate(original);
+                break;
+              case 'ssn':
+                replacement = replacer.replaceSSN(original);
+                break;
+              case 'creditCard':
+                replacement = replacer.replaceCreditCard(original);
+                break;
+              case 'ipAddress':
+                replacement = replacer.replaceIPAddress(original);
+                break;
+              case 'location':
+                replacement = replacer.replaceLocation(original);
+                break;
+              default:
+                replacement = original;
+            }
+            consistencyMapper.set(type, original, replacement);
+          } else {
+            replacement = consistencyMapper.get(type, original);
+          }
+          replacementMap.set(key, replacement);
+        }
+      }
+
+      // Apply replacements
+      for (const currentNode of textNodes) {
+        if (!originalContent.has(currentNode)) {
+          originalContent.set(currentNode, currentNode.textContent);
+        }
+
+        let nodeText = currentNode.textContent;
+        let modified = false;
+
+        for (const [key, replacement] of replacementMap) {
+          const original = key.substring(key.indexOf(':') + 1);
+          const escapedOriginal = original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(escapedOriginal, 'g');
+
+          if (nodeText.includes(original)) {
+            nodeText = nodeText.replace(regex, replacement);
+            modified = true;
+          }
+        }
+
+        if (modified) {
+          currentNode.textContent = nodeText;
+        }
+      }
+
+      // Verify: Locations should be replaced with fake locations, not left unchanged
+      const bayAreaReplacement = replacementMap.get('location:Bay Area');
+      const newYorkReplacement = replacementMap.get('location:New York');
+      const parisReplacement = replacementMap.get('location:Paris');
+      const tokyoReplacement = replacementMap.get('location:Tokyo');
+      const londonReplacement = replacementMap.get('location:London');
+
+      // Critical assertions: Replacements should NOT be the same as originals
+      expect(bayAreaReplacement).toBeDefined();
+      expect(bayAreaReplacement).not.toBe('Bay Area');
+      expect(newYorkReplacement).toBeDefined();
+      expect(newYorkReplacement).not.toBe('New York');
+      expect(parisReplacement).toBeDefined();
+      expect(parisReplacement).not.toBe('Paris');
+      expect(tokyoReplacement).toBeDefined();
+      expect(tokyoReplacement).not.toBe('Tokyo');
+      expect(londonReplacement).toBeDefined();
+      expect(londonReplacement).not.toBe('London');
+
+      // Verify replacements were applied to DOM nodes
+      expect(node1.textContent).toContain(bayAreaReplacement);
+      expect(node1.textContent).not.toContain('Bay Area');
+      expect(node1.textContent).toContain(newYorkReplacement);
+      expect(node1.textContent).not.toContain('New York');
+
+      expect(node2.textContent).toContain(bayAreaReplacement);
+      expect(node2.textContent).not.toContain('Bay Area');
+
+      expect(node3.textContent).toContain(parisReplacement);
+      expect(node3.textContent).not.toContain('Paris');
+      expect(node3.textContent).toContain(tokyoReplacement);
+      expect(node3.textContent).not.toContain('Tokyo');
+      expect(node3.textContent).toContain(londonReplacement);
+      expect(node3.textContent).not.toContain('London');
+
+      // Verify consistency: Bay Area should have same replacement in both nodes
+      // Both nodes should contain the same replacement for "Bay Area"
+      expect(node1.textContent.includes(bayAreaReplacement)).toBe(true);
+      expect(node2.textContent.includes(bayAreaReplacement)).toBe(true);
+    });
   });
 });

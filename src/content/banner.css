@@ -1,41 +1,4 @@
-/* SafeSnap - Environment Banner Styles */
-
-.safesnap-banner {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background-color: #ef4444;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 999999;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-  opacity: 1;
-  transform: scale(1);
-}
-
-.safesnap-banner.faded {
-  opacity: 0.2;
-  transform: scale(0.5);
-}
-
-.safesnap-banner.dev {
-  background-color: #3b82f6;
-}
-
-.safesnap-banner.staging {
-  background-color: #f59e0b;
-}
-
-.safesnap-banner.local {
-  background-color: #10b981;
-}
+/* SafeSnap - Banner Animations for Status Banners */
 
 /* Animations for status banners */
 @keyframes slideInTop {

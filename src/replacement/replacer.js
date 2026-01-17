@@ -7,6 +7,7 @@
 
 import { NamePool } from './name-pool.js';
 import { CompanyPool } from './company-pool.js';
+import { LocationPool } from './location-pool.js';
 import { PatternMatcher } from '../detection/pattern-matcher.js';
 import { APP_CONFIG } from '../../config/app-config.js';
 
@@ -14,6 +15,7 @@ export class Replacer {
   constructor() {
     this.namePool = new NamePool();
     this.companyPool = new CompanyPool();
+    this.locationPool = new LocationPool();
     this.patternMatcher = new PatternMatcher();
     this.magnitudeVariance = APP_CONFIG.defaults?.magnitudeVariance || 30; // default
     this.redactionMode = APP_CONFIG.defaults?.redactionMode || 'random'; // 'random' or 'blackout'
@@ -225,6 +227,31 @@ export class Replacer {
     }
 
     return formatted + (unit ? ' ' + unit : '');
+  }
+
+  /**
+   * Replace a location with a similar-type fake location
+   * @param {string} original - Original location name
+   * @returns {string} Random replacement location or blackout
+   */
+  replaceLocation(original) {
+    // Check if blackout mode
+    if (this.redactionMode === 'blackout') {
+      return this.generateBlackout(original);
+    }
+
+    // Use getSimilarReplacement to get a location of the same type
+    // (city -> city, region -> region, etc.)
+    let replacement;
+    let attempts = 0;
+    const maxAttempts = 100;
+
+    do {
+      replacement = this.locationPool.getSimilarReplacement(original);
+      attempts++;
+    } while (replacement === original && attempts < maxAttempts);
+
+    return replacement;
   }
 
   /**
@@ -639,6 +666,9 @@ export class Replacer {
             break;
           case 'quantity':
             replacement = this.replaceQuantity(original);
+            break;
+          case 'location':
+            replacement = this.replaceLocation(original);
             break;
           case 'url':
             replacement = this.replaceURL(original);

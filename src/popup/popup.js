@@ -38,6 +38,7 @@ function initializeUIText() {
     dates: i18n.piiTypeDates,
     urls: i18n.piiTypeUrls,
     ips: i18n.piiTypeIps,
+    locations: i18n.piiTypeLocations,
   };
 
   Object.entries(piiLabels).forEach(([id, label]) => {
@@ -465,6 +466,11 @@ async function savePIITypePreferences() {
         dates: { label: i18n.piiTypeDates, description: i18n.piiTypeDatesDesc, enabled: false },
         urls: { label: i18n.piiTypeUrls, description: i18n.piiTypeUrlsDesc, enabled: false },
         ips: { label: i18n.piiTypeIps, description: i18n.piiTypeIpsDesc, enabled: false },
+        locations: {
+          label: i18n.piiTypeLocations,
+          description: i18n.piiTypeLocationsDesc,
+          enabled: false,
+        },
       };
     }
 
@@ -516,16 +522,8 @@ function getEnabledPIITypes() {
 /**
  * Update status display - shows banner on page for notifications
  */
-async function updateStatus(message, type = 'ready') {
-  // For critical errors that prevent operation, update environment text
-  if (type === 'error' && message.includes('Cannot run')) {
-    const envEl = document.getElementById('environment');
-    envEl.textContent = message;
-    envEl.style.color = '#dc2626'; // Red
-    return;
-  }
-
-  // For all other messages, show banner on the page
+async function updateStatus(message) {
+  // For all messages, show banner on the page
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (tab && tab.id) {

@@ -25,8 +25,8 @@
  *    - State reflected back to popup
  *
  * 4. **Dictionary Loading & Fallback**
- *    - Test core dictionary loads correctly
- *    - Test fallback when full dictionary unavailable
+ *    - Test dictionary loads correctly
+ *    - Test fallback when dictionary unavailable
  *    - Test cache behavior
  *
  * 5. **Screenshot Capture with PII Protection**

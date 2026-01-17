@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeSnap Location Detection Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      h1 {
+        color: #4f46e5;
+      }
+      .test-text {
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid #e5e7eb;
+        margin: 20px 0;
+      }
+      .instructions {
+        background: #dbeafe;
+        padding: 15px;
+        border-radius: 6px;
+        margin: 20px 0;
+      }
+      .expected {
+        background: #d1fae5;
+        padding: 15px;
+        border-radius: 6px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SafeSnap Location Detection Test Page</h1>
+
+    <div class="instructions">
+      <strong>Instructions:</strong>
+      <ol>
+        <li>Open the SafeSnap extension popup</li>
+        <li><strong>Check the "Locations" checkbox</strong></li>
+        <li>Click "Protect PII"</li>
+        <li>Verify the locations below are replaced</li>
+      </ol>
+    </div>
+
+    <div class="expected">
+      <strong>Expected Replacements:</strong>
+      <ul>
+        <li>"Bay Area" → fake region (e.g., "Pine Valley")</li>
+        <li>"New York" → fake city (e.g., "Riverside")</li>
+        <li>"Silicon Valley" → fake region</li>
+        <li>"Pacific Ocean" → fake feature (e.g., "Crystal Lake")</li>
+      </ul>
+    </div>
+
+    <div class="test-text">
+      <h2>Test Article</h2>
+      <p>
+        A fierce dispute between an American venture capital firm and the family investment office
+        of a Russian billionaire has trickled down into the Bay Area. In December and January, four
+        local biotech companies with stakes in the battle each filed for bankruptcy.
+      </p>
+      <p>
+        The argument pits New York's Apple Tree Partners, a biotech-focused venture investor,
+        against Rigmora, an investment entity owned by the family office of Dmitry Rybolovlev, who
+        made his billions in the Russian fertilizer industry.
+      </p>
+      <p>
+        Over the past 13 years, almost all of Apple Tree's funding — north of $2.3 billion — has
+        come from Rigmora, with the firm then directing that cash toward biotech startups tackling
+        cancer, blindness, opioid addiction, obesity and other medical challenges.
+      </p>
+      <p>
+        The tech companies are expanding from Silicon Valley to Seattle, crossing the Pacific Ocean
+        to reach Asian markets.
+      </p>
+    </div>
+
+    <div class="test-text">
+      <h2>Additional Location Tests</h2>
+      <p>Cities: Paris, Tokyo, London, Berlin, Sydney</p>
+      <p>States: California, Texas, Florida, New York</p>
+      <p>Countries: France, Germany, Japan, Australia, Canada</p>
+      <p>Features: Rocky Mountains, Mississippi River, Great Lakes</p>
+      <p>Multi-word: San Francisco, Los Angeles, New Zealand</p>
+    </div>
+  </body>
+</html>

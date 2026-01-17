@@ -5,9 +5,13 @@
 
 import cardValidator from 'card-validator';
 import { parsePhoneNumber, isValidPhoneNumber } from 'libphonenumber-js';
+import { enDictionary } from '../dictionaries/en.js';
 
 export class PatternMatcher {
   constructor() {
+    // Load location gazetteer for location detection
+    this.locationGazetteer = new Set(enDictionary.worldLocations.map((loc) => loc.toLowerCase()));
+
     // Regex patterns for various PII types
     this.patterns = {
       email: /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/g,
@@ -43,6 +47,12 @@ export class PatternMatcher {
       // Matches: "5 items", "3.5 kg", "total: 7", "count: 3", etc.
       quantity:
         /(?:(?:\btotal\b|\bcount\b|\border\b|\bitem\b|\bquantity\b|\bamount\b|\bnumber\b)[:\s]+)?\b\d{1,3}(,\d{3})*(\.\d+)?(?:\s*(items|units|pieces|qty|count|kg|lbs|oz|g|ml|l|meters|feet|inches|cm|mm))?\b/gi,
+
+      // Locations - multi-word geographic locations with keywords
+      // Matches: "Bay Area", "Silicon Valley", "Pacific Ocean", "Rocky Mountains", etc.
+      // Pattern captures 0-3 capitalized words followed by a location keyword
+      location:
+        /\b(?:[A-Z][a-z]+\s+){0,3}(?:Bay|Valley|Area|Region|Islands?|Coast|Peninsula|County|Province|District|Metropolitan|Metro|Territory|Highlands?|Plains?|Mountains?|Hills?|Ocean|Sea|River|Lake|Gulf|Desert|Forest|Falls|Canyon|Peak|Reef|Strait|Channel|Basin|Plateau|Ridge|Grove|Creek|Range)\b/g,
     };
   }
 
@@ -112,6 +122,7 @@ export class PatternMatcher {
       dates: 'date',
       addresses: 'address',
       quantities: 'quantity',
+      locations: 'location',
       ssn: 'ssn',
     };
 
@@ -455,6 +466,73 @@ export class PatternMatcher {
   findAddresses(text) {
     const matches = this.matchType(text, 'address');
     return matches.map((m) => ({ value: m.value, start: m.index, end: m.index + m.length }));
+  }
+
+  /**
+   * Find all locations in text (hybrid approach: pattern + gazetteer)
+   * Detects multi-word locations via pattern and single-word locations via gazetteer
+   * @param {string} text - Text to search
+   * @returns {Array} Array of location matches with {value, start, end, matchType}
+   */
+  findLocations(text) {
+    const locations = [];
+    const seenPositions = new Set();
+
+    // Step 1: Pattern-based detection for multi-word locations
+    // Matches: "Bay Area", "Silicon Valley", "Pacific Ocean", etc.
+    const patternMatches = this.matchType(text, 'location');
+    for (const match of patternMatches) {
+      // Mark this position range as seen
+      for (let i = match.index; i < match.index + match.length; i++) {
+        seenPositions.add(i);
+      }
+
+      locations.push({
+        value: match.value,
+        start: match.index,
+        end: match.index + match.length,
+        matchType: 'pattern',
+      });
+    }
+
+    // Step 2: Gazetteer-based detection for single/multi-word known locations
+    // Matches capitalized words/phrases against known location list
+    // This catches: "Paris", "Tokyo", "California", "United States", etc.
+    const capitalizedPattern = /\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b/g;
+    let match;
+    while ((match = capitalizedPattern.exec(text)) !== null) {
+      const candidate = match[0];
+      const start = match.index;
+      const end = start + candidate.length;
+
+      // Skip if already matched by pattern
+      let overlaps = false;
+      for (let i = start; i < end; i++) {
+        if (seenPositions.has(i)) {
+          overlaps = true;
+          break;
+        }
+      }
+      if (overlaps) continue;
+
+      // Check if it's in the gazetteer
+      if (this.locationGazetteer.has(candidate.toLowerCase())) {
+        // Mark this position range as seen
+        for (let i = start; i < end; i++) {
+          seenPositions.add(i);
+        }
+
+        locations.push({
+          value: candidate,
+          start,
+          end,
+          matchType: 'gazetteer',
+        });
+      }
+    }
+
+    // Sort by position
+    return locations.sort((a, b) => a.start - b.start);
   }
 
   /**

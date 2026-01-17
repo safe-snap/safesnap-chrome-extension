@@ -153,6 +153,52 @@ describe('Replacer', () => {
     });
   });
 
+  describe('replaceLocation', () => {
+    test('should generate fake location', () => {
+      const replacement = replacer.replaceLocation('Bay Area');
+      expect(replacement).not.toBe('Bay Area');
+      expect(replacement.length).toBeGreaterThan(0);
+    });
+
+    test('should return similar-type locations', () => {
+      // Cities should be replaced with cities
+      const cityReplacement = replacer.replaceLocation('Paris');
+      expect(cityReplacement).not.toBe('Paris');
+
+      // Geographic features should be replaced with features
+      const featureReplacement = replacer.replaceLocation('Pacific Ocean');
+      expect(featureReplacement).not.toBe('Pacific Ocean');
+    });
+
+    test('should vary replacements', () => {
+      const locations = new Set();
+      for (let i = 0; i < 10; i++) {
+        locations.add(replacer.replaceLocation('San Francisco'));
+      }
+      // Should generate different replacements
+      expect(locations.size).toBeGreaterThan(1);
+    });
+
+    test('should handle multi-word locations', () => {
+      const replacement = replacer.replaceLocation('Silicon Valley');
+      expect(replacement).not.toBe('Silicon Valley');
+      expect(replacement.length).toBeGreaterThan(0);
+    });
+
+    test('should handle geographic features', () => {
+      const replacement = replacer.replaceLocation('Rocky Mountains');
+      expect(replacement).not.toBe('Rocky Mountains');
+      expect(replacement.length).toBeGreaterThan(0);
+    });
+
+    test('should support blackout mode', () => {
+      replacer.setRedactionMode('blackout');
+      const replacement = replacer.replaceLocation('Bay Area');
+      expect(replacement).toMatch(/█+/);
+      replacer.setRedactionMode('random');
+    });
+  });
+
   describe('replaceDate', () => {
     test('should replace date', () => {
       const replacement = replacer.replaceDate('2026-01-15');

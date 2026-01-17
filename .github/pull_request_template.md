@@ -28,16 +28,16 @@
 
 - [ ] I have tested this locally
 - [ ] I have added/updated tests for my changes
-- [ ] All existing tests pass (`npm test`)
+- [ ] All existing tests pass (`bun run test`)
 
 ## Checklist
 
 <!-- Ensure all items are checked before requesting review -->
 
 - [ ] My code follows the project's coding standards
-- [ ] I have run `npm run lint` and fixed all issues
-- [ ] I have run `npm test` and all tests pass
-- [ ] I have run `npm run build` and the build succeeds
+- [ ] I have run `bun run lint` and fixed all issues
+- [ ] I have run `bun run test` and all tests pass
+- [ ] I have run `bun run build` and the build succeeds
 - [ ] I have updated documentation (if needed)
 - [ ] My changes don't introduce new warnings or errors
 

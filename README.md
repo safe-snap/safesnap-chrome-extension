@@ -39,20 +39,18 @@ Automatically detects and protects:
 
 ### Smart Detection Engine
 
-- **Dictionary-based detection** with 20K+ proper nouns (80K optional)
-- **Pattern matching** for structured data (emails, phones, etc.)
-- **Context awareness** (skips labels, headings, buttons)
+- **Multi-signal scoring** with 8 context signals for proper noun detection
+- **Pattern matching** for structured data (emails, phones, etc.) with library validation
+- **Context awareness** (skips labels, headings, buttons, department names)
+- **Email domain matching** to boost company name detection confidence
 - **Form input protection** before screenshots
 - **Consistent replacements** (same input = same output)
 - **Global replacement** ensures all occurrences of detected PII are replaced across the entire page
 - **Magnitude variance** for realistic money/quantity replacement
 
-### Environment Indicators
+**Performance:** 100% precision (zero false positives), 55.88% recall
 
-- **Auto-detect environments** (Production, Development, Staging, Local)
-- **Customizable banners** (position, colors, text, size, opacity)
-- **Interactive fade** on cursor proximity
-- **Custom patterns** for your company's URLs
+📖 **[Read detailed detection documentation →](docs/DETECTION.md)**
 
 ### Screenshot Tools
 
@@ -136,7 +134,7 @@ Your screenshot is now safe to share without exposing sensitive data!
 
 ### Prerequisites
 
-- Node.js 16+ and npm
+- Bun (package manager)
 - Chrome browser for testing
 
 ### Setup
@@ -147,11 +145,11 @@ git clone https://github.com/yourusername/safesnap.git
 cd safesnap
 bun install
 
-# Development build with watch mode
+# Run development build with watch mode
 bun run dev
 
 # Run tests
-bun test
+bun run test
 
 # Run linter
 bun run lint
@@ -172,12 +170,14 @@ safesnap/
 │   ├── content/         # Content scripts (PII detection/replacement)
 │   ├── popup/           # Extension popup UI
 │   ├── settings/        # Settings page
-│   ├── core/            # Core detection/replacement logic
+│   ├── detection/       # PII detection engine (pii-detector.js, pattern-matcher.js, dictionary.js)
+│   ├── replacement/     # PII replacement logic (replacer.js, consistency-mapper.js, name/company pools)
 │   ├── utils/           # Utility functions
 │   └── i18n/            # Internationalization
-├── tests/               # Jest unit tests
-├── config/              # Configuration files
-├── assets/              # Icons, images, dictionaries
+├── tests/               # Jest unit tests (co-located with source as *.test.js)
+├── config/              # Configuration files (app-config.js)
+├── assets/              # Icons, images
+├── src/dictionaries/    # Dictionary data files (en.js with 801 words)
 ├── dist/                # Build output
 └── docs/                # Documentation
 ```
@@ -185,8 +185,8 @@ safesnap/
 ### Testing
 
 ```bash
-# Run all tests
-bun test
+# Run all tests (IMPORTANT: Use "bun run test", NOT "bun test")
+bun run test
 
 # Watch mode for TDD
 bun run test:watch
@@ -195,10 +195,10 @@ bun run test:watch
 bun run test:coverage
 
 # Run specific test
-bun test path/to/test.test.js
+bun run test path/to/test.test.js
 ```
 
-**Current Status:** 410 tests passing | 90% coverage
+**Current Status:** 403 tests passing | >80% coverage
 
 ### Code Quality
 
@@ -224,6 +224,24 @@ SafeSnap uses a modular Chrome extension architecture:
 
 All PII processing happens **locally in your browser**. No data is sent to external servers.
 
+### Detection System
+
+SafeSnap uses a **hybrid detection approach** combining:
+
+1. **Pattern-based detection** - Regex patterns + library validation for structured data (emails, phones, credit cards)
+2. **Multi-signal scoring** - 8 context signals for proper noun detection (names, companies, places)
+3. **Context-aware filtering** - Skips UI elements, applies department/team name penalties
+
+**Key Features:**
+
+- 100% precision (zero false positives)
+- 801-word curated dictionary for common English words
+- Configurable detection threshold (default: 0.75)
+- Email domain matching for company name validation
+- Department name filtering (e.g., "Human Resources", "Customer Service")
+
+**[Learn more about detection →](docs/DETECTION.md)**
+
 ## Privacy & Security
 
 SafeSnap is built with privacy as the top priority:
@@ -245,7 +263,7 @@ Quick checklist:
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes with tests
-4. Ensure `bun test` and `bun run lint` pass
+4. Ensure `bun run test` and `bun run lint` pass
 5. Submit a pull request
 
 ## License

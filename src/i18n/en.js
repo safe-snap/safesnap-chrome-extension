@@ -30,6 +30,8 @@ export const en = {
   piiTypeUrlsDesc: 'Web addresses like https://example.com',
   piiTypeIps: 'IPs',
   piiTypeIpsDesc: 'IPv4 and IPv6 addresses',
+  piiTypeLocations: 'Locations',
+  piiTypeLocationsDesc: 'Geographic locations like Bay Area, Paris, California',
 
   // Popup - Buttons
   btnProtectPii: 'Protect PII',
@@ -67,15 +69,6 @@ export const en = {
   redactionModeBlackout: 'Blackout (███)',
   redactionModeBlackoutDesc: 'Cover with black bars like legal documents',
 
-  // Popup - Environment Status
-  environmentLabel: 'Environment:',
-  environmentNotDetected: 'Not detected',
-  environmentDetecting: 'Detecting...',
-  environmentProduction: 'PRODUCTION',
-  environmentDevelopment: 'DEVELOPMENT',
-  environmentStaging: 'STAGING',
-  environmentLocal: 'LOCAL',
-
   // Popup - About Info
   aboutVersion: 'Version:',
   aboutDescription:
@@ -90,10 +83,8 @@ export const en = {
   settingsPageTitle: 'SafeSnap Settings',
   settingsPageSubtitle: 'Configure your PII protection preferences',
   settingsDefaultPiiTypes: 'Default PII Types to Protect',
-  settingsEnvironmentPatterns: 'Environment Detection Patterns',
   settingsBannerCustomization: 'Banner Customization',
   settingsCustomRegexPatterns: 'Custom Regex Patterns',
-  settingsDictionaryManagement: 'Dictionary Management',
   settingsMagnitudeVariance: 'Magnitude Variance',
   settingsRedactionMode: 'Redaction Mode',
   settingsExportImport: 'Export / Import Settings',
@@ -102,19 +93,12 @@ export const en = {
   // Settings Page - Descriptions
   settingsDefaultPiiTypesDesc:
     'Select which types of PII to protect by default when you click "Protect PII".',
-  settingsEnvironmentPatternsDesc: 'Customize URL patterns for environment detection.',
   settingsCustomRegexDesc: 'Add custom regex patterns to detect proprietary PII formats.',
   settingsMagnitudeVarianceDesc: 'Control how much money and quantity values vary (±percentage).',
   settingsRedactionModeDesc: 'Choose between replacing PII with random data or black bars.',
   settingsExportImportDesc: 'Backup your settings or transfer them to another browser.',
-  settingsDictionaryInfoDesc:
-    'The full dictionary (80,000 words) improves proper noun detection accuracy. Download recommended after 5 uses.',
 
   // Settings Page - Labels
-  settingsPatternProduction: 'Production Pattern',
-  settingsPatternDevelopment: 'Development Pattern',
-  settingsPatternStaging: 'Staging Pattern',
-  settingsPatternLocal: 'Local Pattern',
   settingsBannerOpacity: 'Banner Opacity (%)',
   settingsFadeDistance: 'Fade Distance (pixels)',
   settingsCustomPatternName: 'Custom Pattern Name',
@@ -131,37 +115,19 @@ export const en = {
   btnSelectNone: 'Select None',
   btnResetToDefaults: 'Reset to Defaults',
   btnAddPattern: 'Add Pattern',
-  btnDownloadFullDictionary: 'Download Full Dictionary',
-  btnClearDictionaryCache: 'Clear Dictionary Cache',
   btnExportSettings: '📥 Export Settings',
   btnImportSettings: '📤 Import Settings',
-
-  // Settings Page - Dictionary Stats
-  statsCoreWords: 'Core Words',
-  statsFullDictionary: 'Full Dictionary',
-  statsTimesUsed: 'Times Used',
-  statsFullDownloaded: 'Full Downloaded',
-  statsYes: 'Yes',
-  statsNo: 'No',
 
   // Settings Page - Placeholders
   placeholderCustomPatternName: 'e.g., Employee ID',
   placeholderCustomPatternRegex: 'e.g., EMP-\\d{6}',
-  placeholderPatternProduction: '\\.(prod|production)($|\\/|:)',
-  placeholderPatternDevelopment: '\\.(dev|development)($|\\/|:)',
-  placeholderPatternStaging: '\\.(staging|stg|stage)($|\\/|:)',
-  placeholderPatternLocal: '(localhost|127\\.0\\.0\\.1|192\\.168\\.|10\\.0\\.)',
 
   // Settings Page - Toasts
   toastPiiTypesUpdated: 'PII types updated!',
-  toastEnvironmentPatternsUpdated: 'Environment patterns updated!',
-  toastPatternsReset: 'Patterns reset to defaults!',
   toastBannerPositionUpdated: 'Banner position updated!',
   toastBannerOpacityUpdated: 'Banner opacity updated!',
   toastFadeDistanceUpdated: 'Fade distance updated!',
   toastRedactionModeUpdated: 'Redaction mode updated!',
-  toastDictionaryDownloaded: 'Dictionary downloaded successfully!',
-  toastDictionaryCacheCleared: 'Dictionary cache cleared!',
   toastSettingsExported: 'Settings exported!',
   toastSettingsImported: 'Settings imported! Reloading...',
   toastSettingsSaved: 'Settings saved!',
@@ -173,17 +139,9 @@ export const en = {
   errorProtectionFailed: 'Protection failed',
   errorScreenshotFailed: 'Screenshot failed',
   errorDownloadFailed: 'Download failed:',
-  errorDictionaryDownloadFailed: 'Failed to download dictionary',
-  errorDictionaryClearFailed: 'Failed to clear dictionary:',
   errorInvalidSettingsFile: 'Invalid settings file',
   errorImportSettingsFailed: 'Failed to import settings:',
   errorPrefix: 'Error:',
-
-  // Button states
-  btnDownloading: 'Downloading...',
-
-  // Confirmation dialogs
-  confirmClearDictionary: 'Are you sure you want to clear the dictionary cache?',
 
   // Watermark
   watermarkProtectedMode: 'PROTECTED MODE',

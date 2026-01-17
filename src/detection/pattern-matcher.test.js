@@ -273,6 +273,110 @@ describe('PatternMatcher', () => {
     });
   });
 
+  describe('Location Detection', () => {
+    test('should find multi-word locations with pattern keywords', () => {
+      const text = 'Moving from Bay Area to Silicon Valley';
+      const locations = matcher.findLocations(text);
+
+      expect(locations.length).toBe(2);
+      expect(locations[0].value).toBe('Bay Area');
+      expect(locations[0].matchType).toBe('pattern');
+      expect(locations[1].value).toBe('Silicon Valley');
+      expect(locations[1].matchType).toBe('pattern');
+    });
+
+    test('should find geographic features', () => {
+      const text = 'Sailing across Pacific Ocean and Caribbean Sea';
+      const locations = matcher.findLocations(text);
+
+      expect(locations.length).toBeGreaterThanOrEqual(2);
+      expect(locations.some((l) => l.value === 'Pacific Ocean')).toBe(true);
+      expect(locations.some((l) => l.value === 'Caribbean Sea')).toBe(true);
+    });
+
+    test('should find single-word locations from gazetteer', () => {
+      const text = 'Traveling from Paris to Tokyo via London';
+      const locations = matcher.findLocations(text);
+
+      expect(locations.length).toBeGreaterThanOrEqual(3);
+      expect(locations.some((l) => l.value === 'Paris')).toBe(true);
+      expect(locations.some((l) => l.value === 'Tokyo')).toBe(true);
+      expect(locations.some((l) => l.value === 'London')).toBe(true);
+      // All should be gazetteer matches
+      locations.forEach((loc) => {
+        expect(loc.matchType).toBe('gazetteer');
+      });
+    });
+
+    test('should find US states', () => {
+      const text = 'California and Texas are large states';
+      const locations = matcher.findLocations(text);
+
+      expect(locations.length).toBeGreaterThanOrEqual(2);
+      expect(locations.some((l) => l.value === 'California')).toBe(true);
+      expect(locations.some((l) => l.value === 'Texas')).toBe(true);
+    });
+
+    test('should find countries', () => {
+      const text = 'Trade between United States and Canada';
+      const locations = matcher.findLocations(text);
+
+      expect(locations.length).toBeGreaterThanOrEqual(2);
+      expect(locations.some((l) => l.value === 'United States')).toBe(true);
+      expect(locations.some((l) => l.value === 'Canada')).toBe(true);
+    });
+
+    test('should find mountains and rivers', () => {
+      const text = 'Climbing Rocky Mountains and rafting down Mississippi River';
+      const locations = matcher.findLocations(text);
+
+      expect(locations.length).toBeGreaterThanOrEqual(2);
+      expect(locations.some((l) => l.value.includes('Mountains'))).toBe(true);
+      expect(locations.some((l) => l.value.includes('River'))).toBe(true);
+    });
+
+    test('should not duplicate overlapping matches', () => {
+      const text = 'New York City and New York State';
+      const locations = matcher.findLocations(text);
+
+      // Should find both but not duplicate "New York"
+      const values = locations.map((l) => l.value);
+      const uniqueValues = [...new Set(values)];
+      expect(values.length).toBe(uniqueValues.length);
+    });
+
+    test('should handle mixed pattern and gazetteer matches', () => {
+      const text = 'Conference in Bay Area, with speakers from Paris and Silicon Valley';
+      const locations = matcher.findLocations(text);
+
+      expect(locations.length).toBeGreaterThanOrEqual(3);
+      const bayArea = locations.find((l) => l.value === 'Bay Area');
+      const paris = locations.find((l) => l.value === 'Paris');
+      const siliconValley = locations.find((l) => l.value === 'Silicon Valley');
+
+      expect(bayArea.matchType).toBe('pattern');
+      expect(paris.matchType).toBe('gazetteer');
+      expect(siliconValley.matchType).toBe('pattern');
+    });
+
+    test('should return empty array for no locations', () => {
+      const text = 'No geographic information here at all';
+      const locations = matcher.findLocations(text);
+
+      expect(locations).toHaveLength(0);
+    });
+
+    test('should not match common words that look like locations', () => {
+      const text = 'Reading a book about history';
+      const locations = matcher.findLocations(text);
+
+      // Should not match 'Reading' (despite being a city in UK)
+      // because it's likely being used as a verb in this context
+      // Our gazetteer check is case-sensitive enough to avoid this
+      expect(locations).toHaveLength(0);
+    });
+  });
+
   describe('Match Single Value Methods', () => {
     test('matchMoney should return first match with metadata', () => {
       const text = '$100.00';

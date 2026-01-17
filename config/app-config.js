@@ -34,6 +34,7 @@ export const APP_CONFIG = {
       'urls',
       'ips',
       'creditCards',
+      'locations',
       'customRegex',
     ],
 
@@ -45,31 +46,10 @@ export const APP_CONFIG = {
     fadeOpacity: 20, // target opacity when faded (%)
     fadeScale: 50, // target scale when faded (%)
 
-    // Environment Colors
-    environmentColors: {
-      PROD: '#EF4444', // red
-      DEV: '#3B82F6', // blue
-      STAGING: '#F59E0B', // orange
-      LOCAL: '#10B981', // green
-    },
-
-    // Environment Text (customizable)
-    environmentText: {
-      PROD: '⚠️ PRODUCTION',
-      DEV: '🔧 DEVELOPMENT',
-      STAGING: '🚀 STAGING',
-      LOCAL: '🏠 LOCAL',
-    },
-
     // Replacement Settings
     magnitudeVariance: 30, // ±30% for money and quantities
     dateVarianceMonths: 2, // ±2 months for dates
     redactionMode: 'random', // 'random' = replace with fake data | 'blackout' = black bars like legal docs
-
-    // Dictionary Settings
-    usageCountForDictionaryPrompt: 5, // Show download prompt after N uses
-    dictionaryPromptShown: false,
-    fullDictionaryDownloaded: false,
 
     // Performance
     progressIndicatorThreshold: 500, // ms - show progress if processing takes longer
@@ -77,14 +57,6 @@ export const APP_CONFIG = {
     // UI
     showToastNotifications: true,
     toastDuration: 3000, // ms
-  },
-
-  // Environment Detection Patterns
-  environmentPatterns: {
-    PROD: /\.(prod|production)($|\/|:)/i,
-    DEV: /\.(dev|development)($|\/|:)/i,
-    STAGING: /\.(staging|stg|stage)($|\/|:)/i,
-    LOCAL: /\.(local|loc)($|\/|:|localhost|127\.0\.0\.1|192\.168\.|10\.0\.)/i,
   },
 
   // PII Pattern Regex (basic patterns - extended in pattern-matcher.js)
@@ -97,33 +69,60 @@ export const APP_CONFIG = {
     creditCard: /\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b/g,
   },
 
-  // Dictionary Configuration
-  dictionary: {
-    coreSize: 20000,
-    fullSize: 80000,
-    coreFile: 'assets/dictionaries/core-20k.json',
-    fullFile: 'assets/dictionaries/full-80k.json',
-    downloadURL: null, // Future: CDN URL for dictionary download
-  },
-
   // Proper Noun Detection Configuration
   properNounDetection: {
     // Minimum score required to protect a proper noun (0-1 scale)
-    minimumScore: 0.8,
+    // Lowered from 0.8 to 0.75 to catch more single-word brands while
+    // maintaining precision with department filtering
+    minimumScore: 0.75,
 
     // Signal weights for scoring system
     weights: {
       capitalizationPattern: 0.3, // Has capital letters (baseline)
-      unknownInDictionary: 0.3, // Majority of words not in common dictionary
-      hasHonorificOrSuffix: 0.4, // Mr/Mrs/Dr/Prof OR Inc/Corp/LLC/Ltd
+      unknownInDictionary: 0.35, // Majority of words not in common dictionary (increased from 0.3)
+      hasHonorificOrSuffix: 0.45, // Mr/Mrs/Dr/Prof OR Inc/Corp/LLC/Ltd (increased from 0.4)
       multiWord: 0.2, // 2+ words (e.g., "John Doe")
-      notSentenceStart: 0.1, // Not at beginning of sentence
-      nearOtherPII: 0.2, // Within window of email/phone
+      notSentenceStart: 0.15, // Not at beginning of sentence (increased from 0.1)
+      nearOtherPII: 0.25, // Within window of email/phone (increased from 0.2)
+      matchesEmailDomain: 0.3, // Matches company name from nearby email domain
     },
 
     // Window size (in characters) to check for nearby PII context
     // Adjust based on language - languages with longer words may need larger window
     nearbyPIIWindowSize: 50,
+
+    // Pattern-based department detection
+    // Instead of listing every combination, we detect based on common patterns
+    departmentSuffixes: ['Department', 'Team', 'Support', 'Service', 'Services'],
+
+    // Common department/team prefixes that indicate generic roles
+    departmentPrefixes: [
+      'Human Resources',
+      'Customer Service',
+      'Customer Success',
+      'Customer Support',
+      'Technical Support',
+      'Information Technology',
+      'Research and Development',
+      'Sales and Marketing',
+      'Quality Assurance',
+      'Product Management',
+      'Public Relations',
+      'Business Development',
+      'Data Analytics',
+      'Executive',
+      'Management',
+      'Leadership',
+      'Legal',
+      'Finance',
+      'Accounting',
+      'Operations',
+      'Marketing',
+      'Sales',
+      'Engineering',
+      'IT',
+      'HR',
+    ],
 
     // Enable debug mode highlighting (can be toggled in settings)
     debugMode: false,
@@ -167,7 +166,7 @@ export const APP_CONFIG = {
     usageCount: 'safesnap_usage_count',
     consistencyMap: 'safesnap_consistency_map',
     customPatterns: 'safesnap_custom_patterns',
-    customEnvironments: 'safesnap_custom_environments',
+
     dictionaryCache: 'safesnap_dictionary_cache',
   },
 
@@ -178,10 +177,8 @@ export const APP_CONFIG = {
     TAKE_SCREENSHOT: 'take_screenshot',
     COPY_TO_CLIPBOARD: 'copy_to_clipboard',
     UPDATE_BANNER: 'update_banner',
-    GET_ENVIRONMENT: 'get_environment',
+
     GET_STATUS: 'get_status',
-    LOAD_DICTIONARY: 'load_dictionary',
-    DOWNLOAD_DICTIONARY: 'download_dictionary',
   },
 
   // Status Values
@@ -198,7 +195,6 @@ export const APP_CONFIG = {
     DETECTION_FAILED: 'PII detection failed',
     REPLACEMENT_FAILED: 'PII replacement failed',
     SCREENSHOT_FAILED: 'Screenshot capture failed',
-    DICTIONARY_LOAD_FAILED: 'Dictionary load failed',
     PATTERN_INVALID: 'Invalid regex pattern',
     STORAGE_ERROR: 'Storage operation failed',
   },
@@ -210,7 +206,6 @@ export const APP_CONFIG = {
     SCREENSHOT_CAPTURED: 'Screenshot captured',
     COPIED_TO_CLIPBOARD: 'Copied to clipboard',
     SETTINGS_SAVED: 'Settings saved',
-    DICTIONARY_DOWNLOADED: 'Dictionary downloaded successfully',
   },
 };
 
@@ -218,9 +213,8 @@ export const APP_CONFIG = {
 Object.freeze(APP_CONFIG);
 Object.freeze(APP_CONFIG.defaults);
 Object.freeze(APP_CONFIG.features);
-Object.freeze(APP_CONFIG.environmentPatterns);
+
 Object.freeze(APP_CONFIG.piiPatterns);
-Object.freeze(APP_CONFIG.dictionary);
 Object.freeze(APP_CONFIG.pools);
 Object.freeze(APP_CONFIG.storageKeys);
 Object.freeze(APP_CONFIG.messageTypes);

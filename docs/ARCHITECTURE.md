@@ -12,43 +12,27 @@ safesnap-extension/
 ├── config/
 │   └── app-config.js          // Centralized name storage
 ├── src/
-│   ├── popup/
-│   │   ├── popup.html
-│   │   ├── popup.js
-│   │   ├── popup.css
-│   │   └── popup.test.js
-│   ├── settings/
-│   │   ├── settings.html
-│   │   ├── settings.js
-│   │   └── settings.test.js
-│   ├── content/
-│   │   ├── content.js         // Content script
-│   │   ├── banner.js
-│   │   └── banner.test.js
-│   ├── background/
-│   │   ├── background.js      // Service worker
-│   │   └── background.test.js
-│   ├── detection/
+│   ├── background/      # Background service worker
+│   ├── content/         # Content scripts
+│   ├── popup/           # Extension popup UI
+│   ├── settings/        # Settings page
+│   ├── detection/       # PII detection engine
 │   │   ├── dictionary.js
 │   │   ├── pii-detector.js
 │   │   ├── pattern-matcher.js
 │   │   └── *.test.js
-│   ├── replacement/
+│   ├── replacement/     # PII replacement logic
 │   │   ├── replacer.js
 │   │   ├── consistency-mapper.js
 │   │   ├── name-pool.js
 │   │   ├── company-pool.js
 │   │   └── *.test.js
+│   ├── dictionaries/    # Dictionary data files
+│   │   └── en.js        # 801 common English words
 │   └── utils/
 ├── assets/
-│   ├── icons/
-│   │   ├── logo.svg
-│   │   ├── icon16.png
-│   │   ├── icon48.png
-│   │   └── icon128.png
 │   └── dictionaries/
-│       ├── core-20k.json
-│       └── full-80k.json (downloaded)
+│       └── (removed - now in src/dictionaries/)
 ├── test/
 │   ├── integration/
 │   ├── e2e/
@@ -83,7 +67,6 @@ safesnap-extension/
 
 **Responsibilities:**
 
-- Inject environment banner into web pages
 - Perform PII detection and replacement on page content
 - Manage DOM manipulation for PII protection
 - Handle "Restore Original" functionality
@@ -105,7 +88,6 @@ safesnap-extension/
 - Allow user to select PII types to protect
 - Trigger PII protection and screenshot capture
 - Show current protection status
-- Display environment detection
 
 **Communication:**
 
@@ -119,10 +101,8 @@ safesnap-extension/
 **Responsibilities:**
 
 - Configure default PII types
-- Manage custom environment patterns
 - Customize banner appearance
 - Add/edit custom regex patterns
-- Manage dictionary (download full version, clear cache)
 
 ### 5. PII Detection System
 
@@ -132,17 +112,15 @@ safesnap-extension/
 
 **Responsibilities:**
 
-- Load core dictionary (20K words) from bundled assets
-- Handle optional full dictionary download (80K words)
+- Load curated dictionary (801 words) from bundled assets
 - Provide word lookup functionality
 - Manage dictionary caching
-- Track usage count for smart download suggestion
 
 **Data Source:**
 
-- Census/SSA public domain data
 - Curated common English words
-- Technical terms and jargon
+- Common verbs, adjectives, geographic names
+- High-frequency words that are NOT proper nouns
 
 #### PII Detector
 
@@ -151,8 +129,10 @@ safesnap-extension/
 **Responsibilities:**
 
 - Coordinate between dictionary and pattern matching
-- Implement proper noun detection with multi-signal scoring
+- Implement proper noun detection with multi-signal scoring (8 signals)
 - Consider HTML context (skip labels, headings, etc.)
+- Apply department name filtering to prevent false positives
+- Handle email domain matching for company validation
 - Handle multi-word capitalized sequences
 - Return PII entities with positions and confidence scores
 
@@ -170,14 +150,16 @@ function detectPII(text, context) {
 
   3. Calculate multi-signal score:
      score = 0.3 (capitalization)
-           + 0.3 (if >50% words unknown in dictionary)
-           + 0.4 (if has honorific OR company suffix)
+           + 0.35 (if >50% words unknown in dictionary)
+           + 0.45 (if has honorific OR company suffix)
            + 0.2 (if multi-word, 2+ words)
-           + 0.1 (if not at sentence start)
-           + 0.2 (if near email/phone within 50 chars)
+           + 0.15 (if not at sentence start)
+           + 0.25 (if near email/phone within 50 chars)
+           + 0.3 (if matches nearby email domain)
+           - 0.9 (if matches department name pattern)
 
-     → score >= 0.8: Mark as PII (proper noun)
-     → score < 0.8: Keep as regular text
+     → score >= 0.75: Mark as PII (proper noun)
+     → score < 0.75: Keep as regular text
 
   4. Check HTML context
      - Inside <label>, <th>, <h1-h6>, etc.?
@@ -191,19 +173,34 @@ function detectPII(text, context) {
 
 ```javascript
 properNounDetection: {
-  minimumScore: 0.8,
+  minimumScore: 0.75,  // Detection threshold (lowered from 0.8)
   weights: {
-    capitalizationPattern: 0.3,
-    unknownInDictionary: 0.3,
-    hasHonorificOrSuffix: 0.4,
-    multiWord: 0.2,
-    notSentenceStart: 0.1,
-    nearOtherPII: 0.2,
+    capitalizationPattern: 0.30,   // Baseline: has proper capitalization
+    unknownInDictionary: 0.35,     // Strong: not common word (increased from 0.30)
+    hasHonorificOrSuffix: 0.45,    // Very strong: has Mr/Inc/Corp (increased from 0.40)
+    multiWord: 0.20,                // Moderate: 2+ words
+    notSentenceStart: 0.15,         // Weak: not at sentence start (increased from 0.10)
+    nearOtherPII: 0.25,             // Moderate: near email/phone (increased from 0.20)
+    matchesEmailDomain: 0.30,       // Strong: matches email domain (NEW)
   },
   nearbyPIIWindowSize: 50,
   debugMode: false,
+},
+departmentDetection: {
+  departmentPrefixes: ['Human', 'Customer', 'Technical', ...],  // 27 prefixes
+  departmentSuffixes: ['Resources', 'Service', 'Support', 'Team', 'Department'],
+  penalty: -0.9,  // Heavy penalty for department names (NEW)
 }
 ```
+
+**Performance (v1.0):**
+
+- **Precision:** 100% (zero false positives)
+- **Recall:** 55.88%
+- **F1 Score:** 0.7170
+- **Dictionary Size:** 801 curated common English words
+
+**See [DETECTION.md](DETECTION.md) for detailed explanation of the detection algorithm.**
 
 #### Pattern Matcher
 
@@ -225,9 +222,26 @@ properNounDetection: {
   money: /[$€£¥]\s?\d{1,3}(,?\d{3})*(\.\d{2})?/,
   url: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
   ip: /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/,
+  location: /\b(?:[A-Z][a-z]+\s+){0,3}(?:Bay|Valley|Area|...)\b/,  // Multi-word locations
   // ... more patterns
 }
 ```
+
+**PII Detection Types:**
+
+- **Emails** - Email addresses via regex pattern
+- **Phones** - Phone numbers (multiple formats) via regex + validation
+- **Money** - Currency amounts via regex pattern
+- **Credit Cards** - Major card formats via regex + validation
+- **URLs** - Web addresses via regex pattern
+- **IPs** - IPv4/IPv6 addresses via regex pattern
+- **Dates** - Multiple formats via regex pattern
+- **Addresses** - Street addresses via regex pattern
+- **Proper Nouns** - Names and companies via dictionary + multi-signal scoring (20K+ entries)
+- **Locations** - Geographic locations (cities, states, countries, features) via hybrid pattern + gazetteer (500 locations)
+  - Multi-word locations: "Bay Area", "Silicon Valley", "Pacific Ocean" (pattern-based, confidence 0.90)
+  - Single-word locations: "Paris", "Tokyo", "California" (gazetteer-based, confidence 0.95)
+  - Type-aware replacements: city→city, region→region, country→country, feature→feature
 
 ### 6. Replacement System
 
@@ -299,30 +313,7 @@ properNounDetection: {
 - Generate variations (Inc, LLC, Corp, Company, etc.)
 - Examples: "Company A", "Organization B", "Tech Business C"
 
-### 7. Environment Banner
-
-**File:** `src/content/banner.js`
-
-**Responsibilities:**
-
-- Detect environment from URL patterns
-- Inject banner into page (default top-right)
-- Handle banner customization (position, colors, text, size, opacity)
-- Implement fade interaction (20% opacity + 50% shrink on cursor proximity)
-- Update banner text based on protection status
-- Display error warnings
-
-**Behavior:**
-
-```javascript
-States:
-1. Initial: "⚠️ PRODUCTION"
-2. Protected: "⚠️ PRODUCTION - PII PROTECTED"
-3. Restored: "⚠️ PRODUCTION"
-4. Error: Separate persistent warning bar (non-dismissible)
-```
-
-### 8. Configuration
+### 7. Configuration
 
 **File:** `config/app-config.js`
 
@@ -330,28 +321,41 @@ States:
 
 - Centralized storage for app name and version
 - Default settings and constants
-- Environment pattern defaults
 - Banner customization defaults
+- Detection weights and thresholds
+- Department filtering patterns
 
 ```javascript
 export const APP_CONFIG = {
   name: 'SafeSnap',
   version: '1.0.0',
-  tier: 'free'
 
   defaults: {
-    enabledPIITypes: ['properNouns', 'money', 'quantities'],
+    enabledPIITypes: ['properNouns', 'money', 'quantities', 'emails', 'phones'],
     bannerPosition: 'top-right',
     bannerOpacity: 100,
     fadeDistance: 100,
     magnitudeVariance: 30,
   },
 
-  environmentPatterns: {
-    PROD: /\.(prod|production)($|\/|:)/,
-    DEV: /\.(dev|development)($|\/|:)/,
-    STAGING: /\.(staging|stg|stage)($|\/|:)/,
-    LOCAL: /\.(local|loc)($|\/|:|localhost|127\.0\.0\.1|192\.168\.|10\.0\.)/,
+  properNounDetection: {
+    minimumScore: 0.75,
+    weights: {
+      capitalizationPattern: 0.30,
+      unknownInDictionary: 0.35,
+      hasHonorificOrSuffix: 0.45,
+      multiWord: 0.20,
+      notSentenceStart: 0.15,
+      nearOtherPII: 0.25,
+      matchesEmailDomain: 0.30,
+    },
+    nearbyPIIWindowSize: 50,
+  },
+
+  departmentDetection: {
+    departmentPrefixes: ['Human', 'Customer', 'Technical', ...],
+    departmentSuffixes: ['Resources', 'Service', 'Support', 'Team', 'Department'],
+    penalty: -0.9,
   },
 };
 ```
@@ -416,7 +420,7 @@ export const APP_CONFIG = {
   "manifest_version": 3,
   "name": "SafeSnap",
   "version": "1.0.0",
-  "description": "Screenshot tool with PII protection and environment indicators",
+  "description": "Screenshot tool with PII protection",
 
   "permissions": ["activeTab", "storage", "tabs"],
 
@@ -457,9 +461,8 @@ export const APP_CONFIG = {
 
 ### Lazy Loading
 
-- Core dictionary (20K) loads on first "Protect PII" click
-- Full dictionary (80K) downloads only when user accepts suggestion
-- ~100-200ms initial load time
+- Dictionary (801 words) loads on first "Protect PII" click
+- ~10-20ms initial load time (fast, optimized)
 
 ### Progress Indicators
 
@@ -478,8 +481,8 @@ export const APP_CONFIG = {
 ### Privacy-First Design
 
 - All processing happens locally in the browser
-- No data sent to external servers (free tier)
-- Dictionary files are static, bundled assets
+- No data sent to external servers
+- Dictionary files are static, bundled assets (801 words)
 - Settings stored in chrome.storage.sync (encrypted by Chrome)
 
 ### Content Security Policy
@@ -498,10 +501,10 @@ export const APP_CONFIG = {
 
 ### Unit Tests
 
-- Framework: Jest with jest-chrome
+- Framework: Jest with jest-webextension-mock
 - Co-located with source files (\*.test.js)
 - Focus: Individual functions and classes
-- Coverage: ~90%+
+- Coverage: >80% (functions), >75% (lines/statements), >60% (branches)
 
 ### Integration Tests
 
@@ -530,19 +533,20 @@ test/fixtures/sample-page.html         // Test data
 
 ### Build Tools
 
-- Webpack or Rollup for bundling
+- Bun for package management
+- Webpack for bundling
 - Babel for transpilation
 - PostCSS for CSS processing
 
 ### Development Workflow
 
-1. `npm install` - Install dependencies
-2. `npm run dev` - Start development server with hot reload
-3. `npm test` - Run unit tests
-4. `npm run test:integration` - Run integration tests
-5. `npm run test:e2e` - Run E2E tests
-6. `npm run build` - Build production bundle
-7. `npm run package` - Create .zip for Chrome Web Store
+1. `bun install` - Install dependencies
+2. `bun run dev` - Start development server with hot reload
+3. `bun run test` - Run unit tests (IMPORTANT: Use "bun run test", NOT "bun test")
+4. `bun run test:integration` - Run integration tests
+5. `bun run test:e2e` - Run E2E tests
+6. `bun run build` - Build production bundle
+7. `bun run package` - Create .zip for Chrome Web Store
 
 ### Pre-commit Hooks
 

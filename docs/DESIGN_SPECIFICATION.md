@@ -4,7 +4,7 @@
 
 **Name:** SafeSnap (centrally stored, subject to change)
 
-**Purpose:** Chrome extension for taking screenshots with PII protection and environment indicators
+**Purpose:** Chrome extension for taking screenshots with PII protection
 
 ## Model
 
@@ -12,18 +12,16 @@
 
 - Full-featured PII protection using dictionary-based detection
 - Core dictionary (20K words) ships with extension
-- Optional full dictionary download (80K words) with smart suggestion after 3-5 uses
 - All PII types available: proper nouns, money, quantities, emails, phones, addresses, dates, URLs, IPs, custom regex
 - Default enabled: proper nouns, money, quantities
 - Full banner customization (position, colors, text, size, opacity, fade distance)
-- Environment detection via TLD patterns (.prod, .dev, .staging, .local) - customizable
 - Form input protection (all visible inputs: text, textarea, email, tel, url, search, number, date/time, select)
 - Copy to clipboard + PNG download (fixed format)
 - Consistency mapping: exact match, per-page session
-- Essential settings only: default PII types, custom environment patterns, banner customization
+- Essential settings only: default PII types, banner customization
 - Custom regex patterns with examples and validation
 
-## PII Detection Strategy 
+## PII Detection Strategy
 
 ### Dictionary-Based Approach
 
@@ -81,6 +79,11 @@ SafeSnap uses a sophisticated scoring system to distinguish real names from busi
 - IP addresses: IPv4 and IPv6
 - Dates: Multiple formats (MM/DD/YYYY, DD-MM-YYYY, ISO 8601, etc.)
 - Street addresses: Number + street name patterns
+- **Locations (hybrid: pattern + gazetteer)**
+  - Multi-word: "Bay Area", "Silicon Valley", "Pacific Ocean" (pattern-based)
+  - Single-word: "Paris", "Tokyo", "California" (gazetteer: 500 locations)
+  - Confidence: 0.95 (gazetteer), 0.90 (pattern)
+  - Replacement: Type-aware fake locations (city→city, region→region, country→country, feature→feature)
 
 ## Replacement Strategy
 
@@ -168,21 +171,13 @@ LOCAL:   \.(local|loc)($|/|:|localhost|127\.0\.0\.1|192\.168\.|10\.0\.)
 ### Workflow
 
 1. User navigates to page
-2. Environment banner auto-appears if URL matches pattern
-3. User clicks extension icon → popup opens (tabbed interface)
-4. User selects which PII types to protect via checkboxes
-5. User clicks "Protect PII" button
-6. Page content modified (PII replaced), banner text updates to "PII PROTECTED"
-7. User clicks "Take Screenshot" or "Copy to Clipboard"
-8. Screenshot captured
-9. User clicks "Restore Original" to undo changes
-10. Banner reverts to environment name only
-
-### Smart Dictionary Download
-
-- First 3-5 uses: Core dictionary (20K words) only
-- After 3-5 uses: Subtle suggestion "Download full dictionary for better label detection"
-- Non-intrusive, one-time prompt
+2. User clicks extension icon → popup opens (tabbed interface)
+3. User selects which PII types to protect via checkboxes
+4. User clicks "Protect PII" button
+5. Page content modified (PII replaced)
+6. User clicks "Take Screenshot" or "Copy to Clipboard"
+7. Screenshot captured
+8. User clicks "Restore Original" to undo changes
 
 ## UI/UX Specifications
 
@@ -203,16 +198,13 @@ Protect Tab:
   [Restore Original]
 
   Status: Ready / Protected / Error
-  Environment: PRODUCTION
 ```
 
 ### Settings Page (Essential Only - Free)
 
 - Default PII types to protect (checkboxes)
-- Custom environment patterns (add/edit/delete with regex)
 - Banner customization (position, colors, text, size, opacity, fade distance)
 - Custom regex patterns (simple UI with examples, docs link, syntax validation)
-- Dictionary management (download full dictionary, clear cache)
 - Export/Import settings (NOT available - kept simple)
 
 ## Error Handling
@@ -240,15 +232,15 @@ Protect Tab:
 
 ## Key Design Decisions
 
-1. Dictionary approach (free) vs AI/LLM 
-2. Hybrid dictionary: 20K core + optional 80K download with smart suggestion
-3. Magnitude preservation: ±30% variance 
+1. Dictionary approach (free) vs AI/LLM
+2. Dictionary-based detection with 20K word dictionary
+3. Magnitude preservation: ±30% variance
 4. Consistency mapping: Per-page exact match (free), smart entity recognition
 5. Banner interaction: Fade to 20% + shrink to 50% on proximity
 6. Error handling: Tiered with non-dismissible failure warnings
 7. Test coverage: 90%+ comprehensive with hybrid organization
 8. No usage limits
-10. i18n-ready: Architecture supports multiple languages, launch with English
-11. Name storage: Centralized in single config location (subject to change)
-12. Name pools: ~100 person names (Census/SSA), ~100+ company terms (generic variations)
-13. Performance: Best effort, progress indicator if >500ms, lazy loading
+9. i18n-ready: Architecture supports multiple languages, launch with English
+10. Name storage: Centralized in single config location (subject to change)
+11. Name pools: ~100 person names (Census/SSA), ~100+ company terms (generic variations)
+12. Performance: Best effort, progress indicator if >500ms, lazy loading

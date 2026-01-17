@@ -171,6 +171,20 @@ export class PIIDetector {
       );
     }
 
+    if (types.includes('locations') || types.includes('location')) {
+      const locations = this.patternMatcher.findLocations(text);
+      entities.push(
+        ...locations.map((match) => ({
+          type: 'location',
+          original: match.value,
+          start: match.start,
+          end: match.end,
+          confidence: match.matchType === 'gazetteer' ? 0.95 : 0.9, // High confidence for locations
+          metadata: { matchType: match.matchType }, // 'pattern' or 'gazetteer'
+        }))
+      );
+    }
+
     // Proper noun detection (names, companies)
     if (types.includes('properNouns')) {
       const properNouns = this._detectProperNouns(text);
@@ -374,6 +388,26 @@ export class PIIDetector {
           });
         });
       }
+
+      // Process locations if enabled
+      if (types.includes('locations') || types.includes('location')) {
+        const locationMatches = this.patternMatcher.findLocations(text);
+        locationMatches.forEach((match) => {
+          allCandidates.push({
+            type: 'location',
+            original: match.value,
+            start: match.start,
+            end: match.end,
+            confidence: match.matchType === 'gazetteer' ? 0.95 : 0.9,
+            node: currentNode,
+            nodeText: text,
+            scoreBreakdown: {
+              patternMatch: match.matchType === 'pattern' ? 1.0 : 0,
+              gazetteerMatch: match.matchType === 'gazetteer' ? 1.0 : 0,
+            },
+          });
+        });
+      }
     }
 
     return allCandidates;
@@ -391,19 +425,99 @@ export class PIIDetector {
     const config = APP_CONFIG.properNounDetection;
     const minimumScore = config?.minimumScore || 0.8;
 
+    // Enhanced pattern to handle apostrophes, hyphens, ampersands, and more company/job title indicators
+    // Matches:
+    // - Honorifics: Mr., Mrs., Ms., Dr., Prof.
+    // - Job titles: CEO, CTO, CFO, Director, Manager, VP, President, etc.
+    // - Names with apostrophes: O'Brien, D'Angelo
+    // - Names with hyphens: Mary-Jane, Jean-Luc
+    // - Company suffixes: Inc, Corp, LLC, Ltd, Limited, Company, Co., Corporation, GmbH, SA, PLC, AG
+    // - Names with ampersands: McKinsey & Company, Johnson & Johnson
+    //
+    // Note: Using (?<![a-zA-Z']) negative lookbehind to handle apostrophes properly
     const capitalizedPattern =
-      /\b(?:(?:Mr|Mrs|Ms|Dr|Prof)\.\s+)?(?!Mr|Mrs|Ms|Dr|Prof\b)[A-Z][a-z]+(?:\s+(?!Mr|Mrs|Ms|Dr|Prof\b)[A-Z][a-z]+)*(?:\s+(?:Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation))?\b/g;
+      /(?<![a-zA-Z'])(?:(?:Mr|Mrs|Ms|Dr|Prof|CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead)\.?\s+)?(?!Mr|Mrs|Ms|Dr|Prof|CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead\b)[A-Z][a-z]+(?:[''-][A-Z]?[a-z]+)?(?:\s+(?:&\s+)?(?!Mr|Mrs|Ms|Dr|Prof|CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead\b)[A-Z][a-z]+(?:[''-][A-Z]?[a-z]+)?)*(?:\s+(?:Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|GmbH|SA|PLC|AG|Group|Partners|Associates|Ventures|Technologies|Tech|Systems|Solutions|Consulting|Services|International|Intl))?\.?(?![a-zA-Z'])/g;
 
     let match;
     while ((match = capitalizedPattern.exec(text)) !== null) {
-      const candidate = match[0];
-      const start = match.index;
-      const end = start + candidate.length;
+      let candidate = match[0];
+      let start = match.index;
+      let end = start + candidate.length;
 
-      const hasHonorific = /^(?:Mr|Mrs|Ms|Dr|Prof)\.\s+/i.test(candidate);
-      const hasCompanySuffix = /\b(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation)\b/i.test(
-        candidate
-      );
+      // Fix Issue #1: Remove common prepositions/words at the start if they're in the dictionary
+      // This prevents "By Stephen Council" from being detected; instead detects "Stephen Council"
+      const commonStartWords = [
+        'By',
+        'In',
+        'On',
+        'At',
+        'For',
+        'With',
+        'From',
+        'To',
+        'As',
+        'Of',
+        'Meet',
+        'See',
+        'Contact',
+        'Call',
+        'Visit',
+        'Email',
+        'Ask',
+      ];
+      const firstWord = candidate.split(/\s+/)[0];
+
+      if (commonStartWords.includes(firstWord)) {
+        // Remove the common word from the start (no need to check dictionary for these known words)
+        const wordsToRemove = firstWord.length + 1; // +1 for the space
+        candidate = candidate.substring(wordsToRemove).trim();
+        start = start + wordsToRemove;
+
+        // Skip if nothing left after removal
+        if (candidate.length === 0) {
+          continue;
+        }
+      }
+
+      const hasHonorific = /^(?:Mr|Mrs|Ms|Dr|Prof)\b\.?\s+/i.test(candidate);
+      const hasJobTitle =
+        /^(?:CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead)\b\.?\s+/i.test(
+          candidate
+        );
+
+      // Fix Issue #2: Only consider company suffix if it's at the END of the phrase
+      // This prevents "Tech Reporter" from being detected as a company
+      const hasCompanySuffix =
+        /\b(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|GmbH|SA|PLC|AG|Group|Partners|Associates|Ventures)\.?\s*$/i.test(
+          candidate
+        );
+
+      // Separate check for tech/service suffixes (only at end)
+      const hasTechSuffix =
+        /\b(Technologies|Tech|Systems|Solutions|Consulting|Services|International|Intl)\.?\s*$/i.test(
+          candidate
+        );
+
+      // Fix Issue #2b: Detect if this is ONLY a standalone job title pattern (no name following)
+      // E.g., "Tech Reporter" or "Senior Engineer" by itself
+      const isStandaloneJobTitle =
+        /^(Senior|Junior|Lead|Chief|Principal|Staff|Associate)\s+(Engineer|Developer|Manager|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant)$/i.test(
+          candidate
+        ) ||
+        /^(Tech|Senior Tech|Lead Tech|Staff Tech)\s+(Writer|Reporter|Lead|Manager)$/i.test(
+          candidate
+        );
+
+      // Fix Issue #2c: Detect job description patterns in the candidate
+      // Instead of stripping, we'll penalize the confidence score later
+      // This gives users control via threshold adjustment
+      const hasJobDescriptionPrefix =
+        /^(?:Senior|Junior|Lead|Chief|Principal|Staff|Associate|Tech)\s+(?:Engineer|Developer|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant|Technician|Specialist)\s+/i.test(
+          candidate
+        ) ||
+        /^(?:Engineer|Developer|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant|Tech|Technician|Specialist)\s+(?!Inc|Corp|LLC|Ltd)/i.test(
+          candidate
+        );
 
       const beforeChar = start > 0 ? text[start - 1] : '';
       const twoBeforeChar = start > 1 ? text[start - 2] : '';
@@ -418,17 +532,53 @@ export class PIIDetector {
       const nameWithoutHonorific = candidate.replace(/^(?:Mr|Mrs|Ms|Dr|Prof)\.\s+/i, '');
       const wordCount = nameWithoutHonorific.split(/\s+/).length;
       const nearPII = this._hasNearbyPII(text, start, end);
+      const isDepartmentName = this._isDepartmentName(candidate);
+      const emailDomainMatch = this._matchesNearbyEmailDomain(text, candidate, start, end);
 
       const context = {
         hasHonorific,
-        hasCompanySuffix,
+        hasJobTitle,
+        hasCompanySuffix: hasCompanySuffix || hasTechSuffix,
         wordCount,
         isSentenceStart,
         nearPII,
+        isDepartmentName,
+        emailDomainMatch,
+        isStandaloneJobTitle, // NEW: Flag for standalone job titles
+        hasJobDescriptionPrefix, // NEW: Flag for job description prefixes
       };
 
-      const { score, breakdown } = this._calculateProperNounScore(candidate, context);
-      const entityContext = hasCompanySuffix ? 'company' : 'person';
+      let { score, breakdown } = this._calculateProperNounScore(candidate, context);
+
+      // Fix Issue #2d: Apply penalties based on job-related context
+      // This allows users to control detection via threshold adjustment
+
+      // Skip standalone job titles entirely (e.g., "Tech Reporter" alone)
+      if (isStandaloneJobTitle) {
+        score = 0;
+        breakdown.isStandaloneJobTitle = 'skipped';
+      }
+
+      // Penalize job description prefixes (e.g., "Senior Engineer John Smith" or "Tech Writer John Smith")
+      // Reduced penalty to -0.25 to allow detection with user threshold adjustment
+      if (hasJobDescriptionPrefix && !isStandaloneJobTitle) {
+        score = Math.max(0, score - 0.25);
+        breakdown.hasJobDescriptionPrefix = -0.25;
+      }
+
+      // Determine entity type based on context
+      let entityContext = 'unknown';
+      if (hasCompanySuffix || hasTechSuffix) {
+        entityContext = 'company';
+      } else if (hasHonorific || hasJobTitle) {
+        entityContext = 'person';
+      } else if (wordCount === 1) {
+        // Single word could be brand/company (e.g., "SpaceX", "Google")
+        entityContext = 'company_or_person';
+      } else {
+        // Multi-word is likely a person name
+        entityContext = 'person';
+      }
 
       candidates.push({
         type: 'properNoun',
@@ -463,6 +613,85 @@ export class PIIDetector {
   }
 
   /**
+   * Check if candidate matches a common department/team name pattern
+   * Uses pattern matching instead of hardcoded list for better coverage
+   * @private
+   */
+  _isDepartmentName(candidate) {
+    const config = APP_CONFIG.properNounDetection;
+    const prefixes = config?.departmentPrefixes || [];
+    const suffixes = config?.departmentSuffixes || [];
+
+    // Remove trailing punctuation and normalize
+    let normalized = candidate
+      .trim()
+      .replace(/[.,;!?]+$/, '')
+      .toLowerCase();
+
+    // Also check after removing common leading verbs (e.g., "Visit Human Resources")
+    const withoutLeadingVerb = normalized.replace(/^(call|visit|contact|reach|see)\s+/, '');
+
+    // Check both with and without leading verb
+    for (const text of [normalized, withoutLeadingVerb]) {
+      // Pattern 1: Exact prefix match (e.g., "Human Resources")
+      if (prefixes.some((prefix) => prefix.toLowerCase() === text)) {
+        return true;
+      }
+
+      // Pattern 2: Prefix + Suffix (e.g., "Marketing Department", "Executive Team")
+      for (const suffix of suffixes) {
+        const suffixLower = suffix.toLowerCase();
+        if (text.endsWith(suffixLower)) {
+          // Extract prefix (everything before the suffix)
+          const prefix = text.substring(0, text.length - suffixLower.length).trim();
+
+          // Check if prefix matches any known department prefix
+          if (prefixes.some((p) => p.toLowerCase() === prefix)) {
+            return true;
+          }
+        }
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * Check if candidate matches a company name from nearby email domain
+   * @private
+   */
+  _matchesNearbyEmailDomain(text, candidate, start, end) {
+    const windowSize = APP_CONFIG.properNounDetection?.nearbyPIIWindowSize || 50;
+    const windowStart = Math.max(0, start - windowSize);
+    const windowEnd = Math.min(text.length, end + windowSize);
+    const windowText = text.substring(windowStart, windowEnd);
+
+    // Extract emails from nearby text
+    const emails = this.patternMatcher.matchType(windowText, 'email');
+    if (emails.length === 0) return false;
+
+    // Extract domain names from emails (without TLD)
+    // e.g., john@acme.com -> "acme"
+    const domains = emails
+      .map((e) => {
+        // PatternMatcher returns { value, index, type, length }
+        const emailText = e.value || e.original;
+        if (!emailText) return null;
+        const match = emailText.match(/@([^.]+)\./);
+        return match ? match[1].toLowerCase() : null;
+      })
+      .filter((d) => d !== null);
+
+    // Check if candidate matches any domain name
+    const candidateNormalized = candidate
+      .toLowerCase()
+      .replace(/\s+(inc|corp|llc|ltd|limited|company|co\.|corporation|gmbh|sa|plc|ag)$/i, '')
+      .trim();
+
+    return domains.some((domain) => candidateNormalized === domain);
+  }
+
+  /**
    * Calculate proper noun confidence score
    * @private
    */
@@ -484,10 +713,14 @@ export class PIIDetector {
       score += breakdown.unknownInDictionary;
     }
 
-    // Signal 3: Honorific or Company Suffix
-    if (context.hasHonorific || context.hasCompanySuffix) {
+    // Signal 3: Honorific, Job Title, or Company Suffix
+    if (context.hasHonorific || context.hasJobTitle || context.hasCompanySuffix) {
       breakdown.hasHonorificOrSuffix = weights.hasHonorificOrSuffix || 0.4;
-      breakdown.hasHonorificOrSuffix_detail = context.hasHonorific ? 'honorific' : 'suffix';
+      let detail = [];
+      if (context.hasHonorific) detail.push('honorific');
+      if (context.hasJobTitle) detail.push('job_title');
+      if (context.hasCompanySuffix) detail.push('company_suffix');
+      breakdown.hasHonorificOrSuffix_detail = detail.join('+');
       score += breakdown.hasHonorificOrSuffix;
     }
 
@@ -506,8 +739,22 @@ export class PIIDetector {
 
     // Signal 6: Near PII
     if (context.nearPII) {
-      breakdown.nearOtherPII = weights.nearOtherPII || 0.2;
+      breakdown.nearOtherPII = weights.nearOtherPII || 0.25;
       score += breakdown.nearOtherPII;
+    }
+
+    // Signal 7: Matches email domain
+    if (context.emailDomainMatch) {
+      breakdown.matchesEmailDomain = weights.matchesEmailDomain || 0.3;
+      breakdown.matchesEmailDomain_detail = 'company_from_email';
+      score += breakdown.matchesEmailDomain;
+    }
+
+    // Penalty: Department name (strong negative signal)
+    if (context.isDepartmentName) {
+      breakdown.isDepartmentName = -0.9;
+      breakdown.isDepartmentName_detail = 'generic_department';
+      score += breakdown.isDepartmentName;
     }
 
     score = Math.min(score, 1.0);
@@ -521,8 +768,15 @@ export class PIIDetector {
    */
   _calculateUnknownWordRatio(candidate) {
     const cleaned = candidate
-      .replace(/^(?:Mr|Mrs|Ms|Dr|Prof)\.\s+/i, '')
-      .replace(/\s+(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation)$/i, '');
+      .replace(/^(?:Mr|Mrs|Ms|Dr|Prof)\b\.?\s+/i, '')
+      .replace(
+        /^(?:CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead)\b\.?\s+/i,
+        ''
+      )
+      .replace(
+        /\s+(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|GmbH|SA|PLC|AG|Group|Partners|Associates|Ventures|Technologies|Tech|Systems|Solutions|Consulting|Services|International|Intl\.)$/i,
+        ''
+      );
 
     const words = cleaned.split(/\s+/).filter((w) => w.length > 0);
     if (words.length === 0) return 0;
@@ -785,14 +1039,6 @@ export class PIIDetector {
     }
 
     return stats;
-  }
-
-  /**
-   * Increment usage count and check for dictionary download suggestion
-   * @returns {boolean} True if full dictionary download should be suggested
-   */
-  checkDictionaryUsage() {
-    return this.dictionary.incrementUsage();
   }
 
   /**

@@ -4,7 +4,6 @@
 import { PIIDetector } from '../detection/pii-detector.js';
 import { Replacer } from '../replacement/replacer.js';
 import { ConsistencyMapper } from '../replacement/consistency-mapper.js';
-import { APP_CONFIG } from '../../config/app-config.js';
 import i18n from '../i18n/en.js';
 import {
   enableHighlightMode,
@@ -15,7 +14,7 @@ import {
   initializeHighlightMode,
   refreshHighlightsWithSettings,
 } from './modules/highlight-mode.js';
-import { loadSettings, getSetting, detectEnvironment } from './modules/settings.js';
+import { loadSettings, getSetting } from './modules/settings.js';
 import {
   showProtectedModeIndicator,
   hideNotificationPanel,
@@ -36,7 +35,6 @@ let replacer = null;
 let consistencyMapper = null;
 let originalContent = new Map(); // Store original text nodes
 let isPIIProtected = false;
-let currentEnvironment = null;
 
 // Initialize on load
 (async () => {
@@ -48,13 +46,7 @@ let currentEnvironment = null;
   replacer = new Replacer();
   consistencyMapper = new ConsistencyMapper();
 
-  // Detect environment and show banner if applicable
-  currentEnvironment = detectEnvironment();
-  if (currentEnvironment) {
-    showEnvironmentBanner(currentEnvironment);
-  }
-
-  console.log('SafeSnap initialized', { environment: currentEnvironment });
+  console.log('SafeSnap initialized');
 
   // Wait for DOM to be ready before enabling highlights
   const enableHighlightsIfNeeded = async () => {
@@ -133,7 +125,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         success: true,
         isPIIProtected,
         isHighlightModeEnabled: isHighlightEnabled(),
-        environment: currentEnvironment,
       });
       break;
 
@@ -188,66 +179,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 /**
  * Get banner position styles based on setting
  */
-
-/**
- * Show environment banner with fade-on-mouse behavior
- */
-function showEnvironmentBanner(environment) {
-  const banner = document.createElement('div');
-  banner.id = 'safesnap-env-banner';
-
-  const backgroundColor = APP_CONFIG.defaults.environmentColors[environment] || '#EF4444';
-  const environmentText = APP_CONFIG.defaults.environmentText[environment] || environment;
-
-  banner.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: ${backgroundColor};
-    color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 999999;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  `;
-
-  banner.innerHTML = `
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <span>${environmentText}</span>
-    </div>
-  `;
-
-  document.body.appendChild(banner);
-
-  // Fade on mouse proximity
-  document.addEventListener('mousemove', (e) => {
-    const rect = banner.getBoundingClientRect();
-
-    // Calculate distance from cursor to nearest edge of the banner
-    const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
-    const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    const fadeDistance = getSetting('fadeDistance');
-    const invisibleRadius = 20; // Fully invisible within 20px from edge
-
-    if (distance < invisibleRadius) {
-      banner.style.opacity = 0;
-    } else if (distance < fadeDistance) {
-      // Fade from 0 to 1 between invisibleRadius and fadeDistance
-      const opacity = (distance - invisibleRadius) / (fadeDistance - invisibleRadius);
-      banner.style.opacity = opacity;
-    } else {
-      banner.style.opacity = 1;
-    }
-  });
-}
 
 /**
  * Show ephemeral status banner (for popup messages)
@@ -384,6 +315,9 @@ async function protectPII(enabledTypes) {
           case 'ipAddress':
             replacement = replacer.replaceIPAddress(original);
             break;
+          case 'location':
+            replacement = replacer.replaceLocation(original);
+            break;
           default:
             replacement = original;
         }
@@ -480,7 +414,6 @@ async function protectPII(enabledTypes) {
     showProtectionBanner('active', {
       entityCount: entities.length,
       types: enabledTypes,
-      environment: currentEnvironment,
     });
 
     // Show persistent watermark
@@ -492,13 +425,6 @@ async function protectPII(enabledTypes) {
         disableHighlightMode();
         enableHighlightMode(detector, getOriginalTextForNode);
       }, 100); // Small delay to let DOM settle
-    }
-
-    // Check dictionary usage - show banner with download button
-    if (detector.checkDictionaryUsage()) {
-      setTimeout(() => {
-        showDictionaryDownloadBanner();
-      }, 6000); // Show after the success banner disappears
     }
   } catch (error) {
     console.error('PII protection failed:', error);
@@ -615,7 +541,6 @@ function showProtectionBanner(state, data = {}) {
       <div>
         <div>${message}</div>
         ${data.types ? `<small style="opacity: 0.8; font-weight: 400; margin-top: 4px; display: block;">Types: ${data.types.join(', ')}</small>` : ''}
-        ${data.environment ? `<small style="opacity: 0.8; font-weight: 400;">${i18n.environmentLabel} ${data.environment}</small>` : ''}
       </div>
     </div>
   `;
@@ -659,122 +584,6 @@ function showProtectionBanner(state, data = {}) {
       setTimeout(() => banner.remove(), 300);
     }, 5000);
   }
-}
-
-/**
- * Show dictionary download banner with button
- */
-function showDictionaryDownloadBanner() {
-  // Remove existing banner
-  const existing = document.getElementById('safesnap-protection-banner');
-  if (existing) {
-    existing.remove();
-  }
-
-  const banner = document.createElement('div');
-  banner.id = 'safesnap-protection-banner';
-
-  // Ephemeral banners always use top-center position
-  banner.style.cssText = `
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    padding: 16px 24px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    z-index: 999999;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    animation: slideInTop 0.3s ease-out;
-    max-width: 400px;
-    pointer-events: auto;
-  `;
-
-  banner.innerHTML = `
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <span style="font-size: 20px;">💡</span>
-      <div style="flex: 1;">
-        <div>Tip: Download the full dictionary for improved accuracy</div>
-        <small style="opacity: 0.9; font-weight: 400; display: block; margin-top: 4px;">
-          More accurate proper noun detection with 80K+ words
-        </small>
-      </div>
-      <button id="safesnap-download-dict-btn" style="
-        background: white;
-        color: #2563eb;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-weight: 600;
-        font-size: 13px;
-        cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s;
-        white-space: nowrap;
-      ">
-        Download
-      </button>
-    </div>
-  `;
-
-  document.body.appendChild(banner);
-
-  // Add button click handler
-  const downloadBtn = document.getElementById('safesnap-download-dict-btn');
-  downloadBtn.addEventListener('mouseenter', () => {
-    downloadBtn.style.transform = 'scale(1.05)';
-    downloadBtn.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-  });
-  downloadBtn.addEventListener('mouseleave', () => {
-    downloadBtn.style.transform = 'scale(1)';
-    downloadBtn.style.boxShadow = 'none';
-  });
-  downloadBtn.addEventListener('click', async () => {
-    downloadBtn.textContent = 'Downloading...';
-    downloadBtn.disabled = true;
-    downloadBtn.style.cursor = 'wait';
-
-    try {
-      const success = await detector.dictionary.downloadFullDictionary();
-      if (success) {
-        banner.style.animation = 'slideOutTop 0.3s ease-out';
-        setTimeout(() => {
-          banner.remove();
-          showProtectionBanner('active', {
-            message: 'Dictionary downloaded successfully!',
-          });
-        }, 300);
-      } else {
-        downloadBtn.textContent = 'Error';
-        downloadBtn.style.background = '#ef4444';
-        downloadBtn.style.color = 'white';
-        setTimeout(() => {
-          banner.style.animation = 'slideOutTop 0.3s ease-out';
-          setTimeout(() => banner.remove(), 300);
-        }, 2000);
-      }
-    } catch (error) {
-      console.error('Dictionary download failed:', error);
-      downloadBtn.textContent = 'Error';
-      downloadBtn.style.background = '#ef4444';
-      downloadBtn.style.color = 'white';
-      setTimeout(() => {
-        banner.style.animation = 'slideOutTop 0.3s ease-out';
-        setTimeout(() => banner.remove(), 300);
-      }, 2000);
-    }
-  });
-
-  // Auto-hide after longer delay (15 seconds to give time to read and click)
-  setTimeout(() => {
-    if (banner.parentNode) {
-      banner.style.animation = 'slideOutTop 0.3s ease-out';
-      setTimeout(() => banner.remove(), 300);
-    }
-  }, 15000);
 }
 
 /**

@@ -49,20 +49,3 @@ export function getBannerPositionStyles(position) {
       return 'top: 20px; right: 20px;';
   }
 }
-
-/**
- * Detect environment from URL
- */
-export function detectEnvironment() {
-  const url = window.location.href;
-
-  // Use patterns from config
-  for (const [env, pattern] of Object.entries(APP_CONFIG.environmentPatterns)) {
-    if (pattern.test(url)) {
-      return env;
-    }
-  }
-
-  // Return null if no pattern matches (will show as "Not detected")
-  return null;
-}

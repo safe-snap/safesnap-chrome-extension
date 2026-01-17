@@ -269,7 +269,7 @@ src/
 
 **Detection Strategy:**
 
-- Dictionary-based: 20K+ proper nouns (80K optional)
+- Dictionary-based: 20K+ proper nouns + 500 locations
 - Pattern-based: Structured data (emails, phones, credit cards, etc.)
 - Custom patterns: User-defined regex patterns
 - Context-aware: Skips UI labels, buttons, headings

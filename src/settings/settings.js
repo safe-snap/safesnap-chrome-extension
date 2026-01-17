@@ -1,10 +1,9 @@
 // SafeSnap - Settings Page Script
 
-import i18n from '../i18n/en.js';
+import { en as i18n } from '../i18n/en.js';
 
 const STORAGE_KEYS = {
   PII_TYPES: 'safesnap_pii_types',
-  ENV_PATTERNS: 'safesnap_env_patterns',
   BANNER_CONFIG: 'safesnap_banner_config',
   SETTINGS: 'safesnap_settings', // For redaction mode, magnitude variance, etc.
   CUSTOM_PATTERNS: 'safesnap_custom_patterns',
@@ -35,13 +34,6 @@ const DEFAULT_PII_TYPES = {
   ips: { label: i18n.piiTypeIps, description: i18n.piiTypeIpsDesc, enabled: false },
 };
 
-const DEFAULT_ENV_PATTERNS = {
-  PRODUCTION: '\\.(prod|production)($|\\/|:)',
-  DEVELOPMENT: '\\.(dev|development)($|\\/|:)',
-  STAGING: '\\.(staging|stg|stage)($|\\/|:)',
-  LOCAL: '(localhost|127\\.0\\.0\\.1|192\\.168\\.|10\\.0\\.)',
-};
-
 const DEFAULT_BANNER_CONFIG = {
   position: 'top-right',
   opacity: 100,
@@ -57,7 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await loadSettings();
   setupEventListeners();
-  updateDictionaryStats();
   calculateStorageUsed();
 });
 
@@ -74,40 +65,20 @@ function initializeUIText() {
     // Section headings - get all h2 elements in order
     const sections = document.querySelectorAll('.section h2');
     sections[0].textContent = i18n.settingsDefaultPiiTypes; // Default PII Types
-    sections[1].textContent = i18n.settingsEnvironmentPatterns; // Environment Patterns
-    sections[2].textContent = i18n.settingsBannerCustomization; // Banner Customization
-    sections[3].textContent = i18n.settingsCustomRegexPatterns; // Custom Regex Patterns
-    sections[4].textContent = i18n.settingsDictionaryManagement; // Dictionary Management
-    sections[5].textContent = i18n.settingsMagnitudeVariance; // Magnitude Variance
-    sections[6].textContent = i18n.settingsRedactionMode; // Redaction Mode
-    sections[7].textContent = i18n.settingsExportImport; // Export/Import
-    sections[8].textContent = i18n.settingsAbout; // About
+    sections[1].textContent = i18n.settingsBannerCustomization; // Banner Customization
+    sections[2].textContent = i18n.settingsCustomRegexPatterns; // Custom Regex Patterns
+    sections[3].textContent = i18n.settingsMagnitudeVariance; // Magnitude Variance
+    sections[4].textContent = i18n.settingsRedactionMode; // Redaction Mode
+    sections[5].textContent = i18n.settingsExportImport; // Export/Import
+    sections[6].textContent = i18n.settingsAbout; // About
 
     // Section descriptions (p tags inside sections)
     const descriptions = document.querySelectorAll('.section > p[style*="color: #6b7280"]');
     descriptions[0].textContent = i18n.settingsDefaultPiiTypesDesc;
-    descriptions[1].textContent = i18n.settingsEnvironmentPatternsDesc;
-    descriptions[2].textContent = i18n.settingsCustomRegexDesc;
-    descriptions[3].textContent = i18n.settingsMagnitudeVarianceDesc;
-    descriptions[4].textContent = i18n.settingsRedactionModeDesc;
-    descriptions[5].textContent = i18n.settingsExportImportDesc;
-
-    // Info box (Dictionary Management section)
-    const infoBox = document.querySelector('.info-box');
-    if (infoBox) infoBox.textContent = i18n.settingsDictionaryInfoDesc;
-
-    // Form labels - Environment Patterns section
-    const patternLabels = document.querySelectorAll('.section:nth-child(3) .form-group label');
-    patternLabels[0].textContent = i18n.settingsPatternProduction;
-    patternLabels[1].textContent = i18n.settingsPatternDevelopment;
-    patternLabels[2].textContent = i18n.settingsPatternStaging;
-    patternLabels[3].textContent = i18n.settingsPatternLocal;
-
-    // Placeholders for environment pattern inputs
-    document.getElementById('pattern-production').placeholder = i18n.placeholderPatternProduction;
-    document.getElementById('pattern-development').placeholder = i18n.placeholderPatternDevelopment;
-    document.getElementById('pattern-staging').placeholder = i18n.placeholderPatternStaging;
-    document.getElementById('pattern-local').placeholder = i18n.placeholderPatternLocal;
+    descriptions[1].textContent = i18n.settingsCustomRegexDesc;
+    descriptions[2].textContent = i18n.settingsMagnitudeVarianceDesc;
+    descriptions[3].textContent = i18n.settingsRedactionModeDesc;
+    descriptions[4].textContent = i18n.settingsExportImportDesc;
 
     // Banner Customization labels
     const bannerLabels = document.querySelectorAll('.section:nth-child(4) .form-group label');
@@ -124,8 +95,8 @@ function initializeUIText() {
 
     // Custom Regex Patterns labels
     const regexLabels = document.querySelectorAll('.section:nth-child(5) .form-group label');
-    regexLabels[0].textContent = i18n.settingsCustomPatternName;
-    regexLabels[1].textContent = i18n.settingsCustomPatternRegex;
+    if (regexLabels[0]) regexLabels[0].textContent = i18n.settingsCustomPatternName;
+    if (regexLabels[1]) regexLabels[1].textContent = i18n.settingsCustomPatternRegex;
 
     // Custom Regex Patterns placeholders
     const customNameInput = document.querySelector('.section:nth-child(5) input[type="text"]');
@@ -134,11 +105,11 @@ function initializeUIText() {
     if (customRegexTextarea) customRegexTextarea.placeholder = i18n.placeholderCustomPatternRegex;
 
     // Magnitude Variance label
-    const magnitudeLabel = document.querySelector('.section:nth-child(7) .form-group label');
+    const magnitudeLabel = document.querySelector('.section:nth-child(6) .form-group label');
     if (magnitudeLabel) magnitudeLabel.textContent = i18n.settingsVariancePercentage;
 
     // Redaction Mode label and select options
-    const redactionLabel = document.querySelector('.section:nth-child(8) .form-group label');
+    const redactionLabel = document.querySelector('.section:nth-child(7) .form-group label');
     if (redactionLabel) redactionLabel.textContent = i18n.settingsRedactionMode;
     const redactionSelect = document.getElementById('redaction-mode');
     if (redactionSelect) {
@@ -147,7 +118,7 @@ function initializeUIText() {
     }
 
     // About section text
-    const aboutSection = document.querySelectorAll('.section:nth-child(10) p strong');
+    const aboutSection = document.querySelectorAll('.section:nth-child(9) p strong');
     aboutSection[0].textContent = i18n.aboutVersion + ':';
     aboutSection[1].textContent = i18n.settingsDetectionEngine;
     aboutSection[2].textContent = i18n.settingsStorageUsed;
@@ -157,10 +128,7 @@ function initializeUIText() {
     // Buttons
     document.getElementById('select-all').textContent = i18n.btnSelectAll;
     document.getElementById('select-none').textContent = i18n.btnSelectNone;
-    document.getElementById('reset-patterns').textContent = i18n.btnResetToDefaults;
     document.querySelector('.section:nth-child(5) .btn-primary').textContent = i18n.btnAddPattern;
-    document.getElementById('download-dictionary').textContent = i18n.btnDownloadFullDictionary;
-    document.getElementById('clear-dictionary').textContent = i18n.btnClearDictionaryCache;
     document.getElementById('export-settings').textContent = i18n.btnExportSettings;
     document.getElementById('import-settings').textContent = i18n.btnImportSettings;
 
@@ -183,14 +151,6 @@ async function loadSettings() {
   const piiTypes = savedTypes || DEFAULT_PII_TYPES;
   console.log('[SafeSnap Settings] Final PII types to render:', piiTypes);
   renderPIITypes(piiTypes);
-
-  // Load environment patterns
-  const savedPatterns = await getFromStorage(STORAGE_KEYS.ENV_PATTERNS);
-  const envPatterns = savedPatterns || DEFAULT_ENV_PATTERNS;
-  document.getElementById('pattern-production').value = envPatterns.PRODUCTION;
-  document.getElementById('pattern-development').value = envPatterns.DEVELOPMENT;
-  document.getElementById('pattern-staging').value = envPatterns.STAGING;
-  document.getElementById('pattern-local').value = envPatterns.LOCAL;
 
   // Load banner config
   const savedBanner = await getFromStorage(STORAGE_KEYS.BANNER_CONFIG);
@@ -278,31 +238,6 @@ function setupEventListeners() {
     });
   });
 
-  // Environment pattern inputs
-  ['production', 'development', 'staging', 'local'].forEach((env) => {
-    const input = document.getElementById(`pattern-${env}`);
-    input.addEventListener('blur', async () => {
-      const patterns = {
-        PRODUCTION: document.getElementById('pattern-production').value,
-        DEVELOPMENT: document.getElementById('pattern-development').value,
-        STAGING: document.getElementById('pattern-staging').value,
-        LOCAL: document.getElementById('pattern-local').value,
-      };
-      await saveToStorage(STORAGE_KEYS.ENV_PATTERNS, patterns);
-      showToast(i18n.toastEnvironmentPatternsUpdated);
-    });
-  });
-
-  // Reset patterns button
-  document.getElementById('reset-patterns').addEventListener('click', async () => {
-    document.getElementById('pattern-production').value = DEFAULT_ENV_PATTERNS.PRODUCTION;
-    document.getElementById('pattern-development').value = DEFAULT_ENV_PATTERNS.DEVELOPMENT;
-    document.getElementById('pattern-staging').value = DEFAULT_ENV_PATTERNS.STAGING;
-    document.getElementById('pattern-local').value = DEFAULT_ENV_PATTERNS.LOCAL;
-    await saveToStorage(STORAGE_KEYS.ENV_PATTERNS, DEFAULT_ENV_PATTERNS);
-    showToast(i18n.toastPatternsReset);
-  });
-
   // Banner position
   document.getElementById('banner-position').addEventListener('change', async (e) => {
     const config = (await getFromStorage(STORAGE_KEYS.BANNER_CONFIG)) || DEFAULT_BANNER_CONFIG;
@@ -345,91 +280,12 @@ function setupEventListeners() {
   });
 
   // Debug mode toggle
-  // Dictionary management
-  document.getElementById('download-dictionary').addEventListener('click', async () => {
-    const btn = document.getElementById('download-dictionary');
-    btn.disabled = true;
-    btn.textContent = i18n.btnDownloading;
-
-    try {
-      // Import and use dictionary directly
-      const { Dictionary } = await import('../detection/dictionary.js');
-      const dictionary = new Dictionary();
-      await dictionary.initialize();
-
-      const success = await dictionary.downloadFullDictionary();
-
-      if (success) {
-        showToast(i18n.toastDictionaryDownloaded);
-        updateDictionaryStats();
-      } else {
-        alert(i18n.errorDictionaryDownloadFailed);
-      }
-    } catch (error) {
-      alert(`${i18n.errorDictionaryDownloadFailed}: ${error.message}`);
-    } finally {
-      btn.disabled = false;
-      btn.textContent = i18n.btnDownloadFullDictionary;
-    }
-  });
-
-  document.getElementById('clear-dictionary').addEventListener('click', async () => {
-    if (confirm(i18n.confirmClearDictionary)) {
-      try {
-        // Import and use dictionary directly
-        const { Dictionary } = await import('../detection/dictionary.js');
-        const dictionary = new Dictionary();
-        await dictionary.initialize();
-
-        await dictionary.clearFullDictionary();
-        showToast(i18n.toastDictionaryCacheCleared);
-        updateDictionaryStats();
-      } catch (error) {
-        alert(`${i18n.errorDictionaryClearFailed} ${error.message}`);
-      }
-    }
-  });
-
   // Export/Import settings
   document.getElementById('export-settings').addEventListener('click', exportSettings);
   document.getElementById('import-settings').addEventListener('click', () => {
     document.getElementById('import-file').click();
   });
   document.getElementById('import-file').addEventListener('change', importSettings);
-}
-
-/**
- * Update dictionary statistics
- */
-async function updateDictionaryStats() {
-  const container = document.getElementById('dictionary-stats');
-
-  // Request stats from background script
-  chrome.runtime.sendMessage({ type: 'GET_DICTIONARY_STATS' }, (response) => {
-    if (response && response.stats) {
-      const stats = response.stats;
-      container.innerHTML = `
-        <div class="stat-card">
-          <div class="stat-value">${stats.coreDictionarySize.toLocaleString()}</div>
-          <div class="stat-label">${i18n.statsCoreWords}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">${stats.fullDictionarySize.toLocaleString()}</div>
-          <div class="stat-label">${i18n.statsFullDictionary}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">${stats.usageCount}</div>
-          <div class="stat-label">${i18n.statsTimesUsed}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">${stats.isFullDictionaryLoaded ? i18n.statsYes : i18n.statsNo}</div>
-          <div class="stat-label">${i18n.statsFullDownloaded}</div>
-        </div>
-      `;
-    } else {
-      container.innerHTML = '<p style="color: #6b7280;">Unable to load dictionary stats</p>';
-    }
-  });
 }
 
 /**
@@ -450,7 +306,6 @@ async function exportSettings() {
     version: '1.0.0',
     exportDate: new Date().toISOString(),
     piiTypes: await getFromStorage(STORAGE_KEYS.PII_TYPES),
-    envPatterns: await getFromStorage(STORAGE_KEYS.ENV_PATTERNS),
     bannerConfig: await getFromStorage(STORAGE_KEYS.BANNER_CONFIG),
   };
 
@@ -484,9 +339,6 @@ async function importSettings(event) {
     // Import each setting
     if (settings.piiTypes) {
       await saveToStorage(STORAGE_KEYS.PII_TYPES, settings.piiTypes);
-    }
-    if (settings.envPatterns) {
-      await saveToStorage(STORAGE_KEYS.ENV_PATTERNS, settings.envPatterns);
     }
     if (settings.bannerConfig) {
       await saveToStorage(STORAGE_KEYS.BANNER_CONFIG, settings.bannerConfig);
