@@ -119,7 +119,7 @@ function initializeUIText() {
     }
 
     // About section text
-    const aboutSection = document.querySelectorAll('.section:nth-child(9) p strong');
+    const aboutSection = document.querySelectorAll('.section:nth-child(10) p strong');
     aboutSection[0].textContent = i18n.aboutVersion + ':';
     aboutSection[1].textContent = i18n.settingsDetectionEngine;
     aboutSection[2].textContent = i18n.settingsStorageUsed;

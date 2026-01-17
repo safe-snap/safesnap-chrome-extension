@@ -94,7 +94,8 @@ export const en = {
   settingsDefaultPiiTypesDesc:
     'Select which types of PII to protect by default when you click "Protect PII".',
   settingsCustomRegexDesc: 'Add custom regex patterns to detect proprietary PII formats.',
-  settingsMagnitudeVarianceDesc: 'Control how much money and quantity values vary (±percentage).',
+  settingsMagnitudeVarianceDesc:
+    'Randomize money and quantity values to make them realistic but unrecognizable. Higher values create larger changes.',
   settingsRedactionModeDesc: 'Choose between replacing PII with random data or black bars.',
   settingsExportImportDesc: 'Backup your settings or transfer them to another browser.',
 
