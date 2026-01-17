@@ -1128,13 +1128,13 @@ describe('PIIDetector', () => {
       expect(detector._shouldSkipElementForDebug(divEl)).toBe(false);
     });
 
-    test('should skip link (anchor) tags', () => {
+    test('should NOT skip link (anchor) tags - author names in links are legitimate PII', () => {
       const linkEl = {
         tagName: 'A',
         classList: { contains: () => false },
         getAttribute: () => null,
       };
-      expect(detector._shouldSkipElementForDebug(linkEl)).toBe(true);
+      expect(detector._shouldSkipElementForDebug(linkEl)).toBe(false);
     });
   });
 

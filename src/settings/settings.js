@@ -68,9 +68,10 @@ function initializeUIText() {
     sections[1].textContent = i18n.settingsBannerCustomization; // Banner Customization
     sections[2].textContent = i18n.settingsCustomRegexPatterns; // Custom Regex Patterns
     sections[3].textContent = i18n.settingsMagnitudeVariance; // Magnitude Variance
-    sections[4].textContent = i18n.settingsRedactionMode; // Redaction Mode
-    sections[5].textContent = i18n.settingsExportImport; // Export/Import
-    sections[6].textContent = i18n.settingsAbout; // About
+    // sections[4] is Proper Noun Detection Sensitivity (hardcoded in HTML with emoji)
+    sections[5].textContent = i18n.settingsRedactionMode; // Redaction Mode
+    sections[6].textContent = i18n.settingsExportImport; // Export/Import
+    sections[7].textContent = i18n.settingsAbout; // About
 
     // Section descriptions (p tags inside sections)
     const descriptions = document.querySelectorAll('.section > p[style*="color: #6b7280"]');
@@ -168,6 +169,12 @@ async function loadSettings() {
   // Load redaction mode
   const redactionMode = settings.redactionMode || 'random';
   document.getElementById('redaction-mode').value = redactionMode;
+
+  // Load proper noun threshold
+  const threshold = settings.properNounThreshold || 0.75;
+  document.getElementById('proper-noun-threshold').value = Math.round(threshold * 100);
+  document.getElementById('threshold-value').textContent = threshold.toFixed(2);
+  updateThresholdDescription(threshold);
 }
 
 /**
@@ -279,6 +286,22 @@ function setupEventListeners() {
     showToast(i18n.toastRedactionModeUpdated);
   });
 
+  // Proper noun threshold slider
+  document.getElementById('proper-noun-threshold').addEventListener('input', (e) => {
+    const value = parseInt(e.target.value) / 100; // Convert 75 to 0.75
+    document.getElementById('threshold-value').textContent = value.toFixed(2);
+    updateThresholdDescription(value);
+  });
+
+  document.getElementById('proper-noun-threshold').addEventListener('change', async (e) => {
+    const value = parseInt(e.target.value) / 100; // Convert 75 to 0.75
+    const result = await chrome.storage.sync.get(['safesnap_settings']);
+    const settings = result.safesnap_settings || {};
+    settings.properNounThreshold = value;
+    await chrome.storage.sync.set({ safesnap_settings: settings });
+    showToast('Proper noun threshold updated');
+  });
+
   // Debug mode toggle
   // Export/Import settings
   document.getElementById('export-settings').addEventListener('click', exportSettings);
@@ -286,6 +309,20 @@ function setupEventListeners() {
     document.getElementById('import-file').click();
   });
   document.getElementById('import-file').addEventListener('change', importSettings);
+}
+
+/**
+ * Update threshold description based on value
+ */
+function updateThresholdDescription(threshold) {
+  const desc = document.getElementById('threshold-description');
+  if (threshold < 0.65) {
+    desc.textContent = 'Aggressive - More detections, may include false positives';
+  } else if (threshold < 0.85) {
+    desc.textContent = 'Balanced (Recommended)';
+  } else {
+    desc.textContent = 'Conservative - Only high-confidence matches';
+  }
 }
 
 /**

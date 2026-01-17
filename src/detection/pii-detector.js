@@ -14,15 +14,29 @@ export class PIIDetector {
     this.patternMatcher = new PatternMatcher();
     this.dictionary = new Dictionary();
     this.initialized = false;
+    this.properNounThreshold = 0.75; // Default threshold
   }
 
   /**
-   * Initialize the detector (load dictionary)
+   * Initialize the detector (load dictionary and settings)
    * @returns {Promise<void>}
    */
   async initialize() {
     if (!this.initialized) {
       await this.dictionary.initialize();
+
+      // Load user's threshold preference from storage
+      try {
+        const result = await chrome.storage.sync.get(['safesnap_settings']);
+        const settings = result.safesnap_settings || {};
+        this.properNounThreshold =
+          settings.properNounThreshold || APP_CONFIG.properNounDetection?.minimumScore || 0.75;
+        console.log(`[PIIDetector] Proper noun threshold: ${this.properNounThreshold}`);
+      } catch (error) {
+        console.warn('[PIIDetector] Could not load threshold from storage, using default:', error);
+        this.properNounThreshold = APP_CONFIG.properNounDetection?.minimumScore || 0.75;
+      }
+
       this.initialized = true;
     }
   }
@@ -423,7 +437,7 @@ export class PIIDetector {
   _detectAllProperNounCandidates(text) {
     const candidates = [];
     const config = APP_CONFIG.properNounDetection;
-    const minimumScore = config?.minimumScore || 0.8;
+    const minimumScore = this.properNounThreshold; // Use instance variable from initialize()
 
     // Enhanced pattern to handle apostrophes, hyphens, ampersands, and more company/job title indicators
     // Matches:
@@ -885,7 +899,7 @@ export class PIIDetector {
       'footer',
       'aside',
       'title',
-      'a',
+      // Note: Not skipping 'a' tags - author names in links are legitimate PII
     ];
     if (skipTags.includes(tagName)) return true;
 
@@ -953,7 +967,7 @@ export class PIIDetector {
       'footer',
       'aside',
       'title',
-      'a', // Skip links (navigation elements)
+      // Note: Not skipping 'a' tags - author names in links are legitimate PII
     ];
     if (skipTags.includes(tagName)) return true;
 

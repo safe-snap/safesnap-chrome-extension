@@ -151,4 +151,26 @@ describe('Dictionary', () => {
       expect(stats.isLoaded).toBe(true);
     });
   });
+
+  describe('Bug: Common words showing as unknown', () => {
+    beforeEach(async () => {
+      await dictionary.initialize();
+    });
+
+    test('should recognize "dispute" as a common word', () => {
+      expect(dictionary.isCommonWord('dispute')).toBe(true);
+      expect(dictionary.isCommonWord('Dispute')).toBe(true);
+    });
+
+    test('should recognize nationality adjectives as common words', () => {
+      expect(dictionary.isCommonWord('American')).toBe(true);
+      expect(dictionary.isCommonWord('american')).toBe(true);
+      expect(dictionary.isCommonWord('Russian')).toBe(true);
+      expect(dictionary.isCommonWord('russian')).toBe(true);
+      expect(dictionary.isCommonWord('British')).toBe(true);
+      expect(dictionary.isCommonWord('French')).toBe(true);
+      expect(dictionary.isCommonWord('German')).toBe(true);
+      expect(dictionary.isCommonWord('Chinese')).toBe(true);
+    });
+  });
 });

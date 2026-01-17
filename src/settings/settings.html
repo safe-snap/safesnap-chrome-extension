@@ -339,9 +339,41 @@
       <div class="form-group">
         <label></label>
         <div class="slider-container">
-          <input type="range" min="0" max="50" value="30" class="slider" />
-          <span class="slider-value">±30%</span>
+          <input type="range" min="0" max="50" value="30" class="slider" id="magnitude-variance" />
+          <span class="slider-value" id="magnitude-value">±30%</span>
         </div>
+      </div>
+    </div>
+
+    <!-- Proper Noun Detection Threshold -->
+    <div class="section">
+      <h2>🎯 Proper Noun Detection Sensitivity</h2>
+      <p style="color: #6b7280; margin-bottom: 16px; font-size: 14px">
+        Control how aggressively names and proper nouns are detected. Lower values detect more names
+        (including some false positives like job titles), while higher values detect fewer names
+        (only high-confidence matches).
+      </p>
+
+      <div class="form-group">
+        <label>Detection Threshold (0.5 - 1.0)</label>
+        <div class="slider-container">
+          <input
+            type="range"
+            min="50"
+            max="100"
+            value="75"
+            step="5"
+            class="slider"
+            id="proper-noun-threshold"
+          />
+          <span class="slider-value" id="threshold-value">0.75</span>
+        </div>
+        <p style="color: #6b7280; margin-top: 8px; font-size: 13px">
+          <strong>Current:</strong> <span id="threshold-description">Balanced (Default)</span><br />
+          • 0.50-0.65: Aggressive - Detects more names, may include job titles<br />
+          • 0.70-0.80: Balanced - Good accuracy with minimal false positives<br />
+          • 0.85-1.00: Conservative - Only very confident name matches
+        </p>
       </div>
     </div>
 
