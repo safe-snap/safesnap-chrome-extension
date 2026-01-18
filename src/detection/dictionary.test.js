@@ -162,15 +162,14 @@ describe('Dictionary', () => {
       expect(dictionary.isCommonWord('Dispute')).toBe(true);
     });
 
-    test('should recognize nationality adjectives as common words', () => {
-      expect(dictionary.isCommonWord('American')).toBe(true);
-      expect(dictionary.isCommonWord('american')).toBe(true);
-      expect(dictionary.isCommonWord('Russian')).toBe(true);
-      expect(dictionary.isCommonWord('russian')).toBe(true);
-      expect(dictionary.isCommonWord('British')).toBe(true);
-      expect(dictionary.isCommonWord('French')).toBe(true);
-      expect(dictionary.isCommonWord('German')).toBe(true);
-      expect(dictionary.isCommonWord('Chinese')).toBe(true);
+    test('nationality adjectives are now filtered by POS tagging (not in dictionary)', () => {
+      // These are no longer in the dictionary - POS tagging filters them instead
+      expect(dictionary.isCommonWord('American')).toBe(false);
+      expect(dictionary.isCommonWord('Russian')).toBe(false);
+      expect(dictionary.isCommonWord('French')).toBe(false);
+      expect(dictionary.isCommonWord('British')).toBe(false);
+      expect(dictionary.isCommonWord('German')).toBe(false);
+      expect(dictionary.isCommonWord('Chinese')).toBe(false);
     });
   });
 });

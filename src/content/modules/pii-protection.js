@@ -5,14 +5,12 @@
 
 import { TextExtractor } from '../../detection/text-extractor.js';
 import { PIIDictionary } from '../../detection/pii-dictionary.js';
-import {
-  showProtectionBanner,
-  showPersistentWatermark,
-  removePersistentWatermark,
-} from './ui-components.js';
+import { updateStatusPanel } from './notification-panel.js';
+import { isHighlightEnabled } from './highlight-mode.js';
 
 let originalContent = new Map(); // Store original text nodes
 let isPIIProtected = false;
+let lastEntityCount = 0; // Track last protection count for panel updates
 
 /**
  * Get protection status
@@ -20,6 +18,30 @@ let isPIIProtected = false;
  */
 export function getProtectionStatus() {
   return isPIIProtected;
+}
+
+/**
+ * Update the status panel based on current state
+ * Called by highlight-mode when it toggles on/off
+ */
+export function updateProtectionStatusPanel() {
+  const highlightActive = isHighlightEnabled();
+
+  if (isPIIProtected && highlightActive) {
+    updateStatusPanel({
+      mode: 'protected-highlight',
+      data: { entityCount: lastEntityCount },
+    });
+  } else if (isPIIProtected) {
+    updateStatusPanel({
+      mode: 'protected',
+      data: { entityCount: lastEntityCount },
+    });
+  } else if (highlightActive) {
+    updateStatusPanel({ mode: 'highlight' });
+  } else {
+    updateStatusPanel({ mode: 'idle' });
+  }
 }
 
 /**
@@ -62,7 +84,7 @@ export async function protectPII(enabledTypes, detector, replacer, consistencyMa
 
   try {
     // Show loading indicator
-    showProtectionBanner('detecting');
+    updateStatusPanel({ mode: 'detecting' });
 
     // ========================================================================
     // 5-PHASE PIPELINE: Detect PII in DOM
@@ -238,20 +260,23 @@ export async function protectPII(enabledTypes, detector, replacer, consistencyMa
     protectFormInputs(enabledTypes, detector, consistencyMapper);
 
     isPIIProtected = true;
+    lastEntityCount = entities.length;
 
-    // Show temporary success banner
-    showProtectionBanner('active', {
-      entityCount: entities.length,
-      types: enabledTypes,
+    // Update status panel - check if highlight mode is also active
+    const highlightActive = isHighlightEnabled();
+    updateStatusPanel({
+      mode: highlightActive ? 'protected-highlight' : 'protected',
+      data: { entityCount: entities.length },
     });
-
-    // Show persistent watermark
-    showPersistentWatermark();
 
     return entities;
   } catch (error) {
     console.error('PII protection failed:', error);
-    showProtectionBanner('error', { error: error.message });
+    // Show error briefly, then return to idle
+    updateStatusPanel({ mode: 'detecting' }); // Keep existing panel
+    setTimeout(() => {
+      updateStatusPanel({ mode: 'idle' });
+    }, 3000);
     throw error;
   }
 }
@@ -654,7 +679,6 @@ export function restoreOriginal() {
   console.log('Restoring original content');
 
   if (!isPIIProtected) {
-    showProtectionBanner('info', { message: 'No PII protection is currently active.' });
     return;
   }
 
@@ -673,11 +697,14 @@ export function restoreOriginal() {
 
   // Clear storage
   originalContent.clear();
-
-  // Remove persistent watermark
-  removePersistentWatermark();
-
   isPIIProtected = false;
+  lastEntityCount = 0;
+
+  // Update status panel - check if highlight mode is still active
+  const highlightActive = isHighlightEnabled();
+  updateStatusPanel({
+    mode: highlightActive ? 'highlight' : 'idle',
+  });
 
   console.log('✅ Original content restored');
 }

@@ -210,6 +210,149 @@ export function hideAllNotificationPanels() {
 }
 
 /**
+ * Update or create the main status panel with new content
+ * This is the single persistent panel that appears in screenshots
+ * @param {Object} state - Current state of SafeSnap
+ * @param {string} state.mode - 'idle', 'detecting', 'protected', 'highlight', 'protected-highlight'
+ * @param {Object} state.data - Additional data (entityCount, types, etc.)
+ */
+export async function updateStatusPanel(state) {
+  const { mode = 'idle', data = {} } = state;
+
+  // If idle/hidden, remove the panel
+  if (mode === 'idle') {
+    hideNotificationPanel('main-status');
+    return;
+  }
+
+  let content = '';
+  let backgroundColor = 'white';
+  let textColor = '#1f2937';
+  let borderColor = '#e5e7eb';
+
+  switch (mode) {
+    case 'detecting':
+      backgroundColor = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+      textColor = 'white';
+      borderColor = 'transparent';
+      content = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 20px;">🔍</span>
+          <div style="font-weight: 600;">Detecting PII...</div>
+        </div>
+      `;
+      break;
+
+    case 'protected':
+      backgroundColor = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+      textColor = 'white';
+      borderColor = 'transparent';
+      content = `
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 16px;">🔒</span>
+          <span style="font-weight: 700;">PII Protected</span>
+        </div>
+        ${data.entityCount ? `<div style="font-size: 11px; opacity: 0.9; margin-top: 4px;">${data.entityCount} entities replaced</div>` : ''}
+      `;
+      break;
+
+    case 'highlight':
+      backgroundColor = 'white';
+      textColor = '#1f2937';
+      borderColor = '#e5e7eb';
+      content = `
+        <div style="font-weight: bold; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+          👁️ ${i18n.highlightLegendTitle}
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(59, 130, 246, 0.4); border: 2px solid #3b82f6; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Blue:</strong> Pattern Match</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(16, 185, 129, 0.4); border: 2px solid #10b981; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Green:</strong> ${i18n.highlightLegendGreen}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(245, 158, 11, 0.4); border: 2px solid #f59e0b; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Orange:</strong> ${i18n.highlightLegendOrange}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(239, 68, 68, 0.4); border: 2px solid #ef4444; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Red:</strong> ${i18n.highlightLegendRed}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(156, 163, 175, 0.4); border: 2px solid #9ca3af; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Gray:</strong> ${i18n.highlightLegendGray}</span>
+          </div>
+        </div>
+        <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #6b7280;">
+          ${i18n.highlightLegendHoverHint}
+        </div>
+      `;
+      break;
+
+    case 'protected-highlight':
+      // Both protected AND highlight mode active - show combined view
+      backgroundColor = 'white';
+      textColor = '#1f2937';
+      borderColor = '#ef4444';
+      content = `
+        <div style="display: flex; align-items: center; gap: 8px; padding: 8px; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border-radius: 6px; margin-bottom: 12px;">
+          <span style="font-size: 16px;">🔒</span>
+          <div>
+            <div style="font-weight: 700;">PII Protected</div>
+            ${data.entityCount ? `<div style="font-size: 11px; opacity: 0.9;">${data.entityCount} entities replaced</div>` : ''}
+          </div>
+        </div>
+        <div style="font-weight: bold; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+          👁️ ${i18n.highlightLegendTitle}
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(59, 130, 246, 0.4); border: 2px solid #3b82f6; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Blue:</strong> Pattern Match</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(16, 185, 129, 0.4); border: 2px solid #10b981; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Green:</strong> ${i18n.highlightLegendGreen}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(245, 158, 11, 0.4); border: 2px solid #f59e0b; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Orange:</strong> ${i18n.highlightLegendOrange}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(239, 68, 68, 0.4); border: 2px solid #ef4444; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Red:</strong> ${i18n.highlightLegendRed}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 16px; height: 16px; background: rgba(156, 163, 175, 0.4); border: 2px solid #9ca3af; border-radius: 3px;"></div>
+            <span style="font-size: 12px;"><strong>Gray:</strong> ${i18n.highlightLegendGray}</span>
+          </div>
+        </div>
+        <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #6b7280;">
+          ${i18n.highlightLegendHoverHint}
+        </div>
+      `;
+      break;
+  }
+
+  return showNotificationPanel({
+    id: 'main-status',
+    type: 'status',
+    content,
+    persistent: true,
+    style: {
+      background: backgroundColor,
+      color: textColor,
+      border: `2px solid ${borderColor}`,
+      padding: '16px',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    },
+  });
+}
+
+/**
  * Refresh positions of all active panels (called when banner position setting changes)
  */
 export async function refreshAllPanelPositions() {
@@ -304,6 +447,76 @@ export async function showProtectedModeIndicator() {
       padding: '12px 20px',
       border: 'none',
       boxShadow: '0 4px 12px rgba(239, 68, 68, 0.3)',
+    },
+  });
+}
+
+/**
+ * Show a temporary status message (auto-hides after delay)
+ * @param {string} state - State: 'detecting', 'active', 'error', 'info'
+ * @param {Object} data - Additional data (entityCount, types, error, message)
+ */
+export async function showStatusMessage(state, data = {}) {
+  let backgroundColor, icon, message, textColor;
+
+  switch (state) {
+    case 'detecting':
+      backgroundColor = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+      icon = '🔍';
+      message = 'Detecting PII...';
+      textColor = 'white';
+      break;
+    case 'active':
+      backgroundColor = 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)';
+      icon = '🔒';
+      message = `PII Protected - ${data.entityCount} entities replaced`;
+      textColor = 'white';
+      break;
+    case 'error':
+      backgroundColor = 'linear-gradient(135deg, #eb3349 0%, #f45c43 100%)';
+      icon = '⚠️';
+      message = `Error: ${data.error}`;
+      textColor = 'white';
+      break;
+    case 'info':
+      backgroundColor = 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)';
+      icon = 'ℹ️';
+      message = data.message || 'Information';
+      textColor = 'white';
+      break;
+    default:
+      backgroundColor = '#333';
+      icon = 'ℹ️';
+      message = 'SafeSnap';
+      textColor = 'white';
+  }
+
+  const content = `
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 20px;">${icon}</span>
+      <div>
+        <div style="font-weight: 600;">${message}</div>
+        ${data.types ? `<small style="opacity: 0.8; font-weight: 400; margin-top: 4px; display: block;">Types: ${data.types.join(', ')}</small>` : ''}
+      </div>
+    </div>
+  `;
+
+  // Auto-hide after 5 seconds unless it's detecting state
+  const autoHideMs = state === 'detecting' ? 0 : 5000;
+
+  return showNotificationPanel({
+    id: 'status-message',
+    type: 'status',
+    content,
+    persistent: state === 'detecting', // Keep detecting message until replaced
+    autoHideMs,
+    style: {
+      background: backgroundColor,
+      color: textColor,
+      padding: '16px 24px',
+      border: 'none',
+      boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+      maxWidth: '350px',
     },
   });
 }

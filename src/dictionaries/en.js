@@ -371,24 +371,6 @@ export const enDictionary = {
     'wrong',
     'right',
 
-    // Nationality adjectives
-    'American',
-    'British',
-    'Canadian',
-    'Chinese',
-    'French',
-    'German',
-    'Indian',
-    'Italian',
-    'Japanese',
-    'Mexican',
-    'Russian',
-    'Spanish',
-    'European',
-    'Asian',
-    'African',
-    'Australian',
-
     // Common adverbs
     'always',
     'never',

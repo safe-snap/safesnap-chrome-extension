@@ -585,7 +585,7 @@ export class Replacer {
 
       return `${monthStr}-${dayStr}-${year}`;
     } else if (/^[A-Z][a-z]{2,8}\.?\s+\d{1,2},?\s+\d{4}$/.test(original)) {
-      // Textual format: "Dec 9, 2025" or "December 9, 2025"
+      // Textual format with year: "Dec 9, 2025" or "December 9, 2025"
       const year = date.getFullYear();
       const day = date.getDate();
       const monthIndex = date.getMonth();
@@ -597,6 +597,18 @@ export class Replacer {
       // Preserve comma format if present
       const hasComma = original.includes(',');
       return hasComma ? `${monthName} ${day}, ${year}` : `${monthName} ${day} ${year}`;
+    } else if (/^[A-Z][a-z]{2,8}\.?\s+\d{1,2}$/.test(original)) {
+      // Textual format without year: "Jan 20" or "January 20" or "Jan. 20"
+      const day = date.getDate();
+      const monthIndex = date.getMonth();
+
+      // Determine if original used short or long month name
+      const usesShortMonth = /^[A-Z][a-z]{2}\.?\s/.test(original);
+      const monthName = usesShortMonth ? shortMonths[monthIndex] : longMonths[monthIndex];
+
+      // Preserve period after month if present
+      const hasPeriod = original.includes('.');
+      return hasPeriod ? `${monthName}. ${day}` : `${monthName} ${day}`;
     } else {
       // Default to ISO
       return date.toISOString().split('T')[0];

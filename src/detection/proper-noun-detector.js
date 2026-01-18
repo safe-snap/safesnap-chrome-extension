@@ -4,6 +4,7 @@
  * Detects proper nouns (names, companies, brands) using:
  * - Capitalization patterns
  * - Dictionary lookup (common word filtering)
+ * - Adjective filtering (nationality adjectives, common adjectives)
  * - Context signals (honorifics, job titles, company suffixes)
  * - Proximity to other PII
  * - Location gazetteer
@@ -17,6 +18,30 @@ export class ProperNounDetector {
     this.patternMatcher = patternMatcher;
     this.threshold = APP_CONFIG.properNounDetection?.minimumScore || 0.75;
     this.pageContext = null; // Cache for page-wide context
+
+    // Common adjective suffixes (English grammar patterns)
+    // These endings are almost never proper nouns
+    // Note: Some nationality adjectives (e.g., French, Dutch, Greek) may not match
+    // these patterns and will be detected as proper nouns. This is acceptable to
+    // avoid maintaining hardcoded lists.
+    this.adjectiveSuffixes = [
+      'able',
+      'ible', // capable, visible
+      'al', // national, regional
+      'ful', // beautiful, useful
+      'ic', // historic, economic
+      'ical', // historical, economical
+      'ive', // active, creative
+      'less', // endless, helpless
+      'ous',
+      'ious', // famous, serious
+      'ish', // British, Finnish, foolish
+      'ese', // Chinese, Japanese, Portuguese
+      'an',
+      'ian', // American, Canadian, Italian
+      'ern', // Northern, Southern, Western, Eastern
+      'ly', // friendly, likely (also adverbs)
+    ];
   }
 
   /**
@@ -32,6 +57,7 @@ export class ProperNounDetector {
     const context = {
       wordsInLinks: new Set(), // Words that appear in hyperlinks
       wordsNearPII: new Set(), // Words that appear near emails/phones
+      wordsInHeadersFooters: new Set(), // Words in headers/footers (likely UI/nav)
     };
 
     // Extract all text from hyperlinks
@@ -45,9 +71,25 @@ export class ProperNounDetector {
       }
     });
 
+    // Extract all text from header and footer elements
+    // These typically contain navigation, branding, copyright, legal links - unlikely to be PII
+    const headerFooters = document.querySelectorAll(
+      'header, footer, [role="banner"], [role="contentinfo"], [role="navigation"], ' +
+        'nav, .header, .footer, #header, #footer, .site-header, .site-footer, ' +
+        '.nav, .navbar, .navigation, [class*="header"], [class*="footer"]'
+    );
+    headerFooters.forEach((element) => {
+      const text = element.textContent || '';
+      // Match capitalized words
+      const words = text.match(/[A-Z][a-z]+(?:[''-][A-Z]?[a-z]+)?/g);
+      if (words) {
+        words.forEach((word) => context.wordsInHeadersFooters.add(word));
+      }
+    });
+
     this.pageContext = context;
     console.log(
-      `[ProperNounDetector] Page context built: ${context.wordsInLinks.size} words in links`
+      `[ProperNounDetector] Page context built: ${context.wordsInLinks.size} words in links, ${context.wordsInHeadersFooters.size} words in headers/footers`
     );
     return context;
   }
@@ -129,32 +171,6 @@ export class ProperNounDetector {
         continue;
       }
 
-      // Skip standalone job titles and roles
-      const jobTitles = [
-        'Freelance',
-        'Writer',
-        'Editor',
-        'Reporter',
-        'Journalist',
-        'Author',
-        'Photographer',
-        'Designer',
-        'Developer',
-        'Engineer',
-        'Manager',
-        'Director',
-        'President',
-        'Chief',
-        'Officer',
-        'Senior',
-        'Junior',
-        'Lead',
-        'Contributor',
-      ];
-      if (jobTitles.includes(candidate)) {
-        continue;
-      }
-
       // Check for honorifics/titles in PRECEDING text (not part of match anymore)
       const precedingText = text.substring(Math.max(0, start - 10), start);
       const hasHonorific = /(?:Mr|Mrs|Ms|Dr|Prof)\.?\s*$/.test(precedingText);
@@ -180,6 +196,9 @@ export class ProperNounDetector {
       // PAGE-WIDE CONTEXT: Check if this word appears in links anywhere on page
       const appearsInPageLinks = pageContext.wordsInLinks.has(candidate);
 
+      // PAGE-WIDE CONTEXT: Check if word appears in header/footer (negative signal)
+      const appearsInHeaderFooter = pageContext.wordsInHeadersFooters.has(candidate);
+
       const context = {
         hasHonorific,
         hasJobTitle,
@@ -189,7 +208,8 @@ export class ProperNounDetector {
         emailDomainMatch,
         insideLink,
         isKnownLocation,
-        appearsInPageLinks, // NEW: page-wide signal
+        appearsInPageLinks, // page-wide signal (positive)
+        appearsInHeaderFooter, // page-wide signal (negative)
       };
 
       const { score, breakdown } = this._calculateScore(candidate, context);
@@ -353,7 +373,32 @@ export class ProperNounDetector {
       score += breakdown.appearsInPageLinks;
     }
 
+    // Signal 10: Appears in header/footer (PAGE-WIDE CONTEXT - NEGATIVE)
+    // If word appears in header/footer elements, it's likely UI/navigation text, not PII
+    if (context.appearsInHeaderFooter) {
+      breakdown.appearsInHeaderFooter = weights.appearsInHeaderFooter || -0.5;
+      breakdown.appearsInHeaderFooter_detail = 'word_in_header_footer';
+      score += breakdown.appearsInHeaderFooter; // Negative weight reduces score
+    }
+
+    // Signal 11: POS Tagging - Filter adjectives, verbs, adverbs (NEGATIVE)
+    // These are unlikely to be proper nouns (person/company names)
+    const isAdj = this._isAdjective(candidate);
+    const isVerb = this._isVerb(candidate);
+    const isAdverb = this._isAdverb(candidate);
+
+    if (isAdj || isVerb || isAdverb) {
+      breakdown.nonNounPOS = weights.nonNounPOS || -0.5;
+      const posTypes = [];
+      if (isAdj) posTypes.push('adjective');
+      if (isVerb) posTypes.push('verb');
+      if (isAdverb) posTypes.push('adverb');
+      breakdown.nonNounPOS_detail = posTypes.join('+');
+      score += breakdown.nonNounPOS; // Strong negative weight
+    }
+
     score = Math.min(score, 1.0);
+    score = Math.max(score, 0.0); // Ensure score doesn't go negative
 
     return { score, breakdown };
   }
@@ -371,5 +416,66 @@ export class ProperNounDetector {
 
     // For single word, return 1.0 if unknown, 0.0 if known
     return this.dictionary.isCommonWord(candidate.toLowerCase()) ? 0.0 : 1.0;
+  }
+
+  /**
+   * Check if a word is an adjective using suffix patterns and curated lists
+   * @private
+   * @param {string} word - Word to check
+   * @returns {boolean} True if word is an adjective
+   */
+  _isAdjective(word) {
+    const normalized = word.toLowerCase();
+
+    // Check if word ends with common adjective suffixes
+    // Require minimum length to avoid false positives
+    if (normalized.length >= 4) {
+      for (const suffix of this.adjectiveSuffixes) {
+        if (normalized.endsWith(suffix)) {
+          // Minimum word length requirements based on suffix
+          // This prevents names like "Ian", "Stan", "Jordan" from matching
+          const minLength =
+            {
+              an: 7, // American, Canadian, Italian (not Ian, Stan, Jordan)
+              ian: 7, // Italian, Canadian (not Adrian)
+              al: 6, // National, Regional (not Al)
+              ic: 6, // Historic, Economic (not Eric)
+              ish: 6, // British, Finnish (not Dish)
+              ese: 6, // Chinese, Japanese (not These)
+              ern: 6, // Northern, Southern (not Fern)
+            }[suffix] || 4; // Default: 4 characters minimum
+
+          if (normalized.length >= minLength) {
+            return true;
+          }
+        }
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * Check if a word is a verb (placeholder for future expansion)
+   * @private
+   * @param {string} _word - Word to check (unused, prefix with _ to indicate intentionally unused)
+   * @returns {boolean} True if word is a verb
+   */
+  _isVerb(_word) {
+    // Could add verb list here if needed
+    // For now, verbs are less of a false positive issue than adjectives
+    return false;
+  }
+
+  /**
+   * Check if a word is an adverb (placeholder for future expansion)
+   * @private
+   * @param {string} _word - Word to check (unused, prefix with _ to indicate intentionally unused)
+   * @returns {boolean} True if word is an adverb
+   */
+  _isAdverb(_word) {
+    // Could add adverb list here if needed
+    // Most adverbs end in -ly and are already filtered by dictionary
+    return false;
   }
 }

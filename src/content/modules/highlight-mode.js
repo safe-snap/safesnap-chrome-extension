@@ -3,7 +3,8 @@
  * Handles visual highlighting of PII detection candidates for debugging/transparency
  */
 
-import { showHighlightLegend, hideNotificationPanel } from './notification-panel.js';
+import { updateStatusPanel } from './notification-panel.js';
+import { getProtectionStatus, updateProtectionStatusPanel } from './pii-protection.js';
 
 // State
 let highlightCandidates = [];
@@ -132,8 +133,8 @@ export async function enableHighlightMode(detector, getOriginalValue = null) {
   // Render highlights
   renderHighlights();
 
-  // Show unified notification panel with legend
-  showHighlightLegend();
+  // Update unified status panel using centralized function
+  updateProtectionStatusPanel();
 
   // Create a throttled refresh function to reuse across all events
   const throttledRefresh = (eventName) => {
@@ -639,7 +640,7 @@ function createHighlight(candidate) {
         // Add score breakdown if available (for proper nouns)
         if (scoreBreakdown && Object.keys(scoreBreakdown).length > 0) {
           const breakdownItems = Object.entries(scoreBreakdown)
-            .filter(([_, value]) => value > 0)
+            .filter(([key, _]) => !key.endsWith('_detail')) // Skip detail keys, they're not signals
             .map(([key, value]) => {
               // Format the key nicely
               const formattedKey = key
@@ -650,10 +651,12 @@ function createHighlight(candidate) {
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(' ');
 
-              // Show detail if available
+              // Show numeric value with optional detail
               const detailKey = `${key}_detail`;
               const detail = scoreBreakdown[detailKey];
-              const displayValue = detail ? `${detail}` : `+${(value * 100).toFixed(0)}%`;
+              const sign = value >= 0 ? '+' : ''; // Negative values already have minus sign
+              const numericValue = `${sign}${(value * 100).toFixed(0)}%`;
+              const displayValue = detail ? `${numericValue} (${detail})` : numericValue;
 
               return `${formattedKey}: ${displayValue}`;
             })
@@ -763,8 +766,8 @@ export function disableHighlightMode() {
     overlay.remove();
   }
 
-  // Hide unified notification panel
-  hideNotificationPanel('highlight-legend');
+  // Update unified status panel using centralized function
+  updateProtectionStatusPanel();
 
   // Clear stored candidates and detector
   highlightCandidates = [];

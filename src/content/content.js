@@ -10,7 +10,7 @@ import {
   getOriginalTextForNode,
   getProtectionStatus,
 } from './modules/pii-protection.js';
-import { showStatusBanner } from './modules/ui-components.js';
+import { showStatusMessage } from './modules/notification-panel.js';
 import {
   enableHighlightMode,
   disableHighlightMode,
@@ -144,7 +144,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       return true; // Indicates async response
 
     case 'SHOW_BANNER':
-      showStatusBanner(message.message);
+      showStatusMessage('info', { message: message.message });
       sendResponse({ success: true });
       break;
 

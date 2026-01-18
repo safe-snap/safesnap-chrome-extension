@@ -625,10 +625,17 @@ describe('PIIDetector', () => {
       const entities = detector.detectInText(text, ['properNouns']);
       const properNouns = entities.filter((e) => e.type === 'properNoun');
 
-      expect(properNouns.length).toBe(1);
-      expect(properNouns[0].original).toBe('Mr. John Doe');
-      // Score: 0.3 (cap) + 0.3 (2/2 unknown) + 0.4 (honorific) + 0.2 (multi) + 0.1 (mid) = 1.3
-      expect(properNouns[0].confidence).toBeGreaterThanOrEqual(0.8);
+      // Atomic detection: detects "John" and "Doe" separately (not "John Doe")
+      expect(properNouns.length).toBeGreaterThanOrEqual(2);
+
+      // Should detect "John" (after honorific)
+      const john = properNouns.find((e) => e.original === 'John');
+      expect(john).toBeDefined();
+      expect(john.confidence).toBeGreaterThanOrEqual(0.75);
+
+      // Should detect "Doe" (unknown word after known name pattern)
+      const doe = properNouns.find((e) => e.original === 'Doe');
+      expect(doe).toBeDefined();
     });
 
     test('should protect "John Doe" even when preceded by common word', () => {
@@ -636,11 +643,15 @@ describe('PIIDetector', () => {
       const entities = detector.detectInText(text, ['properNouns']);
       const properNouns = entities.filter((e) => e.type === 'properNoun');
 
-      // UPDATED: After fix, "Contact" is stripped as a common starting word
-      // Now detects "John Doe" without the "Contact" prefix (which is the desired behavior)
-      expect(properNouns.length).toBe(1);
-      expect(properNouns[0].original).toBe('John Doe');
-      expect(properNouns[0].confidence).toBeGreaterThanOrEqual(0.75);
+      // Atomic detection: detects "John" and "Doe" separately
+      expect(properNouns.length).toBeGreaterThanOrEqual(2);
+
+      const john = properNouns.find((e) => e.original === 'John');
+      expect(john).toBeDefined();
+      expect(john.confidence).toBeGreaterThanOrEqual(0.75);
+
+      const doe = properNouns.find((e) => e.original === 'Doe');
+      expect(doe).toBeDefined();
     });
 
     test('should protect "Contact John" near email (meets new threshold)', () => {
@@ -663,11 +674,14 @@ describe('PIIDetector', () => {
       const entities = detector.detectInText(text, ['properNouns']);
       const properNouns = entities.filter((e) => e.type === 'properNoun');
 
-      expect(properNouns.length).toBe(1);
-      expect(properNouns[0].original).toBe('Acme Corp');
-      // Score: 0.3 (cap) + 0.3 (2/2 unknown) + 0.4 (company suffix) + 0.2 (multi) + 0.1 (mid) = 1.3
-      expect(properNouns[0].confidence).toBeGreaterThanOrEqual(0.8);
-      expect(properNouns[0].context).toBe('company');
+      // Atomic detection: detects "Acme" and "Corp" separately
+      // "Acme" should be detected (unknown word, capitalized)
+      const acme = properNouns.find((e) => e.original === 'Acme');
+      expect(acme).toBeDefined();
+
+      // "Corp" should also be detected (company suffix, capitalized)
+      const corp = properNouns.find((e) => e.original === 'Corp');
+      expect(corp).toBeDefined();
     });
 
     test('should protect "Acme Industries" (2 unknown words, no suffix)', () => {
@@ -675,10 +689,13 @@ describe('PIIDetector', () => {
       const entities = detector.detectInText(text, ['properNouns']);
       const properNouns = entities.filter((e) => e.type === 'properNoun');
 
-      expect(properNouns.length).toBe(1);
-      expect(properNouns[0].original).toBe('Acme Industries');
-      // Score: 0.3 (cap) + 0.3 (2/2 unknown) + 0.2 (multi) + 0.1 (mid) = 0.9
-      expect(properNouns[0].confidence).toBeGreaterThanOrEqual(0.8);
+      // Atomic detection: detects "Acme" and "Industries" separately
+      const acme = properNouns.find((e) => e.original === 'Acme');
+      expect(acme).toBeDefined();
+      expect(acme.confidence).toBeGreaterThanOrEqual(0.75);
+
+      const industries = properNouns.find((e) => e.original === 'Industries');
+      expect(industries).toBeDefined();
     });
 
     test('should NOT protect "Dr. Smith" at sentence start (lower score)', () => {
@@ -2170,6 +2187,97 @@ Jan 17, 2026`;
       // "Jim Glab" should still be detected
       const jimGlab = entities.find((e) => e.original.includes('Jim Glab'));
       expect(jimGlab).toBeDefined();
+    });
+  });
+
+  describe('POS Tagging - Adjective/Verb/Adverb Filtering', () => {
+    beforeEach(async () => {
+      detector = new PIIDetector();
+      await detector.initialize();
+    });
+
+    describe('_isAdjective', () => {
+      test('should detect nationality adjectives', () => {
+        expect(detector.properNounDetector._isAdjective('American')).toBe(true);
+        expect(detector.properNounDetector._isAdjective('Russian')).toBe(true);
+        expect(detector.properNounDetector._isAdjective('French')).toBe(true);
+        expect(detector.properNounDetector._isAdjective('British')).toBe(true);
+        expect(detector.properNounDetector._isAdjective('Chinese')).toBe(true);
+      });
+
+      test('should detect common adjectives', () => {
+        expect(detector.properNounDetector._isAdjective('Beautiful')).toBe(true);
+        expect(detector.properNounDetector._isAdjective('Quick')).toBe(true);
+        expect(detector.properNounDetector._isAdjective('Happy')).toBe(true);
+        expect(detector.properNounDetector._isAdjective('Large')).toBe(true);
+      });
+
+      test('should NOT detect proper nouns as adjectives', () => {
+        expect(detector.properNounDetector._isAdjective('John')).toBe(false);
+        expect(detector.properNounDetector._isAdjective('Smith')).toBe(false);
+        expect(detector.properNounDetector._isAdjective('Google')).toBe(false);
+        expect(detector.properNounDetector._isAdjective('Microsoft')).toBe(false);
+      });
+    });
+
+    describe('_isVerb', () => {
+      test('should detect verbs', () => {
+        expect(detector.properNounDetector._isVerb('Running')).toBe(true);
+        expect(detector.properNounDetector._isVerb('Jumped')).toBe(true);
+        expect(detector.properNounDetector._isVerb('Thinking')).toBe(true);
+      });
+
+      test('should NOT detect proper nouns as verbs', () => {
+        expect(detector.properNounDetector._isVerb('John')).toBe(false);
+        expect(detector.properNounDetector._isVerb('Smith')).toBe(false);
+      });
+    });
+
+    describe('_isAdverb', () => {
+      test('should detect adverbs', () => {
+        expect(detector.properNounDetector._isAdverb('Quickly')).toBe(true);
+        expect(detector.properNounDetector._isAdverb('Slowly')).toBe(true);
+        expect(detector.properNounDetector._isAdverb('Very')).toBe(true);
+      });
+
+      test('should NOT detect proper nouns as adverbs', () => {
+        expect(detector.properNounDetector._isAdverb('John')).toBe(false);
+        expect(detector.properNounDetector._isAdverb('Smith')).toBe(false);
+      });
+    });
+
+    describe('Adjective filtering in detection', () => {
+      test('should NOT detect nationality adjectives as proper nouns', () => {
+        const text = 'The American company announced new Russian products with French design.';
+        const entities = detector.detectInText(text, ['properNouns']);
+
+        // Should NOT detect nationality adjectives
+        expect(entities.find((e) => e.original === 'American')).toBeUndefined();
+        expect(entities.find((e) => e.original === 'Russian')).toBeUndefined();
+        expect(entities.find((e) => e.original === 'French')).toBeUndefined();
+      });
+
+      test('should show negative POS scoring in debug info', async () => {
+        const candidates = detector.detectWithDebugInfo(document.body, ['properNouns']);
+
+        const americanCandidate = candidates.find((c) => c.original === 'American');
+
+        // Should have nonNounPOS negative weight applied
+        expect(americanCandidate).toBeDefined();
+        expect(americanCandidate.scoreBreakdown.nonNounPOS).toBeDefined();
+        expect(americanCandidate.scoreBreakdown.nonNounPOS).toBeLessThan(0);
+        expect(americanCandidate.scoreBreakdown.nonNounPOS_detail).toContain('adjective');
+      });
+
+      test('should still detect proper nouns that happen to be adjective-like', () => {
+        // Some names might look like adjectives but are actually names
+        const text = 'Mr. Swift works at the company.';
+        const entities = detector.detectInText(text, ['properNouns']);
+
+        // "Swift" after honorific should still be detected (honorific overrides)
+        const swift = entities.find((e) => e.original === 'Swift');
+        expect(swift).toBeDefined();
+      });
     });
   });
 });
