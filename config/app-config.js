@@ -47,7 +47,7 @@ export const APP_CONFIG = {
     fadeScale: 50, // target scale when faded (%)
 
     // Replacement Settings
-    magnitudeVariance: 30, // ±30% for money and quantities
+    magnitudeVariance: 100, // ±100% for money and quantities (2x variance: value can range from 0 to 2x original)
     dateVarianceMonths: 2, // ±2 months for dates
     redactionMode: 'random', // 'random' = replace with fake data | 'blackout' = black bars like legal docs
 

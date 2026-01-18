@@ -123,8 +123,12 @@ function initializeUIText() {
     aboutSection[0].textContent = i18n.aboutVersion + ':';
     aboutSection[1].textContent = i18n.settingsDetectionEngine;
     aboutSection[2].textContent = i18n.settingsStorageUsed;
+    aboutSection[3].textContent = i18n.aboutGitHubRepo;
     document.getElementById('detection-engine').textContent = i18n.settingsDetectionEngineFree;
     document.getElementById('storage-used').textContent = i18n.settingsStorageCalculating;
+    const githubLink = document.getElementById('github-link');
+    githubLink.href = i18n.aboutGitHubLink;
+    githubLink.textContent = i18n.aboutGitHubLink;
 
     // Buttons
     document.getElementById('select-all').textContent = i18n.btnSelectAll;
@@ -175,6 +179,12 @@ async function loadSettings() {
   document.getElementById('proper-noun-threshold').value = Math.round(threshold * 100);
   document.getElementById('threshold-value').textContent = threshold.toFixed(2);
   updateThresholdDescription(threshold);
+
+  // Load magnitude variance
+  const magnitudeVariance =
+    settings.magnitudeVariance !== undefined ? settings.magnitudeVariance : 100;
+  document.getElementById('magnitude-variance').value = magnitudeVariance;
+  document.getElementById('magnitude-value').textContent = `±${magnitudeVariance}%`;
 }
 
 /**
@@ -300,6 +310,21 @@ function setupEventListeners() {
     settings.properNounThreshold = value;
     await chrome.storage.sync.set({ safesnap_settings: settings });
     showToast('Proper noun threshold updated');
+  });
+
+  // Magnitude variance slider
+  document.getElementById('magnitude-variance').addEventListener('input', (e) => {
+    const value = parseInt(e.target.value);
+    document.getElementById('magnitude-value').textContent = `±${value}%`;
+  });
+
+  document.getElementById('magnitude-variance').addEventListener('change', async (e) => {
+    const value = parseInt(e.target.value);
+    const result = await chrome.storage.sync.get(['safesnap_settings']);
+    const settings = result.safesnap_settings || {};
+    settings.magnitudeVariance = value;
+    await chrome.storage.sync.set({ safesnap_settings: settings });
+    showToast(i18n.toastMagnitudeVarianceUpdated);
   });
 
   // Debug mode toggle

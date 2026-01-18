@@ -283,45 +283,6 @@
         </div>
       </div>
 
-      <!-- Proper Noun Sensitivity Slider -->
-      <div style="margin-bottom: 20px; padding: 16px; background: #f9fafb; border-radius: 8px">
-        <label
-          for="popup-threshold"
-          style="
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #374151;
-          "
-        >
-          🎯 Proper Noun Detection Sensitivity
-        </label>
-        <div style="display: flex; align-items: center; gap: 12px">
-          <input
-            type="range"
-            min="50"
-            max="100"
-            value="75"
-            step="5"
-            id="popup-threshold"
-            style="flex: 1; accent-color: #4f46e5"
-          />
-          <span
-            id="popup-threshold-value"
-            style="font-size: 14px; font-weight: 600; color: #4f46e5; min-width: 40px"
-          >
-            0.75
-          </span>
-        </div>
-        <p
-          id="popup-threshold-description"
-          style="font-size: 11px; color: #6b7280; margin: 6px 0 0 0"
-        >
-          Balanced - Good accuracy with minimal false positives
-        </p>
-      </div>
-
       <div class="pii-types">
         <h3 style="margin-top: 0; font-size: 16px"></h3>
         <div class="checkbox-group">
@@ -412,6 +373,85 @@
             <input type="radio" name="redactionMode" value="blackout" style="margin: 0" />
             <span></span>
           </label>
+        </div>
+      </div>
+
+      <!-- Proper Noun Detection Sensitivity -->
+      <div style="margin-bottom: 20px; padding: 16px; background: #f9fafb; border-radius: 8px">
+        <label
+          for="popup-threshold"
+          style="
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #374151;
+          "
+        >
+          🎯 Proper Noun Detection Sensitivity
+        </label>
+        <p style="font-size: 11px; color: #6b7280; margin: 0 0 12px 0; line-height: 1.4">
+          Higher values detect fewer names (only high confidence)
+        </p>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <input
+            type="range"
+            min="50"
+            max="100"
+            value="75"
+            step="5"
+            id="popup-threshold"
+            style="flex: 1; accent-color: #4f46e5"
+          />
+          <span
+            id="popup-threshold-value"
+            style="font-size: 14px; font-weight: 600; color: #4f46e5; min-width: 40px"
+          >
+            0.75
+          </span>
+        </div>
+        <p
+          id="popup-threshold-description"
+          style="font-size: 11px; color: #6b7280; margin: 6px 0 0 0"
+        >
+          Balanced - Good accuracy with minimal false positives
+        </p>
+      </div>
+
+      <!-- Magnitude Variance Slider -->
+      <div style="margin-bottom: 20px; padding: 16px; background: #f9fafb; border-radius: 8px">
+        <label
+          for="popup-magnitude-variance"
+          style="
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #374151;
+          "
+          id="popup-magnitude-label"
+        >
+        </label>
+        <p
+          style="font-size: 11px; color: #6b7280; margin: 0 0 12px 0; line-height: 1.4"
+          id="popup-magnitude-description"
+        ></p>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <input
+            type="range"
+            min="0"
+            max="999"
+            value="100"
+            step="1"
+            id="popup-magnitude-variance"
+            style="flex: 1; accent-color: #4f46e5"
+          />
+          <span
+            id="popup-magnitude-value"
+            style="font-size: 14px; font-weight: 600; color: #4f46e5; min-width: 60px"
+          >
+            ±100%
+          </span>
         </div>
       </div>
 

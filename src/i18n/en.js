@@ -53,6 +53,9 @@ export const en = {
   labelBannerPosition: 'Banner Position',
   labelFadeDistance: 'Fade Distance (px)',
   labelMagnitudeVariance: 'Magnitude Variance (%)',
+  labelMagnitudeVarianceTitle: 'Magnitude Variance',
+  labelMagnitudeVarianceDesc:
+    'Randomize money and quantity values to make them realistic but unrecognizable. Higher values create larger changes.',
   labelRedactionMode: 'Redaction Mode',
 
   // Popup - Banner Position Options
@@ -73,6 +76,8 @@ export const en = {
   aboutVersion: 'Version:',
   aboutDescription:
     'SafeSnap helps you take screenshots while protecting personally identifiable information (PII).',
+  aboutGitHubRepo: 'GitHub:',
+  aboutGitHubLink: 'https://github.com/safe-snap/safesnap-chrome-extension',
 
   // Popup - Units
   unitPixels: 'pixels',
@@ -129,6 +134,7 @@ export const en = {
   toastBannerOpacityUpdated: 'Banner opacity updated!',
   toastFadeDistanceUpdated: 'Fade distance updated!',
   toastRedactionModeUpdated: 'Redaction mode updated!',
+  toastMagnitudeVarianceUpdated: 'Magnitude variance updated!',
   toastSettingsExported: 'Settings exported!',
   toastSettingsImported: 'Settings imported! Reloading...',
   toastSettingsSaved: 'Settings saved!',

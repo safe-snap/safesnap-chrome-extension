@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Test</title>
+</head>
+<body>
+    <div id="test">Article published on Jan 17, 2026</div>
+    
+    <script type="module">
+        // Import detection modules
+        import { PIIDetector } from './src/detection/pii-detector.js';
+        
+        async function test() {
+            const detector = new PIIDetector();
+            await detector.initialize();
+            
+            const testDiv = document.getElementById('test');
+            
+            console.log('=== Test 1: Quantities only ===');
+            const quantitiesOnly = detector.detectInDOM(testDiv, ['quantity']);
+            console.log('Entities:', quantitiesOnly);
+            
+            console.log('\n=== Test 2: Dates only ===');
+            const datesOnly = detector.detectInDOM(testDiv, ['date']);
+            console.log('Entities:', datesOnly);
+            
+            console.log('\n=== Test 3: Both enabled ===');
+            const both = detector.detectInDOM(testDiv, ['quantity', 'date']);
+            console.log('Entities:', both);
+        }
+        
+        test();
+    </script>
+</body>
+</html>

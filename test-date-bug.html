@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test Date Bug</title>
+  </head>
+  <body>
+    <h1>Date Bug Test</h1>
+
+    <!-- Test case 1: Date in single node -->
+    <p id="test1">Article published on Jan 17, 2026</p>
+
+    <!-- Test case 2: Date split across nodes -->
+    <p id="test2">Article published on <span>Jan</span> <span>17, 2026</span></p>
+
+    <!-- Test case 3: Date with formatting -->
+    <p id="test3">Published: <strong>Jan 17, 2026</strong></p>
+
+    <script type="module">
+      // This is a manual test file to help debug the issue
+      console.log('Test file loaded. Open the SafeSnap extension popup and:');
+      console.log('1. Enable ONLY "Quantities" protection');
+      console.log('2. Disable "Dates" protection');
+      console.log('3. Click "Protect PII"');
+      console.log('4. Check if dates are corrupted');
+    </script>
+  </body>
+</html>

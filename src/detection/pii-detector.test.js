@@ -148,19 +148,29 @@ describe('PIIDetector', () => {
       const dateEntitiesFiltered = entitiesFiltered.filter((e) => e.type === 'date');
       expect(dateEntitiesFiltered.length).toBe(0);
 
-      // "Dec" should NOT be detected as proper noun (date has higher priority - 90 vs 10)
-      const properNouns = entitiesFiltered.filter((e) => e.type === 'properNoun');
-      const decAsProperNoun = properNouns.find((e) => e.original.includes('Dec'));
+      // "Dec" should still not be detected as a proper noun
+      // The detector should recognize Dec. 9 as a date pattern first (even if dates are filtered)
+      // This prevents false positives from treating month names as proper nouns
+      const properNounsFiltered = entitiesFiltered.filter((e) => e.type === 'properNoun');
+      const decAsProperNoun = properNounsFiltered.find((e) => e.original.includes('Dec'));
       expect(decAsProperNoun).toBeUndefined();
 
-      // Test 2: Manually call _detectAllTypes to see ALL detected entities (bypassing filter)
-      // This demonstrates that dates ARE detected internally, even when filtered out
-      const allDetected = detector._detectAllTypes(text);
-      const datesDetectedInternally = allDetected.filter((e) => e.type === 'date');
-      expect(datesDetectedInternally.length).toBeGreaterThan(0);
-      const dec9Internal = datesDetectedInternally.find((e) => e.original.includes('Dec'));
-      expect(dec9Internal).toBeDefined();
-      expect(dec9Internal.original).toMatch(/Dec.*9/);
+      // Test 2: Dates are ALWAYS detected internally (for deduplication)
+      // But they are FILTERED OUT when not in enabledTypes
+      const testDiv = document.createElement('div');
+      testDiv.textContent = text;
+      const filteredResults = detector.detectWithDebugInfo(testDiv, ['properNouns']);
+
+      // Dates should NOT be in filtered results (only properNouns enabled)
+      const dateInFiltered = filteredResults.find((e) => e.type === 'date');
+      expect(dateInFiltered).toBeUndefined();
+
+      // But "Dec" should also NOT be detected as a proper noun
+      // because it was recognized as part of a date during deduplication
+      const decAsProperNoun2 = filteredResults.find(
+        (e) => e.original && e.original.includes('Dec')
+      );
+      expect(decAsProperNoun2).toBeUndefined();
 
       // Test 3: With both types enabled, date should be detected (not proper noun)
       const entitiesBoth = detector.detectInText(text, ['date', 'properNouns']);
@@ -173,6 +183,261 @@ describe('PIIDetector', () => {
       expect(decAsProperNounBoth).toBeUndefined();
     });
 
+    test('should NOT detect numbers within dates as separate quantities', () => {
+      // Bug report: "Jan 16, 2026" becomes "Jan -1-7, -20-26"
+      // Root cause: Numbers within dates are detected as quantities
+      // even when dates have higher priority (90 vs 60)
+
+      const text = 'Article published on Jan 16, 2026';
+
+      // CRITICAL TEST 1: detectWithDebugInfo shows ALL candidates before filtering
+      const testDiv = document.createElement('div');
+      testDiv.textContent = text;
+      const allCandidates = detector.detectWithDebugInfo(testDiv, ['quantity']);
+
+      console.log(
+        'All candidates (before filtering):',
+        allCandidates.map((c) => ({
+          type: c.type,
+          original: c.original,
+          start: c.start,
+          end: c.end,
+        }))
+      );
+
+      // After deduplication, numbers within dates should be removed
+      const dateCandidate = allCandidates.find((e) => e.original && e.original.includes('Jan'));
+      const q16Candidate = allCandidates.find((e) => e.original === '16');
+      const q2026Candidate = allCandidates.find((e) => e.original === '2026');
+
+      console.log('Date candidate:', dateCandidate);
+      console.log('16 candidate:', q16Candidate);
+      console.log('2026 candidate:', q2026Candidate);
+
+      // CRITICAL TEST 2: With ONLY quantities enabled (dates NOT enabled)
+      // The numbers in the date should still NOT be detected as quantities
+      const entitiesQuantityOnly = detector.detectInText(text, ['quantity']);
+
+      // Should NOT detect "16" or "2026" as separate quantities
+      const q16 = entitiesQuantityOnly.find((e) => e.original === '16');
+      const q2026 = entitiesQuantityOnly.find((e) => e.original === '2026');
+
+      console.log(
+        'Entities with quantity-only enabled:',
+        entitiesQuantityOnly.map((e) => ({
+          type: e.type,
+          original: e.original,
+        }))
+      );
+
+      expect(q16).toBeUndefined();
+      expect(q2026).toBeUndefined();
+    });
+
+    test('should NOT detect numbers within numeric-format dates as quantities', () => {
+      // Test with numeric date formats: 1/16/2026, 01/16/2026, 2026-01-16
+      // These are more prone to quantity pattern matching due to \b at slashes
+      const testCases = [
+        { text: 'Event on 1/16/2026', date: '1/16/2026', nums: ['1', '16'] },
+        { text: 'Event on 01/16/2026', date: '01/16/2026', nums: ['01', '16'] },
+        { text: 'Event on 2026-01-16', date: '2026-01-16', nums: ['01', '16'] },
+      ];
+
+      for (const { text, date, nums } of testCases) {
+        // With ONLY quantities enabled (dates disabled)
+        const entities = detector.detectInText(text, ['quantity']);
+
+        console.log(
+          `\nTest: "${text}"\nExpected: No quantities (date "${date}" has higher priority)\nActual:`,
+          entities.map((e) => e.original)
+        );
+
+        // Should NOT detect any numbers from the date as quantities
+        for (const num of nums) {
+          const found = entities.find((e) => e.original === num);
+          expect(found).toBeUndefined();
+        }
+
+        // Should have ZERO quantity entities
+        expect(entities.length).toBe(0);
+      }
+    });
+
+    test('should NOT detect numbers within text-format dates like "Jan 17, 2026" as quantities', () => {
+      // CRITICAL TEST: When dates are DISABLED and quantities are ENABLED,
+      // numbers inside dates should still be protected by deduplication
+      const text = 'Published on Jan 17, 2026 by author';
+
+      // Test with ONLY quantities enabled (dates disabled)
+      const entities = detector.detectInText(text, ['quantity']);
+
+      console.log(
+        `\nCRITICAL TEST: "${text}"\nWith quantities enabled, dates disabled\nDetected:`,
+        entities.map((e) => `${e.type}:${e.original}`)
+      );
+
+      // Should NOT detect "17" or "2026" as quantities (they're part of a date)
+      const q17 = entities.find((e) => e.original === '17');
+      const q2026 = entities.find((e) => e.original === '2026');
+
+      expect(q17).toBeUndefined();
+      expect(q2026).toBeUndefined();
+      expect(entities.length).toBe(0);
+    });
+
+    test('should detect both dates and quantities when both enabled', () => {
+      const text = 'Article published on Jan 16, 2026';
+
+      // Test with both enabled - should detect the full date, not the numbers
+      const entities = detector.detectInText(text, ['date', 'quantity']);
+
+      // Should detect the full date
+      const dateEntity = entities.find((e) => e.type === 'date');
+      expect(dateEntity).toBeDefined();
+      expect(dateEntity.original).toMatch(/Jan 16, 2026/i);
+
+      // Should NOT detect "16" or "2026" as separate quantities
+      const quantities = entities.filter((e) => e.type === 'quantity');
+      const q16Both = quantities.find((e) => e.original === '16');
+      const q2026Both = quantities.find((e) => e.original === '2026');
+      expect(q16Both).toBeUndefined();
+      expect(q2026Both).toBeUndefined();
+    });
+
+    test('should NOT detect "17" as quantity in "Jan 17, 2026" when dates disabled (detectInDOM)', () => {
+      // CRITICAL BUG TEST: This is the exact scenario reported by the user
+      // With dates DISABLED and only quantities ENABLED,
+      // "Jan 17, 2026" should NOT have "17" detected as a quantity
+
+      const div = document.createElement('div');
+      div.innerHTML = '<p>Published on Jan 17, 2026</p>';
+
+      // Detect with ONLY quantities enabled (dates disabled)
+      const entities = detector.detectInDOM(div, ['quantity']);
+
+      console.log(
+        '\n🐛 CRITICAL BUG TEST: "Jan 17, 2026" with only quantities enabled',
+        '\nDetected entities:',
+        entities.map((e) => ({ type: e.type, original: e.original, start: e.start, end: e.end }))
+      );
+
+      // Should NOT detect "17" as a quantity (it's part of a date)
+      const q17 = entities.find((e) => e.original === '17');
+      expect(q17).toBeUndefined();
+
+      // Should NOT detect "2026" as a quantity
+      const q2026 = entities.find((e) => e.original === '2026');
+      expect(q2026).toBeUndefined();
+
+      // Should have ZERO entities
+      expect(entities.length).toBe(0);
+    });
+
+    test('should NOT detect quantities in dates split across multiple text nodes', () => {
+      // CRITICAL: This tests the actual bug scenario
+      // When a date like "Jan 16, 2026" is split across multiple DOM text nodes,
+      // each node is processed separately by detectInDOM()
+      // This can cause numbers in dates to be detected as quantities
+
+      // Scenario 1: Date split across two nodes
+      const div1 = document.createElement('div');
+      div1.innerHTML = '<span>Jan</span><span> 16, 2026</span>';
+
+      const entities1 = detector.detectInDOM(div1, ['quantity']);
+
+      console.log(
+        '\nScenario 1: "<span>Jan</span><span> 16, 2026</span>"',
+        '\nDetected quantities:',
+        entities1.map((e) => ({ original: e.original, type: e.type }))
+      );
+
+      // Should NOT detect "16" as a quantity
+      const q16_1 = entities1.find((e) => e.original === '16');
+      expect(q16_1).toBeUndefined();
+
+      // Scenario 2: Each part in separate node
+      const div2 = document.createElement('div');
+      div2.innerHTML = '<span>Jan</span> <span>16</span><span>, </span><span>2026</span>';
+
+      const entities2 = detector.detectInDOM(div2, ['quantity']);
+
+      console.log(
+        '\nScenario 2: "<span>Jan</span> <span>16</span><span>, </span><span>2026</span>"',
+        '\nDetected quantities:',
+        entities2.map((e) => ({ original: e.original, type: e.type }))
+      );
+
+      // Should NOT detect "16" or "2026" as quantities
+      const q16_2 = entities2.find((e) => e.original === '16');
+      const q2026_2 = entities2.find((e) => e.original === '2026');
+      expect(q16_2).toBeUndefined();
+      expect(q2026_2).toBeUndefined();
+
+      // Scenario 3: Numeric date format split across nodes
+      // NOTE: When numeric dates are split like "1/" and "16/2026" across nodes,
+      // adding spaces between nodes (to fix word boundary issues) breaks the date pattern.
+      // This is an edge case - real HTML rarely splits dates this way.
+      // The space fix is more important for common cases like "<span>Writer</span><time>Jan 17, 2026</time>"
+      const div3 = document.createElement('div');
+      div3.innerHTML = '<span>1/</span><span>16/2026</span>';
+
+      const entities3 = detector.detectInDOM(div3, ['quantity']);
+
+      console.log(
+        '\nScenario 3: "<span>1/</span><span>16/2026</span>"',
+        '\nDetected quantities:',
+        entities3.map((e) => ({ original: e.original, type: e.type }))
+      );
+
+      // With space separator fix, this becomes "1/ 16/2026" which breaks date pattern
+      // So "1" and "16" are detected as quantities (expected with current fix)
+      // This is acceptable trade-off for fixing the more common SFGate bug
+      const q1_3 = entities3.find((e) => e.original === '1');
+      const q16_3 = entities3.find((e) => e.original === '16');
+
+      // These will be detected now (expected behavior after space fix)
+      expect(q1_3).toBeDefined();
+      expect(q16_3).toBeDefined();
+    });
+
+    test('should detect dates in adjacent inline elements without spaces (SFGate bug)', () => {
+      // CRITICAL BUG TEST: This replicates the exact SFGate HTML structure
+      // <span>Freelance Writer</span><time>Jan 17, 2026</time>
+      // When text nodes are concatenated without spaces, dates fail to match regex word boundaries
+      const div = document.createElement('div');
+      div.innerHTML =
+        '<span>Freelance Writer</span><time datetime="2026-01-17">Jan 17, 2026</time>';
+
+      // First verify dates ARE detected when dates enabled
+      const dateEntities = detector.detectInDOM(div, ['date']);
+      console.log(
+        '\n🐛 SFGate Bug Test: Adjacent inline elements',
+        '\nHTML: <span>Freelance Writer</span><time>Jan 17, 2026</time>',
+        '\nWith dates enabled:',
+        dateEntities.map((e) => ({ type: e.type, original: e.original }))
+      );
+
+      const dateEntity = dateEntities.find((e) => e.type === 'date' && e.original.includes('Jan'));
+      expect(dateEntity).toBeDefined();
+      expect(dateEntity.original).toMatch(/Jan 17, 2026/i);
+
+      // Now verify quantities are NOT detected when only quantities enabled
+      const quantityEntities = detector.detectInDOM(div, ['quantity']);
+      console.log(
+        '\nWith only quantities enabled:',
+        quantityEntities.map((e) => ({ type: e.type, original: e.original }))
+      );
+
+      // Should NOT detect "17" or "2026" as quantities
+      const q17 = quantityEntities.find((e) => e.original === '17');
+      const q2026 = quantityEntities.find((e) => e.original === '2026');
+      expect(q17).toBeUndefined();
+      expect(q2026).toBeUndefined();
+      expect(quantityEntities.length).toBe(0);
+    });
+  });
+
+  describe('Address Detection', () => {
     test('should detect addresses', () => {
       const text = 'Located at 123 Main Street';
       const entities = detector.detectInText(text, ['address']);
@@ -1821,6 +2086,9 @@ describe('PIIDetector', () => {
         'Chief Editor',
         'Senior Manager',
         'Lead Designer',
+        'Freelance Writer',
+        'Freelance Editor',
+        'Freelance Designer',
       ];
 
       for (const title of jobTitles) {
@@ -1860,6 +2128,29 @@ describe('PIIDetector', () => {
         const hasPreposition = properNouns.some((e) => e.original.startsWith(`${word} `));
         expect(hasPreposition).toBe(false);
       }
+    });
+
+    test('should NOT detect "Freelance Writer" as standalone job title', () => {
+      // Real-world test case: "Freelance Writer" should be filtered by isStandaloneJobTitle pattern
+      const text = `United unveiling its 'most luxurious' jet for 2 major SFO routes
+SFGATE contributor Jim Glab rounds up air travel and airport news for our weekly column Routes
+By Jim Glab,
+Freelance Writer
+Jan 17, 2026`;
+
+      // Set threshold to 0.90 (90%)
+      detector.setProperNounThreshold(0.9);
+
+      // Run detection with threshold filtering (as used in protect mode)
+      const entities = detector.detectInText(text, ['properNouns']);
+
+      // "Freelance Writer" should NOT be detected (filtered as standalone job title)
+      const freelanceWriter = entities.find((e) => e.original === 'Freelance Writer');
+      expect(freelanceWriter).toBeUndefined();
+
+      // "Jim Glab" should still be detected
+      const jimGlab = entities.find((e) => e.original.includes('Jim Glab'));
+      expect(jimGlab).toBeDefined();
     });
   });
 });

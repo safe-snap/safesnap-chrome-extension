@@ -17,8 +17,8 @@ export class Replacer {
     this.companyPool = new CompanyPool();
     this.locationPool = new LocationPool();
     this.patternMatcher = new PatternMatcher();
-    this.magnitudeVariance = APP_CONFIG.defaults?.magnitudeVariance || 30; // default
-    this.redactionMode = APP_CONFIG.defaults?.redactionMode || 'random'; // 'random' or 'blackout'
+    this.magnitudeVariance = APP_CONFIG.defaults.magnitudeVariance; // from config
+    this.redactionMode = APP_CONFIG.defaults.redactionMode; // 'random' or 'blackout'
     this.moneyMultiplier = null; // Will be set once per protection session (used for both money and quantities)
     this.dateOffset = null; // Days to add to all dates (set once per protection session)
   }

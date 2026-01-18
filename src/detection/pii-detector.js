@@ -646,7 +646,7 @@ export class PIIDetector {
       // Fix Issue #2b: Detect if this is ONLY a standalone job title pattern (no name following)
       // E.g., "Tech Reporter" or "Senior Engineer" by itself
       const isStandaloneJobTitle =
-        /^(Senior|Junior|Lead|Chief|Principal|Staff|Associate)\s+(Engineer|Developer|Manager|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant)$/i.test(
+        /^(Senior|Junior|Lead|Chief|Principal|Staff|Associate|Freelance)\s+(Engineer|Developer|Manager|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant|Journalist)$/i.test(
           candidate
         ) ||
         /^(Tech|Senior Tech|Lead Tech|Staff Tech)\s+(Writer|Reporter|Lead|Manager)$/i.test(
@@ -706,10 +706,11 @@ export class PIIDetector {
       // Fix Issue #2d: Apply penalties based on job-related context
       // This allows users to control detection via threshold adjustment
 
-      // Skip standalone job titles entirely (e.g., "Tech Reporter" alone)
+      // Penalize standalone job titles (e.g., "Tech Reporter", "Freelance Writer" alone)
+      // Strong penalty to push below default 0.75 threshold, but users can still override
       if (isStandaloneJobTitle) {
-        score = 0;
-        breakdown.isStandaloneJobTitle = 'skipped';
+        score = Math.max(0, score - 0.5);
+        breakdown.isStandaloneJobTitle = -0.5;
       }
 
       // Penalize job description prefixes (e.g., "Senior Engineer John Smith" or "Tech Writer John Smith")
@@ -731,6 +732,56 @@ export class PIIDetector {
       } else {
         // Multi-word is likely a person name
         entityContext = 'person';
+      }
+
+      // Split overly long proper noun phrases that contain job titles in the middle
+      // E.g., "Jim Glab Freelance Writer Jim Glab" should be split into ["Jim Glab", "Jim Glab"]
+      // This prevents job titles and repeated names from being grouped incorrectly
+      const jobTitlePattern =
+        /\b(Freelance|Senior|Junior|Lead|Chief|Principal|Staff|Associate|Tech)\s+(Writer|Reporter|Engineer|Developer|Designer|Analyst|Editor|Manager|Director|Consultant|Architect|Scientist|Journalist|Photographer|Videographer)\b/gi;
+      const jobTitleMatch = candidate.match(jobTitlePattern);
+
+      if (jobTitleMatch && wordCount > 4) {
+        // Found a job title in the middle of a long phrase - split it
+        const parts = candidate.split(jobTitlePattern);
+
+        // Process each part separately if it looks like a name (2+ words)
+        let currentPos = start;
+        for (let i = 0; i < parts.length; i++) {
+          const part = parts[i]?.trim();
+          if (!part) {
+            currentPos += parts[i]?.length || 0;
+            continue;
+          }
+
+          // Skip if this is the job title itself
+          if (jobTitleMatch.some((jt) => jt.toLowerCase() === part.toLowerCase())) {
+            currentPos += part.length + 1; // +1 for space
+            continue;
+          }
+
+          // Check if this looks like a name (2+ capitalized words)
+          const partWords = part.split(/\s+/).filter((w) => w.length > 0);
+          if (partWords.length >= 2 && partWords.every((w) => /^[A-Z][a-z]/.test(w))) {
+            // Add this as a separate candidate
+            candidates.push({
+              type: 'properNoun',
+              original: part,
+              start: currentPos,
+              end: currentPos + part.length,
+              confidence: score, // Use same score as parent
+              context: 'person',
+              scoreBreakdown: { ...breakdown, splitFromLongerPhrase: true },
+              willBeProtected: score >= minimumScore,
+              threshold: minimumScore,
+            });
+          }
+
+          currentPos += part.length + 1; // +1 for space/separator
+        }
+
+        // Skip adding the full long phrase
+        continue;
       }
 
       candidates.push({
@@ -984,19 +1035,17 @@ export class PIIDetector {
    * @returns {Array<Object>} Array of detected PII with DOM references
    */
   detectInDOM(rootElement, enabledTypes = null) {
-    const entities = [];
+    // Step 1: Collect all text nodes and build a position map
+    const textNodes = [];
     const walker = document.createTreeWalker(rootElement, NodeFilter.SHOW_TEXT, {
       acceptNode: (node) => {
-        // Skip certain elements that shouldn't be modified
         const parent = node.parentElement;
         if (!parent) return NodeFilter.FILTER_REJECT;
 
-        // Skip labels, headings, and other structural elements
         if (this._shouldSkipElement(parent)) {
           return NodeFilter.FILTER_REJECT;
         }
 
-        // Skip empty or whitespace-only text
         if (!node.textContent || !node.textContent.trim()) {
           return NodeFilter.FILTER_REJECT;
         }
@@ -1006,21 +1055,83 @@ export class PIIDetector {
     });
 
     let currentNode;
+    let globalOffset = 0;
+
     while ((currentNode = walker.nextNode())) {
       const text = currentNode.textContent;
-      const detected = this.detectInText(text, enabledTypes);
-
-      // Add DOM reference to each entity
-      detected.forEach((entity) => {
-        entities.push({
-          ...entity,
-          node: currentNode,
-          nodeText: text,
-        });
+      textNodes.push({
+        node: currentNode,
+        text,
+        start: globalOffset,
+        end: globalOffset + text.length,
       });
+      globalOffset += text.length;
+      // Add 1 for the space separator we'll add between nodes
+      globalOffset += 1;
     }
 
-    return entities;
+    // Step 2: Concatenate all text and detect on the full text
+    // This allows date patterns to match across node boundaries
+    // Add space separator to preserve word boundaries between adjacent elements
+    // (e.g., <span>Writer</span><time>Jan 17, 2026</time> becomes "Writer Jan 17, 2026")
+    const fullText = textNodes.map((n) => n.text).join(' ');
+
+    // Detect ALL types first (including dates) to enable proper deduplication
+    const allEntities = this._detectAllTypes(fullText);
+
+    // Step 3: Map each entity back to its originating text node(s)
+    const entitiesWithNodes = allEntities
+      .map((entity) => {
+        // Find which node this entity starts in
+        const nodeInfo = textNodes.find((n) => entity.start >= n.start && entity.start < n.end);
+
+        if (!nodeInfo) {
+          console.warn('Could not find node for entity:', entity);
+          return null;
+        }
+
+        // Convert global position to node-relative position
+        const nodeRelativeStart = entity.start - nodeInfo.start;
+        const nodeRelativeEnd = entity.end - nodeInfo.start;
+
+        // CRITICAL: Check if entity spans beyond this node
+        if (nodeRelativeEnd > nodeInfo.text.length) {
+          // Entity spans multiple nodes!
+          // For now, we keep it associated with the first node but with adjusted bounds
+          // The replacement logic doesn't actually use node-relative positions,
+          // it searches by original text, so this is primarily for debugging
+          console.log('[SafeSnap Debug] Entity spans multiple nodes:', {
+            entity: entity.original,
+            type: entity.type,
+            nodeText: nodeInfo.text,
+            nodeRelativeEnd,
+            nodeTextLength: nodeInfo.text.length,
+          });
+
+          // Create a valid entity for this node
+          // Use the full entity original text, not truncated
+          return {
+            ...entity,
+            node: nodeInfo.node,
+            nodeText: nodeInfo.text,
+            start: nodeRelativeStart,
+            end: nodeRelativeEnd, // Keep the actual end position even if beyond node
+            spansMultipleNodes: true,
+          };
+        }
+
+        return {
+          ...entity,
+          node: nodeInfo.node,
+          nodeText: nodeInfo.text,
+          start: nodeRelativeStart,
+          end: nodeRelativeEnd,
+        };
+      })
+      .filter(Boolean);
+
+    // Step 4: Filter by enabled types AFTER cross-node deduplication
+    return this._filterByEnabledTypes(entitiesWithNodes, enabledTypes);
   }
 
   /**
@@ -1153,6 +1264,30 @@ export class PIIDetector {
 
     const priorities = APP_CONFIG.properNounDetection?.typePriorities || {};
 
+    // DEBUG: Log entities being deduplicated
+    const hasDateAndQuantity =
+      entities.some((e) => e.type === 'date') && entities.some((e) => e.type === 'quantity');
+    if (hasDateAndQuantity) {
+      console.log('[SafeSnap Debug] Deduplicating entities with both dates and quantities:', {
+        dates: entities
+          .filter((e) => e.type === 'date')
+          .map((e) => ({
+            original: e.original,
+            start: e.start,
+            end: e.end,
+            priority: priorities.date,
+          })),
+        quantities: entities
+          .filter((e) => e.type === 'quantity')
+          .map((e) => ({
+            original: e.original,
+            start: e.start,
+            end: e.end,
+            priority: priorities.quantity,
+          })),
+      });
+    }
+
     // Group entities by their text node
     // This ensures we only compare overlaps within the same text node
     const byNode = new Map();
@@ -1162,6 +1297,19 @@ export class PIIDetector {
         byNode.set(nodeKey, []);
       }
       byNode.get(nodeKey).push(entity);
+    }
+
+    // DEBUG: Log how entities are grouped
+    if (hasDateAndQuantity) {
+      console.log('[SafeSnap Debug] Entities grouped by node:', {
+        nodeCount: byNode.size,
+        groups: Array.from(byNode.entries()).map(([key, ents]) => ({
+          nodeKey: key === 'unknown' ? 'unknown' : typeof key,
+          entityCount: ents.length,
+          dates: ents.filter((e) => e.type === 'date').length,
+          quantities: ents.filter((e) => e.type === 'quantity').length,
+        })),
+      });
     }
 
     // Deduplicate within each text node separately
@@ -1192,8 +1340,51 @@ export class PIIDetector {
           const priorityNew = priorities[entity.type] || 0;
           const priorityLast = priorities[lastEntity.type] || 0;
 
+          // DEBUG: Log overlap decision
+          if (
+            hasDateAndQuantity &&
+            (entity.type === 'date' ||
+              entity.type === 'quantity' ||
+              lastEntity.type === 'date' ||
+              lastEntity.type === 'quantity')
+          ) {
+            console.log('[SafeSnap Debug] Overlap detected:', {
+              existing: {
+                type: lastEntity.type,
+                original: lastEntity.original,
+                start: lastEntity.start,
+                end: lastEntity.end,
+                priority: priorityLast,
+              },
+              new: {
+                type: entity.type,
+                original: entity.original,
+                start: entity.start,
+                end: entity.end,
+                priority: priorityNew,
+              },
+              decision:
+                priorityNew > priorityLast
+                  ? 'REPLACE with new'
+                  : priorityNew === priorityLast
+                    ? 'Check confidence'
+                    : 'KEEP existing',
+            });
+          }
+
           if (priorityNew > priorityLast) {
             // Replace with higher priority type
+            if (
+              hasDateAndQuantity &&
+              (lastEntity.type === 'date' || lastEntity.type === 'quantity')
+            ) {
+              console.log('[SafeSnap Debug] 🗑️ REMOVED (replaced by higher priority):', {
+                type: lastEntity.type,
+                original: lastEntity.original,
+                start: lastEntity.start,
+                end: lastEntity.end,
+              });
+            }
             allDeduplicated[allDeduplicated.length - 1] = entity;
             lastEnd = entity.end;
           } else if (priorityNew === priorityLast) {
@@ -1210,10 +1401,30 @@ export class PIIDetector {
                 lastEnd = entity.end;
               }
             }
+          } else {
+            // Reject new entity (lower priority)
+            if (hasDateAndQuantity && (entity.type === 'date' || entity.type === 'quantity')) {
+              console.log('[SafeSnap Debug] 🗑️ REMOVED (rejected - lower priority):', {
+                type: entity.type,
+                original: entity.original,
+                start: entity.start,
+                end: entity.end,
+              });
+            }
           }
           // Otherwise keep existing entity (has higher priority/confidence/length)
         }
       }
+    }
+
+    // DEBUG: Log final result
+    if (hasDateAndQuantity) {
+      console.log('[SafeSnap Debug] Deduplication result:', {
+        before: entities.length,
+        after: allDeduplicated.length,
+        dates: allDeduplicated.filter((e) => e.type === 'date').map((e) => e.original),
+        quantities: allDeduplicated.filter((e) => e.type === 'quantity').map((e) => e.original),
+      });
     }
 
     return allDeduplicated;

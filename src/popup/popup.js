@@ -71,6 +71,12 @@ function initializeUIText() {
     radioLabels[1].querySelector('span').textContent = i18n.redactionModeBlackout;
   }
 
+  // Magnitude variance labels
+  const magnitudeLabel = document.getElementById('popup-magnitude-label');
+  const magnitudeDescription = document.getElementById('popup-magnitude-description');
+  if (magnitudeLabel) magnitudeLabel.textContent = i18n.labelMagnitudeVarianceTitle;
+  if (magnitudeDescription) magnitudeDescription.textContent = i18n.labelMagnitudeVarianceDesc;
+
   document.querySelector('#openSettingsBtn').innerHTML =
     `<span style="font-size: 16px; margin-right: 6px;">${i18n.emojiWrench}</span>${i18n.btnAdvancedSettings}`;
 
@@ -88,7 +94,7 @@ function initializeUIText() {
   const aboutP = document.querySelector('#about-tab p');
   // eslint-disable-next-line no-undef
   const version = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0';
-  aboutP.innerHTML = `<strong>${i18n.aboutVersion}</strong> ${version}<br /><br />${i18n.aboutDescription}`;
+  aboutP.innerHTML = `<strong>${i18n.aboutVersion}</strong> ${version}<br /><br />${i18n.aboutDescription}<br /><br /><strong>${i18n.aboutGitHubRepo}</strong> <a href="${i18n.aboutGitHubLink}" target="_blank" style="color: #4f46e5; text-decoration: none;">${i18n.aboutGitHubLink}</a>`;
 }
 
 // Initialize UI text first
@@ -393,6 +399,22 @@ thresholdSlider.addEventListener('change', async (e) => {
   await saveSetting('properNounThreshold', value);
 });
 
+// Magnitude Variance Slider
+const magnitudeSlider = document.getElementById('popup-magnitude-variance');
+const magnitudeValue = document.getElementById('popup-magnitude-value');
+
+// Update slider value display as user drags
+magnitudeSlider.addEventListener('input', (e) => {
+  const value = parseInt(e.target.value);
+  magnitudeValue.textContent = `±${value}%`;
+});
+
+// Save when user releases slider
+magnitudeSlider.addEventListener('change', async (e) => {
+  const value = parseInt(e.target.value);
+  await saveSetting('magnitudeVariance', value);
+});
+
 // Add change listeners to all PII type checkboxes
 document.querySelectorAll('.checkbox-group input[type="checkbox"]').forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
@@ -452,6 +474,17 @@ async function loadSettings() {
       thresholdSlider.value = Math.round(threshold * 100);
       thresholdValue.textContent = threshold.toFixed(2);
       thresholdDescription.textContent = getThresholdDescription(threshold);
+    }
+
+    // Set magnitude variance slider
+    const magnitudeVariance =
+      settings.magnitudeVariance !== undefined ? settings.magnitudeVariance : 100; // Default to 100%
+    const magnitudeSlider = document.getElementById('popup-magnitude-variance');
+    const magnitudeValue = document.getElementById('popup-magnitude-value');
+
+    if (magnitudeSlider && magnitudeValue) {
+      magnitudeSlider.value = magnitudeVariance;
+      magnitudeValue.textContent = `±${magnitudeVariance}%`;
     }
   } catch (error) {
     console.error('Error loading settings:', error);

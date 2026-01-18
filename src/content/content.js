@@ -272,7 +272,28 @@ async function protectPII(enabledTypes) {
     const entities = detector.detectInDOM(document.body, enabledTypes);
     console.timeEnd('PII Detection');
 
-    console.log(`Detected ${entities.length} PII entities`, detector.getStats(entities));
+    console.log(`[SafeSnap] Detected ${entities.length} PII entities`, detector.getStats(entities));
+
+    // DEBUG: Log all detected entities with their positions and nodes
+    console.log(
+      '[SafeSnap Debug] ⚠️ ALL DETECTED ENTITIES AFTER detectInDOM:',
+      entities.map((e) => ({
+        type: e.type,
+        original: e.original,
+        start: e.start,
+        end: e.end,
+        nodeText: e.nodeText ? e.nodeText.substring(0, 50) : 'N/A',
+        spansMultipleNodes: e.spansMultipleNodes || false,
+      }))
+    );
+
+    // DEBUG: Check specifically for date-related entities
+    const dateRelatedText = entities.filter(
+      (e) => e.nodeText && e.nodeText.includes('Jan 17, 2026')
+    );
+    if (dateRelatedText.length > 0) {
+      console.error('[SafeSnap Debug] 🐛 FOUND ENTITIES IN "Jan 17, 2026" TEXT:', dateRelatedText);
+    }
 
     // Auto-link related entities
     consistencyMapper.autoLinkRelated(entities);
@@ -348,72 +369,251 @@ async function protectPII(enabledTypes) {
     }
     console.timeEnd('Generate Replacements');
 
-    // Phase 2: Apply all replacements across the entire DOM using a comprehensive pass
+    // Phase 2: Apply replacements ONLY to detected positions (not all occurrences)
     console.time('Apply Replacements');
     let replacementCount = 0;
 
-    // Sort replacements by length (longest first) to prevent substring conflicts
-    // Example: "3/30/2026" should be replaced before "30" to avoid corrupting the date
-    const sortedReplacements = Array.from(replacementMap.entries()).sort((a, b) => {
-      const originalA = a[0].substring(a[0].indexOf(':') + 1);
-      const originalB = b[0].substring(b[0].indexOf(':') + 1);
-      // Sort by length descending, then alphabetically for deterministic order
-      if (originalB.length !== originalA.length) {
-        return originalB.length - originalA.length;
+    // DEBUG: Log all replacements
+    if (replacementMap.size > 0) {
+      console.log(
+        '[SafeSnap Debug] Replacement map:',
+        Array.from(replacementMap.entries()).map(([key, val]) => ({
+          key,
+          original: key.substring(key.indexOf(':') + 1),
+          replacement: val,
+        }))
+      );
+    }
+
+    // Group entities by their text node for efficient processing
+    // IMPORTANT: Skip entities that span multiple nodes - they will be handled separately
+    const entitiesByNode = new Map();
+    const crossNodeEntities = []; // Entities that span multiple nodes
+
+    for (const entity of entities) {
+      if (!entity.node) {
+        console.warn('[SafeSnap] Entity without node reference:', entity);
+        continue;
       }
-      return originalA.localeCompare(originalB);
-    });
 
-    console.log(
-      `[SafeSnap] Sorted ${sortedReplacements.length} replacements by length (longest first)`
-    );
+      // Check if entity spans beyond its node (cross-node entity)
+      if (entity.spansMultipleNodes || entity.end > entity.nodeText.length) {
+        console.log('[SafeSnap Debug] Skipping cross-node entity:', {
+          original: entity.original,
+          type: entity.type,
+          nodeTextLength: entity.nodeText.length,
+          entityEnd: entity.end,
+        });
+        crossNodeEntities.push(entity);
+        continue; // Skip for now - cross-node replacements are complex
+      }
 
-    // Walk through ALL text nodes in the document
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode: (node) => {
-        const parent = node.parentElement;
-        if (!parent) return NodeFilter.FILTER_REJECT;
-        // Skip script, style, and other non-visible elements
-        const skipTags = ['script', 'style', 'noscript', 'iframe', 'object', 'embed'];
-        if (skipTags.includes(parent.tagName.toLowerCase())) {
-          return NodeFilter.FILTER_REJECT;
+      if (!entitiesByNode.has(entity.node)) {
+        entitiesByNode.set(entity.node, []);
+      }
+      entitiesByNode.get(entity.node).push(entity);
+    }
+
+    // Handle cross-node entities by finding their parent container and doing a global replace
+    if (crossNodeEntities.length > 0) {
+      console.log(
+        '[SafeSnap] Processing cross-node entities:',
+        crossNodeEntities.map((e) => `${e.type}:${e.original}`)
+      );
+
+      for (const entity of crossNodeEntities) {
+        const { original, type } = entity;
+        const key = `${type}:${original}`;
+        const replacement = replacementMap.get(key);
+
+        if (!replacement) {
+          console.warn('[SafeSnap] No replacement found for cross-node entity:', key);
+          continue;
         }
-        if (!node.textContent || !node.textContent.trim()) {
-          return NodeFilter.FILTER_REJECT;
-        }
-        return NodeFilter.FILTER_ACCEPT;
-      },
-    });
 
-    let currentNode;
-    while ((currentNode = walker.nextNode())) {
+        // Find the nearest parent element that contains this text
+        // Start with the entity's first node and walk up
+        let container = entity.node;
+        while (container && container.parentElement) {
+          // Check if parent contains the full text
+          const parentText = container.parentElement.textContent || '';
+          if (parentText.includes(original)) {
+            container = container.parentElement;
+            break;
+          }
+          container = container.parentElement;
+        }
+
+        if (!container) {
+          console.warn('[SafeSnap] Could not find container for cross-node entity:', original);
+          continue;
+        }
+
+        // Use TreeWalker to find and replace in all text nodes within container
+        const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+          acceptNode: (node) => {
+            // Skip script, style, and already processed nodes
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            const tagName = parent.tagName?.toUpperCase();
+            if (['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(tagName)) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+          },
+        });
+
+        // Collect all text nodes
+        const textNodes = [];
+        let currentNode;
+        while ((currentNode = walker.nextNode())) {
+          textNodes.push(currentNode);
+        }
+
+        // Try to find and replace the entity text across nodes
+        // Simple approach: look for the pattern in concatenated text and replace node by node
+        const fullText = textNodes.map((n) => n.textContent).join(' ');
+        const index = fullText.indexOf(original);
+
+        if (index !== -1) {
+          // Found it - now figure out which nodes contain it
+          let charCount = 0;
+          let startNodeIndex = -1;
+          let endNodeIndex = -1;
+          let startOffset = 0;
+          let endOffset = 0;
+
+          for (let i = 0; i < textNodes.length; i++) {
+            const nodeText = textNodes[i].textContent;
+            const nodeLength = nodeText.length;
+
+            if (charCount <= index && index < charCount + nodeLength) {
+              startNodeIndex = i;
+              startOffset = index - charCount;
+            }
+
+            if (
+              charCount < index + original.length &&
+              index + original.length <= charCount + nodeLength
+            ) {
+              endNodeIndex = i;
+              endOffset = index + original.length - charCount;
+              break;
+            }
+
+            charCount += nodeLength + 1; // +1 for space separator
+          }
+
+          if (startNodeIndex !== -1 && endNodeIndex !== -1) {
+            // Case 1: Entity is within a single node
+            if (startNodeIndex === endNodeIndex) {
+              const node = textNodes[startNodeIndex];
+              const text = node.textContent;
+              node.textContent =
+                text.substring(0, startOffset) + replacement + text.substring(endOffset);
+              replacementCount++;
+              console.log('[SafeSnap Debug] Replaced cross-node entity (single node):', {
+                original,
+                replacement,
+                node: node.parentElement?.tagName,
+              });
+            }
+            // Case 2: Entity spans multiple nodes - more complex
+            else {
+              console.log('[SafeSnap Debug] Cross-node entity spans multiple text nodes:', {
+                original,
+                startNode: startNodeIndex,
+                endNode: endNodeIndex,
+                nodeCount: endNodeIndex - startNodeIndex + 1,
+              });
+              // For now, skip multi-text-node entities (complex to handle correctly)
+              // These are rare in practice (would require word split across elements)
+            }
+          }
+        }
+      }
+    }
+
+    // Process each node that has detected entities
+    for (const [node, nodeEntities] of entitiesByNode.entries()) {
       // Store original content before any modification
-      if (!originalContent.has(currentNode)) {
-        originalContent.set(currentNode, currentNode.textContent);
+      if (!originalContent.has(node)) {
+        originalContent.set(node, node.textContent);
       }
 
-      let nodeText = currentNode.textContent;
-      let modified = false;
+      // DEBUG: Log which entities we're processing for this node
+      console.log('[SafeSnap Debug] Processing node:', {
+        nodeText: node.textContent.substring(0, 100),
+        entityCount: nodeEntities.length,
+        entities: nodeEntities.map((e) => ({
+          type: e.type,
+          original: e.original,
+          start: e.start,
+          end: e.end,
+        })),
+      });
 
-      // Apply all replacements to this text node (sorted by length, longest first)
-      for (const [key, replacement] of sortedReplacements) {
-        // Extract original value from the key (format: "type:original")
-        const original = key.substring(key.indexOf(':') + 1);
+      // Sort entities by position (descending) to replace from end to beginning
+      // This prevents position shifts from affecting subsequent replacements
+      const sorted = nodeEntities.sort((a, b) => b.start - a.start);
 
-        // Use global replace to catch ALL occurrences in this node
-        // Escape special regex characters in the original text
-        const escapedOriginal = original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(escapedOriginal, 'g');
+      let nodeText = node.textContent;
+      const nodeTextBefore = nodeText;
 
-        if (regex.test(nodeText)) {
-          nodeText = nodeText.replace(regex, replacement);
-          modified = true;
-          replacementCount++;
+      // Apply replacements in reverse order (end to beginning)
+      for (const entity of sorted) {
+        const { original, type, start, end } = entity;
+        const key = `${type}:${original}`;
+        const replacement = replacementMap.get(key);
+
+        if (!replacement) {
+          console.warn('[SafeSnap] No replacement found for:', key);
+          continue;
         }
+
+        // Safety check: ensure positions are within node bounds
+        if (start < 0 || end > nodeText.length || start >= end) {
+          console.warn('[SafeSnap] Invalid position for entity:', {
+            original,
+            start,
+            end,
+            nodeTextLength: nodeText.length,
+            node: node.parentElement?.tagName || 'unknown',
+          });
+          continue;
+        }
+
+        // Extract the text at the exact position to verify it matches
+        const actualText = nodeText.substring(start, end);
+
+        if (actualText !== original) {
+          console.warn('[SafeSnap] Text mismatch at position:', {
+            expected: original,
+            actual: actualText,
+            position: `${start}-${end}`,
+            node: node.parentElement?.tagName || 'unknown',
+          });
+          continue;
+        }
+
+        // Replace only this specific occurrence at this position
+        nodeText = nodeText.substring(0, start) + replacement + nodeText.substring(end);
+        replacementCount++;
+
+        // DEBUG: Log each replacement
+        console.log('[SafeSnap Debug] Text replacement:', {
+          node: node.parentElement?.tagName || 'unknown',
+          before: nodeTextBefore,
+          after: nodeText,
+          position: `${start}-${end}`,
+          original: original,
+          replacement: replacement,
+        });
       }
 
-      if (modified) {
-        currentNode.textContent = nodeText;
+      // Update the node's text content if any replacements were made
+      if (nodeText !== nodeTextBefore) {
+        node.textContent = nodeText;
       }
     }
 
