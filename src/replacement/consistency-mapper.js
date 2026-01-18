@@ -1,6 +1,6 @@
 /**
  * Consistency Mapper Module
- * 
+ *
  * Manages consistent PII replacements across a page session.
  * Ensures the same entity always gets the same replacement value.
  */
@@ -9,7 +9,7 @@ export class ConsistencyMapper {
   constructor() {
     // Map structure: "type:normalized_original" -> replacement
     this.map = new Map();
-    
+
     // Track related entities (e.g., company name and domain)
     this.relatedEntities = new Map();
   }
@@ -69,7 +69,7 @@ export class ConsistencyMapper {
   linkRelated(primaryType, primaryOriginal, relatedType, relatedOriginal) {
     const primaryKey = this._normalizeKey(primaryType, primaryOriginal);
     const relatedKey = this._normalizeKey(relatedType, relatedOriginal);
-    
+
     // Store bidirectional relationship
     if (!this.relatedEntities.has(primaryKey)) {
       this.relatedEntities.set(primaryKey, new Set());
@@ -77,7 +77,7 @@ export class ConsistencyMapper {
     if (!this.relatedEntities.has(relatedKey)) {
       this.relatedEntities.set(relatedKey, new Set());
     }
-    
+
     this.relatedEntities.get(primaryKey).add(relatedKey);
     this.relatedEntities.get(relatedKey).add(primaryKey);
   }
@@ -90,9 +90,7 @@ export class ConsistencyMapper {
    */
   getRelated(type, original) {
     const key = this._normalizeKey(type, original);
-    return this.relatedEntities.has(key) 
-      ? Array.from(this.relatedEntities.get(key))
-      : [];
+    return this.relatedEntities.has(key) ? Array.from(this.relatedEntities.get(key)) : [];
   }
 
   /**
@@ -104,14 +102,14 @@ export class ConsistencyMapper {
    */
   propagateToRelated(type, original, replacement) {
     const related = this.getRelated(type, original);
-    
+
     for (const relatedKey of related) {
       // Extract type from the related key
       const [relatedType] = relatedKey.split(':', 2);
-      
+
       // Generate consistent replacement based on the primary replacement
       let consistentReplacement = replacement;
-      
+
       // Handle specific type transformations
       if (type === 'properNoun' && relatedType === 'url') {
         // Extract domain from company name
@@ -130,7 +128,7 @@ export class ConsistencyMapper {
           .replace(/\..+$/, '')
           .replace(/-/g, ' ')
           .split(' ')
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ');
         consistentReplacement = companyName;
       } else if (type === 'email' && relatedType === 'properNoun') {
@@ -139,7 +137,7 @@ export class ConsistencyMapper {
         const emailName = replacement.split('@')[0];
         consistentReplacement = emailName
           .split(/[._]/)
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ');
       } else if (type === 'properNoun' && relatedType === 'email') {
         // Generate email from person name
@@ -147,7 +145,7 @@ export class ConsistencyMapper {
         const parts = replacement.toLowerCase().split(' ');
         consistentReplacement = `${parts.join('.')}@example.com`;
       }
-      
+
       // Store the consistent replacement
       this.map.set(relatedKey, consistentReplacement);
     }
@@ -178,8 +176,8 @@ export class ConsistencyMapper {
       mappings: Array.from(this.map.entries()),
       relations: Array.from(this.relatedEntities.entries()).map(([key, values]) => [
         key,
-        Array.from(values)
-      ])
+        Array.from(values),
+      ]),
     };
   }
 
@@ -189,15 +187,13 @@ export class ConsistencyMapper {
    */
   import(data) {
     this.clear();
-    
+
     if (data.mappings) {
       this.map = new Map(data.mappings);
     }
-    
+
     if (data.relations) {
-      this.relatedEntities = new Map(
-        data.relations.map(([key, values]) => [key, new Set(values)])
-      );
+      this.relatedEntities = new Map(data.relations.map(([key, values]) => [key, new Set(values)]));
     }
   }
 
@@ -206,12 +202,21 @@ export class ConsistencyMapper {
    * @param {Array} piiEntities - Array of detected PII entities
    */
   autoLinkRelated(piiEntities) {
+    // Filter out entities without 'original' property
+    const validEntities = piiEntities.filter(
+      (e) => e && e.original && typeof e.original === 'string'
+    );
+
     // Group entities by potential relationships
-    const companies = piiEntities.filter(e => e.type === 'properNoun' && this._looksLikeCompany(e.original));
-    const urls = piiEntities.filter(e => e.type === 'url');
-    const emails = piiEntities.filter(e => e.type === 'email');
-    const names = piiEntities.filter(e => e.type === 'properNoun' && !this._looksLikeCompany(e.original));
-    
+    const companies = validEntities.filter(
+      (e) => e.type === 'properNoun' && this._looksLikeCompany(e.original)
+    );
+    const urls = validEntities.filter((e) => e.type === 'url');
+    const emails = validEntities.filter((e) => e.type === 'email');
+    const names = validEntities.filter(
+      (e) => e.type === 'properNoun' && !this._looksLikeCompany(e.original)
+    );
+
     // Link companies with their URLs
     for (const company of companies) {
       const companyBase = this._extractCompanyBase(company.original);
@@ -222,14 +227,14 @@ export class ConsistencyMapper {
         }
       }
     }
-    
+
     // Link names with their emails
     for (const name of names) {
       const nameParts = name.original.toLowerCase().split(/\s+/);
       for (const email of emails) {
         const emailLocal = email.original.split('@')[0].toLowerCase();
         // Check if email contains name parts
-        if (nameParts.some(part => emailLocal.includes(part))) {
+        if (nameParts.some((part) => emailLocal.includes(part))) {
           this.linkRelated('properNoun', name.original, 'email', email.original);
         }
       }
@@ -241,7 +246,9 @@ export class ConsistencyMapper {
    * @private
    */
   _looksLikeCompany(text) {
-    return /\b(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|Group|Partners|Associates)\b/i.test(text);
+    return /\b(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|Group|Partners|Associates)\b/i.test(
+      text
+    );
   }
 
   /**
@@ -251,7 +258,10 @@ export class ConsistencyMapper {
   _extractCompanyBase(company) {
     return company
       .toLowerCase()
-      .replace(/\s+(inc|corp|llc|ltd|limited|company|co\.?|corporation|group|partners|associates).*/i, '')
+      .replace(
+        /\s+(inc|corp|llc|ltd|limited|company|co\.?|corporation|group|partners|associates).*/i,
+        ''
+      )
       .replace(/[^a-z0-9]/g, '');
   }
 
@@ -282,7 +292,7 @@ export class ConsistencyMapper {
     // Simple similarity check - could be enhanced with Levenshtein distance
     if (str1 === str2) return true;
     if (str1.includes(str2) || str2.includes(str1)) return true;
-    
+
     // Check if they share significant overlap (>70% of shorter string)
     const shorter = str1.length < str2.length ? str1 : str2;
     const longer = str1.length >= str2.length ? str1 : str2;

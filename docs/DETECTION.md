@@ -50,28 +50,40 @@ SafeSnap can detect and protect the following PII types:
 
 ## Proper Noun Detection Algorithm
 
-Proper noun detection (names, places, companies) is the most complex part of SafeSnap's detection system.
+Proper noun detection (names, places, companies) uses an **atomic word detection strategy** combined with **page-wide context analysis**.
+
+### Design Philosophy: Atomic Detection
+
+SafeSnap detects **individual capitalized words** rather than multi-word phrases. This approach provides:
+
+1. **Consistent Replacement** - "Jim" always becomes "Daniel", so "Jim Glab" automatically becomes "Daniel Jackson"
+2. **No Cross-Node Entities** - Single words rarely span DOM nodes, eliminating complex replacement logic
+3. **Automatic Phrase Benefits** - "United Airlines" automatically becomes "Potato Airlines" when "United" → "Potato"
+4. **Page-Wide Awareness** - If "Jim" appears in a link, ALL instances of "Jim" get boosted confidence
 
 ### High-Level Flow
 
 ```
 Text Input
   ↓
-1. Regex Pattern Matching
-   Match capitalized words/phrases
-   (e.g., "John Smith", "Acme Corp")
+1. Page-Wide Context Analysis (cached)
+   Scan all hyperlinks on page
+   Extract capitalized words from links
   ↓
-2. Context Gathering
-   Collect 8 signals for each candidate
+2. Atomic Word Pattern Matching
+   Match individual capitalized words
+   (e.g., "Jim", "Glab", "United", "Airlines")
   ↓
-3. Signal Scoring
+3. Job Title Filtering
+   Skip common job titles
+   (e.g., "Freelance", "Writer", "Manager")
+  ↓
+4. Context Gathering
+   Collect 9 signals for each word
+   (includes page-wide signal)
+  ↓
+5. Signal Scoring
    Calculate weighted score (0.0-2.0 range)
-  ↓
-4. Department Filtering
-   Apply -0.9 penalty if matches department pattern
-  ↓
-5. Email Domain Matching
-   Apply +0.3 boost if matches nearby email domain
   ↓
 6. Threshold Check
    If score ≥ 0.75 → Detected as PII
@@ -80,45 +92,103 @@ Text Input
 Detected PII Entities
 ```
 
-### Step 1: Candidate Identification
+### Step 1: Page-Wide Context Analysis
+
+Before detecting individual words, SafeSnap scans the entire page once:
+
+```javascript
+// Extract words from all hyperlinks on the page
+const links = document.querySelectorAll('a');
+links.forEach((link) => {
+  const words = link.textContent.match(/[A-Z][a-z]+/g);
+  // Store words in cache: wordsInLinks Set
+});
+```
+
+**Benefits:**
+
+- If "Jim Glab" is in an author byline link, both "Jim" and "Glab" get boosted
+- If "United" is in a company link, all instances of "United" get boosted
+- Cached after first scan for performance
+
+### Step 2: Candidate Identification (Atomic Matching)
 
 **Regex Pattern:**
 
 ```regex
-\b(?:(Mr|Mrs|Ms|Dr|Prof)\.\s+)?(?!Mr|Mrs|Ms|Dr|Prof\b)[A-Z][a-z]+(?:[-'][A-Z][a-z]+)*(?: [A-Z][a-z]+(?:[-'][A-Z][a-z]+)*){0,4}(?:\s+(?:Inc|LLC|Corp|Ltd|Co|GmbH|SA|PLC|AG|Technologies|Systems|Solutions|Group|Company|Enterprises|Industries|Services|Partners|Associates|International|Global|Consulting|Holdings|Financial|Capital|Ventures|Labs|Studio|Media|Network|Platform|Tech|Digital))?\b
+(?<![a-zA-Z'])[A-Z][a-z]+(?:[''-][A-Z]?[a-z]+)?(?![a-zA-Z'])
 ```
 
 **Matches:**
 
-- Honorifics: Mr., Mrs., Ms., Dr., Prof.
-- Capitalized words: Single or multi-word (up to 5 words)
-- Hyphenated names: Mary-Jane, Jean-Luc
-- Company suffixes: Inc, LLC, Corp, Ltd, GmbH, SA, PLC, AG, Technologies, etc.
+- Single capitalized words: "Jim", "United", "Microsoft"
+- Hyphenated names: "Mary-Jane", "Jean-Luc"
+- Apostrophe names: "O'Brien", "McDonald's"
+
+**Does NOT Match:**
+
+- Multi-word phrases (OLD behavior)
+- Lowercase words
+- ALL CAPS words
 
 **Example Matches:**
 
-- "John Doe"
-- "Dr. Sarah Martinez"
-- "Acme Corp"
-- "Microsoft Corporation"
-- "Jean-Luc Picard"
+- "Jim" (not "Jim Glab")
+- "United" (not "United Airlines")
+- "Microsoft" (single word companies still work)
+- "O'Brien" (keeps hyphenated together)
 
-### Step 2: Context Gathering
+### Step 3: Job Title Filtering
 
-For each candidate, SafeSnap gathers **8 signals** from surrounding context:
+Before scoring, common job titles are filtered out:
 
-| Signal                  | Description                                         | Value Range          |
-| ----------------------- | --------------------------------------------------- | -------------------- |
-| `capitalizationPattern` | Has proper capitalization (baseline)                | Always 1.0           |
-| `unknownInDictionary`   | Majority of words NOT in common dictionary          | 0.0 or 1.0           |
-| `hasHonorificOrSuffix`  | Has honorific (Mr/Mrs) OR company suffix (Inc/Corp) | 0.0 or 1.0           |
-| `multiWord`             | Contains 2 or more words                            | 0.0 or 1.0           |
-| `notSentenceStart`      | Not at beginning of sentence                        | 0.0 or 1.0           |
-| `nearOtherPII`          | Within 50 chars of email/phone                      | 0.0 or 1.0           |
-| `matchesEmailDomain`    | Matches company name from nearby email              | 0.0 or 1.0           |
-| `isDepartmentName`      | Matches generic department/team pattern             | 0.0 or 1.0 (penalty) |
+```javascript
+const jobTitles = [
+  'Freelance',
+  'Writer',
+  'Editor',
+  'Reporter',
+  'Journalist',
+  'Manager',
+  'Director',
+  'President',
+  'Officer',
+  'Engineer',
+  'Developer',
+  'Designer',
+  'Photographer',
+  'Author',
+];
+if (jobTitles.includes(word)) {
+  skip(); // Not PII
+}
+```
 
-**Context Window:** 50 characters before and after the candidate phrase
+**Example:**
+
+- Input: "Jim Glab Freelance Writer"
+- Detection: "Jim" ✓, "Glab" ✓, "Freelance" ✗, "Writer" ✗
+- Result: Only "Jim" and "Glab" detected
+
+### Step 4: Context Gathering
+
+For each candidate word, SafeSnap gathers **9 signals** from context:
+
+| Signal                  | Description                                       | Value Range |
+| ----------------------- | ------------------------------------------------- | ----------- |
+| `capitalizationPattern` | Has proper capitalization (baseline)              | Always 0.3  |
+| `unknownInDictionary`   | Word NOT in common dictionary                     | 0.0 or 0.3  |
+| `hasHonorificOrSuffix`  | Preceded by honorific (Mr/Mrs) or job title (CEO) | 0.0 or 0.4  |
+| `notSentenceStart`      | Not at beginning of sentence                      | 0.0 or 0.1  |
+| `nearOtherPII`          | Within 50 chars of email/phone                    | 0.0 or 0.25 |
+| `matchesEmailDomain`    | Matches company name from nearby email            | 0.0 or 0.3  |
+| `insideLink`            | Inside a hyperlink element in THIS text           | 0.0 or 0.25 |
+| `isKnownLocation`       | In location gazetteer (500+ cities/countries)     | 0.0 or 0.5  |
+| `appearsInPageLinks`    | Appears in ANY link on the page (NEW)             | 0.0 or 0.3  |
+
+**Context Window:** 50 characters before and after the candidate word
+
+**NEW: Page-Wide Signal** - `appearsInPageLinks` checks if the word appears in hyperlinks anywhere on the page, not just the current text being analyzed.
 
 ### Step 3: Signal Scoring
 

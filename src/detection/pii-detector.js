@@ -7,12 +7,16 @@
 
 import { PatternMatcher } from './pattern-matcher.js';
 import { Dictionary } from './dictionary.js';
+import { ProperNounDetector } from './proper-noun-detector.js';
+import { EntityDeduplicator } from './entity-deduplicator.js';
 import { APP_CONFIG } from '../../config/app-config.js';
 
 export class PIIDetector {
   constructor() {
     this.patternMatcher = new PatternMatcher();
     this.dictionary = new Dictionary();
+    this.properNounDetector = null; // Initialize after dictionary loads
+    this.deduplicator = new EntityDeduplicator();
     this.initialized = false;
     this.properNounThreshold = 0.75; // Default threshold
   }
@@ -25,6 +29,9 @@ export class PIIDetector {
     if (!this.initialized) {
       await this.dictionary.initialize();
 
+      // Initialize proper noun detector with loaded dictionary
+      this.properNounDetector = new ProperNounDetector(this.dictionary, this.patternMatcher);
+
       // Load user's threshold preference from storage
       try {
         const result = await chrome.storage.sync.get(['safesnap_settings']);
@@ -32,9 +39,13 @@ export class PIIDetector {
         this.properNounThreshold =
           settings.properNounThreshold || APP_CONFIG.properNounDetection?.minimumScore || 0.75;
         console.log(`[PIIDetector] Proper noun threshold: ${this.properNounThreshold}`);
+
+        // Set threshold in ProperNounDetector
+        this.properNounDetector.setThreshold(this.properNounThreshold);
       } catch (error) {
         console.warn('[PIIDetector] Could not load threshold from storage, using default:', error);
         this.properNounThreshold = APP_CONFIG.properNounDetection?.minimumScore || 0.75;
+        this.properNounDetector.setThreshold(this.properNounThreshold);
       }
 
       this.initialized = true;
@@ -48,7 +59,23 @@ export class PIIDetector {
    */
   setProperNounThreshold(threshold) {
     this.properNounThreshold = threshold;
+    if (this.properNounDetector) {
+      this.properNounDetector.setThreshold(threshold);
+    }
     console.log(`[PIIDetector] Threshold updated to: ${threshold}`);
+  }
+
+  /**
+   * Phase 2: Find all PII candidates in a TextMap
+   * NEW PIPELINE METHOD - does not filter by confidence or enabled types
+   * @param {TextMap} textMap - TextMap from Phase 1
+   * @returns {Array<Object>} All detected PII candidates (including low-confidence)
+   */
+  findAllCandidates(textMap) {
+    console.log('[PIIDetector] Phase 2: Finding all PII candidates');
+    const candidates = this._detectAllTypes(textMap.fullText);
+    console.log(`[PIIDetector] Found ${candidates.length} candidates`);
+    return candidates;
   }
 
   /**
@@ -323,7 +350,7 @@ export class PIIDetector {
       }
 
       // ALWAYS process proper nouns
-      const properNounCandidates = this._detectAllProperNounCandidates(text, currentNode);
+      const properNounCandidates = this.properNounDetector.detectAllCandidates(text, currentNode);
       properNounCandidates.forEach((candidate) => {
         allCandidates.push({
           ...candidate,
@@ -559,476 +586,6 @@ export class PIIDetector {
   }
 
   /**
-   * Detect ALL proper noun candidates including those below threshold
-   * Used for debug mode visualization
-   * @private
-   * @param {string} text - Text to analyze
-   * @param {Node} node - DOM node containing the text (optional, for context signals)
-   * @returns {Array<Object>} Array of all candidates with scores
-   */
-  _detectAllProperNounCandidates(text, node = null) {
-    const candidates = [];
-    const minimumScore = this.properNounThreshold; // Use instance variable from initialize()
-
-    // Enhanced pattern to handle apostrophes, hyphens, ampersands, and more company/job title indicators
-    // Matches:
-    // - Honorifics: Mr., Mrs., Ms., Dr., Prof.
-    // - Job titles: CEO, CTO, CFO, Director, Manager, VP, President, etc.
-    // - Names with apostrophes: O'Brien, D'Angelo
-    // - Names with hyphens: Mary-Jane, Jean-Luc
-    // - Company suffixes: Inc, Corp, LLC, Ltd, Limited, Company, Co., Corporation, GmbH, SA, PLC, AG
-    // - Names with ampersands: McKinsey & Company, Johnson & Johnson
-    //
-    // Note: Using (?<![a-zA-Z']) negative lookbehind to handle apostrophes properly
-    const capitalizedPattern =
-      /(?<![a-zA-Z'])(?:(?:Mr|Mrs|Ms|Dr|Prof|CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead)\.?\s+)?(?!Mr|Mrs|Ms|Dr|Prof|CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead\b)[A-Z][a-z]+(?:[''-][A-Z]?[a-z]+)?(?:\s+(?:&\s+)?(?!Mr|Mrs|Ms|Dr|Prof|CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead\b)[A-Z][a-z]+(?:[''-][A-Z]?[a-z]+)?)*(?:\s+(?:Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|GmbH|SA|PLC|AG|Group|Partners|Associates|Ventures|Technologies|Tech|Systems|Solutions|Consulting|Services|International|Intl))?\.?(?![a-zA-Z'])/g;
-
-    let match;
-    while ((match = capitalizedPattern.exec(text)) !== null) {
-      let candidate = match[0];
-      let start = match.index;
-      let end = start + candidate.length;
-
-      // Fix Issue #1: Remove common prepositions/words at the start if they're in the dictionary
-      // This prevents "By Stephen Council" from being detected; instead detects "Stephen Council"
-      const commonStartWords = [
-        'By',
-        'In',
-        'On',
-        'At',
-        'For',
-        'With',
-        'From',
-        'To',
-        'As',
-        'Of',
-        'Meet',
-        'See',
-        'Contact',
-        'Call',
-        'Visit',
-        'Email',
-        'Ask',
-      ];
-      const firstWord = candidate.split(/\s+/)[0];
-
-      if (commonStartWords.includes(firstWord)) {
-        // Remove the common word from the start (no need to check dictionary for these known words)
-        const wordsToRemove = firstWord.length + 1; // +1 for the space
-        candidate = candidate.substring(wordsToRemove).trim();
-        start = start + wordsToRemove;
-
-        // Skip if nothing left after removal
-        if (candidate.length === 0) {
-          continue;
-        }
-      }
-
-      const hasHonorific = /^(?:Mr|Mrs|Ms|Dr|Prof)\b\.?\s+/i.test(candidate);
-      const hasJobTitle =
-        /^(?:CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead)\b\.?\s+/i.test(
-          candidate
-        );
-
-      // Fix Issue #2: Only consider company suffix if it's at the END of the phrase
-      // This prevents "Tech Reporter" from being detected as a company
-      const hasCompanySuffix =
-        /\b(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|GmbH|SA|PLC|AG|Group|Partners|Associates|Ventures)\.?\s*$/i.test(
-          candidate
-        );
-
-      // Separate check for tech/service suffixes (only at end)
-      const hasTechSuffix =
-        /\b(Technologies|Tech|Systems|Solutions|Consulting|Services|International|Intl)\.?\s*$/i.test(
-          candidate
-        );
-
-      // Fix Issue #2b: Detect if this is ONLY a standalone job title pattern (no name following)
-      // E.g., "Tech Reporter" or "Senior Engineer" by itself
-      const isStandaloneJobTitle =
-        /^(Senior|Junior|Lead|Chief|Principal|Staff|Associate|Freelance)\s+(Engineer|Developer|Manager|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant|Journalist)$/i.test(
-          candidate
-        ) ||
-        /^(Tech|Senior Tech|Lead Tech|Staff Tech)\s+(Writer|Reporter|Lead|Manager)$/i.test(
-          candidate
-        );
-
-      // Fix Issue #2c: Detect job description patterns in the candidate
-      // Instead of stripping, we'll penalize the confidence score later
-      // This gives users control via threshold adjustment
-      const hasJobDescriptionPrefix =
-        /^(?:Senior|Junior|Lead|Chief|Principal|Staff|Associate|Tech)\s+(?:Engineer|Developer|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant|Technician|Specialist)\s+/i.test(
-          candidate
-        ) ||
-        /^(?:Engineer|Developer|Designer|Analyst|Writer|Reporter|Editor|Architect|Scientist|Consultant|Tech|Technician|Specialist)\s+(?!Inc|Corp|LLC|Ltd)/i.test(
-          candidate
-        );
-
-      const beforeChar = start > 0 ? text[start - 1] : '';
-      const twoBeforeChar = start > 1 ? text[start - 2] : '';
-      const isSentenceStart =
-        start === 0 ||
-        beforeChar === '.' ||
-        beforeChar === '!' ||
-        beforeChar === '?' ||
-        (beforeChar === ' ' &&
-          (twoBeforeChar === '.' || twoBeforeChar === '!' || twoBeforeChar === '?'));
-
-      const nameWithoutHonorific = candidate.replace(/^(?:Mr|Mrs|Ms|Dr|Prof)\.\s+/i, '');
-      const wordCount = nameWithoutHonorific.split(/\s+/).length;
-      const nearPII = this._hasNearbyPII(text, start, end);
-      const isDepartmentName = this._isDepartmentName(candidate);
-      const emailDomainMatch = this._matchesNearbyEmailDomain(text, candidate, start, end);
-
-      // Check if text is inside a link (author bylines, profile links, etc.)
-      const insideLink = node && node.parentElement && node.parentElement.tagName === 'A';
-
-      // Check if candidate is a known location (New York, Paris, Delaware, etc.)
-      const isKnownLocation = this._isKnownLocation(candidate);
-
-      const context = {
-        hasHonorific,
-        hasJobTitle,
-        hasCompanySuffix: hasCompanySuffix || hasTechSuffix,
-        wordCount,
-        isSentenceStart,
-        nearPII,
-        isDepartmentName,
-        emailDomainMatch,
-        insideLink,
-        isKnownLocation,
-        isStandaloneJobTitle, // NEW: Flag for standalone job titles
-        hasJobDescriptionPrefix, // NEW: Flag for job description prefixes
-      };
-
-      let { score, breakdown } = this._calculateProperNounScore(candidate, context);
-
-      // Fix Issue #2d: Apply penalties based on job-related context
-      // This allows users to control detection via threshold adjustment
-
-      // Penalize standalone job titles (e.g., "Tech Reporter", "Freelance Writer" alone)
-      // Strong penalty to push below default 0.75 threshold, but users can still override
-      if (isStandaloneJobTitle) {
-        score = Math.max(0, score - 0.5);
-        breakdown.isStandaloneJobTitle = -0.5;
-      }
-
-      // Penalize job description prefixes (e.g., "Senior Engineer John Smith" or "Tech Writer John Smith")
-      // Reduced penalty to -0.25 to allow detection with user threshold adjustment
-      if (hasJobDescriptionPrefix && !isStandaloneJobTitle) {
-        score = Math.max(0, score - 0.25);
-        breakdown.hasJobDescriptionPrefix = -0.25;
-      }
-
-      // Determine entity type based on context
-      let entityContext = 'unknown';
-      if (hasCompanySuffix || hasTechSuffix) {
-        entityContext = 'company';
-      } else if (hasHonorific || hasJobTitle) {
-        entityContext = 'person';
-      } else if (wordCount === 1) {
-        // Single word could be brand/company (e.g., "SpaceX", "Google")
-        entityContext = 'company_or_person';
-      } else {
-        // Multi-word is likely a person name
-        entityContext = 'person';
-      }
-
-      // Split overly long proper noun phrases that contain job titles in the middle
-      // E.g., "Jim Glab Freelance Writer Jim Glab" should be split into ["Jim Glab", "Jim Glab"]
-      // This prevents job titles and repeated names from being grouped incorrectly
-      const jobTitlePattern =
-        /\b(Freelance|Senior|Junior|Lead|Chief|Principal|Staff|Associate|Tech)\s+(Writer|Reporter|Engineer|Developer|Designer|Analyst|Editor|Manager|Director|Consultant|Architect|Scientist|Journalist|Photographer|Videographer)\b/gi;
-      const jobTitleMatch = candidate.match(jobTitlePattern);
-
-      if (jobTitleMatch && wordCount > 4) {
-        // Found a job title in the middle of a long phrase - split it
-        const parts = candidate.split(jobTitlePattern);
-
-        // Process each part separately if it looks like a name (2+ words)
-        let currentPos = start;
-        for (let i = 0; i < parts.length; i++) {
-          const part = parts[i]?.trim();
-          if (!part) {
-            currentPos += parts[i]?.length || 0;
-            continue;
-          }
-
-          // Skip if this is the job title itself
-          if (jobTitleMatch.some((jt) => jt.toLowerCase() === part.toLowerCase())) {
-            currentPos += part.length + 1; // +1 for space
-            continue;
-          }
-
-          // Check if this looks like a name (2+ capitalized words)
-          const partWords = part.split(/\s+/).filter((w) => w.length > 0);
-          if (partWords.length >= 2 && partWords.every((w) => /^[A-Z][a-z]/.test(w))) {
-            // Add this as a separate candidate
-            candidates.push({
-              type: 'properNoun',
-              original: part,
-              start: currentPos,
-              end: currentPos + part.length,
-              confidence: score, // Use same score as parent
-              context: 'person',
-              scoreBreakdown: { ...breakdown, splitFromLongerPhrase: true },
-              willBeProtected: score >= minimumScore,
-              threshold: minimumScore,
-            });
-          }
-
-          currentPos += part.length + 1; // +1 for space/separator
-        }
-
-        // Skip adding the full long phrase
-        continue;
-      }
-
-      candidates.push({
-        type: 'properNoun',
-        original: candidate,
-        start,
-        end,
-        confidence: score,
-        context: entityContext,
-        scoreBreakdown: breakdown,
-        willBeProtected: score >= minimumScore,
-        threshold: minimumScore,
-      });
-    }
-
-    return candidates;
-  }
-
-  /**
-   * Check if nearby PII exists within window
-   * @private
-   */
-  _hasNearbyPII(text, start, end) {
-    const windowSize = APP_CONFIG.properNounDetection?.nearbyPIIWindowSize || 50;
-    const windowStart = Math.max(0, start - windowSize);
-    const windowEnd = Math.min(text.length, end + windowSize);
-    const windowText = text.substring(windowStart, windowEnd);
-
-    const emails = this.patternMatcher.matchType(windowText, 'email');
-    const phones = this.patternMatcher.matchType(windowText, 'phone');
-
-    return emails.length > 0 || phones.length > 0;
-  }
-
-  /**
-   * Check if candidate matches a common department/team name pattern
-   * Uses pattern matching instead of hardcoded list for better coverage
-   * @private
-   */
-  _isDepartmentName(candidate) {
-    const config = APP_CONFIG.properNounDetection;
-    const prefixes = config?.departmentPrefixes || [];
-    const suffixes = config?.departmentSuffixes || [];
-
-    // Remove trailing punctuation and normalize
-    let normalized = candidate
-      .trim()
-      .replace(/[.,;!?]+$/, '')
-      .toLowerCase();
-
-    // Also check after removing common leading verbs (e.g., "Visit Human Resources")
-    const withoutLeadingVerb = normalized.replace(/^(call|visit|contact|reach|see)\s+/, '');
-
-    // Check both with and without leading verb
-    for (const text of [normalized, withoutLeadingVerb]) {
-      // Pattern 1: Exact prefix match (e.g., "Human Resources")
-      if (prefixes.some((prefix) => prefix.toLowerCase() === text)) {
-        return true;
-      }
-
-      // Pattern 2: Prefix + Suffix (e.g., "Marketing Department", "Executive Team")
-      for (const suffix of suffixes) {
-        const suffixLower = suffix.toLowerCase();
-        if (text.endsWith(suffixLower)) {
-          // Extract prefix (everything before the suffix)
-          const prefix = text.substring(0, text.length - suffixLower.length).trim();
-
-          // Check if prefix matches any known department prefix
-          if (prefixes.some((p) => p.toLowerCase() === prefix)) {
-            return true;
-          }
-        }
-      }
-    }
-
-    return false;
-  }
-
-  /**
-   * Check if candidate matches a company name from nearby email domain
-   * @private
-   */
-  _matchesNearbyEmailDomain(text, candidate, start, end) {
-    const windowSize = APP_CONFIG.properNounDetection?.nearbyPIIWindowSize || 50;
-    const windowStart = Math.max(0, start - windowSize);
-    const windowEnd = Math.min(text.length, end + windowSize);
-    const windowText = text.substring(windowStart, windowEnd);
-
-    // Extract emails from nearby text
-    const emails = this.patternMatcher.matchType(windowText, 'email');
-    if (emails.length === 0) return false;
-
-    // Extract domain names from emails (without TLD)
-    // e.g., john@acme.com -> "acme"
-    const domains = emails
-      .map((e) => {
-        // PatternMatcher returns { value, index, type, length }
-        const emailText = e.value || e.original;
-        if (!emailText) return null;
-        const match = emailText.match(/@([^.]+)\./);
-        return match ? match[1].toLowerCase() : null;
-      })
-      .filter((d) => d !== null);
-
-    // Check if candidate matches any domain name
-    const candidateNormalized = candidate
-      .toLowerCase()
-      .replace(/\s+(inc|corp|llc|ltd|limited|company|co\.|corporation|gmbh|sa|plc|ag)$/i, '')
-      .trim();
-
-    return domains.some((domain) => candidateNormalized === domain);
-  }
-
-  /**
-   * Check if candidate is a known location in the gazetteer
-   * @private
-   */
-  _isKnownLocation(candidate) {
-    if (!this.patternMatcher || !this.patternMatcher.locationGazetteer) {
-      return false;
-    }
-    const normalized = candidate.toLowerCase().trim();
-    return this.patternMatcher.locationGazetteer.has(normalized);
-  }
-
-  /**
-   * Calculate proper noun confidence score
-   * @private
-   */
-  _calculateProperNounScore(candidate, context) {
-    const config = APP_CONFIG.properNounDetection;
-    const weights = config?.weights || {};
-    let score = 0;
-    const breakdown = {};
-
-    // Signal 1: Capitalization (always present)
-    breakdown.capitalizationPattern = weights.capitalizationPattern || 0.3;
-    score += breakdown.capitalizationPattern;
-
-    // Signal 2: Unknown in Dictionary (>50%)
-    const unknownRatio = this._calculateUnknownWordRatio(candidate);
-    if (unknownRatio > 0.5) {
-      breakdown.unknownInDictionary = weights.unknownInDictionary || 0.3;
-      breakdown.unknownInDictionary_detail = `${Math.round(unknownRatio * 100)}% unknown`;
-      score += breakdown.unknownInDictionary;
-    }
-
-    // Signal 3: Honorific, Job Title, or Company Suffix
-    if (context.hasHonorific || context.hasJobTitle || context.hasCompanySuffix) {
-      breakdown.hasHonorificOrSuffix = weights.hasHonorificOrSuffix || 0.4;
-      let detail = [];
-      if (context.hasHonorific) detail.push('honorific');
-      if (context.hasJobTitle) detail.push('job_title');
-      if (context.hasCompanySuffix) detail.push('company_suffix');
-      breakdown.hasHonorificOrSuffix_detail = detail.join('+');
-      score += breakdown.hasHonorificOrSuffix;
-    }
-
-    // Signal 4: Multi-word
-    if (context.wordCount >= 2) {
-      breakdown.multiWord = weights.multiWord || 0.2;
-      breakdown.multiWord_detail = `${context.wordCount} words`;
-      score += breakdown.multiWord;
-    }
-
-    // Signal 5: Not sentence start
-    if (!context.isSentenceStart) {
-      breakdown.notSentenceStart = weights.notSentenceStart || 0.1;
-      score += breakdown.notSentenceStart;
-    }
-
-    // Signal 6: Near PII
-    if (context.nearPII) {
-      breakdown.nearOtherPII = weights.nearOtherPII || 0.25;
-      score += breakdown.nearOtherPII;
-    }
-
-    // Signal 7: Matches email domain
-    if (context.emailDomainMatch) {
-      breakdown.matchesEmailDomain = weights.matchesEmailDomain || 0.3;
-      breakdown.matchesEmailDomain_detail = 'company_from_email';
-      score += breakdown.matchesEmailDomain;
-    }
-
-    // Signal 8: Inside link (author bylines, profile links)
-    if (context.insideLink) {
-      breakdown.insideLink = weights.insideLink || 0.25;
-      breakdown.insideLink_detail = 'text_in_link';
-      score += breakdown.insideLink;
-    }
-
-    // Signal 9: Known location (New York, Paris, Delaware, etc.)
-    if (context.isKnownLocation) {
-      breakdown.knownLocation = weights.knownLocation || 0.5;
-      breakdown.knownLocation_detail = 'location_gazetteer';
-      score += breakdown.knownLocation;
-    }
-
-    // Penalty: Department name (strong negative signal)
-    if (context.isDepartmentName) {
-      breakdown.isDepartmentName = -0.9;
-      breakdown.isDepartmentName_detail = 'generic_department';
-      score += breakdown.isDepartmentName;
-    }
-
-    score = Math.min(score, 1.0);
-
-    return { score, breakdown };
-  }
-
-  /**
-   * Calculate ratio of unknown words (not in dictionary)
-   * @private
-   */
-  _calculateUnknownWordRatio(candidate) {
-    const cleaned = candidate
-      .replace(/^(?:Mr|Mrs|Ms|Dr|Prof)\b\.?\s+/i, '')
-      .replace(
-        /^(?:CEO|CTO|CFO|VP|SVP|EVP|President|Director|Manager|Chief|Senior|Junior|Lead)\b\.?\s+/i,
-        ''
-      )
-      .replace(
-        /\s+(Inc|Corp|LLC|Ltd|Limited|Company|Co\.|Corporation|GmbH|SA|PLC|AG|Group|Partners|Associates|Ventures|Technologies|Tech|Systems|Solutions|Consulting|Services|International|Intl\.)$/i,
-        ''
-      );
-
-    const words = cleaned.split(/\s+/).filter((w) => w.length > 0);
-    if (words.length === 0) return 0;
-
-    // Fallback if dictionary not initialized
-    if (!this.dictionary || !this.initialized) {
-      return 0.5;
-    }
-
-    let unknownCount = 0;
-    for (const word of words) {
-      if (!this.dictionary.isCommonWord(word.toLowerCase())) {
-        unknownCount++;
-      }
-    }
-
-    const ratio = unknownCount / words.length;
-
-    return ratio;
-  }
-
-  /**
    * Detect PII in DOM elements
    * @param {Element} rootElement - Root element to scan
    * @param {Array<string>} enabledTypes - PII types to detect
@@ -1141,10 +698,7 @@ export class PIIDetector {
    * @returns {Array<Object>} Array of proper noun entities
    */
   _detectProperNouns(text) {
-    // Use the new scoring system and filter by threshold
-    const candidates = this._detectAllProperNounCandidates(text);
-    // Filter to only return those that meet the threshold
-    return candidates.filter((candidate) => candidate.confidence >= candidate.threshold);
+    return this.properNounDetector.detect(text);
   }
 
   /**
@@ -1260,174 +814,7 @@ export class PIIDetector {
    * @returns {Array<Object>} Deduplicated entities
    */
   _deduplicateWithPriority(entities) {
-    if (entities.length === 0) return [];
-
-    const priorities = APP_CONFIG.properNounDetection?.typePriorities || {};
-
-    // DEBUG: Log entities being deduplicated
-    const hasDateAndQuantity =
-      entities.some((e) => e.type === 'date') && entities.some((e) => e.type === 'quantity');
-    if (hasDateAndQuantity) {
-      console.log('[SafeSnap Debug] Deduplicating entities with both dates and quantities:', {
-        dates: entities
-          .filter((e) => e.type === 'date')
-          .map((e) => ({
-            original: e.original,
-            start: e.start,
-            end: e.end,
-            priority: priorities.date,
-          })),
-        quantities: entities
-          .filter((e) => e.type === 'quantity')
-          .map((e) => ({
-            original: e.original,
-            start: e.start,
-            end: e.end,
-            priority: priorities.quantity,
-          })),
-      });
-    }
-
-    // Group entities by their text node
-    // This ensures we only compare overlaps within the same text node
-    const byNode = new Map();
-    for (const entity of entities) {
-      const nodeKey = entity.node || 'unknown';
-      if (!byNode.has(nodeKey)) {
-        byNode.set(nodeKey, []);
-      }
-      byNode.get(nodeKey).push(entity);
-    }
-
-    // DEBUG: Log how entities are grouped
-    if (hasDateAndQuantity) {
-      console.log('[SafeSnap Debug] Entities grouped by node:', {
-        nodeCount: byNode.size,
-        groups: Array.from(byNode.entries()).map(([key, ents]) => ({
-          nodeKey: key === 'unknown' ? 'unknown' : typeof key,
-          entityCount: ents.length,
-          dates: ents.filter((e) => e.type === 'date').length,
-          quantities: ents.filter((e) => e.type === 'quantity').length,
-        })),
-      });
-    }
-
-    // Deduplicate within each text node separately
-    const allDeduplicated = [];
-    for (const nodeEntities of byNode.values()) {
-      // Sort by position first, then by priority (high to low)
-      const sorted = [...nodeEntities].sort((a, b) => {
-        if (a.start !== b.start) {
-          return a.start - b.start;
-        }
-        // If same start position, prioritize by type
-        const priorityA = priorities[a.type] || 0;
-        const priorityB = priorities[b.type] || 0;
-        return priorityB - priorityA; // Higher priority first
-      });
-
-      let lastEnd = -1;
-
-      for (const entity of sorted) {
-        if (entity.start >= lastEnd) {
-          // No overlap, add it
-          allDeduplicated.push(entity);
-          lastEnd = entity.end;
-        } else {
-          // Overlap detected - decide which to keep
-          const lastEntity = allDeduplicated[allDeduplicated.length - 1];
-
-          const priorityNew = priorities[entity.type] || 0;
-          const priorityLast = priorities[lastEntity.type] || 0;
-
-          // DEBUG: Log overlap decision
-          if (
-            hasDateAndQuantity &&
-            (entity.type === 'date' ||
-              entity.type === 'quantity' ||
-              lastEntity.type === 'date' ||
-              lastEntity.type === 'quantity')
-          ) {
-            console.log('[SafeSnap Debug] Overlap detected:', {
-              existing: {
-                type: lastEntity.type,
-                original: lastEntity.original,
-                start: lastEntity.start,
-                end: lastEntity.end,
-                priority: priorityLast,
-              },
-              new: {
-                type: entity.type,
-                original: entity.original,
-                start: entity.start,
-                end: entity.end,
-                priority: priorityNew,
-              },
-              decision:
-                priorityNew > priorityLast
-                  ? 'REPLACE with new'
-                  : priorityNew === priorityLast
-                    ? 'Check confidence'
-                    : 'KEEP existing',
-            });
-          }
-
-          if (priorityNew > priorityLast) {
-            // Replace with higher priority type
-            if (
-              hasDateAndQuantity &&
-              (lastEntity.type === 'date' || lastEntity.type === 'quantity')
-            ) {
-              console.log('[SafeSnap Debug] 🗑️ REMOVED (replaced by higher priority):', {
-                type: lastEntity.type,
-                original: lastEntity.original,
-                start: lastEntity.start,
-                end: lastEntity.end,
-              });
-            }
-            allDeduplicated[allDeduplicated.length - 1] = entity;
-            lastEnd = entity.end;
-          } else if (priorityNew === priorityLast) {
-            // Same priority - use confidence as tiebreaker
-            if (entity.confidence > lastEntity.confidence) {
-              allDeduplicated[allDeduplicated.length - 1] = entity;
-              lastEnd = entity.end;
-            } else if (entity.confidence === lastEntity.confidence) {
-              // Same confidence - use length (longer match wins)
-              const lengthNew = entity.end - entity.start;
-              const lengthLast = lastEntity.end - lastEntity.start;
-              if (lengthNew > lengthLast) {
-                allDeduplicated[allDeduplicated.length - 1] = entity;
-                lastEnd = entity.end;
-              }
-            }
-          } else {
-            // Reject new entity (lower priority)
-            if (hasDateAndQuantity && (entity.type === 'date' || entity.type === 'quantity')) {
-              console.log('[SafeSnap Debug] 🗑️ REMOVED (rejected - lower priority):', {
-                type: entity.type,
-                original: entity.original,
-                start: entity.start,
-                end: entity.end,
-              });
-            }
-          }
-          // Otherwise keep existing entity (has higher priority/confidence/length)
-        }
-      }
-    }
-
-    // DEBUG: Log final result
-    if (hasDateAndQuantity) {
-      console.log('[SafeSnap Debug] Deduplication result:', {
-        before: entities.length,
-        after: allDeduplicated.length,
-        dates: allDeduplicated.filter((e) => e.type === 'date').map((e) => e.original),
-        quantities: allDeduplicated.filter((e) => e.type === 'quantity').map((e) => e.original),
-      });
-    }
-
-    return allDeduplicated;
+    return this.deduplicator.deduplicate(entities);
   }
 
   /**

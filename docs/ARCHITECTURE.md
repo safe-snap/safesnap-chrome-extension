@@ -16,10 +16,12 @@ safesnap-extension/
 │   ├── content/         # Content scripts
 │   ├── popup/           # Extension popup UI
 │   ├── settings/        # Settings page
-│   ├── detection/       # PII detection engine
-│   │   ├── dictionary.js
-│   │   ├── pii-detector.js
-│   │   ├── pattern-matcher.js
+│   ├── detection/       # PII detection engine (5-phase pipeline)
+│   │   ├── dictionary.js          # Dictionary validation
+│   │   ├── pii-detector.js        # Phase 2: Find candidates
+│   │   ├── text-extractor.js      # Phase 1: Extract text from DOM
+│   │   ├── pii-dictionary.js      # Phase 3-4: Build & refine entities
+│   │   ├── pattern-matcher.js     # Regex patterns
 │   │   └── *.test.js
 │   ├── replacement/     # PII replacement logic
 │   │   ├── replacer.js
@@ -128,20 +130,38 @@ safesnap-extension/
 
 **Responsibilities:**
 
+- Phase 2 of 5-phase pipeline: Find all PII candidates
 - Coordinate between dictionary and pattern matching
-- Implement proper noun detection with multi-signal scoring (8 signals)
+- Implement proper noun detection with multi-signal scoring
 - Consider HTML context (skip labels, headings, etc.)
-- Apply department name filtering to prevent false positives
 - Handle email domain matching for company validation
-- Handle multi-word capitalized sequences
-- Return PII entities with positions and confidence scores
+- Return PII candidates with positions and confidence scores
 
-**Algorithm:**
+**5-Phase Detection Pipeline:**
+
+```
+Phase 1 (TextExtractor): Extract text from DOM
+  ↓ TextMap with node boundaries
+
+Phase 2 (PIIDetector): Find all candidates
+  ↓ Raw candidates (no filtering)
+
+Phase 3 (PIIDictionary): Build dictionary
+  ↓ Group by text, resolve conflicts (longer wins)
+
+Phase 4 (PIIDictionary): Refine dictionary
+  ↓ Remove overlaps (priority-based), apply thresholds
+
+Phase 5 (Content Script): Generate & apply replacements
+  ↓ Protected page
+```
+
+**Algorithm (Phase 2 - Find Candidates):**
 
 ```javascript
-function detectPII(text, context) {
+function findAllCandidates(textMap) {
   1. Run pattern matchers (email, phone, money, etc.)
-     → Match found: Mark as PII (confidence = 1.0)
+     → Match found: Add as candidate (confidence = 1.0)
      → No match: Continue to step 2
 
   2. Detect proper noun candidates (capitalized words/phrases)
@@ -154,42 +174,52 @@ function detectPII(text, context) {
            + 0.45 (if has honorific OR company suffix)
            + 0.2 (if multi-word, 2+ words)
            + 0.15 (if not at sentence start)
-           + 0.25 (if near email/phone within 50 chars)
+           + 0.25 (if near email/phone within window)
            + 0.3 (if matches nearby email domain)
-           - 0.9 (if matches department name pattern)
 
-     → score >= 0.75: Mark as PII (proper noun)
-     → score < 0.75: Keep as regular text
+     → score >= 0.75: Add as candidate
+     → score < 0.75: Skip
 
-  4. Check HTML context
-     - Inside <label>, <th>, <h1-h6>, etc.?
-     - Has role="label"?
-     → Yes: Skip detection for this element
-     → No: Apply detection results
+  4. Return ALL candidates (no filtering by enabled types yet)
 }
 ```
+
+**Overlap Resolution (Phase 4):**
+
+When multiple PII types overlap (e.g., "17" in "Jan 17, 2026"):
+
+- Higher priority type wins
+- Priority order: date (90) > email (85) > phone/SSN/creditCard (80) > money (70) > quantity (60) > address (50) > url (40) > location (30) > properNoun (10)
 
 **Configuration:**
 
 ```javascript
 properNounDetection: {
-  minimumScore: 0.75,  // Detection threshold (lowered from 0.8)
+  minimumScore: 0.75,
   weights: {
-    capitalizationPattern: 0.30,   // Baseline: has proper capitalization
-    unknownInDictionary: 0.35,     // Strong: not common word (increased from 0.30)
-    hasHonorificOrSuffix: 0.45,    // Very strong: has Mr/Inc/Corp (increased from 0.40)
-    multiWord: 0.20,                // Moderate: 2+ words
-    notSentenceStart: 0.15,         // Weak: not at sentence start (increased from 0.10)
-    nearOtherPII: 0.25,             // Moderate: near email/phone (increased from 0.20)
-    matchesEmailDomain: 0.30,       // Strong: matches email domain (NEW)
+    capitalizationPattern: 0.30,
+    unknownInDictionary: 0.35,
+    hasHonorificOrSuffix: 0.45,
+    multiWord: 0.20,
+    notSentenceStart: 0.15,
+    nearOtherPII: 0.25,
+    matchesEmailDomain: 0.30,
   },
-  nearbyPIIWindowSize: 50,
+  nearbyPIIWindowSize: { default: 50, min: 10, max: 100 },
   debugMode: false,
 },
-departmentDetection: {
-  departmentPrefixes: ['Human', 'Customer', 'Technical', ...],  // 27 prefixes
-  departmentSuffixes: ['Resources', 'Service', 'Support', 'Team', 'Department'],
-  penalty: -0.9,  // Heavy penalty for department names (NEW)
+typePriorities: {
+  date: 90,
+  email: 85,
+  phone: 80,
+  ssn: 80,
+  creditCard: 80,
+  money: 70,
+  quantity: 60,
+  address: 50,
+  url: 40,
+  location: 30,
+  properNoun: 10,
 }
 ```
 

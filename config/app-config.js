@@ -90,67 +90,39 @@ export const APP_CONFIG = {
     },
 
     // Window size (in characters) to check for nearby PII context
-    // Adjust based on language - languages with longer words may need larger window
-    nearbyPIIWindowSize: 50,
-
-    // Pattern-based department detection
-    // Instead of listing every combination, we detect based on common patterns
-    departmentSuffixes: ['Department', 'Team', 'Support', 'Service', 'Services'],
-
-    // Common department/team prefixes that indicate generic roles
-    departmentPrefixes: [
-      'Human Resources',
-      'Customer Service',
-      'Customer Success',
-      'Customer Support',
-      'Technical Support',
-      'Information Technology',
-      'Research and Development',
-      'Sales and Marketing',
-      'Quality Assurance',
-      'Product Management',
-      'Public Relations',
-      'Business Development',
-      'Data Analytics',
-      'Executive',
-      'Management',
-      'Leadership',
-      'Legal',
-      'Finance',
-      'Accounting',
-      'Operations',
-      'Marketing',
-      'Sales',
-      'Engineering',
-      'IT',
-      'HR',
-    ],
+    // User can configure this in Advanced Settings
+    nearbyPIIWindowSize: {
+      default: 50,
+      min: 10,
+      max: 100,
+    },
 
     // Enable debug mode highlighting (can be toggled in settings)
     debugMode: false,
 
     // Type priority system for conflict resolution
-    // When multiple PII types overlap (e.g., "Dec" could be date or proper noun),
-    // higher priority types win. Pattern-based types have highest priority.
+    // When multiple PII types overlap (e.g., "17" in "Jan 17, 2026"),
+    // higher priority types win. Displayed in Settings (read-only).
     typePriorities: {
-      // Pattern matches (highest priority - they're precise)
-      email: 100,
-      phone: 100,
-      ssn: 100,
-      creditCard: 100,
-      ipAddress: 100,
-
-      // Structured data (high priority)
+      // Structured data (highest priority - most precise)
       date: 90,
-      money: 85,
-      address: 75,
-      url: 70,
+      email: 85,
+      phone: 80,
+      ssn: 80,
+      creditCard: 80,
+
+      // Numeric data (medium-high priority)
+      money: 70,
       quantity: 60,
 
-      // Geographic (medium priority)
-      location: 50,
+      // Text data (medium priority)
+      address: 50,
+      url: 40,
 
-      // Proper nouns (lowest priority - they're fuzzy/ambiguous)
+      // Geographic/fuzzy (low priority)
+      location: 30,
+
+      // Proper nouns (lowest priority - most ambiguous)
       properNoun: 10,
     },
   },
@@ -173,12 +145,8 @@ export const APP_CONFIG = {
 
     // Skip during replacement (detectInDOM) - includes formatting and semantic elements
     replacement: [
-      'H1',
-      'H2',
-      'H3',
-      'H4',
-      'H5',
-      'H6', // Headings
+      'H1', // Skip H1 (usually page title/site branding)
+      // H2-H6 NOT skipped - article subheadings often contain author names and other PII
       'STRONG',
       'B',
       'EM',
