@@ -49,7 +49,7 @@ Automatically detects and protects:
 - **Global replacement** ensures all occurrences of detected PII are replaced across the entire page
 - **Magnitude variance** for realistic money/quantity replacement
 
-**Performance:** 100% precision (zero false positives), 55.88% recall
+**Performance:** High precision (zero false positives)
 
 📖 **[Read detailed detection documentation →](docs/DETECTION.md)**
 
@@ -199,7 +199,7 @@ bun run test:coverage
 bun run test path/to/test.test.js
 ```
 
-**Current Status:** 403 tests passing | >80% coverage
+**Status:** Comprehensive test suite with high coverage
 
 ### Code Quality
 
@@ -230,13 +230,13 @@ All PII processing happens **locally in your browser**. No data is sent to exter
 SafeSnap uses a **hybrid detection approach** combining:
 
 1. **Pattern-based detection** - Regex patterns + library validation for structured data (emails, phones, credit cards)
-2. **Multi-signal scoring** - 8 context signals for proper noun detection (names, companies, places)
+2. **Multi-signal scoring** - Multiple context signals for proper noun detection (names, companies, places)
 3. **Context-aware filtering** - Skips UI elements, applies department/team name penalties
 
 **Key Features:**
 
-- 100% precision (zero false positives)
-- 801-word curated dictionary for common English words
+- High precision (zero false positives)
+- Curated dictionary for common English words
 - Configurable detection threshold (default: 0.75)
 - Email domain matching for company name validation
 - Department name filtering (e.g., "Human Resources", "Customer Service")
