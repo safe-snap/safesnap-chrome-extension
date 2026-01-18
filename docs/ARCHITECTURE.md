@@ -200,10 +200,14 @@ properNounDetection: {
     capitalizationPattern: 0.30,
     unknownInDictionary: 0.35,
     hasHonorificOrSuffix: 0.45,
-    multiWord: 0.20,
     notSentenceStart: 0.15,
     nearOtherPII: 0.25,
     matchesEmailDomain: 0.30,
+    insideLink: 0.25,
+    isKnownLocation: 0.50,
+    appearsInPageLinks: 0.30,
+    appearsInHeaderFooter: -0.50,  // Negative signal
+    nonNounPOS: -0.50,              // Negative signal (adjective filtering)
   },
   nearbyPIIWindowSize: { default: 50, min: 10, max: 100 },
   debugMode: false,

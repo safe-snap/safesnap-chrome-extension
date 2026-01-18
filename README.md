@@ -39,9 +39,10 @@ Automatically detects and protects:
 
 ### Smart Detection Engine
 
-- **Multi-signal scoring** with 8 context signals for proper noun detection
+- **Multi-signal scoring** with 11 context signals for proper noun detection
 - **Pattern matching** for structured data (emails, phones, etc.) with library validation
-- **Context awareness** (skips labels, headings, buttons, department names)
+- **Context awareness** (skips labels, headings, buttons; filters header/footer UI text)
+- **Adjective filtering** using suffix-based pattern matching (no hardcoded lists)
 - **Email domain matching** to boost company name detection confidence
 - **Form input protection** before screenshots
 - **Consistent replacements** (same input = same output)

@@ -138,59 +138,40 @@ links.forEach((link) => {
 - "Microsoft" (single word companies still work)
 - "O'Brien" (keeps hyphenated together)
 
-### Step 3: Job Title Filtering
+### Step 3: Context Gathering (No Hardcoded Filtering)
 
-Before scoring, common job titles are filtered out:
-
-```javascript
-const jobTitles = [
-  'Freelance',
-  'Writer',
-  'Editor',
-  'Reporter',
-  'Journalist',
-  'Manager',
-  'Director',
-  'President',
-  'Officer',
-  'Engineer',
-  'Developer',
-  'Designer',
-  'Photographer',
-  'Author',
-];
-if (jobTitles.includes(word)) {
-  skip(); // Not PII
-}
-```
-
-**Example:**
-
-- Input: "Jim Glab Freelance Writer"
-- Detection: "Jim" ✓, "Glab" ✓, "Freelance" ✗, "Writer" ✗
-- Result: Only "Jim" and "Glab" detected
+**Note:** Job title filtering was removed to avoid maintaining hardcoded lists. Adjectives and other non-nouns are now filtered using suffix-based pattern matching (see Signal 11 below).
 
 ### Step 4: Context Gathering
 
-For each candidate word, SafeSnap gathers **9 signals** from context:
+For each candidate word, SafeSnap gathers **11 signals** from context:
 
 | Signal                  | Description                                       | Value Range |
 | ----------------------- | ------------------------------------------------- | ----------- |
 | `capitalizationPattern` | Has proper capitalization (baseline)              | Always 0.3  |
-| `unknownInDictionary`   | Word NOT in common dictionary                     | 0.0 or 0.3  |
-| `hasHonorificOrSuffix`  | Preceded by honorific (Mr/Mrs) or job title (CEO) | 0.0 or 0.4  |
-| `notSentenceStart`      | Not at beginning of sentence                      | 0.0 or 0.1  |
+| `unknownInDictionary`   | Word NOT in common dictionary                     | 0.0 or 0.35 |
+| `hasHonorificOrSuffix`  | Preceded by honorific (Mr/Mrs) or job title (CEO) | 0.0 or 0.45 |
+| `notSentenceStart`      | Not at beginning of sentence                      | 0.0 or 0.15 |
 | `nearOtherPII`          | Within 50 chars of email/phone                    | 0.0 or 0.25 |
 | `matchesEmailDomain`    | Matches company name from nearby email            | 0.0 or 0.3  |
 | `insideLink`            | Inside a hyperlink element in THIS text           | 0.0 or 0.25 |
 | `isKnownLocation`       | In location gazetteer (500+ cities/countries)     | 0.0 or 0.5  |
-| `appearsInPageLinks`    | Appears in ANY link on the page (NEW)             | 0.0 or 0.3  |
+| `appearsInPageLinks`    | Appears in ANY link on the page                   | 0.0 or 0.3  |
+| `appearsInHeaderFooter` | Appears in header/footer elements (NEGATIVE)      | 0.0 or -0.5 |
+| `nonNounPOS`            | Detected as adjective/verb/adverb (NEGATIVE)      | 0.0 or -0.5 |
 
 **Context Window:** 50 characters before and after the candidate word
 
-**NEW: Page-Wide Signal** - `appearsInPageLinks` checks if the word appears in hyperlinks anywhere on the page, not just the current text being analyzed.
+**Page-Wide Signals:**
 
-### Step 3: Signal Scoring
+- `appearsInPageLinks` - Positive signal if word appears in hyperlinks anywhere on page
+- `appearsInHeaderFooter` - Negative signal if word appears in header/footer (likely UI/nav text)
+
+**POS (Part of Speech) Filtering:**
+
+- `nonNounPOS` - Strong negative signal using suffix-based adjective detection (no hardcoded lists)
+
+### Step 5: Signal Scoring
 
 Each signal has a **weight** that determines its contribution to the final score:
 
@@ -198,28 +179,51 @@ Each signal has a **weight** that determines its contribution to the final score
 score = (capitalizationPattern × 0.30)      // Baseline
       + (unknownInDictionary × 0.35)        // Strong signal: not common word
       + (hasHonorificOrSuffix × 0.45)       // Very strong: has Mr/Inc/Corp
-      + (multiWord × 0.20)                   // Moderate: "John Doe" vs "John"
       + (notSentenceStart × 0.15)            // Weak: reduces false positives
       + (nearOtherPII × 0.25)                // Moderate: co-occurrence boost
       + (matchesEmailDomain × 0.30)          // Strong: email domain validation
-      + (isDepartmentName × -0.90)           // Heavy penalty: filters out departments
+      + (insideLink × 0.25)                  // Moderate: appears in link in this text
+      + (isKnownLocation × 0.50)             // Strong: matches location gazetteer
+      + (appearsInPageLinks × 0.30)          // Strong: appears in links page-wide
+      + (appearsInHeaderFooter × -0.50)      // Strong penalty: likely UI/nav text
+      + (nonNounPOS × -0.50)                 // Strong penalty: adjective/verb/adverb
 ```
 
 **Scoring Examples:**
 
-#### Example 1: "John Smith" (Person Name)
+#### Example 1: "Russian" (Adjective - Filtered Out)
 
 ```
 capitalizationPattern:   1.0 × 0.30 = 0.30
-unknownInDictionary:     1.0 × 0.35 = 0.35  (neither "John" nor "Smith" in dictionary)
-hasHonorificOrSuffix:    0.0 × 0.45 = 0.00
-multiWord:               1.0 × 0.20 = 0.20
+unknownInDictionary:     1.0 × 0.35 = 0.35  ("Russian" not in dictionary)
+notSentenceStart:        1.0 × 0.15 = 0.15
+nonNounPOS:              1.0 × -0.50 = -0.50 (adjective: ends in -an, 7+ chars)
+                                      -----
+Total Score:                          0.30  ❌ Below threshold (0.75)
+Result: Correctly filtered out (adjective, not a proper noun)
+```
+
+#### Example 2: "John" near email (Person Name)
+
+```
+capitalizationPattern:   1.0 × 0.30 = 0.30
+unknownInDictionary:     1.0 × 0.35 = 0.35  ("John" not in dictionary)
 notSentenceStart:        1.0 × 0.15 = 0.15
 nearOtherPII:            1.0 × 0.25 = 0.25  (email nearby)
-matchesEmailDomain:      0.0 × 0.30 = 0.00
-isDepartmentName:        0.0 × -0.90 = 0.00
-                                     -----
-Total Score:                          1.25  ✅ Above threshold (0.75)
+                                      -----
+Total Score:                          1.05  ✅ Above threshold (0.75)
+```
+
+#### Example 3: "Privacy" in footer (UI Text - Filtered Out)
+
+```
+capitalizationPattern:   1.0 × 0.30 = 0.30
+unknownInDictionary:     1.0 × 0.35 = 0.35  ("Privacy" not in dictionary)
+notSentenceStart:        1.0 × 0.15 = 0.15
+appearsInHeaderFooter:   1.0 × -0.50 = -0.50 (found in footer element)
+                                      -----
+Total Score:                          0.30  ❌ Below threshold (0.75)
+Result: Correctly filtered out (footer navigation text)
 ```
 
 #### Example 2: "Acme Corp" (Company)
@@ -452,17 +456,21 @@ https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0
 
 #### Dates
 
-**Pattern:** Multiple formats supported
+**Pattern:** Multiple formats including standalone years (1900-2099)
 
 ```regex
-(\d{4}-\d{2}-\d{2})|(\d{1,2}\/\d{1,2}\/\d{2,4})|(Jan|Feb|Mar|...) \d{1,2},? \d{4}
+(\d{4}-\d{2}-\d{2})|(\d{1,2}\/\d{1,2}\/\d{2,4})|(Jan|Feb|Mar|...) \d{1,2},? \d{4}|(?:19|20)\d{2}
 ```
 
 **Examples:**
 
-- 2024-01-15 ✅
-- 01/15/2024 ✅
-- Jan 15, 2024 ✅
+- 2024-01-15 ✅ (ISO format)
+- 01/15/2024 ✅ (US format)
+- Jan 15, 2024 ✅ (textual format)
+- 2026 ✅ (standalone year, 1900-2099)
+- 1999 ✅ (historical year)
+- 8080 ❌ (not a year, port number)
+- 1234 ❌ (not a year, room number)
 
 ### Custom Patterns
 

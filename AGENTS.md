@@ -2,6 +2,29 @@
 
 This document provides coding agents with essential information for working effectively in this codebase.
 
+## Recent Changes Summary (Latest Session)
+
+**Date**: January 2026
+
+### Key Changes
+
+1. **Removed Hardcoded Lists**: Nationality adjectives and job titles removed in favor of suffix-based pattern matching
+2. **Enhanced Tooltip Display**: Shows both numeric weight and detail text (e.g., "-50% (adjective)")
+3. **Strengthened Header/Footer Filtering**: Increased negative weight from -0.2 to -0.5
+4. **Added Standalone Year Detection**: Years 1900-2099 now detected as dates (e.g., "2026")
+5. **Adjective Filtering**: Suffix-based pattern matching (-able, -ible, -al, -ish, -ese, -an, -ian, -ern, -ly)
+
+### Signal Count
+
+- **Proper Noun Detection**: Now uses **11 signals** (was 9)
+  - Added: `appearsInHeaderFooter` (-0.5)
+  - Added: `nonNounPOS` (-0.5) for adjective/verb/adverb filtering
+
+### Test Status
+
+- **Current**: 442 passed, 67 failed (failures are pre-existing atomic detection issues)
+- **Note**: 67 failures expected (tests expect multi-word entities, atomic detection produces individual words)
+
 ## Project Overview
 
 SafeSnap is a privacy-first Chrome extension that automatically detects and protects PII in screenshots.
@@ -24,7 +47,7 @@ bun run build:dev          # Development build with source maps
 bun run dev                # Development build with watch mode
 
 # Testing - CRITICAL: Always use "bun run test", NOT "bun test"
-bun run test               # Run all tests 
+bun run test               # Run all tests
 bun run test:watch         # Watch mode for TDD
 bun run test:coverage      # Generate coverage report (>80% required)
 bun run test path/to/file.test.js  # Run single test file

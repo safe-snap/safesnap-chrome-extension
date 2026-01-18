@@ -112,7 +112,7 @@ describe('Dictionary Size Impact Analysis', () => {
     detector.dictionary = new Dictionary();
     detector.dictionary.coreDictionary = new Set(words.map((w) => w.toLowerCase()));
     detector.dictionary.isCoreDictionaryLoaded = true;
-    detector.initialized = true;
+    await detector.initialize(); // Properly initialize detector
     return detector;
   }
 
