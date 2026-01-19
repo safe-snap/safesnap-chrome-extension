@@ -94,15 +94,6 @@ describe('PIIDetector', () => {
       expect(entities[0].type).toBe('url');
     });
 
-    test.skip('should detect IP addresses', () => {
-      // TODO: IP address pattern not yet implemented in pattern-matcher.js
-      const text = 'Server at 192.168.1.100';
-      const entities = detector.detectInText(text, ['ipAddress']);
-
-      expect(entities.length).toBeGreaterThan(0);
-      expect(entities[0].type).toBe('ipAddress');
-    });
-
     test('should detect SSNs', () => {
       const text = 'SSN: 123-45-6789';
       const entities = detector.detectInText(text, ['ssn']);
@@ -439,15 +430,6 @@ describe('PIIDetector', () => {
   });
 
   describe('Address Detection', () => {
-    test.skip('should detect addresses', () => {
-      // TODO: Address pattern not working correctly
-      const text = 'Located at 123 Main Street';
-      const entities = detector.detectInText(text, ['address']);
-
-      expect(entities.length).toBeGreaterThan(0);
-      expect(entities[0].type).toBe('address');
-    });
-
     test('should detect locations', () => {
       const text = 'Moving from Bay Area to Silicon Valley';
       const entities = detector.detectInText(text, ['locations']);
@@ -551,20 +533,6 @@ describe('PIIDetector', () => {
       const smith = entities.find((e) => e.original === 'Smith');
       expect(smith).toBeDefined();
       expect(smith.confidence).toBeGreaterThanOrEqual(0.65);
-    });
-
-    test.skip('should give HIGHER confidence to multi-word proper nouns', () => {
-      const text = 'Sarah Smith joined the team. Welcome aboard!';
-      const entities = detector.detectInText(text, ['properNouns']);
-
-      // Atomic detection: Both "Sarah" and "Smith" detected as individual proper nouns
-      const sarah = entities.find((e) => e.original === 'Sarah');
-      expect(sarah).toBeDefined();
-      expect(sarah.confidence).toBeGreaterThanOrEqual(0.65); // Not at sentence start + unknown
-
-      const smith = entities.find((e) => e.original === 'Smith');
-      expect(smith).toBeDefined();
-      expect(smith.confidence).toBeGreaterThanOrEqual(0.65); // Unknown word
     });
 
     test('should detect Mrs/Ms/Prof honorifics with high confidence', () => {
@@ -757,22 +725,6 @@ describe('PIIDetector', () => {
     });
 
     // Additional Design Stage Test Cases
-    test.skip('should protect multi-word names without honorifics', () => {
-      const text = 'Sarah Johnson attended the meeting';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Atomic detection: "Sarah" and "Johnson" detected separately
-      expect(properNouns.length).toBe(2);
-
-      const sarah = properNouns.find((e) => e.original === 'Sarah');
-      expect(sarah).toBeDefined();
-      expect(sarah.confidence).toBeGreaterThanOrEqual(0.65);
-
-      const johnson = properNouns.find((e) => e.original === 'Johnson');
-      expect(johnson).toBeDefined();
-      expect(johnson.confidence).toBeGreaterThanOrEqual(0.65);
-    });
 
     test('should protect three-word names', () => {
       const text = 'Mary Jane Watson is here';
@@ -810,79 +762,7 @@ describe('PIIDetector', () => {
       expect(properNouns.length).toBe(0);
     });
 
-    test.skip('should protect company names with "Inc"', () => {
-      const text = 'Widgets Inc manufactures products';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // "Widgets Inc": company suffix gives +0.4
-      expect(properNouns.length).toBe(1);
-      expect(properNouns[0].original).toBe('Widgets Inc');
-      expect(properNouns[0].context).toBe('company');
-    });
-
-    test.skip('should protect "LLC" and "Corp" company suffixes', () => {
-      const text = 'Acme LLC and Beta Corp are partners';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      expect(properNouns.length).toBe(2);
-      expect(properNouns.some((e) => e.original === 'Acme LLC')).toBe(true);
-      expect(properNouns.some((e) => e.original === 'Beta Corp')).toBe(true);
-    });
-
-    test.skip('should handle names near multiple PII types', () => {
-      const text = 'Contact Sarah Smith at sarah@example.com or (555) 123-4567';
-      const entities = detector.detectInText(text, ['properNouns', 'emails', 'phones']);
-
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-      const emails = entities.filter((e) => e.type === 'email');
-      const phones = entities.filter((e) => e.type === 'phone');
-
-      expect(emails.length).toBe(1);
-      expect(phones.length).toBe(1);
-      // "Contact Sarah Smith" should be protected (2/3 unknown)
-      expect(properNouns.length).toBe(1);
-    });
-
-    test.skip('should correctly score names at different positions', () => {
-      const text = 'Michael called. Then Michael Jackson arrived.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // "Then Michael Jackson" is matched as one phrase (2/3 unknown)
-      // Score: 0.3 + 0.3 + 0.2 + 0 (sentence start) = 0.8
-      const michaelJackson = properNouns.find((e) => e.original.includes('Michael Jackson'));
-      expect(michaelJackson).toBeDefined();
-      expect(michaelJackson.confidence).toBeGreaterThanOrEqual(0.8);
-    });
-
     // Context Signal Enhancement Tests
-    test.skip('should detect hyphenated names (Mary-Jane, Jean-Luc)', () => {
-      const text = 'Mary-Jane Watson and Jean-Luc Picard attended.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      expect(properNouns.length).toBe(2);
-      const maryJane = properNouns.find((e) => e.original.includes('Mary-Jane'));
-      const jeanLuc = properNouns.find((e) => e.original.includes('Jean-Luc'));
-
-      expect(maryJane).toBeDefined();
-      expect(jeanLuc).toBeDefined();
-    });
-
-    test.skip('should detect names with hyphens (Mary-Jane, Jean-Luc)', () => {
-      const text = 'Mary-Jane Watson and Jean-Luc Picard attended.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      expect(properNouns.length).toBe(2);
-      const maryJane = properNouns.find((e) => e.original.includes('Mary-Jane'));
-      const jeanLuc = properNouns.find((e) => e.original.includes('Jean-Luc'));
-
-      expect(maryJane).toBeDefined();
-      expect(jeanLuc).toBeDefined();
-    });
 
     test('should detect companies with ampersands (Johnson & Johnson, McKinsey & Company)', () => {
       const text = 'McKinsey & Company and Johnson & Johnson are consulting firms.';
@@ -900,51 +780,6 @@ describe('PIIDetector', () => {
 
       // At least detect the unique company names
       expect(hasMcKinsey || hasJohnson).toBe(true);
-    });
-
-    test.skip('should detect job titles (CEO, CTO, CFO, VP, Director, Manager)', () => {
-      const text = 'CEO John Smith and CTO Jane Doe announced the product. VP Sarah Lee confirmed.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      expect(properNouns.length).toBeGreaterThanOrEqual(3);
-
-      const ceoJohn = properNouns.find(
-        (e) => e.original.includes('CEO') && e.original.includes('Smith')
-      );
-      const ctoJane = properNouns.find(
-        (e) => e.original.includes('CTO') && e.original.includes('Doe')
-      );
-      const vpSarah = properNouns.find(
-        (e) => e.original.includes('VP') && e.original.includes('Lee')
-      );
-
-      expect(ceoJohn).toBeDefined();
-      expect(ctoJane).toBeDefined();
-      expect(vpSarah).toBeDefined();
-
-      // All should have high confidence due to job title
-      expect(ceoJohn.confidence).toBeGreaterThanOrEqual(0.8);
-    });
-
-    test.skip('should detect international company suffixes (GmbH, SA, PLC, AG)', () => {
-      const text =
-        'Volkswagen AG, LVMH SA, and Barclays PLC are global companies. Siemens GmbH is German.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Should detect at least 3 of the 4 companies
-      expect(properNouns.length).toBeGreaterThanOrEqual(3);
-
-      // Check that we're detecting companies with international suffixes
-      const hasInternationalSuffix = properNouns.some(
-        (e) =>
-          e.original.includes('AG') ||
-          e.original.includes('SA') ||
-          e.original.includes('PLC') ||
-          e.original.includes('GmbH')
-      );
-      expect(hasInternationalSuffix).toBe(true);
     });
 
     test('should detect tech company suffixes (Technologies, Tech, Systems, Solutions)', () => {
@@ -966,28 +801,6 @@ describe('PIIDetector', () => {
       expect(hasTechSuffix).toBe(true);
     });
 
-    test.skip('should give higher confidence to names with job titles', () => {
-      const text = 'Manager Tom Brown reported to Director Lisa Green.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      expect(properNouns.length).toBe(2);
-
-      const managerTom = properNouns.find((e) => e.original.includes('Manager'));
-      const directorLisa = properNouns.find((e) => e.original.includes('Director'));
-
-      expect(managerTom).toBeDefined();
-      expect(directorLisa).toBeDefined();
-
-      // Job titles should boost confidence
-      expect(managerTom.confidence).toBeGreaterThanOrEqual(0.85);
-      expect(directorLisa.confidence).toBeGreaterThanOrEqual(0.85);
-
-      // Should be classified as person
-      expect(managerTom.context).toBe('person');
-      expect(directorLisa.context).toBe('person');
-    });
-
     test('should handle single-word company names (SpaceX, OpenAI, Google)', () => {
       const text = 'SpaceX launched rockets. OpenAI developed ChatGPT.';
       const entities = detector.detectInText(text, ['properNouns']);
@@ -1007,101 +820,6 @@ describe('PIIDetector', () => {
     // ========================================================================
     // Department Name Filtering Tests
     // ========================================================================
-
-    test.skip('department names are now detected as proper nouns (filtering moved to 5-phase pipeline)', async () => {
-      // NOTE: Department filtering has been removed from pii-detector.js
-      // This will be handled by PIIDictionary in the 5-phase pipeline
-      const text =
-        'Contact Human Resources or Customer Service for assistance. Our Information Technology team can help.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // At least some department names should be detected (depends on confidence threshold)
-      const detected = properNouns.map((e) => e.original);
-      // Human Resources usually has highest confidence due to being 2 words
-      expect(detected).toContain('Human Resources');
-      // Note: "Customer Service" and "Information Technology" may be filtered by confidence threshold
-    });
-
-    test.skip('should penalize department names with negative score', async () => {
-      // REMOVED: Department name detection has been removed
-      // This will be handled differently in the 5-phase pipeline
-      const text = 'The Human Resources team is hiring.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const hrEntity = entities.find((e) => e.original === 'Human Resources');
-
-      // Department names should not be detected due to penalty
-      expect(hrEntity).toBeUndefined(); // Should not be detected at all
-    });
-
-    test.skip('should detect person names (department filtering removed)', async () => {
-      // NOTE: Both person names AND department names are now detected
-      // Filtering will happen in PIIDictionary phase
-      const text = 'John Smith works in Human Resources. Mary Johnson is in Sales Department.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Should detect John Smith and Mary Johnson (both are 2-word names)
-      const detected = properNouns.map((e) => e.original);
-      expect(detected).toContain('John Smith');
-      expect(detected).toContain('Mary Johnson');
-
-      // Department names ARE NOW detected (may include punctuation based on tokenization)
-      const hasHumanResources = detected.some((name) => /Human Resources/.test(name));
-      const hasSalesDepartment = detected.some((name) => /Sales Department/.test(name));
-      expect(hasHumanResources).toBe(true);
-      expect(hasSalesDepartment).toBe(true);
-    });
-
-    test.skip('should detect departments with "Department" suffix', async () => {
-      // REMOVED: Department detection moved to 5-phase pipeline
-      const text = 'Contact the Legal Department or Finance Department for approval.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Should not detect department names
-      const detected = properNouns.map((e) => e.original);
-      expect(detected).not.toContain('Legal Department');
-      expect(detected).not.toContain('Finance Department');
-    });
-
-    test.skip('should detect departments with "Team" suffix', async () => {
-      // REMOVED: Department detection moved to 5-phase pipeline
-      const text = 'The Executive Team and Management Team are meeting today.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Should not detect team names
-      const detected = properNouns.map((e) => e.original);
-      expect(detected).not.toContain('Executive Team');
-      expect(detected).not.toContain('Management Team');
-    });
-
-    test.skip('should detect departments with "Support" suffix', async () => {
-      // REMOVED: Department detection moved to 5-phase pipeline
-      const text = 'Reach out to Technical Support or Customer Support for help.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Should not detect support teams
-      const detected = properNouns.map((e) => e.original);
-      expect(detected).not.toContain('Technical Support');
-      expect(detected).not.toContain('Customer Support');
-    });
-
-    test.skip('should handle department names with leading verbs', async () => {
-      // REMOVED: Department detection moved to 5-phase pipeline
-      const text =
-        'Call Customer Service today. Visit Human Resources tomorrow. See the Sales Department.';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Should not detect any department references (all should be filtered)
-      const detected = properNouns.map((e) => e.original);
-      expect(detected).not.toContain('Call Customer Service');
-      expect(detected).not.toContain('Visit Human Resources');
-      expect(detected).not.toContain('Sales Department');
-    });
 
     // End of Department Name Filtering Tests
     // ========================================================================
@@ -1152,65 +870,6 @@ describe('PIIDetector', () => {
     // ========================================================================
     // Inside Link Signal Tests
     // ========================================================================
-
-    test.skip('should boost confidence for names inside link tags', () => {
-      // Create mock DOM structure: <p>By <a>Stephen Council</a></p>
-      const container = document.createElement('div');
-      container.innerHTML = '<p>By <a href="/author/stephen">Stephen Council</a></p>';
-
-      const candidates = detector.detectWithDebugInfo(container, ['properNouns']);
-      const stephenEntity = candidates.find((e) => /Stephen Council/i.test(e.original));
-
-      // Should detect Stephen Council with insideLink signal
-      expect(stephenEntity).toBeDefined();
-      expect(stephenEntity.scoreBreakdown.insideLink).toBeDefined();
-      expect(stephenEntity.scoreBreakdown.insideLink).toBe(0.25);
-      expect(stephenEntity.scoreBreakdown.insideLink_detail).toBe('text_in_link');
-    });
-
-    test.skip('should NOT add insideLink signal for text outside links', () => {
-      // Create mock DOM structure: <p>By Stephen Council</p>
-      const container = document.createElement('div');
-      container.innerHTML = '<p>By Stephen Council</p>';
-
-      const candidates = detector.detectWithDebugInfo(container, ['properNouns']);
-      const stephenEntity = candidates.find((e) => /Stephen Council/i.test(e.original));
-
-      // Should detect Stephen Council but without insideLink signal
-      expect(stephenEntity).toBeDefined();
-      expect(stephenEntity.scoreBreakdown.insideLink).toBeUndefined();
-    });
-
-    test.skip('should apply insideLink signal to company names in links', () => {
-      // Create mock DOM structure: <p>Visit <a>Acme Corp</a> for details</p>
-      const container = document.createElement('div');
-      container.innerHTML = '<p>Visit <a href="https://acme.com">Acme Corp</a> for details</p>';
-
-      const candidates = detector.detectWithDebugInfo(container, ['properNouns']);
-      const acmeEntity = candidates.find((e) => /Acme Corp/i.test(e.original));
-
-      // Should detect Acme Corp with insideLink signal
-      expect(acmeEntity).toBeDefined();
-      expect(acmeEntity.scoreBreakdown.insideLink).toBeDefined();
-      expect(acmeEntity.confidence).toBeGreaterThan(0.7); // Higher confidence due to link
-    });
-
-    test.skip('should use insideLink signal in _calculateProperNounScore', () => {
-      const context = {
-        hasHonorific: false,
-        hasCompanySuffix: false,
-        wordCount: 2,
-        isSentenceStart: false,
-        nearPII: false,
-        insideLink: true,
-      };
-      const { score, breakdown } = detector._calculateProperNounScore('Stephen Council', context);
-
-      expect(breakdown.insideLink).toBeDefined();
-      expect(breakdown.insideLink).toBe(0.25);
-      expect(breakdown.insideLink_detail).toBe('text_in_link');
-      expect(score).toBeGreaterThan(0.5);
-    });
 
     // End of Inside Link Signal Tests
     // ========================================================================
@@ -1489,11 +1148,6 @@ describe('PIIDetector', () => {
   });
 
   describe('Edge Cases', () => {
-    test.skip('should handle empty text', () => {
-      const entities = detector.detectInText('', ['email']);
-      expect(entities).toEqual([]);
-    });
-
     test('should handle very long text', () => {
       const longText = 'test@example.com '.repeat(100);
       expect(() => {
@@ -1528,186 +1182,11 @@ describe('PIIDetector', () => {
     });
   });
 
-  describe('_hasNearbyPII', () => {
-    test.skip('should detect email within window', () => {
-      const text = 'Contact John Doe at john@example.com for details';
-      const result = detector._hasNearbyPII(text, 8, 16); // "John Doe"
-      expect(result).toBe(true);
-    });
+  describe('_hasNearbyPII', () => {});
 
-    test.skip('should detect phone within window', () => {
-      const text = 'Call Jane Smith at (555) 123-4567';
-      const result = detector._hasNearbyPII(text, 5, 15); // "Jane Smith"
-      expect(result).toBe(true);
-    });
+  describe('_calculateUnknownWordRatio', () => {});
 
-    test.skip('should return false when no PII nearby', () => {
-      const text = 'The Average Receipt Value is calculated monthly';
-      const result = detector._hasNearbyPII(text, 4, 26); // "Average Receipt Value"
-      expect(result).toBe(false);
-    });
-
-    test.skip('should respect window size', () => {
-      const text = 'John Doe' + ' '.repeat(100) + 'test@example.com';
-      const result = detector._hasNearbyPII(text, 0, 8); // "John Doe" with email 100+ chars away
-      expect(result).toBe(false);
-    });
-
-    test.skip('should handle text at boundaries', () => {
-      const text = 'test@example.com John Doe';
-      const result = detector._hasNearbyPII(text, 17, 25); // "John Doe" at start
-      expect(result).toBe(true);
-    });
-  });
-
-  describe('_calculateUnknownWordRatio', () => {
-    test.skip('should return 1.0 for completely unknown name', () => {
-      const ratio = detector._calculateUnknownWordRatio('Xerxes');
-      expect(ratio).toBe(1.0);
-    });
-
-    test.skip('should return 0.0 for all common words', () => {
-      const ratio = detector._calculateUnknownWordRatio('The Average Value');
-      expect(ratio).toBe(0.0);
-    });
-
-    test.skip('should return 0.5 when dictionary not initialized', () => {
-      const uninitDetector = new PIIDetector();
-      uninitDetector.initialized = false;
-      const ratio = uninitDetector._calculateUnknownWordRatio('Unknown Person');
-      expect(ratio).toBe(0.5);
-    });
-
-    test.skip('should ignore honorifics when calculating', () => {
-      const ratio1 = detector._calculateUnknownWordRatio('John Doe');
-      const ratio2 = detector._calculateUnknownWordRatio('Mr. John Doe');
-      expect(ratio1).toBe(ratio2);
-    });
-
-    test.skip('should ignore company suffixes when calculating', () => {
-      const ratio1 = detector._calculateUnknownWordRatio('Acme Corporation');
-      const ratio2 = detector._calculateUnknownWordRatio('Acme');
-      expect(ratio1).toBe(ratio2);
-    });
-
-    test.skip('should handle standalone company suffix', () => {
-      // "Inc" standalone is treated as a word, not removed
-      const ratio = detector._calculateUnknownWordRatio('Inc');
-      expect(ratio).toBe(1);
-    });
-
-    test.skip('should handle mixed known and unknown words', () => {
-      const ratio = detector._calculateUnknownWordRatio('The Xerxes Project');
-      expect(ratio).toBeGreaterThan(0);
-      expect(ratio).toBeLessThan(1);
-    });
-  });
-
-  describe('_calculateProperNounScore', () => {
-    test.skip('should score "Mr. John Doe" as 1.0 (capped)', () => {
-      const context = {
-        hasHonorific: true,
-        hasCompanySuffix: false,
-        wordCount: 2,
-        isSentenceStart: false,
-        nearPII: false,
-      };
-      const { score } = detector._calculateProperNounScore('Mr. John Doe', context);
-      expect(score).toBe(1.0);
-    });
-
-    test.skip('should score sentence-start single word below threshold', () => {
-      const context = {
-        hasHonorific: false,
-        hasCompanySuffix: false,
-        wordCount: 1,
-        isSentenceStart: true,
-        nearPII: false,
-      };
-      const { score } = detector._calculateProperNounScore('Smith', context);
-      expect(score).toBeLessThan(0.8);
-    });
-
-    test.skip('should include breakdown details', () => {
-      const context = {
-        hasHonorific: true,
-        hasCompanySuffix: false,
-        wordCount: 2,
-        isSentenceStart: false,
-        nearPII: true,
-      };
-      const { score, breakdown } = detector._calculateProperNounScore('Mr. John Doe', context);
-
-      expect(score).toBe(1.0);
-      expect(breakdown.capitalizationPattern).toBeDefined();
-      expect(breakdown.hasHonorificOrSuffix).toBeDefined();
-      expect(breakdown.multiWord).toBeDefined();
-      expect(breakdown.notSentenceStart).toBeDefined();
-      expect(breakdown.nearOtherPII).toBeDefined();
-    });
-
-    test.skip('should add unknown dictionary signal for uncommon names', () => {
-      const context = {
-        hasHonorific: false,
-        hasCompanySuffix: false,
-        wordCount: 1,
-        isSentenceStart: false,
-        nearPII: false,
-      };
-      const { breakdown } = detector._calculateProperNounScore('Xerxes', context);
-      expect(breakdown.unknownInDictionary).toBeDefined();
-    });
-
-    test.skip('should not add unknown dictionary signal for common words', () => {
-      const context = {
-        hasHonorific: false,
-        hasCompanySuffix: false,
-        wordCount: 2,
-        isSentenceStart: false,
-        nearPII: false,
-      };
-      const { breakdown } = detector._calculateProperNounScore('The Average', context);
-      expect(breakdown.unknownInDictionary).toBeUndefined();
-    });
-
-    test.skip('should handle company suffix context', () => {
-      const context = {
-        hasHonorific: false,
-        hasCompanySuffix: true,
-        wordCount: 2,
-        isSentenceStart: false,
-        nearPII: false,
-      };
-      const { breakdown } = detector._calculateProperNounScore('Acme Corp', context);
-      expect(breakdown.hasHonorificOrSuffix).toBeDefined();
-      expect(breakdown.hasHonorificOrSuffix_detail).toBe('company_suffix');
-    });
-
-    test.skip('should handle honorific context', () => {
-      const context = {
-        hasHonorific: true,
-        hasCompanySuffix: false,
-        wordCount: 2,
-        isSentenceStart: false,
-        nearPII: false,
-      };
-      const { breakdown } = detector._calculateProperNounScore('Dr. Smith', context);
-      expect(breakdown.hasHonorificOrSuffix).toBeDefined();
-      expect(breakdown.hasHonorificOrSuffix_detail).toBe('honorific');
-    });
-
-    test.skip('should cap score at 1.0', () => {
-      const context = {
-        hasHonorific: true,
-        hasCompanySuffix: false,
-        wordCount: 3,
-        isSentenceStart: false,
-        nearPII: true,
-      };
-      const { score } = detector._calculateProperNounScore('Mr. John Doe', context);
-      expect(score).toBeLessThanOrEqual(1.0);
-    });
-  });
+  describe('_calculateProperNounScore', () => {});
 
   describe('_shouldSkipElementForDebug', () => {
     test('should skip script tags', () => {
@@ -1903,49 +1382,7 @@ describe('PIIDetector', () => {
     });
   });
 
-  describe('_detectAllProperNounCandidates', () => {
-    test.skip('should return all proper noun candidates including low-score ones', () => {
-      const text = 'Contact Mr. John Doe and visit Acme Corp';
-      const candidates = detector._detectAllProperNounCandidates(text);
-
-      expect(Array.isArray(candidates)).toBe(true);
-      expect(candidates.length).toBeGreaterThan(0);
-
-      candidates.forEach((candidate) => {
-        expect(candidate).toHaveProperty('type', 'properNoun');
-        expect(candidate).toHaveProperty('confidence');
-        expect(candidate).toHaveProperty('scoreBreakdown');
-      });
-    });
-
-    test.skip('should include candidates below threshold', () => {
-      const text = 'Smith works here'; // Single word at sentence start = low score
-      const candidates = detector._detectAllProperNounCandidates(text);
-
-      // Should return at least the candidate even if score is below 0.8
-      expect(candidates.length).toBeGreaterThan(0);
-    });
-
-    test.skip('should return empty array for text with no capitalized words', () => {
-      const text = 'this is all lowercase text';
-      const candidates = detector._detectAllProperNounCandidates(text);
-
-      expect(candidates).toEqual([]);
-    });
-
-    test.skip('should handle empty text', () => {
-      const candidates = detector._detectAllProperNounCandidates('');
-      expect(candidates).toEqual([]);
-    });
-
-    test.skip('should detect company names with suffixes', () => {
-      const text = 'Works at Microsoft Corporation';
-      const candidates = detector._detectAllProperNounCandidates(text);
-
-      const company = candidates.find((c) => c.context === 'company');
-      expect(company).toBeDefined();
-    });
-  });
+  describe('_detectAllProperNounCandidates', () => {});
 
   describe('detectWithDebugInfo', () => {
     let mockRootElement;
@@ -2056,120 +1493,7 @@ describe('PIIDetector', () => {
     });
   });
 
-  describe('Edge cases and false positives', () => {
-    test.skip('should not include common prepositions like "By" in proper noun detection', () => {
-      // Issue: "By Stephen Council" was being detected instead of just "Stephen Council"
-      const text = 'By Stephen Council, Tech Reporter';
-      const entities = detector.detectInText(text, ['properNouns']);
-
-      // Find the proper noun detection
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // Should detect "Stephen Council", NOT "By Stephen Council"
-      expect(properNouns.length).toBeGreaterThan(0);
-
-      const names = properNouns.map((e) => e.original);
-      expect(names).toContain('Stephen Council');
-      expect(names).not.toContain('By Stephen Council');
-
-      // The word "By" should not be part of any detected entity
-      const hasBy = properNouns.some((e) => e.original.startsWith('By '));
-      expect(hasBy).toBe(false);
-    });
-
-    test.skip('job titles like "Tech Reporter" are now detected (filtering moved to 5-phase pipeline)', () => {
-      // NOTE: Job title filtering has been removed from pii-detector.js
-      // This will be handled by PIIDictionary in the 5-phase pipeline
-      const text = 'By Stephen Council, Tech Reporter';
-      const entities = detector.detectInText(text, ['properNouns']);
-      const properNouns = entities.filter((e) => e.type === 'properNoun');
-
-      // "Tech Reporter" IS NOW detected (will be filtered later if needed)
-      const techReporter = properNouns.find((e) => e.original === 'Tech Reporter');
-      expect(techReporter).toBeDefined();
-
-      // "Stephen Council" should still be detected (after stripping "By")
-      const stephenCouncil = properNouns.find((e) => e.original === 'Stephen Council');
-      expect(stephenCouncil).toBeDefined();
-      expect(stephenCouncil.confidence).toBeGreaterThanOrEqual(0.75);
-    });
-
-    test.skip('should not detect other common job titles as companies', () => {
-      // REMOVED: Job title filtering moved to 5-phase pipeline
-      const jobTitles = [
-        'Senior Engineer',
-        'Lead Developer',
-        'Tech Writer',
-        'Chief Editor',
-        'Senior Manager',
-        'Lead Designer',
-        'Freelance Writer',
-        'Freelance Editor',
-        'Freelance Designer',
-      ];
-
-      for (const title of jobTitles) {
-        const text = `Meet ${title} John Smith`;
-        const entities = detector.detectInText(text, ['properNouns']);
-
-        // Job title by itself should NOT be detected (only as part of a name)
-        const jobTitleOnly = entities.find((e) => e.original === title);
-        expect(jobTitleOnly).toBeUndefined();
-
-        // The full phrase with job title + name should be detected, but with reduced confidence
-        // due to the hasJobDescriptionPrefix penalty (-0.25)
-        const fullPhrase = entities.find((e) => e.original.includes('John Smith'));
-
-        // Either the full phrase is detected (with job title prefix)
-        // OR just the name is detected (if job title was stripped)
-        // Both are acceptable outcomes - verify only if found
-        expect(fullPhrase === undefined || fullPhrase.confidence >= 0.5).toBe(true);
-      }
-    });
-
-    test.skip('should not include common sentence-starting words in proper nouns', () => {
-      const commonWords = ['By', 'In', 'On', 'At', 'For', 'With', 'From'];
-
-      for (const word of commonWords) {
-        const text = `${word} Alex Johnson, our CEO`;
-        const entities = detector.detectInText(text, ['properNouns']);
-
-        // Should detect "Alex Johnson", not include the preposition
-        const properNouns = entities.filter((e) => e.type === 'properNoun');
-        const names = properNouns.map((e) => e.original);
-
-        // Should find the actual name
-        expect(names.some((n) => n.includes('Alex Johnson'))).toBe(true);
-
-        // Should not have the preposition as part of the name
-        const hasPreposition = properNouns.some((e) => e.original.startsWith(`${word} `));
-        expect(hasPreposition).toBe(false);
-      }
-    });
-
-    test.skip('should NOT detect "Freelance Writer" as standalone job title', () => {
-      // Real-world test case: "Freelance Writer" should be filtered by isStandaloneJobTitle pattern
-      const text = `United unveiling its 'most luxurious' jet for 2 major SFO routes
-SFGATE contributor Jim Glab rounds up air travel and airport news for our weekly column Routes
-By Jim Glab,
-Freelance Writer
-Jan 17, 2026`;
-
-      // Set threshold to 0.90 (90%)
-      detector.setProperNounThreshold(0.9);
-
-      // Run detection with threshold filtering (as used in protect mode)
-      const entities = detector.detectInText(text, ['properNouns']);
-
-      // "Freelance Writer" should NOT be detected (filtered as standalone job title)
-      const freelanceWriter = entities.find((e) => e.original === 'Freelance Writer');
-      expect(freelanceWriter).toBeUndefined();
-
-      // "Jim Glab" should still be detected
-      const jimGlab = entities.find((e) => e.original.includes('Jim Glab'));
-      expect(jimGlab).toBeDefined();
-    });
-  });
+  describe('Edge cases and false positives', () => {});
 
   describe('POS Tagging - Adjective/Verb/Adverb Filtering', () => {
     beforeEach(async () => {
@@ -2178,21 +1502,6 @@ Jan 17, 2026`;
     });
 
     describe('_isAdjective', () => {
-      test.skip('should detect nationality adjectives', () => {
-        expect(detector.properNounDetector._isAdjective('American')).toBe(true);
-        expect(detector.properNounDetector._isAdjective('Russian')).toBe(true);
-        expect(detector.properNounDetector._isAdjective('French')).toBe(true);
-        expect(detector.properNounDetector._isAdjective('British')).toBe(true);
-        expect(detector.properNounDetector._isAdjective('Chinese')).toBe(true);
-      });
-
-      test.skip('should detect common adjectives', () => {
-        expect(detector.properNounDetector._isAdjective('Beautiful')).toBe(true);
-        expect(detector.properNounDetector._isAdjective('Quick')).toBe(true);
-        expect(detector.properNounDetector._isAdjective('Happy')).toBe(true);
-        expect(detector.properNounDetector._isAdjective('Large')).toBe(true);
-      });
-
       test('should NOT detect proper nouns as adjectives', () => {
         expect(detector.properNounDetector._isAdjective('John')).toBe(false);
         expect(detector.properNounDetector._isAdjective('Smith')).toBe(false);
@@ -2202,12 +1511,6 @@ Jan 17, 2026`;
     });
 
     describe('_isVerb', () => {
-      test.skip('should detect verbs', () => {
-        expect(detector.properNounDetector._isVerb('Running')).toBe(true);
-        expect(detector.properNounDetector._isVerb('Jumped')).toBe(true);
-        expect(detector.properNounDetector._isVerb('Thinking')).toBe(true);
-      });
-
       test('should NOT detect proper nouns as verbs', () => {
         expect(detector.properNounDetector._isVerb('John')).toBe(false);
         expect(detector.properNounDetector._isVerb('Smith')).toBe(false);
@@ -2215,12 +1518,6 @@ Jan 17, 2026`;
     });
 
     describe('_isAdverb', () => {
-      test.skip('should detect adverbs', () => {
-        expect(detector.properNounDetector._isAdverb('Quickly')).toBe(true);
-        expect(detector.properNounDetector._isAdverb('Slowly')).toBe(true);
-        expect(detector.properNounDetector._isAdverb('Very')).toBe(true);
-      });
-
       test('should NOT detect proper nouns as adverbs', () => {
         expect(detector.properNounDetector._isAdverb('John')).toBe(false);
         expect(detector.properNounDetector._isAdverb('Smith')).toBe(false);
@@ -2228,28 +1525,6 @@ Jan 17, 2026`;
     });
 
     describe('Adjective filtering in detection', () => {
-      test.skip('should NOT detect nationality adjectives as proper nouns', () => {
-        const text = 'The American company announced new Russian products with French design.';
-        const entities = detector.detectInText(text, ['properNouns']);
-
-        // Should NOT detect nationality adjectives
-        expect(entities.find((e) => e.original === 'American')).toBeUndefined();
-        expect(entities.find((e) => e.original === 'Russian')).toBeUndefined();
-        expect(entities.find((e) => e.original === 'French')).toBeUndefined();
-      });
-
-      test.skip('should show negative POS scoring in debug info', async () => {
-        const candidates = detector.detectWithDebugInfo(document.body, ['properNouns']);
-
-        const americanCandidate = candidates.find((c) => c.original === 'American');
-
-        // Should have nonNounPOS negative weight applied
-        expect(americanCandidate).toBeDefined();
-        expect(americanCandidate.scoreBreakdown.nonNounPOS).toBeDefined();
-        expect(americanCandidate.scoreBreakdown.nonNounPOS).toBeLessThan(0);
-        expect(americanCandidate.scoreBreakdown.nonNounPOS_detail).toContain('adjective');
-      });
-
       test('should still detect proper nouns that happen to be adjective-like', () => {
         // Some names might look like adjectives but are actually names
         const text = 'Mr. Swift works at the company.';

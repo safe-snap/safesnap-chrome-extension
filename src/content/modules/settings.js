@@ -8,9 +8,21 @@ import { APP_CONFIG } from '../../../config/app-config.js';
 let userSettings = {};
 
 /**
+ * Check if running in Chrome extension context
+ */
+function isExtensionContext() {
+  return typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync;
+}
+
+/**
  * Load user settings from storage
  */
 export async function loadSettings() {
+  // Skip storage access if not in extension context (e.g., E2E tests)
+  if (!isExtensionContext()) {
+    userSettings = {};
+    return;
+  }
   try {
     const result = await chrome.storage.sync.get([APP_CONFIG.storageKeys.settings]);
     userSettings = result[APP_CONFIG.storageKeys.settings] || {};

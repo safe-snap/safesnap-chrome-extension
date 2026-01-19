@@ -38,9 +38,31 @@ export function isHighlightEnabled() {
 }
 
 /**
+ * Check if running in Chrome extension context
+ */
+function isExtensionContext() {
+  return typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync;
+}
+
+/**
  * Get enabled PII types from storage
  */
 async function getEnabledPIITypes() {
+  // Return defaults if not in extension context (e.g., E2E tests)
+  if (!isExtensionContext()) {
+    return [
+      'properNouns',
+      'emails',
+      'phones',
+      'money',
+      'quantities',
+      'addresses',
+      'dates',
+      'urls',
+      'ips',
+      'creditCards',
+    ];
+  }
   try {
     const result = await chrome.storage.sync.get(['safesnap_pii_types']);
     const piiTypes = result.safesnap_pii_types || {};
@@ -92,8 +114,9 @@ async function getEnabledPIITypes() {
  * Enable highlight mode - show visual highlighting of all detection candidates
  * @param {Object} detector - The PII detector instance
  * @param {Function} getOriginalValue - Optional function to get original value for a text node (when PII is protected)
+ * @param {Array<string>} overrideTypes - Optional array of PII types to highlight (overrides storage-based types)
  */
-export async function enableHighlightMode(detector, getOriginalValue = null) {
+export async function enableHighlightMode(detector, getOriginalValue = null, overrideTypes = null) {
   console.log('👁️ Enabling highlight mode');
 
   // Remove any existing overlays
@@ -102,8 +125,8 @@ export async function enableHighlightMode(detector, getOriginalValue = null) {
   // Store the function to get original values
   getOriginalValueFn = getOriginalValue;
 
-  // Get enabled PII types from storage
-  const enabledTypes = await getEnabledPIITypes();
+  // Get enabled PII types - use override if provided, otherwise from storage
+  const enabledTypes = overrideTypes || (await getEnabledPIITypes());
   console.log('[SafeSnap] Highlighting enabled PII types:', enabledTypes);
 
   // Get all candidates from the detector (including those below threshold)

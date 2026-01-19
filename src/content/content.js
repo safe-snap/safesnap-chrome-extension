@@ -30,6 +30,14 @@ if (window.safesnapInitialized) {
 }
 window.safesnapInitialized = true;
 
+// Expose SafeSnap API for E2E testing and external integration
+window.SafeSnap = {
+  protectPII: null, // Will be set after initialization
+  highlightPII: null, // Will be set after initialization
+  restoreOriginal: null, // Will be set after initialization
+  isInitialized: false,
+};
+
 console.log('[SafeSnap Debug] Content script loaded: SafeSnap initialization attempt starting.');
 console.log(`[SafeSnap Debug] DOM ready state on script load: ${document.readyState}`);
 // Initialize modules
@@ -65,6 +73,17 @@ let consistencyMapper = null;
   console.log('[SafeSnap Debug] SafeSnap fully initialized: All modules loaded successfully.');
   console.log('[SafeSnap Debug] Modules initialized: detector, replacer, consistencyMapper');
 
+  // Expose SafeSnap API for E2E testing and external integration
+  window.SafeSnap.protectPII = (enabledTypes) => protectPII(enabledTypes);
+  window.SafeSnap.highlightPII = (enabledTypes) => {
+    if (detector) {
+      enableHighlightMode(detector, getOriginalTextForNode, enabledTypes);
+    }
+  };
+  window.SafeSnap.restoreOriginal = () => restoreOriginal();
+  window.SafeSnap.isInitialized = true;
+  console.log('[SafeSnap Debug] SafeSnap API exposed on window.SafeSnap');
+
   // Wait for DOM to be ready before enabling highlights
   const enableHighlightsIfNeeded = async () => {
     const shouldEnableHighlights = await initializeHighlightMode();
@@ -87,115 +106,117 @@ let consistencyMapper = null;
   }
 })();
 
-// Listen for messages from popup
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log('Content script received message:', message);
+// Listen for messages from popup (only in extension context)
+if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.onMessage) {
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    console.log('Content script received message:', message);
 
-  // Handle action-based messages (from popup highlight button)
-  if (message.action === 'toggleHighlightMode') {
-    const isEnabled = isHighlightEnabled();
-    const newState = !isEnabled;
-    console.log('[SafeSnap Content] Highlight mode toggled to:', newState);
+    // Handle action-based messages (from popup highlight button)
+    if (message.action === 'toggleHighlightMode') {
+      const isEnabled = isHighlightEnabled();
+      const newState = !isEnabled;
+      console.log('[SafeSnap Content] Highlight mode toggled to:', newState);
 
-    if (newState) {
-      console.log('[SafeSnap Content] Enabling highlight mode');
-      enableHighlightMode(detector, getOriginalTextForNode);
-    } else {
-      console.log('[SafeSnap Content] Disabling highlight mode');
-      disableHighlightMode();
-    }
-    console.log('[SafeSnap Content] Sending response:', { enabled: newState });
-    sendResponse({ enabled: newState });
-    return false;
-  }
-
-  // Handle type-based messages
-  switch (message.type) {
-    case 'PROTECT_PII':
-      protectPII(message.enabledTypes)
-        .then(() => {
-          sendResponse({ success: true, message: 'PII protection applied' });
-        })
-        .catch((error) => {
-          sendResponse({ success: false, error: error.message });
-        });
-      return true; // Indicates async response
-
-    case 'RESTORE_ORIGINAL':
-      restoreOriginal();
-      sendResponse({ success: true, message: 'Original content restored' });
-      break;
-
-    case 'GET_STATUS':
-      sendResponse({
-        success: true,
-        isPIIProtected: getProtectionStatus(),
-        isHighlightModeEnabled: isHighlightEnabled(),
-      });
-      break;
-
-    case 'RELOAD_SETTINGS':
-      loadSettings()
-        .then(async () => {
-          // Update detector's threshold from newly loaded settings
-          if (detector) {
-            const threshold = getSetting('properNounThreshold');
-            if (threshold !== undefined) {
-              detector.setProperNounThreshold(threshold);
-            }
-          }
-
-          // Refresh positions of all active notification panels
-          await refreshAllPanelPositions();
-
-          // If highlight mode is active, refresh highlights with new settings
-          // This ensures changes to threshold, etc. are immediately visible
-          if (isHighlightEnabled()) {
-            console.log('[SafeSnap] Settings changed, refreshing highlights');
-            await refreshHighlightsWithSettings();
-          }
-
-          sendResponse({ success: true, message: 'Settings reloaded and panels updated' });
-        })
-        .catch((error) => {
-          sendResponse({ success: false, error: error.message });
-        });
-      return true; // Indicates async response
-
-    case 'SHOW_BANNER':
-      showStatusMessage('info', { message: message.message });
-      sendResponse({ success: true });
-      break;
-
-    case 'PII_TYPES_CHANGED':
-      // User changed PII type checkboxes - refresh highlights if enabled
-      console.log('[SafeSnap] PII types changed, refreshing highlights');
-      refreshHighlightsWithSettings()
-        .then(() => {
-          sendResponse({ success: true });
-        })
-        .catch((error) => {
-          console.error('[SafeSnap] Error refreshing highlights:', error);
-          sendResponse({ success: false, error: error.message });
-        });
-      return true; // Indicates async response
-
-    case 'toggleDebugMode':
-      if (message.enabled) {
-        enableDebugMode();
+      if (newState) {
+        console.log('[SafeSnap Content] Enabling highlight mode');
+        enableHighlightMode(detector, getOriginalTextForNode);
       } else {
-        disableDebugMode();
+        console.log('[SafeSnap Content] Disabling highlight mode');
+        disableHighlightMode();
       }
-      sendResponse({ success: true });
-      break;
+      console.log('[SafeSnap Content] Sending response:', { enabled: newState });
+      sendResponse({ enabled: newState });
+      return false;
+    }
 
-    default:
-      if (message.type) {
-        console.warn('[SafeSnap Warning] Received unknown message type:', message.type);
-        sendResponse({ error: 'Unknown message type' });
-      }
-  }
-});
+    // Handle type-based messages
+    switch (message.type) {
+      case 'PROTECT_PII':
+        protectPII(message.enabledTypes)
+          .then(() => {
+            sendResponse({ success: true, message: 'PII protection applied' });
+          })
+          .catch((error) => {
+            sendResponse({ success: false, error: error.message });
+          });
+        return true; // Indicates async response
+
+      case 'RESTORE_ORIGINAL':
+        restoreOriginal();
+        sendResponse({ success: true, message: 'Original content restored' });
+        break;
+
+      case 'GET_STATUS':
+        sendResponse({
+          success: true,
+          isPIIProtected: getProtectionStatus(),
+          isHighlightModeEnabled: isHighlightEnabled(),
+        });
+        break;
+
+      case 'RELOAD_SETTINGS':
+        loadSettings()
+          .then(async () => {
+            // Update detector's threshold from newly loaded settings
+            if (detector) {
+              const threshold = getSetting('properNounThreshold');
+              if (threshold !== undefined) {
+                detector.setProperNounThreshold(threshold);
+              }
+            }
+
+            // Refresh positions of all active notification panels
+            await refreshAllPanelPositions();
+
+            // If highlight mode is active, refresh highlights with new settings
+            // This ensures changes to threshold, etc. are immediately visible
+            if (isHighlightEnabled()) {
+              console.log('[SafeSnap] Settings changed, refreshing highlights');
+              await refreshHighlightsWithSettings();
+            }
+
+            sendResponse({ success: true, message: 'Settings reloaded and panels updated' });
+          })
+          .catch((error) => {
+            sendResponse({ success: false, error: error.message });
+          });
+        return true; // Indicates async response
+
+      case 'SHOW_BANNER':
+        showStatusMessage('info', { message: message.message });
+        sendResponse({ success: true });
+        break;
+
+      case 'PII_TYPES_CHANGED':
+        // User changed PII type checkboxes - refresh highlights if enabled
+        console.log('[SafeSnap] PII types changed, refreshing highlights');
+        refreshHighlightsWithSettings()
+          .then(() => {
+            sendResponse({ success: true });
+          })
+          .catch((error) => {
+            console.error('[SafeSnap] Error refreshing highlights:', error);
+            sendResponse({ success: false, error: error.message });
+          });
+        return true; // Indicates async response
+
+      case 'toggleDebugMode':
+        if (message.enabled) {
+          enableDebugMode();
+        } else {
+          disableDebugMode();
+        }
+        sendResponse({ success: true });
+        break;
+
+      default:
+        if (message.type) {
+          console.warn('[SafeSnap Warning] Received unknown message type:', message.type);
+          sendResponse({ error: 'Unknown message type' });
+        }
+    }
+  });
+}
 
 /**
  * Protect PII on the page - Wrapper for core protection logic

@@ -10,6 +10,13 @@ import i18n from '../../i18n/en.js';
 const activePanels = new Map();
 
 /**
+ * Check if running in Chrome extension context
+ */
+function isExtensionContext() {
+  return typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync;
+}
+
+/**
  * Get position styles based on banner position setting
  */
 function getPositionStyles(position) {
@@ -35,6 +42,9 @@ function getPositionStyles(position) {
  * Get banner position from settings
  */
 async function getBannerPosition() {
+  if (!isExtensionContext()) {
+    return 'top-right';
+  }
   try {
     const result = await chrome.storage.sync.get(['safesnap_settings']);
     const settings = result.safesnap_settings || {};
@@ -49,6 +59,9 @@ async function getBannerPosition() {
  * Get fade distance from settings
  */
 async function getFadeDistance() {
+  if (!isExtensionContext()) {
+    return 150;
+  }
   try {
     const result = await chrome.storage.sync.get(['safesnap_settings']);
     const settings = result.safesnap_settings || {};
