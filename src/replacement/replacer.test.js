@@ -87,6 +87,13 @@ describe('Replacer', () => {
       // Should have comma separators
       expect(replacement).toMatch(/^\$\d{1,3}(,\d{3})+\.\d{2}$/);
     });
+
+    test('should NOT add commas to small amounts', () => {
+      replacer.resetMultipliers();
+      const replacement = replacer.replaceMoney('$339.99');
+      // Small numbers should not include commas
+      expect(replacement).not.toContain(',');
+    });
   });
 
   describe('replaceQuantity', () => {
