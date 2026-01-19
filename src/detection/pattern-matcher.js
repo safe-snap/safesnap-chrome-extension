@@ -19,9 +19,11 @@ export class PatternMatcher {
       // Phone patterns - US and international formats
       phone: /(\+\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b/g,
 
-      // Money patterns - multiple currencies
+      // Money patterns - multiple currencies and formats
+      // Enhanced to handle cross-node detection where spaces may be inserted between DOM nodes
+      // Examples: "$1,199.99", "$ 1,199 . 99" (cross-node), "€100", "100 USD"
       money:
-        /[$€£¥₹]\s?\d{1,3}(,\d{3})*(\.\d{2,})?|\d{1,3}(,\d{3})*(\.\d{2,})?\s?(USD|EUR|GBP|JPY|INR)/gi,
+        /[$€£¥₹]\s*\d{1,3}(?:\s*,\s*\d{3})*(?:\s*\.\s*\d{2,})?|\d{1,3}(?:\s*,\s*\d{3})*(?:\s*\.\s*\d{2,})?\s*(?:USD|EUR|GBP|JPY|INR)/gi,
 
       // URLs - http, https, www
       url: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)|www\.[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b/gi,
@@ -46,8 +48,9 @@ export class PatternMatcher {
 
       // Quantities with units OR standalone numbers with quantity context
       // Matches: "5 items", "3.5 kg", "total: 7", "count: 3", etc.
+      // Negative lookbehind (?<!\.) prevents matching decimal portions like ".99" from "$1,199.99"
       quantity:
-        /(?:(?:\btotal\b|\bcount\b|\border\b|\bitem\b|\bquantity\b|\bamount\b|\bnumber\b)[:\s]+)?\b\d{1,3}(,\d{3})*(\.\d+)?(?:\s*(items|units|pieces|qty|count|kg|lbs|oz|g|ml|l|meters|feet|inches|cm|mm))?\b/gi,
+        /(?:(?:\btotal\b|\bcount\b|\border\b|\bitem\b|\bquantity\b|\bamount\b|\bnumber\b)[:\s]+)?(?<!\.)\b\d{1,3}(,\d{3})*(\.\d+)?(?:\s*(items|units|pieces|qty|count|kg|lbs|oz|g|ml|l|meters|feet|inches|cm|mm))?\b/gi,
 
       // Locations - multi-word geographic locations with keywords
       // Matches: "Bay Area", "Silicon Valley", "Pacific Ocean", "Rocky Mountains", etc.

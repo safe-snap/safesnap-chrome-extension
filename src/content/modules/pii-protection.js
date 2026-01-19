@@ -408,7 +408,7 @@ function applyReplacements(entities, replacementMap) {
     entitiesByNode.get(entity.node).push(entity);
   }
 
-  // Handle cross-node entities
+  // Handle cross-node entities FIRST (before storing originals for individual nodes)
   replacementCount += handleCrossNodeEntities(crossNodeEntities, replacementMap);
 
   // Process each node that has detected entities
@@ -590,6 +590,14 @@ function handleCrossNodeEntities(crossNodeEntities, replacementMap) {
       }
 
       if (startNodeIndex !== -1 && endNodeIndex !== -1) {
+        // Store original content for all affected nodes BEFORE modifying them
+        for (let i = startNodeIndex; i <= endNodeIndex; i++) {
+          const node = textNodes[i];
+          if (!originalContent.has(node)) {
+            originalContent.set(node, node.textContent);
+          }
+        }
+
         // Case 1: Entity is within a single node
         if (startNodeIndex === endNodeIndex) {
           const node = textNodes[startNodeIndex];

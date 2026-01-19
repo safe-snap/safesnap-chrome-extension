@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test Money Split Across Nodes</title>
+    <style>
+      .price-container {
+        font-size: 48px;
+        margin: 20px;
+      }
+      .mui-2qzt8l {
+        vertical-align: super;
+        font-size: 0.6em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Test Cases for Money Detection</h1>
+
+    <h2>Test 1: Original structure (4 nodes)</h2>
+    <div class="price-container">
+      <span>$</span><span>1,199</span><span>.</span><span class="mui-2qzt8l">99</span>
+    </div>
+
+    <h2>Test 2: Simpler structure (2 nodes)</h2>
+    <div class="price-container"><span>$1,199</span><span class="mui-2qzt8l">.99</span></div>
+
+    <h2>Test 3: Traditional structure (1 node)</h2>
+    <div class="price-container">
+      <span>$1,199.99</span>
+    </div>
+
+    <h2>Instructions:</h2>
+    <ol>
+      <li>Build the extension: <code>bun run build</code></li>
+      <li>Load the extension from <code>dist/</code> folder</li>
+      <li>Open this HTML file in Chrome</li>
+      <li>Click "Remove PII" in SafeSnap</li>
+      <li>Check if all three prices are replaced correctly</li>
+      <li>Click "Restore PII"</li>
+      <li>Check if all three prices are restored correctly</li>
+    </ol>
+  </body>
+</html>

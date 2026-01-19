@@ -65,6 +65,28 @@ describe('Replacer', () => {
       const replacement = replacer.replaceMoney('not money');
       expect(replacement).toBe('not money');
     });
+
+    test('should preserve comma formatting for amounts with commas', () => {
+      replacer.resetMultipliers();
+      const replacement = replacer.replaceMoney('$1,199');
+      // Should have comma separator for thousands
+      expect(replacement).toMatch(/^\$\d{1,3}(,\d{3})*$/);
+    });
+
+    test('should handle money without decimal places correctly', () => {
+      replacer.resetMultipliers();
+      const replacement = replacer.replaceMoney('$1,199');
+      // Should preserve format: $ + digits with commas, no decimals
+      expect(replacement).toMatch(/^\$\d{1,3}(,\d{3})*$/);
+      expect(replacement).not.toContain('.');
+    });
+
+    test('should format large amounts with commas', () => {
+      replacer.resetMultipliers();
+      const replacement = replacer.replaceMoney('$10,000.00');
+      // Should have comma separators
+      expect(replacement).toMatch(/^\$\d{1,3}(,\d{3})+\.\d{2}$/);
+    });
   });
 
   describe('replaceQuantity', () => {

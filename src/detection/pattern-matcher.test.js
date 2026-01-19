@@ -545,5 +545,90 @@ describe('PatternMatcher', () => {
 
       expect(quantities.length).toBeGreaterThan(0);
     });
+
+    test('should handle split money nodes correctly', () => {
+      // Create a mock DOM structure like the user's HTML
+      const mockElement = {
+        querySelectorAll: () => [],
+        children: [],
+      };
+
+      // Mock text nodes for: <span>$</span><span>1,199</span><span>.</span><span class="mui-2qzt8l">99</span>
+      const mockNodes = [
+        { textContent: '$', parentElement: mockElement },
+        { textContent: '1,199', parentElement: mockElement },
+        { textContent: '.', parentElement: mockElement },
+        { textContent: '99', parentElement: mockElement },
+      ];
+
+      // Simulate what detectInDOM does
+      const textNodes = [];
+      let globalOffset = 0;
+
+      for (const node of mockNodes) {
+        const text = node.textContent;
+        if (text && text.trim()) {
+          textNodes.push({
+            node: node,
+            text,
+            start: globalOffset,
+            end: globalOffset + text.length,
+          });
+          globalOffset += text.length + 1; // +1 for space separator
+        }
+      }
+
+      // Concatenated text: "$ 1,199 . 99"
+      const fullText = textNodes.map((n) => n.text).join(' ');
+      console.log('Full concatenated text:', `"${fullText}"`);
+
+      // Detect all types on concatenated text
+      const entities = [];
+      const money = matcher.findMoney(fullText);
+      entities.push(
+        ...money.map((m) => ({
+          type: 'money',
+          original: m.value,
+          start: m.start,
+          end: m.end,
+          confidence: 1.0,
+        }))
+      );
+
+      const quantities = matcher.findQuantities(fullText);
+      entities.push(
+        ...quantities.map((m) => ({
+          type: 'quantity',
+          original: m.value,
+          start: m.start,
+          end: m.end,
+          confidence: 1.0,
+        }))
+      );
+
+      console.log('Entities from concatenated text:', entities);
+
+      // Map back to nodes
+      const entitiesWithNodes = entities.map((entity) => {
+        const nodeInfo = textNodes.find((n) => entity.start >= n.start && entity.start < n.end);
+        if (nodeInfo) {
+          const nodeRelativeStart = entity.start - nodeInfo.start;
+          return {
+            ...entity,
+            node: nodeInfo.node,
+            nodeText: nodeInfo.text,
+            start: nodeRelativeStart,
+            end: nodeRelativeStart + (entity.end - entity.start),
+          };
+        }
+        return entity;
+      });
+
+      console.log('Entities mapped to nodes:', entitiesWithNodes);
+
+      // Test what gets detected
+      expect(entitiesWithNodes.some((e) => e.type === 'money')).toBe(true);
+      expect(entitiesWithNodes.find((e) => e.type === 'money').original).toBe('$ 1,199 . 99');
+    });
   });
 });
