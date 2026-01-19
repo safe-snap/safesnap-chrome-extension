@@ -44,6 +44,7 @@ try {
 } catch (error) {
   console.error('[ERROR] SafeSnap failed to initialize:', error);
 }
+}
 
 /**
  * Helper: Trigger PII protection

@@ -55,7 +55,7 @@ describe('NamePool', () => {
     test('should accept gender parameter', () => {
       const maleName = namePool.getRandomFirstName('male');
       expect(namePool.firstNames.male).toContain(maleName);
-      
+
       const femaleName = namePool.getRandomFirstName('female');
       expect(namePool.firstNames.female).toContain(femaleName);
     });
@@ -96,7 +96,7 @@ describe('NamePool', () => {
     test('should contain first name and surname', () => {
       const fullName = namePool.getRandomFullName();
       const [firstName, lastName] = fullName.split(' ');
-      
+
       const allFirstNames = [...namePool.firstNames.male, ...namePool.firstNames.female];
       expect(allFirstNames).toContain(firstName);
       expect(namePool.lastNames).toContain(lastName);
@@ -114,7 +114,7 @@ describe('NamePool', () => {
       const maleName = namePool.getRandomFullName('male');
       const firstName = maleName.split(' ')[0];
       expect(namePool.firstNames.male).toContain(firstName);
-      
+
       const femaleName = namePool.getRandomFullName('female');
       const femaleFirstName = femaleName.split(' ')[0];
       expect(namePool.firstNames.female).toContain(femaleFirstName);
@@ -123,19 +123,19 @@ describe('NamePool', () => {
 
   describe('Data Quality', () => {
     test('all male first names should be capitalized', () => {
-      namePool.firstNames.male.forEach(name => {
+      namePool.firstNames.male.forEach((name) => {
         expect(name[0]).toBe(name[0].toUpperCase());
       });
     });
 
     test('all female first names should be capitalized', () => {
-      namePool.firstNames.female.forEach(name => {
+      namePool.firstNames.female.forEach((name) => {
         expect(name[0]).toBe(name[0].toUpperCase());
       });
     });
 
     test('all surnames should be capitalized', () => {
-      namePool.lastNames.forEach(name => {
+      namePool.lastNames.forEach((name) => {
         expect(name[0]).toBe(name[0].toUpperCase());
       });
     });
@@ -159,10 +159,10 @@ describe('NamePool', () => {
       const allNames = [
         ...namePool.firstNames.male,
         ...namePool.firstNames.female,
-        ...namePool.lastNames
+        ...namePool.lastNames,
       ];
-      
-      allNames.forEach(name => {
+
+      allNames.forEach((name) => {
         expect(name).toMatch(/^[A-Za-z]+$/);
       });
     });
@@ -171,10 +171,10 @@ describe('NamePool', () => {
       const allNames = [
         ...namePool.firstNames.male,
         ...namePool.firstNames.female,
-        ...namePool.lastNames
+        ...namePool.lastNames,
       ];
-      
-      allNames.forEach(name => {
+
+      allNames.forEach((name) => {
         expect(name.length).toBeGreaterThanOrEqual(2);
         expect(name.length).toBeLessThanOrEqual(15);
       });
@@ -185,12 +185,12 @@ describe('NamePool', () => {
     test('should produce varied distribution of first names', () => {
       const counts = {};
       const iterations = 100;
-      
+
       for (let i = 0; i < iterations; i++) {
         const name = namePool.getRandomFirstName();
         counts[name] = (counts[name] || 0) + 1;
       }
-      
+
       // Should use at least 20% of available names
       const allNames = [...namePool.firstNames.male, ...namePool.firstNames.female];
       expect(Object.keys(counts).length).toBeGreaterThan(allNames.length * 0.2);
@@ -199,12 +199,12 @@ describe('NamePool', () => {
     test('should produce varied distribution of surnames', () => {
       const counts = {};
       const iterations = 100;
-      
+
       for (let i = 0; i < iterations; i++) {
         const name = namePool.getRandomSurname();
         counts[name] = (counts[name] || 0) + 1;
       }
-      
+
       // Should use at least 20% of available surnames
       expect(Object.keys(counts).length).toBeGreaterThan(namePool.lastNames.length * 0.2);
     });
@@ -214,7 +214,7 @@ describe('NamePool', () => {
     test('should handle gender parameter with different cases', () => {
       const name1 = namePool.getRandomFirstName('Male');
       expect(namePool.firstNames.male).toContain(name1);
-      
+
       const name2 = namePool.getRandomFirstName('FEMALE');
       expect(namePool.firstNames.female).toContain(name2);
     });
@@ -246,7 +246,7 @@ describe('NamePool', () => {
 
     test('should accept gender parameter', () => {
       const names = namePool.getRandomNames(3, 'male');
-      names.forEach(fullName => {
+      names.forEach((fullName) => {
         const firstName = fullName.split(' ')[0];
         expect(namePool.firstNames.male).toContain(firstName);
       });

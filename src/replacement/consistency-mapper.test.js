@@ -25,13 +25,13 @@ describe('ConsistencyMapper', () => {
     test('should store and retrieve replacement', () => {
       mapper.set('email', 'john@example.com', 'jane@test.com');
       const result = mapper.get('email', 'john@example.com');
-      
+
       expect(result).toBe('jane@test.com');
     });
 
     test('should be case-insensitive', () => {
       mapper.set('properNoun', 'John Doe', 'Jane Smith');
-      
+
       expect(mapper.get('properNoun', 'john doe')).toBe('Jane Smith');
       expect(mapper.get('properNoun', 'JOHN DOE')).toBe('Jane Smith');
       expect(mapper.get('properNoun', 'JoHn DoE')).toBe('Jane Smith');
@@ -39,7 +39,7 @@ describe('ConsistencyMapper', () => {
 
     test('should trim whitespace', () => {
       mapper.set('properNoun', '  John Doe  ', 'Jane Smith');
-      
+
       expect(mapper.get('properNoun', 'John Doe')).toBe('Jane Smith');
     });
 
@@ -68,10 +68,10 @@ describe('ConsistencyMapper', () => {
   describe('linkRelated', () => {
     test('should link two entities bidirectionally', () => {
       mapper.linkRelated('properNoun', 'Acme Corp', 'url', 'acme.com');
-      
+
       const related1 = mapper.getRelated('properNoun', 'Acme Corp');
       const related2 = mapper.getRelated('url', 'acme.com');
-      
+
       expect(related1).toContain('url:acme.com');
       expect(related2).toContain('properNoun:acme corp');
     });
@@ -79,7 +79,7 @@ describe('ConsistencyMapper', () => {
     test('should handle multiple related entities', () => {
       mapper.linkRelated('properNoun', 'John Doe', 'email', 'john@example.com');
       mapper.linkRelated('properNoun', 'John Doe', 'phone', '555-1234');
-      
+
       const related = mapper.getRelated('properNoun', 'John Doe');
       expect(related).toHaveLength(2);
       expect(related).toContain('email:john@example.com');
@@ -96,7 +96,7 @@ describe('ConsistencyMapper', () => {
     test('should return all related entities', () => {
       mapper.linkRelated('properNoun', 'Tech Corp', 'url', 'techcorp.com');
       mapper.linkRelated('properNoun', 'Tech Corp', 'email', 'info@techcorp.com');
-      
+
       const related = mapper.getRelated('properNoun', 'Tech Corp');
       expect(related).toHaveLength(2);
     });
@@ -106,7 +106,7 @@ describe('ConsistencyMapper', () => {
     test('should propagate company to domain', () => {
       mapper.linkRelated('properNoun', 'TechFlow Inc', 'url', 'techflow.com');
       mapper.propagateToRelated('properNoun', 'TechFlow Inc', 'DataBridge Corp');
-      
+
       const urlReplacement = mapper.get('url', 'techflow.com');
       expect(urlReplacement).toContain('databridge');
     });
@@ -114,7 +114,7 @@ describe('ConsistencyMapper', () => {
     test('should propagate domain to company', () => {
       mapper.linkRelated('url', 'example.com', 'properNoun', 'Example Corp');
       mapper.propagateToRelated('url', 'example.com', 'testsite.com');
-      
+
       const companyReplacement = mapper.get('properNoun', 'Example Corp');
       expect(companyReplacement).toContain('Testsite');
     });
@@ -122,7 +122,7 @@ describe('ConsistencyMapper', () => {
     test('should propagate email to name', () => {
       mapper.linkRelated('email', 'john.doe@example.com', 'properNoun', 'John Doe');
       mapper.propagateToRelated('email', 'john.doe@example.com', 'jane.smith@test.com');
-      
+
       const nameReplacement = mapper.get('properNoun', 'John Doe');
       expect(nameReplacement).toBeTruthy();
     });
@@ -130,7 +130,7 @@ describe('ConsistencyMapper', () => {
     test('should propagate name to email', () => {
       mapper.linkRelated('properNoun', 'John Doe', 'email', 'john@example.com');
       mapper.propagateToRelated('properNoun', 'John Doe', 'Jane Smith');
-      
+
       const emailReplacement = mapper.get('email', 'john@example.com');
       expect(emailReplacement).toBeTruthy();
     });
@@ -140,9 +140,9 @@ describe('ConsistencyMapper', () => {
     test('should clear all mappings', () => {
       mapper.set('email', 'test1@example.com', 'replacement1@test.com');
       mapper.set('email', 'test2@example.com', 'replacement2@test.com');
-      
+
       mapper.clear();
-      
+
       expect(mapper.size()).toBe(0);
       expect(mapper.get('email', 'test1@example.com')).toBeNull();
     });
@@ -150,7 +150,7 @@ describe('ConsistencyMapper', () => {
     test('should clear all relationships', () => {
       mapper.linkRelated('properNoun', 'Company', 'url', 'company.com');
       mapper.clear();
-      
+
       expect(mapper.relatedEntities.size).toBe(0);
       expect(mapper.getRelated('properNoun', 'Company')).toEqual([]);
     });
@@ -159,13 +159,13 @@ describe('ConsistencyMapper', () => {
   describe('size', () => {
     test('should return correct size', () => {
       expect(mapper.size()).toBe(0);
-      
+
       mapper.set('email', 'test1@example.com', 'rep1@test.com');
       expect(mapper.size()).toBe(1);
-      
+
       mapper.set('email', 'test2@example.com', 'rep2@test.com');
       expect(mapper.size()).toBe(2);
-      
+
       mapper.set('phone', '555-1234', '555-9999');
       expect(mapper.size()).toBe(3);
     });
@@ -175,9 +175,9 @@ describe('ConsistencyMapper', () => {
     test('should export mappings', () => {
       mapper.set('email', 'test@example.com', 'replacement@test.com');
       mapper.set('phone', '555-1234', '555-9999');
-      
+
       const exported = mapper.export();
-      
+
       expect(exported.mappings).toHaveLength(2);
       expect(exported.relations).toBeDefined();
     });
@@ -186,13 +186,13 @@ describe('ConsistencyMapper', () => {
       const data = {
         mappings: [
           ['email:test@example.com', 'replacement@test.com'],
-          ['phone:555-1234', '555-9999']
+          ['phone:555-1234', '555-9999'],
         ],
-        relations: []
+        relations: [],
       };
-      
+
       mapper.import(data);
-      
+
       expect(mapper.size()).toBe(2);
       expect(mapper.get('email', 'test@example.com')).toBe('replacement@test.com');
       expect(mapper.get('phone', '555-1234')).toBe('555-9999');
@@ -200,11 +200,11 @@ describe('ConsistencyMapper', () => {
 
     test('should preserve relationships on export/import', () => {
       mapper.linkRelated('properNoun', 'Company', 'url', 'company.com');
-      
+
       const exported = mapper.export();
       const newMapper = new ConsistencyMapper();
       newMapper.import(exported);
-      
+
       const related = newMapper.getRelated('properNoun', 'Company');
       expect(related).toContain('url:company.com');
     });
@@ -214,11 +214,11 @@ describe('ConsistencyMapper', () => {
     test('should link companies with similar URLs', () => {
       const entities = [
         { type: 'properNoun', original: 'Acme Corp', start: 0, end: 9 },
-        { type: 'url', original: 'https://acmecorp.com', start: 20, end: 40 }
+        { type: 'url', original: 'https://acmecorp.com', start: 20, end: 40 },
       ];
-      
+
       mapper.autoLinkRelated(entities);
-      
+
       const related = mapper.getRelated('properNoun', 'Acme Corp');
       expect(related.length).toBeGreaterThan(0);
     });
@@ -226,13 +226,13 @@ describe('ConsistencyMapper', () => {
     test('should link names with matching emails', () => {
       const entities = [
         { type: 'properNoun', original: 'John Doe', start: 0, end: 8 },
-        { type: 'email', original: 'john.doe@example.com', start: 10, end: 30 }
+        { type: 'email', original: 'john.doe@example.com', start: 10, end: 30 },
       ];
-      
+
       mapper.autoLinkRelated(entities);
-      
+
       const related = mapper.getRelated('properNoun', 'John Doe');
-      expect(related.some(r => r.includes('email'))).toBe(true);
+      expect(related.some((r) => r.includes('email'))).toBe(true);
     });
 
     test('should handle empty entity list', () => {
@@ -244,9 +244,9 @@ describe('ConsistencyMapper', () => {
     test('should handle entities with no matches', () => {
       const entities = [
         { type: 'properNoun', original: 'Random Name', start: 0, end: 11 },
-        { type: 'email', original: 'completely@different.com', start: 20, end: 44 }
+        { type: 'email', original: 'completely@different.com', start: 20, end: 44 },
       ];
-      
+
       expect(() => {
         mapper.autoLinkRelated(entities);
       }).not.toThrow();
@@ -281,7 +281,7 @@ describe('ConsistencyMapper', () => {
     test('should handle very long entity names', () => {
       const longName = 'A'.repeat(1000);
       mapper.set('properNoun', longName, 'Short Name');
-      
+
       expect(mapper.get('properNoun', longName)).toBe('Short Name');
     });
 
@@ -309,11 +309,11 @@ describe('ConsistencyMapper', () => {
   describe('Performance', () => {
     test('should handle large number of mappings efficiently', () => {
       const start = Date.now();
-      
+
       for (let i = 0; i < 1000; i++) {
         mapper.set('email', `test${i}@example.com`, `rep${i}@test.com`);
       }
-      
+
       const duration = Date.now() - start;
       expect(duration).toBeLessThan(1000); // Should complete in less than 1 second
       expect(mapper.size()).toBe(1000);
@@ -323,13 +323,13 @@ describe('ConsistencyMapper', () => {
       for (let i = 0; i < 1000; i++) {
         mapper.set('email', `test${i}@example.com`, `rep${i}@test.com`);
       }
-      
+
       const start = Date.now();
       for (let i = 0; i < 1000; i++) {
         mapper.get('email', `test${i}@example.com`);
       }
       const duration = Date.now() - start;
-      
+
       expect(duration).toBeLessThan(100); // Should complete in less than 100ms
     });
   });
