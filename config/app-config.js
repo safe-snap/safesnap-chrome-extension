@@ -148,12 +148,6 @@ export const APP_CONFIG = {
 
     // Skip during replacement (detectInDOM) - includes formatting and semantic elements
     replacement: [
-      'H1', // Skip H1 (usually page title/site branding)
-      // H2-H6 NOT skipped - article subheadings often contain author names and other PII
-      'STRONG',
-      'B',
-      'EM',
-      'I', // Formatting
       'NAV',
       'HEADER',
       'FOOTER',
