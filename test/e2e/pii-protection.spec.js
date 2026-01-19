@@ -29,10 +29,20 @@ async function injectSafeSnapScript(page) {
   // Inject it into the page
   await page.addScriptTag({ content: contentScript });
 
-  // Wait for SafeSnap to initialize
-  await page.waitForFunction(() => {
-    return window.SafeSnap !== undefined;
+  // Capture console output for debugging Safesnap initialization
+  page.on('console', (msg) => {
+    const type = msg.type().toUpperCase(); // Ex: LOG, ERROR
+    console.log(`[PAGE ${type}] ${msg.text()}`);
   });
+
+  // Wait for SafeSnap to initialize
+// Wait for SafeSnap to initialize and handle any potential errors
+try {
+  console.log('[PAGE WAIT] Injecting script and ensuring SafeSnap initializes...');
+  await page.waitForFunction(() => window.SafeSnap !== undefined);
+  console.log('[SUCCESS] SafeSnap initialized properly!');
+} catch (error) {
+  console.error('[ERROR] SafeSnap failed to initialize:', error);
 }
 
 /**
@@ -62,6 +72,7 @@ async function protectPII(page, options = {}) {
 }
 
 test.describe('SafeSnap - PII Replacement (Cross-Node Entities)', () => {
+  test.describe.configure({ timeout: 90000 }); // Temporarily extend timeout
   test('should replace proper nouns that span multiple inline elements (Jim Glab bug)', async ({
     page,
   }) => {

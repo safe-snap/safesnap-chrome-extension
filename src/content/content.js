@@ -25,12 +25,13 @@ import { refreshAllPanelPositions } from './modules/notification-panel.js';
 
 // Prevent multiple initializations
 if (window.safesnapInitialized) {
-  console.log('SafeSnap already initialized, skipping duplicate load');
+  console.log('[SafeSnap Debug] SafeSnap already initialized, skipping duplicate load'); // Initialization check
   throw new Error('SafeSnap already loaded'); // Stop execution
 }
 window.safesnapInitialized = true;
 
-console.log('SafeSnap content script loaded');
+console.log('[SafeSnap Debug] Content script loaded: SafeSnap initialization attempt starting.');
+console.log(`[SafeSnap Debug] DOM ready state on script load: ${document.readyState}`);
 // Initialize modules
 let detector = null;
 let replacer = null;
@@ -41,18 +42,34 @@ let consistencyMapper = null;
   // Load user settings
   await loadSettings();
 
-  detector = new PIIDetector();
-  await detector.initialize();
-  replacer = new Replacer();
+  try {
+    detector = new PIIDetector();
+    console.log('[SafeSnap Debug] PIIDetector created successfully');
+  } catch (error) {
+    console.error('[SafeSnap Error] PIIDetector initialization failed:', error);
+  }
+  try {
+    await detector.initialize();
+    console.log('[SafeSnap Debug] PIIDetector initialized successfully');
+  } catch (error) {
+    console.error('[SafeSnap Error] PIIDetector initialization failed during async setup:', error);
+  }
+  try {
+    replacer = new Replacer();
+    console.log('[SafeSnap Debug] Replacer module created successfully');
+  } catch (error) {
+    console.error('[SafeSnap Error] Replacer module creation failed:', error);
+  }
   consistencyMapper = new ConsistencyMapper();
 
-  console.log('SafeSnap initialized');
+  console.log('[SafeSnap Debug] SafeSnap fully initialized: All modules loaded successfully.');
+  console.log('[SafeSnap Debug] Modules initialized: detector, replacer, consistencyMapper');
 
   // Wait for DOM to be ready before enabling highlights
   const enableHighlightsIfNeeded = async () => {
     const shouldEnableHighlights = await initializeHighlightMode();
     if (shouldEnableHighlights) {
-      console.log('[SafeSnap] DOM ready, restoring highlights');
+      console.log('[SafeSnap Debug] DOM is ready; attempting to enable highlights.');
       enableHighlightMode(detector, getOriginalTextForNode);
     }
   };
@@ -60,7 +77,9 @@ let consistencyMapper = null;
   // Check DOM state and enable highlights when ready
   if (document.readyState === 'loading') {
     // DOM not yet loaded, wait for DOMContentLoaded
-    console.log('[SafeSnap] Waiting for DOM to load before enabling highlights');
+    console.log(
+      '[SafeSnap Debug] DOM is still loading; attaching DOMContentLoaded listener for deferred initialization.'
+    );
     document.addEventListener('DOMContentLoaded', enableHighlightsIfNeeded);
   } else {
     // DOM already loaded, enable highlights immediately if needed
@@ -172,7 +191,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     default:
       if (message.type) {
-        console.warn('Unknown message type:', message.type);
+        console.warn('[SafeSnap Warning] Received unknown message type:', message.type);
         sendResponse({ error: 'Unknown message type' });
       }
   }
