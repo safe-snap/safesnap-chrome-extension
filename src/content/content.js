@@ -201,14 +201,9 @@ async function protectPII(enabledTypes) {
     // Call core protection logic
     const entities = await protectPIICore(enabledTypes, detector, replacer, consistencyMapper);
 
-    // Refresh highlights if they're currently showing (without toggling off/on)
-    if (isHighlightEnabled()) {
-      console.log('[SafeSnap] Refreshing highlights after PII protection');
-      // Use a small delay to let the DOM updates settle
-      setTimeout(() => {
-        refreshHighlightsWithSettings();
-      }, 100);
-    }
+    // Highlights are automatically preserved after PII protection
+    // The refreshHighlightsWithSettings() function now checks if PII is protected
+    // and skips re-detection to maintain original highlight colors
 
     return entities;
   } catch (error) {

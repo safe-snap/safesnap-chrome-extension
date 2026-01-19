@@ -298,10 +298,6 @@ See [open issues](https://github.com/yourusername/safesnap/issues) for planned f
 - **Built with**: Chrome Extension APIs, Jest, Webpack
 - **Community contributors**: See [Contributors](https://github.com/yourusername/safesnap/graphs/contributors)
 
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for version history.
-
 ---
 
 **Made with privacy in mind by the SafeSnap Community**

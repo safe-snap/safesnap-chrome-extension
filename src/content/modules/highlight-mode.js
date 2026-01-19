@@ -4,7 +4,11 @@
  */
 
 import { updateStatusPanel } from './notification-panel.js';
-import { getProtectionStatus, updateProtectionStatusPanel } from './pii-protection.js';
+import {
+  getProtectionStatus,
+  updateProtectionStatusPanel,
+  getReplacementInfo,
+} from './pii-protection.js';
 
 // State
 let highlightCandidates = [];
@@ -322,7 +326,7 @@ function renderHighlights() {
  */
 function createHighlight(candidate) {
   try {
-    const { node, start, end, confidence, scoreBreakdown, threshold } = candidate;
+    let { node, start, end, confidence, scoreBreakdown, threshold } = candidate;
     const isHeading = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(node?.parentElement?.tagName);
 
     if (isHeading) {
@@ -334,6 +338,24 @@ function createHighlight(candidate) {
         end,
         nodeLength: node.textContent.length,
       });
+    }
+
+    // If PII is protected, check if this candidate has updated positions
+    const isPIIProtected = getProtectionStatus();
+    if (isPIIProtected) {
+      const replacementInfo = getReplacementInfo(node, start, end);
+      if (replacementInfo) {
+        // Update positions to match replacement text
+        start = replacementInfo.start;
+        end = replacementInfo.end;
+        console.log('[SafeSnap Debug] Updated highlight position for protected PII:', {
+          original: candidate.original,
+          oldStart: candidate.start,
+          oldEnd: candidate.end,
+          newStart: start,
+          newEnd: end,
+        });
+      }
     }
 
     // Get the bounding rect of the text
@@ -790,6 +812,20 @@ export async function refreshHighlightsWithSettings() {
     return;
   }
 
+  // Check if PII is currently protected
+  const isPIIProtected = getProtectionStatus();
+
+  if (isPIIProtected) {
+    // PII is protected - DO NOT re-detect from DOM (would detect replacement text)
+    // Instead, just re-render existing candidates at their current positions
+    console.log(
+      '[SafeSnap] PII is protected - keeping original candidates, just re-rendering positions'
+    );
+    renderHighlights();
+    return;
+  }
+
+  // PII is NOT protected - safe to re-detect from DOM
   // Re-detect with current enabled types
   const enabledTypes = await getEnabledPIITypes();
   console.log('[SafeSnap] Re-detecting with enabled types:', enabledTypes);

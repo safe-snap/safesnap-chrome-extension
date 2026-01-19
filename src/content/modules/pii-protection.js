@@ -56,6 +56,20 @@ export function getOriginalTextForNode(node) {
   return originalContent.get(node) || null;
 }
 
+let replacementLengthMap = new Map(); // Track replacement lengths for highlight position updates
+
+/**
+ * Get replacement info for highlight position updates
+ * @param {Node} node - Text node
+ * @param {number} start - Start position in original text
+ * @param {number} end - End position in original text
+ * @returns {Object|null} Replacement info {start, end, newLength} or null if not found
+ */
+export function getReplacementInfo(node, start, end) {
+  const nodeKey = `${node}:${start}:${end}`;
+  return replacementLengthMap.get(nodeKey) || null;
+}
+
 /**
  * Protect PII on the page using 5-phase pipeline
  * @param {Array<string>} enabledTypes - Array of PII types to detect
@@ -81,11 +95,9 @@ export async function protectPII(enabledTypes, detector, replacer, consistencyMa
   // Clear previous mappings
   consistencyMapper.clear();
   originalContent.clear();
+  replacementLengthMap.clear();
 
   try {
-    // Show loading indicator
-    updateStatusPanel({ mode: 'detecting' });
-
     // ========================================================================
     // 5-PHASE PIPELINE: Detect PII in DOM
     // ========================================================================
@@ -272,11 +284,8 @@ export async function protectPII(enabledTypes, detector, replacer, consistencyMa
     return entities;
   } catch (error) {
     console.error('PII protection failed:', error);
-    // Show error briefly, then return to idle
-    updateStatusPanel({ mode: 'detecting' }); // Keep existing panel
-    setTimeout(() => {
-      updateStatusPanel({ mode: 'idle' });
-    }, 3000);
+    // Update panel to idle state
+    updateStatusPanel({ mode: 'idle' });
     throw error;
   }
 }
@@ -455,6 +464,15 @@ function applyReplacements(entities, replacementMap) {
       const before = nodeText;
       nodeText = nodeText.substring(0, start) + replacement + nodeText.substring(end);
       replacementCount++;
+
+      // Track replacement length for highlight position updates
+      const nodeKey = `${node}:${start}:${end}`;
+      replacementLengthMap.set(nodeKey, {
+        start: start,
+        end: start + replacement.length, // New end position after replacement
+        originalLength: original.length,
+        newLength: replacement.length,
+      });
 
       // DEBUG: Log each replacement
       console.log('[SafeSnap Debug] Text replacement:', {
@@ -697,6 +715,7 @@ export function restoreOriginal() {
 
   // Clear storage
   originalContent.clear();
+  replacementLengthMap.clear();
   isPIIProtected = false;
   lastEntityCount = 0;
 
