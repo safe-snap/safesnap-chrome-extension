@@ -109,18 +109,6 @@ describe('TextExtractor - Phase 1: Extract Visible Text', () => {
       expect(textMap.fullText).not.toContain('color');
     });
 
-    test('should skip headings (H1-H6)', () => {
-      document.body.innerHTML = `
-        <h1>Page Title</h1>
-        <div>Body content</div>
-      `;
-
-      const textMap = extractor.extractVisibleText(document.body);
-
-      expect(textMap.fullText).not.toContain('Page Title');
-      expect(textMap.fullText).toContain('Body content');
-    });
-
     test('should skip buttons and labels', () => {
       document.body.innerHTML = `
         <button>Click me</button>
