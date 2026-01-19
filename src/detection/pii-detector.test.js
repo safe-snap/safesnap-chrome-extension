@@ -1875,51 +1875,6 @@ describe('PIIDetector', () => {
       expect(detector._shouldSkipElement(styleEl)).toBe(true);
     });
 
-    test.skip('should skip heading tags', () => {
-      expect(
-        detector._shouldSkipElement({
-          tagName: 'H1',
-          classList: { contains: () => false },
-          getAttribute: () => null,
-        })
-      ).toBe(true);
-      expect(
-        detector._shouldSkipElement({
-          tagName: 'H2',
-          classList: { contains: () => false },
-          getAttribute: () => null,
-        })
-      ).toBe(true);
-      expect(
-        detector._shouldSkipElement({
-          tagName: 'H3',
-          classList: { contains: () => false },
-          getAttribute: () => null,
-        })
-      ).toBe(true);
-      expect(
-        detector._shouldSkipElement({
-          tagName: 'H4',
-          classList: { contains: () => false },
-          getAttribute: () => null,
-        })
-      ).toBe(true);
-      expect(
-        detector._shouldSkipElement({
-          tagName: 'H5',
-          classList: { contains: () => false },
-          getAttribute: () => null,
-        })
-      ).toBe(true);
-      expect(
-        detector._shouldSkipElement({
-          tagName: 'H6',
-          classList: { contains: () => false },
-          getAttribute: () => null,
-        })
-      ).toBe(true);
-    });
-
     test('should skip button tags', () => {
       const buttonEl = {
         tagName: 'BUTTON',
