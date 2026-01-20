@@ -244,15 +244,9 @@ export class TextExtractor {
     // Check if tag is in skip list
     if (skipTags.includes(tagName)) return true;
 
-    // Skip elements with certain roles
+    // Skip elements with certain roles (but NOT 'heading' - headings can contain PII like names)
     const role = element.getAttribute('role');
-    if (
-      role === 'heading' ||
-      role === 'label' ||
-      role === 'button' ||
-      role === 'navigation' ||
-      role === 'banner'
-    ) {
+    if (role === 'label' || role === 'button' || role === 'navigation' || role === 'banner') {
       return true;
     }
 

@@ -499,9 +499,9 @@ export class PatternMatcher {
       });
     }
 
-    // Step 2: Gazetteer-based detection for single/multi-word known locations
-    // Matches capitalized words/phrases against known location list
-    // This catches: "Paris", "Tokyo", "California", "United States", etc.
+    // Step 2: Gazetteer-based detection for known locations
+    // First try multi-word phrases, then individual words
+    // This catches: "Paris", "Tokyo", "California", "United States", "New York", etc.
     const capitalizedPattern = /\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b/g;
     let match;
     while ((match = capitalizedPattern.exec(text)) !== null) {
@@ -519,7 +519,7 @@ export class PatternMatcher {
       }
       if (overlaps) continue;
 
-      // Check if it's in the gazetteer
+      // First, try the full phrase (e.g., "New York", "United States")
       if (this.locationGazetteer.has(candidate.toLowerCase())) {
         // Mark this position range as seen
         for (let i = start; i < end; i++) {
@@ -532,6 +532,44 @@ export class PatternMatcher {
           end,
           matchType: 'gazetteer',
         });
+      } else if (candidate.includes(' ')) {
+        // If multi-word phrase not found, check individual words
+        // This handles cases like "In California" where "In California" isn't in gazetteer
+        // but "California" is
+        const words = candidate.split(/\s+/);
+        let wordStart = start;
+        for (const word of words) {
+          const wordEnd = wordStart + word.length;
+
+          // Check if this individual word is in the gazetteer
+          if (this.locationGazetteer.has(word.toLowerCase())) {
+            // Check if this position is already seen
+            let wordOverlaps = false;
+            for (let i = wordStart; i < wordEnd; i++) {
+              if (seenPositions.has(i)) {
+                wordOverlaps = true;
+                break;
+              }
+            }
+
+            if (!wordOverlaps) {
+              // Mark this word's position as seen
+              for (let i = wordStart; i < wordEnd; i++) {
+                seenPositions.add(i);
+              }
+
+              locations.push({
+                value: word,
+                start: wordStart,
+                end: wordEnd,
+                matchType: 'gazetteer',
+              });
+            }
+          }
+
+          // Move to next word (word length + 1 for space)
+          wordStart = wordEnd + 1;
+        }
       }
     }
 

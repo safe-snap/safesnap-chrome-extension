@@ -437,4 +437,54 @@ describe('SafeSnap Integration - Cross-Node Entity Detection', () => {
       // Note: Current implementation skips BUTTON tags
     });
   });
+
+  describe('Bold and Strong Text Detection', () => {
+    test('should detect email in STRONG element', () => {
+      document.body.innerHTML = `
+        <p>Contact us at <strong>test@example.com</strong> for help.</p>
+      `;
+
+      const entities = detector.detectInDOM(document.body, ['emails']);
+      const emails = entities.filter((e) => e.type === 'email');
+
+      expect(emails.length).toBe(1);
+      expect(emails[0].original).toBe('test@example.com');
+    });
+
+    test('should detect email in B element', () => {
+      document.body.innerHTML = `
+        <p>Contact us at <b>bold@example.com</b> for help.</p>
+      `;
+
+      const entities = detector.detectInDOM(document.body, ['emails']);
+      const emails = entities.filter((e) => e.type === 'email');
+
+      expect(emails.length).toBe(1);
+      expect(emails[0].original).toBe('bold@example.com');
+    });
+
+    test('should detect proper noun in bold text', () => {
+      document.body.innerHTML = `
+        <p>Interview with <strong>Sarah</strong> about her career.</p>
+      `;
+
+      const entities = detector.detectWithDebugInfo(document.body, ['properNouns']);
+      const properNouns = entities.filter((e) => e.type === 'properNoun');
+
+      // Sarah should be detected (it's in the dictionary as a name)
+      expect(properNouns.some((e) => e.original === 'Sarah')).toBe(true);
+    });
+
+    test('should detect phone number in bold text', () => {
+      document.body.innerHTML = `
+        <p>Call <b>(555) 123-4567</b> for support.</p>
+      `;
+
+      const entities = detector.detectInDOM(document.body, ['phones']);
+      const phones = entities.filter((e) => e.type === 'phone');
+
+      expect(phones.length).toBe(1);
+      expect(phones[0].original).toContain('555');
+    });
+  });
 });

@@ -722,26 +722,19 @@ export class PIIDetector {
     // Check if tag is in skip list
     if (skipTags.includes(tagName)) return true;
 
-    // Skip elements with certain roles
+    // Skip elements with certain roles (but NOT 'heading' - headings can contain PII like names)
     const role = element.getAttribute('role');
-    if (
-      role === 'heading' ||
-      role === 'label' ||
-      role === 'button' ||
-      role === 'navigation' ||
-      role === 'banner'
-    )
+    if (role === 'label' || role === 'button' || role === 'navigation' || role === 'banner')
       return true;
 
     // Skip elements with certain classes that indicate structural content
+    // Note: 'heading' and 'title' are NOT skipped - they can contain PII like person names
     const classList = element.className || '';
     if (typeof classList === 'string') {
       const structuralClasses = [
         'header',
         'nav',
         'menu',
-        'title',
-        'heading',
         'label',
         'btn',
         'button',
