@@ -271,7 +271,7 @@ Quick checklist:
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2025 SafeSnap Community
+Copyright (c) 2026 SafeSnap Community
 
 ## Support
 

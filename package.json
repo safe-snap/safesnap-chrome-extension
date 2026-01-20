@@ -10,8 +10,8 @@
     "test:coverage": "jest --coverage",
     "test:integration": "jest --testMatch='**/test/integration/**/*.test.js'",
     "test:e2e": "bunx playwright test",
-    "lint": "eslint src/**/*.js scripts/**/*.js",
-    "lint:fix": "eslint src/**/*.js scripts/**/*.js --fix",
+    "lint": "eslint \"src/**/*.js\" \"scripts/**/*.js\"",
+    "lint:fix": "eslint \"src/**/*.js\" \"scripts/**/*.js\" --fix",
     "format": "prettier --write \"src/**/*.{js,css,html}\"",
     "build": "bun run webpack --mode production",
     "build:dev": "bun run webpack --mode development",
@@ -150,7 +150,8 @@
       "no-unused-vars": [
         "error",
         {
-          "argsIgnorePattern": "^_"
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
         }
       ]
     }

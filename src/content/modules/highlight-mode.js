@@ -3,7 +3,6 @@
  * Handles visual highlighting of PII detection candidates for debugging/transparency
  */
 
-import { updateStatusPanel } from './notification-panel.js';
 import {
   getProtectionStatus,
   updateProtectionStatusPanel,
@@ -128,6 +127,12 @@ export async function enableHighlightMode(detector, getOriginalValue = null, ove
   // Get enabled PII types - use override if provided, otherwise from storage
   const enabledTypes = overrideTypes || (await getEnabledPIITypes());
   console.log('[SafeSnap] Highlighting enabled PII types:', enabledTypes);
+
+  // If no types are enabled, don't run detection (user explicitly selected nothing)
+  if (enabledTypes.length === 0) {
+    console.log('[SafeSnap] No PII types enabled, skipping highlight mode');
+    return;
+  }
 
   // Get all candidates from the detector (including those below threshold)
   const candidates = detector.detectWithDebugInfo(document.body, enabledTypes);
@@ -421,8 +426,8 @@ function createHighlight(candidate) {
       return null; // Skip invisible elements
     }
 
-    // Determine color and label based on type and score
-    let backgroundColor, borderColor, label;
+    // Determine color based on type and score
+    let backgroundColor, borderColor, _label;
     const type = candidate.type || 'properNoun';
 
     // Pattern-based types (email, phone, etc.) are always protected
@@ -440,12 +445,12 @@ function createHighlight(candidate) {
     if (patternTypes.includes(type)) {
       backgroundColor = 'rgba(59, 130, 246, 0.2)'; // Blue for pattern matches
       borderColor = '#3b82f6';
-      label = type.charAt(0).toUpperCase() + type.slice(1);
+      _label = type.charAt(0).toUpperCase() + type.slice(1);
     } else if (type === 'location') {
       // Locations are always protected (gazetteer-based)
       backgroundColor = 'rgba(16, 185, 129, 0.2)'; // Green for locations
       borderColor = '#10b981';
-      label = 'Location';
+      _label = 'Location';
     } else if (type === 'properNoun') {
       // For proper nouns, check if confidence meets threshold
       const meetsThreshold = threshold !== undefined ? confidence >= threshold : confidence >= 0.75;
@@ -455,15 +460,15 @@ function createHighlight(candidate) {
         if (confidence >= 0.9) {
           backgroundColor = 'rgba(16, 185, 129, 0.2)'; // Dark green - high confidence
           borderColor = '#10b981';
-          label = 'High Confidence';
+          _label = 'High Confidence';
         } else if (confidence >= threshold + 0.1) {
           backgroundColor = 'rgba(34, 197, 94, 0.2)'; // Light green - comfortably above threshold
           borderColor = '#22c55e';
-          label = 'Above Threshold';
+          _label = 'Above Threshold';
         } else {
           backgroundColor = 'rgba(245, 158, 11, 0.2)'; // Orange - just above threshold
           borderColor = '#f59e0b';
-          label = 'Barely Passes';
+          _label = 'Barely Passes';
         }
       } else {
         // Would NOT be protected with current threshold
@@ -471,11 +476,11 @@ function createHighlight(candidate) {
         if (gap <= 0.1) {
           backgroundColor = 'rgba(239, 68, 68, 0.2)'; // Red - close but below
           borderColor = '#ef4444';
-          label = 'Below Threshold';
+          _label = 'Below Threshold';
         } else {
           backgroundColor = 'rgba(156, 163, 175, 0.2)'; // Gray - well below
           borderColor = '#9ca3af';
-          label = 'Rejected';
+          _label = 'Rejected';
         }
       }
     } else {
@@ -483,19 +488,19 @@ function createHighlight(candidate) {
       if (confidence >= 0.8) {
         backgroundColor = 'rgba(16, 185, 129, 0.2)'; // Green
         borderColor = '#10b981';
-        label = 'Protected';
+        _label = 'Protected';
       } else if (confidence >= 0.6) {
         backgroundColor = 'rgba(245, 158, 11, 0.2)'; // Orange
         borderColor = '#f59e0b';
-        label = 'Close';
+        _label = 'Close';
       } else if (confidence >= 0.4) {
         backgroundColor = 'rgba(239, 68, 68, 0.2)'; // Red
         borderColor = '#ef4444';
-        label = 'Low';
+        _label = 'Low';
       } else {
         backgroundColor = 'rgba(156, 163, 175, 0.2)'; // Gray
         borderColor = '#9ca3af';
-        label = 'Rejected';
+        _label = 'Rejected';
       }
     }
 
