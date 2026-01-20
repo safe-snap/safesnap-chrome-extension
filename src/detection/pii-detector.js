@@ -256,8 +256,13 @@ export class PIIDetector {
    * @returns {Array<Object>} Filtered entities
    */
   _filterByEnabledTypes(entities, enabledTypes) {
-    if (!enabledTypes || enabledTypes.length === 0) {
-      return entities; // No filter, return all
+    // null/undefined means "no filter specified" - return all (legacy behavior)
+    if (enabledTypes === null || enabledTypes === undefined) {
+      return entities;
+    }
+    // Empty array means "user explicitly selected nothing" - return nothing
+    if (enabledTypes.length === 0) {
+      return [];
     }
 
     // Normalize type names (handle singular/plural variations)

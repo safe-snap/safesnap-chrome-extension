@@ -376,8 +376,13 @@ export class PIIDictionary {
    * @returns {Array<PIIEntity>} Enabled entities
    */
   getEnabled(enabledTypes) {
-    if (!enabledTypes || enabledTypes.length === 0) {
+    // null/undefined means "no filter specified" - return all (legacy behavior)
+    if (enabledTypes === null || enabledTypes === undefined) {
       return this.getAll();
+    }
+    // Empty array means "user explicitly selected nothing" - return nothing
+    if (enabledTypes.length === 0) {
+      return [];
     }
 
     // Map UI type names to entity types
