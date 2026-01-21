@@ -816,16 +816,17 @@ export function disableHighlightMode() {
     overlay.remove();
   }
 
-  // Update unified status panel using centralized function
-  updateProtectionStatusPanel();
-
   // Clear stored candidates and detector
   highlightCandidates = [];
   currentDetector = null;
   getOriginalValueFn = null;
 
-  // Update state
+  // Update state BEFORE calling updateProtectionStatusPanel
+  // so isHighlightEnabled() returns false when determining panel mode
   isHighlightModeEnabled = false;
+
+  // Update unified status panel using centralized function
+  updateProtectionStatusPanel();
 }
 
 /**
