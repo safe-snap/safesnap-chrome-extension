@@ -1,12 +1,12 @@
 {
   "scenario": "sfgate-united-article",
   "step": "highlighted",
-  "timestamp": "2026-01-22T04:32:58.113Z",
+  "timestamp": "2026-01-22T04:47:11.999Z",
   "settings": {
     "enabledTypes": [
       "dates",
       "properNouns",
-      "quantity",
+      "quantities",
       "locations"
     ],
     "properNounSensitivity": 0.95,
@@ -7868,7 +7868,7 @@
       }
     },
     {
-      "original": "305",
+      "original": "309",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7877,7 +7877,7 @@
       }
     },
     {
-      "original": "3,438",
+      "original": "3,477",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7898,7 +7898,7 @@
       }
     },
     {
-      "original": "617",
+      "original": "622",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7934,7 +7934,7 @@
       }
     },
     {
-      "original": "305",
+      "original": "309",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,

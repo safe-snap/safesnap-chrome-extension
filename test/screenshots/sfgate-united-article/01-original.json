@@ -1,12 +1,12 @@
 {
   "scenario": "sfgate-united-article",
   "step": "original",
-  "timestamp": "2026-01-22T04:32:55.908Z",
+  "timestamp": "2026-01-22T04:47:09.775Z",
   "settings": {
     "enabledTypes": [
       "dates",
       "properNouns",
-      "quantity",
+      "quantities",
       "locations"
     ],
     "properNounSensitivity": 0.95,

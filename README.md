@@ -9,6 +9,11 @@
 
 **SafeSnap** is a privacy-first Chrome extension that automatically detects and protects personally identifiable information (PII) in screenshots. Perfect for QA teams, product managers, and anyone who needs to share screenshots without exposing sensitive data.
 
+
+| ![Original](test/screenshots/sfgate-united-article/01-original.png) | ![Protected](test/screenshots/sfgate-united-article/04-protected-highlighted.png) |
+|:---------------------------------------------------------------:|:----------------------------------------------------------------:| 
+
+
 ## Why SafeSnap?
 
 SafeSnap is the **only tool** that combines automatic PII detection with screenshot capture in one integrated solution. Unlike other tools that either:
