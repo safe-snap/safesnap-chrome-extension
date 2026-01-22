@@ -1,7 +1,7 @@
 {
   "scenario": "wikipedia-san-francisco-blackout",
   "step": "protected",
-  "timestamp": "2026-01-21T22:02:21.935Z",
+  "timestamp": "2026-01-22T04:28:51.811Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -14,14 +14,14 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 2613,
+    "totalDetections": 2614,
     "byType": {
-      "location": 1384,
+      "location": 1385,
       "date": 1224,
       "properNoun": 5
     },
     "protectedCount": 0,
-    "rejectedCount": 2613
+    "rejectedCount": 2614
   },
   "detections": [
     {
@@ -3299,6 +3299,13 @@
       "confidence": 0.95,
       "context": {},
       "replacement": "███ █████████"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "█████████"
     },
     {
       "original": "California",

@@ -1,7 +1,7 @@
 {
   "scenario": "wikipedia-san-francisco-blackout",
   "step": "original",
-  "timestamp": "2026-01-21T22:02:10.418Z",
+  "timestamp": "2026-01-22T04:28:41.368Z",
   "settings": {
     "enabledTypes": [
       "dates",

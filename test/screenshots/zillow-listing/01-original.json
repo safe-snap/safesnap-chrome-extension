@@ -1,7 +1,7 @@
 {
   "scenario": "zillow-listing",
   "step": "original",
-  "timestamp": "2026-01-21T22:02:02.604Z",
+  "timestamp": "2026-01-22T04:28:33.604Z",
   "settings": {
     "enabledTypes": [
       "money",

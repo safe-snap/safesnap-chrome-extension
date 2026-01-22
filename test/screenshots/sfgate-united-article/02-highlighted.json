@@ -1,7 +1,7 @@
 {
   "scenario": "sfgate-united-article",
   "step": "highlighted",
-  "timestamp": "2026-01-21T22:02:31.582Z",
+  "timestamp": "2026-01-22T04:29:00.313Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -14,15 +14,15 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 694,
+    "totalDetections": 696,
     "byType": {
-      "properNoun": 556,
-      "location": 72,
-      "quantity": 50,
+      "properNoun": 557,
+      "location": 71,
+      "quantity": 52,
       "date": 16
     },
-    "protectedCount": 268,
-    "rejectedCount": 426
+    "protectedCount": 269,
+    "rejectedCount": 427
   },
   "detections": [
     {
@@ -1746,13 +1746,90 @@
       }
     },
     {
-      "original": "Bay Area",
-      "type": "location",
-      "confidence": 0.9,
+      "original": "Giants",
+      "type": "properNoun",
+      "confidence": 0.8499999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Jung",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
       "meetsThreshold": true,
       "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Hoo",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Lee",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Customs",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
       }
     },
     {
@@ -7791,7 +7868,7 @@
       }
     },
     {
-      "original": "487",
+      "original": "305",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7800,7 +7877,7 @@
       }
     },
     {
-      "original": "2,648",
+      "original": "3,438",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7821,7 +7898,7 @@
       }
     },
     {
-      "original": "483",
+      "original": "617",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7857,7 +7934,7 @@
       }
     },
     {
-      "original": "487",
+      "original": "305",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7967,11 +8044,11 @@
       }
     },
     {
-      "original": "Famous",
+      "original": "Newsom",
       "type": "properNoun",
-      "confidence": 0.7,
+      "confidence": 1,
       "threshold": 0.95,
-      "meetsThreshold": false,
+      "meetsThreshold": true,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
@@ -7979,13 +8056,21 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
         "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
+        "appearsInPageLinks_detail": "word_in_page_links"
       }
     },
     {
-      "original": "Vegas",
+      "original": "Switzerland",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "Trump",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -8021,56 +8106,6 @@
       }
     },
     {
-      "original": "It's",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Grocery",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Outlet",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
       "original": "4",
       "type": "quantity",
       "confidence": 1,
@@ -8080,30 +8115,31 @@
       }
     },
     {
-      "original": "Mart",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Bay Area",
+      "original": "New Bay Area",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1,
         "gazetteerMatch": 0
+      }
+    },
+    {
+      "original": "400,000",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "40",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
       }
     },
     {
@@ -8116,11 +8152,11 @@
       }
     },
     {
-      "original": "Newsom",
+      "original": "Famous",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7,
       "threshold": 0.95,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
@@ -8128,21 +8164,13 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
         "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       }
     },
     {
-      "original": "Switzerland",
-      "type": "location",
-      "confidence": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 0,
-        "gazetteerMatch": 1
-      }
-    },
-    {
-      "original": "Trump",
+      "original": "Vegas",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,

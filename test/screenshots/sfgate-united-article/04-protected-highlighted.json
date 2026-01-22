@@ -1,7 +1,7 @@
 {
   "scenario": "sfgate-united-article",
   "step": "protected-highlighted",
-  "timestamp": "2026-01-21T22:02:36.425Z",
+  "timestamp": "2026-01-22T04:29:05.178Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -14,15 +14,15 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 702,
+    "totalDetections": 697,
     "byType": {
-      "properNoun": 597,
-      "location": 35,
-      "quantity": 54,
+      "properNoun": 584,
+      "location": 41,
+      "quantity": 56,
       "date": 16
     },
-    "protectedCount": 145,
-    "rejectedCount": 557
+    "protectedCount": 149,
+    "rejectedCount": 548
   },
   "detections": [
     {
@@ -488,7 +488,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Emerald Ocean"
+      "replacement": "Cypress Lake"
     },
     {
       "original": "California",
@@ -499,7 +499,7 @@
         "patternMatch": 0,
         "gazetteerMatch": 1
       },
-      "replacement": "Garden City"
+      "replacement": "Crystal Bay"
     },
     {
       "original": "Wildfires",
@@ -655,7 +655,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Emerald Ocean"
+      "replacement": "Cypress Lake"
     },
     {
       "original": "History",
@@ -705,7 +705,7 @@
         "patternMatch": 0,
         "gazetteerMatch": 1
       },
-      "replacement": "Garden City"
+      "replacement": "Crystal Bay"
     },
     {
       "original": "Parks",
@@ -736,7 +736,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Hemlock Forest"
+      "replacement": "Chestnut Valley"
     },
     {
       "original": "Disneyland",
@@ -766,7 +766,7 @@
         "patternMatch": 0,
         "gazetteerMatch": 1
       },
-      "replacement": "Springfield"
+      "replacement": "Zenith City"
     },
     {
       "original": "Monterey-Carmel",
@@ -929,7 +929,7 @@
         "patternMatch": 0,
         "gazetteerMatch": 1
       },
-      "replacement": "Island Territory"
+      "replacement": "Mountain Valley"
     },
     {
       "original": "California",
@@ -940,7 +940,7 @@
         "patternMatch": 0,
         "gazetteerMatch": 1
       },
-      "replacement": "Garden City"
+      "replacement": "Crystal Bay"
     },
     {
       "original": "National",
@@ -1701,15 +1701,88 @@
       "replacement": "Logo"
     },
     {
-      "original": "Emerald Ocean",
-      "type": "location",
-      "confidence": 0.9,
+      "original": "Giants",
+      "type": "properNoun",
+      "confidence": 0.8499999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      },
+      "replacement": "Giants"
+    },
+    {
+      "original": "Jennifer",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
       "meetsThreshold": true,
       "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
       },
-      "replacement": "Emerald Ocean"
+      "replacement": "Jennifer"
+    },
+    {
+      "original": "Christine",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "Christine"
+    },
+    {
+      "original": "Jacob",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "Jacob"
+    },
+    {
+      "original": "Jerry",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "Jerry"
     },
     {
       "original": "Travel",
@@ -1731,17 +1804,19 @@
       "replacement": "Travel"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.6499999999999999,
+      "confidence": 0.1499999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "2",
@@ -1754,7 +1829,7 @@
       "replacement": "2"
     },
     {
-      "original": "John",
+      "original": "Karen",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -1765,10 +1840,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "John"
+      "replacement": "Karen"
     },
     {
-      "original": "Rebecca",
+      "original": "Emma",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -1779,7 +1854,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Rebecca"
+      "replacement": "Emma"
     },
     {
       "original": "Routes",
@@ -1796,7 +1871,7 @@
       "replacement": "Routes"
     },
     {
-      "original": "John",
+      "original": "Karen",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -1808,10 +1883,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "John"
+      "replacement": "Karen"
     },
     {
-      "original": "Rebecca",
+      "original": "Emma",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -1824,7 +1899,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Rebecca"
+      "replacement": "Emma"
     },
     {
       "original": "Freelance",
@@ -1854,17 +1929,17 @@
       "replacement": "Writer"
     },
     {
-      "original": "Dec 21, 2025",
+      "original": "Dec 14, 2025",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "Dec 21, 2025"
+      "replacement": "Dec 14, 2025"
     },
     {
-      "original": "Karen",
+      "original": "Anna",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -1875,7 +1950,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Karen"
+      "replacement": "Anna"
     },
     {
       "original": "787",
@@ -1912,7 +1987,23 @@
       "replacement": "Dreamliner"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      },
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -1923,24 +2014,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Kevin"
+      "replacement": "Benjamin"
     },
     {
-      "original": "Maria",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Maria"
-    },
-    {
-      "original": "Island Territory",
+      "original": "West Metro",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -1948,7 +2025,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Island Territory"
+      "replacement": "West Metro"
     },
     {
       "original": "Getty",
@@ -1979,9 +2056,9 @@
       "replacement": "Images"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.8999999999999999,
+      "confidence": 0.3999999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
@@ -1989,12 +2066,14 @@
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
         "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
+        "insideLink_detail": "text_in_link",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -2007,10 +2086,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
-      "original": "Stephanie",
+      "original": "John",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -2022,10 +2101,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Stephanie"
+      "replacement": "John"
     },
     {
-      "original": "Carol",
+      "original": "Mark",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -2038,7 +2117,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Carol"
+      "replacement": "Mark"
     },
     {
       "original": "International",
@@ -2075,7 +2154,7 @@
       "replacement": "Airbus"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -2087,10 +2166,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
-      "original": "Karen",
+      "original": "Anna",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2101,54 +2180,34 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Karen"
+      "replacement": "Anna"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Kevin"
-    },
-    {
-      "original": "Garden",
-      "type": "properNoun",
-      "confidence": 0.7,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      },
-      "replacement": "Garden"
-    },
-    {
-      "original": "City",
-      "type": "properNoun",
-      "confidence": 0.7,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "City"
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Crystal Bay",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Crystal Bay"
     },
     {
       "original": "Electronic",
@@ -2199,7 +2258,7 @@
       "replacement": "Authorization"
     },
     {
-      "original": "Stephen",
+      "original": "Steven",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2210,10 +2269,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Stephen"
+      "replacement": "Steven"
     },
     {
-      "original": "Stephanie",
+      "original": "Nicole",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2224,10 +2283,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Stephanie"
+      "replacement": "Nicole"
     },
     {
-      "original": "Pleasantville",
+      "original": "Kingsport",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2238,10 +2297,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Pleasantville"
+      "replacement": "Kingsport"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2252,40 +2311,21 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
-      "original": "Garden",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
+      "original": "Crystal Bay",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
       "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
+        "patternMatch": 1,
+        "gazetteerMatch": 0
       },
-      "replacement": "Garden"
+      "replacement": "Crystal Bay"
     },
     {
-      "original": "City",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      },
-      "replacement": "City"
-    },
-    {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2296,7 +2336,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "Middle",
@@ -2329,7 +2369,7 @@
       "replacement": "Eastern"
     },
     {
-      "original": "Island Territory",
+      "original": "Mountain Valley",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -2337,7 +2377,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Island Territory"
+      "replacement": "Mountain Valley"
     },
     {
       "original": "European",
@@ -2356,33 +2396,17 @@
       "replacement": "European"
     },
     {
-      "original": "2025-12-05",
+      "original": "2025-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2025-12-05"
+      "replacement": "2025-11-28"
     },
     {
-      "original": "Jonathan",
-      "type": "properNoun",
-      "confidence": 0.29999999999999993,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      },
-      "replacement": "Jonathan"
-    },
-    {
-      "original": "Pleasantville",
+      "original": "James",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2393,7 +2417,21 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Pleasantville"
+      "replacement": "James"
+    },
+    {
+      "original": "Oldtown",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Oldtown"
     },
     {
       "original": "0",
@@ -2488,20 +2526,22 @@
       "replacement": "More"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.6499999999999999,
+      "confidence": 0.1499999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2512,10 +2552,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
-      "original": "Stephanie",
+      "original": "John",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2526,10 +2566,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Stephanie"
+      "replacement": "John"
     },
     {
-      "original": "Carol",
+      "original": "Mark",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2540,7 +2580,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Carol"
+      "replacement": "Mark"
     },
     {
       "original": "International",
@@ -2595,7 +2635,7 @@
       "replacement": "9"
     },
     {
-      "original": "Christopher",
+      "original": "Raymond",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2606,21 +2646,23 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Christopher"
+      "replacement": "Raymond"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "Elevated",
@@ -2653,7 +2695,7 @@
       "replacement": "Simple"
     },
     {
-      "original": "Donna",
+      "original": "Jerry",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -2666,7 +2708,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Donna"
+      "replacement": "Jerry"
     },
     {
       "original": "It",
@@ -2680,7 +2722,34 @@
       "replacement": "It"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      },
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Bay Region",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Bay Region"
+    },
+    {
+      "original": "Ironwood",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2691,53 +2760,17 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Kevin"
+      "replacement": "Ironwood"
     },
     {
-      "original": "Northern Territory",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      },
-      "replacement": "Northern Territory"
-    },
-    {
-      "original": "Jasper Creek",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      },
-      "replacement": "Jasper Creek"
-    },
-    {
-      "original": "Summerville",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Summerville"
-    },
-    {
-      "original": "2025-12-05",
+      "original": "2025-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2025-12-05"
+      "replacement": "2025-11-28"
     },
     {
       "original": "Simple",
@@ -2753,7 +2786,7 @@
       "replacement": "Simple"
     },
     {
-      "original": "Donna",
+      "original": "Jerry",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -2764,7 +2797,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Donna"
+      "replacement": "Jerry"
     },
     {
       "original": "Elevated",
@@ -2793,18 +2826,20 @@
       "replacement": "This"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "Polaris",
@@ -2882,18 +2917,20 @@
       "replacement": "Polaris"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "Getty",
@@ -2937,18 +2974,20 @@
       "replacement": "Reflecting"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "787",
@@ -3065,7 +3104,7 @@
       "replacement": "Simple"
     },
     {
-      "original": "Donna",
+      "original": "Jerry",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3076,7 +3115,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Donna"
+      "replacement": "Jerry"
     },
     {
       "original": "Polaris",
@@ -3170,7 +3209,7 @@
       "replacement": "American"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3181,7 +3220,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
       "original": "787",
@@ -3204,7 +3243,7 @@
       "replacement": "787"
     },
     {
-      "original": "Harbor",
+      "original": "Ashford",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3215,10 +3254,26 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Harbor"
+      "replacement": "Ashford"
     },
     {
-      "original": "Springs",
+      "original": "North",
+      "type": "properNoun",
+      "confidence": 0.25,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      },
+      "replacement": "North"
+    },
+    {
+      "original": "Shore",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3229,10 +3284,52 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Springs"
+      "replacement": "Shore"
     },
     {
-      "original": "Coastal Range",
+      "original": "Thornbury",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Thornbury"
+    },
+    {
+      "original": "Glendale",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Glendale"
+    },
+    {
+      "original": "Ironwood",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Ironwood"
+    },
+    {
+      "original": "Mountain Valley",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -3240,7 +3337,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Coastal Range"
+      "replacement": "Mountain Valley"
     },
     {
       "original": "Maplewood",
@@ -3257,35 +3354,7 @@
       "replacement": "Maplewood"
     },
     {
-      "original": "Springfield",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Springfield"
-    },
-    {
-      "original": "Summerville",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Summerville"
-    },
-    {
-      "original": "Island Territory",
+      "original": "Forest Hills",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -3293,52 +3362,10 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Island Territory"
+      "replacement": "Forest Hills"
     },
     {
-      "original": "Quarryville",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Quarryville"
-    },
-    {
-      "original": "Harbor",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Harbor"
-    },
-    {
-      "original": "Springs",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Springs"
-    },
-    {
-      "original": "Hill",
+      "original": "Upper Valley",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -3346,23 +3373,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Hill"
-    },
-    {
-      "original": "Country",
-      "type": "properNoun",
-      "confidence": 0.25,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      },
-      "replacement": "Country"
+      "replacement": "Upper Valley"
     },
     {
       "original": "Simple",
@@ -3379,7 +3390,7 @@
       "replacement": "Simple"
     },
     {
-      "original": "Donna",
+      "original": "Jerry",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3390,7 +3401,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Donna"
+      "replacement": "Jerry"
     },
     {
       "original": "It",
@@ -3404,7 +3415,7 @@
       "replacement": "It"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3415,10 +3426,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
-      "original": "Karen",
+      "original": "Anna",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3429,10 +3440,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Karen"
+      "replacement": "Anna"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3443,10 +3454,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
-      "original": "Karen",
+      "original": "Anna",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3457,7 +3468,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Karen"
+      "replacement": "Anna"
     },
     {
       "original": "767",
@@ -3511,7 +3522,7 @@
       "replacement": "30"
     },
     {
-      "original": "Karen",
+      "original": "Anna",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -3524,7 +3535,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Karen"
+      "replacement": "Anna"
     },
     {
       "original": "787",
@@ -3537,7 +3548,7 @@
       "replacement": "787"
     },
     {
-      "original": "Christopher",
+      "original": "Raymond",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -3550,7 +3561,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Christopher"
+      "replacement": "Raymond"
     },
     {
       "original": "787",
@@ -3573,7 +3584,7 @@
       "replacement": "10"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3584,7 +3595,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "Airbus",
@@ -3611,17 +3622,17 @@
       "replacement": "787"
     },
     {
-      "original": "2030-12-05",
+      "original": "2030-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2030-12-05"
+      "replacement": "2030-11-28"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3632,7 +3643,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "Transatlantic",
@@ -3692,7 +3703,7 @@
       "replacement": "It"
     },
     {
-      "original": "Karen",
+      "original": "Anna",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3703,10 +3714,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Karen"
+      "replacement": "Anna"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3717,7 +3728,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "One",
@@ -3746,7 +3757,7 @@
       "replacement": "Suites"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3757,7 +3768,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "Premium",
@@ -3786,7 +3797,7 @@
       "replacement": "Select"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3797,7 +3808,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "Comfort",
@@ -3814,7 +3825,7 @@
       "replacement": "Comfort"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.6499999999999999,
       "threshold": 0.95,
@@ -3824,7 +3835,7 @@
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown"
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "And",
@@ -3876,7 +3887,7 @@
       "replacement": "Time"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3887,17 +3898,17 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
-      "original": "2024-12-05",
+      "original": "2024-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2024-12-05"
+      "replacement": "2024-11-28"
     },
     {
       "original": "7",
@@ -3920,7 +3931,7 @@
       "replacement": "5"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3931,7 +3942,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
       "original": "9",
@@ -3978,7 +3989,23 @@
       "replacement": "Article"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      },
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -3989,31 +4016,17 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Kevin"
+      "replacement": "Benjamin"
     },
     {
-      "original": "Maria",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Maria"
-    },
-    {
-      "original": "2023-12-05",
+      "original": "2023-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2023-12-05"
+      "replacement": "2023-11-28"
     },
     {
       "original": "Getty",
@@ -4044,20 +4057,22 @@
       "replacement": "Images"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.6499999999999999,
+      "confidence": 0.1499999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4068,7 +4083,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
       "original": "Meal",
@@ -4084,18 +4099,20 @@
       "replacement": "Meal"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "Economy",
@@ -4138,7 +4155,7 @@
       "replacement": "Plainsland"
     },
     {
-      "original": "Midlandia",
+      "original": "Silverton",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -4151,7 +4168,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Midlandia"
+      "replacement": "Silverton"
     },
     {
       "original": "Caribbean",
@@ -4188,14 +4205,14 @@
       "replacement": "Starting"
     },
     {
-      "original": "February 2",
+      "original": "January 26",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "February 2"
+      "replacement": "January 26"
     },
     {
       "original": "Economy",
@@ -4212,32 +4229,36 @@
       "replacement": "Economy"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "Economy",
@@ -4278,21 +4299,23 @@
       "replacement": "24"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
-      "original": "Hemlock Forest",
+      "original": "Chestnut Valley",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -4300,10 +4323,10 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Hemlock Forest"
+      "replacement": "Chestnut Valley"
     },
     {
-      "original": "Anthony-a",
+      "original": "Ashley-a",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -4316,10 +4339,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Anthony-a"
+      "replacement": "Ashley-a"
     },
     {
-      "original": "Juniper Range",
+      "original": "Hemlock Forest",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -4327,7 +4350,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Juniper Range"
+      "replacement": "Hemlock Forest"
     },
     {
       "original": "Technology",
@@ -4341,7 +4364,7 @@
       "replacement": "Technology"
     },
     {
-      "original": "Raymond",
+      "original": "Mary",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -4354,7 +4377,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Raymond"
+      "replacement": "Mary"
     },
     {
       "original": "He",
@@ -4372,7 +4395,7 @@
       "replacement": "He"
     },
     {
-      "original": "Hemlock Forest",
+      "original": "Chestnut Valley",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -4380,7 +4403,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Hemlock Forest"
+      "replacement": "Chestnut Valley"
     },
     {
       "original": "He",
@@ -4398,7 +4421,7 @@
       "replacement": "He"
     },
     {
-      "original": "Raymond",
+      "original": "Mary",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -4411,7 +4434,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Raymond"
+      "replacement": "Mary"
     },
     {
       "original": "Then",
@@ -4446,7 +4469,7 @@
       "replacement": "Culture"
     },
     {
-      "original": "Michelle",
+      "original": "Robert",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -4458,10 +4481,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Michelle"
+      "replacement": "Robert"
     },
     {
-      "original": "Brandon",
+      "original": "Stephen",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -4474,7 +4497,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Brandon"
+      "replacement": "Stephen"
     },
     {
       "original": "Now",
@@ -4549,7 +4572,18 @@
       "replacement": "Air"
     },
     {
-      "original": "Meadowbrook-based",
+      "original": "Valley",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Valley"
+    },
+    {
+      "original": "Springs-based",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4560,7 +4594,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Meadowbrook-based"
+      "replacement": "Springs-based"
     },
     {
       "original": "Sun",
@@ -4591,7 +4625,7 @@
       "replacement": "Country"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4602,7 +4636,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
       "original": "Allegiant",
@@ -4687,37 +4721,7 @@
       "replacement": "Country"
     },
     {
-      "original": "Garden",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      },
-      "replacement": "Garden"
-    },
-    {
-      "original": "City",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      },
-      "replacement": "City"
-    },
-    {
-      "original": "Northern Territory",
+      "original": "Crystal Bay",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -4725,10 +4729,10 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Northern Territory"
+      "replacement": "Crystal Bay"
     },
     {
-      "original": "Rural Region",
+      "original": "Bay Region",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -4736,10 +4740,10 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Rural Region"
+      "replacement": "Bay Region"
     },
     {
-      "original": "Island Territory",
+      "original": "River Basin",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -4747,7 +4751,18 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Island Territory"
+      "replacement": "River Basin"
+    },
+    {
+      "original": "Mountain Valley",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Mountain Valley"
     },
     {
       "original": "Palm",
@@ -4778,7 +4793,18 @@
       "replacement": "Springs"
     },
     {
-      "original": "Meadowbrook-St",
+      "original": "Valley",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Valley"
+    },
+    {
+      "original": "Springs-St",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4789,7 +4815,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Meadowbrook-St"
+      "replacement": "Springs-St"
     },
     {
       "original": "Paul",
@@ -4819,21 +4845,18 @@
       "replacement": "Duluth"
     },
     {
-      "original": "Springfield",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
+      "original": "Jasper Creek",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
       "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "patternMatch": 1,
+        "gazetteerMatch": 0
       },
-      "replacement": "Springfield"
+      "replacement": "Jasper Creek"
     },
     {
-      "original": "Pleasantville",
+      "original": "Oldtown",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4844,7 +4867,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Pleasantville"
+      "replacement": "Oldtown"
     },
     {
       "original": "Allegiant",
@@ -4860,7 +4883,7 @@
       "replacement": "Allegiant"
     },
     {
-      "original": "Pleasantville",
+      "original": "Oldtown",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4871,7 +4894,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Pleasantville"
+      "replacement": "Oldtown"
     },
     {
       "original": "Burbank",
@@ -4888,7 +4911,7 @@
       "replacement": "Burbank"
     },
     {
-      "original": "Sharon",
+      "original": "James",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4899,7 +4922,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Sharon"
+      "replacement": "James"
     },
     {
       "original": "Ana",
@@ -4944,7 +4967,7 @@
       "replacement": "Springs"
     },
     {
-      "original": "Rural Region",
+      "original": "Upper Valley",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -4952,10 +4975,10 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Rural Region"
+      "replacement": "Upper Valley"
     },
     {
-      "original": "Linda",
+      "original": "Kenneth",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4966,10 +4989,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Linda"
+      "replacement": "Kenneth"
     },
     {
-      "original": "Laurel",
+      "original": "Foxborough",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -4980,21 +5003,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Laurel"
-    },
-    {
-      "original": "Heights",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Heights"
+      "replacement": "Foxborough"
     },
     {
       "original": "Stockton",
@@ -5011,7 +5020,7 @@
       "replacement": "Stockton"
     },
     {
-      "original": "Sharon",
+      "original": "James",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -5022,7 +5031,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Sharon"
+      "replacement": "James"
     },
     {
       "original": "Maria",
@@ -5039,34 +5048,15 @@
       "replacement": "Maria"
     },
     {
-      "original": "Garden",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
+      "original": "Crystal Bay",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
       "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
+        "patternMatch": 1,
+        "gazetteerMatch": 0
       },
-      "replacement": "Garden"
-    },
-    {
-      "original": "City",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      },
-      "replacement": "City"
+      "replacement": "Crystal Bay"
     },
     {
       "original": "Allegiant",
@@ -5334,7 +5324,7 @@
       "replacement": "Add"
     },
     {
-      "original": "Carolyn",
+      "original": "Anna",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -5345,10 +5335,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Carolyn"
+      "replacement": "Anna"
     },
     {
-      "original": "Jerry",
+      "original": "Donna",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -5359,7 +5349,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Jerry"
+      "replacement": "Donna"
     },
     {
       "original": "Aviation",
@@ -5428,7 +5418,7 @@
       "replacement": "Spirit"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -5439,17 +5429,17 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
-      "original": "2023-12-05",
+      "original": "2023-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2023-12-05"
+      "replacement": "2023-11-28"
     },
     {
       "original": "Aviation",
@@ -5625,7 +5615,7 @@
       "replacement": "Spirit"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -5636,7 +5626,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
       "original": "2.74",
@@ -5702,7 +5692,7 @@
       "replacement": "Airport"
     },
     {
-      "original": "Summerville",
+      "original": "Ironwood",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -5713,7 +5703,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Summerville"
+      "replacement": "Ironwood"
     },
     {
       "original": "Dukas",
@@ -5814,7 +5804,7 @@
       "replacement": "Planning"
     },
     {
-      "original": "Borderland",
+      "original": "Montania",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -5825,7 +5815,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Borderland"
+      "replacement": "Montania"
     },
     {
       "original": "That",
@@ -5977,20 +5967,18 @@
       "replacement": "Google"
     },
     {
-      "original": "Barbara",
+      "original": "Brian",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
       "threshold": 0.95,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "notSentenceStart": 0.15
       },
-      "replacement": "John"
+      "replacement": "Brian"
     },
     {
       "original": "Applicants",
@@ -6121,7 +6109,7 @@
       "replacement": "Article"
     },
     {
-      "original": "Stephen",
+      "original": "Steven",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6132,7 +6120,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Stephen"
+      "replacement": "Steven"
     },
     {
       "original": "Earth-orbit",
@@ -6149,7 +6137,7 @@
       "replacement": "Earth-orbit"
     },
     {
-      "original": "Stephanie",
+      "original": "Nicole",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6160,10 +6148,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Stephanie"
+      "replacement": "Nicole"
     },
     {
-      "original": "Rachel",
+      "original": "Ashley",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -6176,7 +6164,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Rachel"
+      "replacement": "Ashley"
     },
     {
       "original": "Group",
@@ -6195,7 +6183,7 @@
       "replacement": "Group"
     },
     {
-      "original": "Stephen",
+      "original": "Steven",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -6208,10 +6196,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Stephen"
+      "replacement": "Steven"
     },
     {
-      "original": "Stephanie",
+      "original": "Nicole",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -6224,7 +6212,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Stephanie"
+      "replacement": "Nicole"
     },
     {
       "original": "850",
@@ -6237,7 +6225,7 @@
       "replacement": "850"
     },
     {
-      "original": "Stephen",
+      "original": "Steven",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6248,7 +6236,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Stephen"
+      "replacement": "Steven"
     },
     {
       "original": "Travel",
@@ -6287,7 +6275,7 @@
       "replacement": "Travel"
     },
     {
-      "original": "Rachel",
+      "original": "Ashley",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6298,7 +6286,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Rachel"
+      "replacement": "Ashley"
     },
     {
       "original": "Status",
@@ -6398,7 +6386,7 @@
       "replacement": "Circle"
     },
     {
-      "original": "Rachel",
+      "original": "Ashley",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6409,7 +6397,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Rachel"
+      "replacement": "Ashley"
     },
     {
       "original": "Group",
@@ -6426,7 +6414,7 @@
       "replacement": "Group"
     },
     {
-      "original": "Rachel",
+      "original": "Ashley",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6437,7 +6425,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Rachel"
+      "replacement": "Ashley"
     },
     {
       "original": "Swiss",
@@ -6470,7 +6458,7 @@
       "replacement": "Austrian"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6481,10 +6469,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
-      "original": "Valley",
+      "original": "Highland",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -6492,10 +6480,10 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Valley"
+      "replacement": "Highland"
     },
     {
-      "original": "Springs-based",
+      "original": "Park-based",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6506,10 +6494,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Springs-based"
+      "replacement": "Park-based"
     },
     {
-      "original": "Meadowbrook",
+      "original": "Brookside",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6520,10 +6508,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Meadowbrook"
+      "replacement": "Brookside"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6534,10 +6522,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
-      "original": "Coastland",
+      "original": "Forestia",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6548,7 +6536,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Coastland"
+      "replacement": "Forestia"
     },
     {
       "original": "Airways",
@@ -6590,7 +6578,7 @@
       "replacement": "Other"
     },
     {
-      "original": "Stephen",
+      "original": "Steven",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6601,21 +6589,23 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Stephen"
+      "replacement": "Steven"
     },
     {
-      "original": "Kevin",
+      "original": "Jonathan",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.29999999999999993,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       },
-      "replacement": "Kevin"
+      "replacement": "Jonathan"
     },
     {
       "original": "International",
@@ -6636,7 +6626,7 @@
       "replacement": "International"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6647,7 +6637,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
       "original": "Group",
@@ -6778,7 +6768,7 @@
       "replacement": "Air"
     },
     {
-      "original": "Valleybrook",
+      "original": "Montania",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6789,7 +6779,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Valleybrook"
+      "replacement": "Montania"
     },
     {
       "original": "Emirates",
@@ -6806,7 +6796,7 @@
       "replacement": "Emirates"
     },
     {
-      "original": "Larchmont",
+      "original": "Quarryville",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6817,7 +6807,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Larchmont"
+      "replacement": "Quarryville"
     },
     {
       "original": "Airways",
@@ -6862,7 +6852,7 @@
       "replacement": "Air"
     },
     {
-      "original": "Donna",
+      "original": "Robert",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6873,10 +6863,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Donna"
+      "replacement": "Robert"
     },
     {
-      "original": "Maria",
+      "original": "Benjamin",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -6887,27 +6877,27 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Maria"
+      "replacement": "Benjamin"
     },
     {
-      "original": "November",
+      "original": "March",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "November"
+      "replacement": "March"
     },
     {
-      "original": "2024-12-05",
+      "original": "2024-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2024-12-05"
+      "replacement": "2024-11-28"
     },
     {
       "original": "Nicolas",
@@ -6965,113 +6955,7 @@
       "replacement": "Images"
     },
     {
-      "original": "Garden",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      },
-      "replacement": "Garden"
-    },
-    {
-      "original": "City",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      },
-      "replacement": "City"
-    },
-    {
-      "original": "Pleasantville",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Pleasantville"
-    },
-    {
-      "original": "Maria",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Maria"
-    },
-    {
-      "original": "Karen",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Karen"
-    },
-    {
-      "original": "Gary",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Gary"
-    },
-    {
-      "original": "Fairmont",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Fairmont"
-    },
-    {
-      "original": "Onyx Ocean",
+      "original": "In Crystal Bay",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -7079,7 +6963,96 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Onyx Ocean"
+      "replacement": "In Crystal Bay"
+    },
+    {
+      "original": "Kingsport",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Kingsport"
+    },
+    {
+      "original": "Benjamin",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Benjamin"
+    },
+    {
+      "original": "Jennifer",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "Jennifer"
+    },
+    {
+      "original": "Emily",
+      "type": "properNoun",
+      "confidence": 0.5499999999999998,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      },
+      "replacement": "Emily"
+    },
+    {
+      "original": "Brookside",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "Brookside"
+    },
+    {
+      "original": "Cypress Lake",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Cypress Lake"
     },
     {
       "original": "Airport",
@@ -7096,7 +7069,7 @@
       "replacement": "Airport"
     },
     {
-      "original": "Sharon",
+      "original": "James",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7107,7 +7080,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Sharon"
+      "replacement": "James"
     },
     {
       "original": "Ana",
@@ -7138,18 +7111,7 @@
       "replacement": "Spokane"
     },
     {
-      "original": "Highland",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      },
-      "replacement": "Highland"
-    },
-    {
-      "original": "Park",
+      "original": "Oldtown",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7160,7 +7122,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Park"
+      "replacement": "Oldtown"
     },
     {
       "original": "Embraer",
@@ -7198,17 +7160,17 @@
       "replacement": "And"
     },
     {
-      "original": "Dec. 24",
+      "original": "Dec. 17",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "Dec. 24"
+      "replacement": "Dec. 17"
     },
     {
-      "original": "Brenda",
+      "original": "Angela",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -7220,10 +7182,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Brenda"
+      "replacement": "Angela"
     },
     {
-      "original": "Sharon",
+      "original": "James",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -7236,10 +7198,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Sharon"
+      "replacement": "James"
     },
     {
-      "original": "John",
+      "original": "Timothy",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -7252,10 +7214,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "John"
+      "replacement": "Timothy"
     },
     {
-      "original": "Thornbury",
+      "original": "Quarryville",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -7268,10 +7230,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Thornbury"
+      "replacement": "Quarryville"
     },
     {
-      "original": "Sharon",
+      "original": "James",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7282,10 +7244,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Sharon"
+      "replacement": "James"
     },
     {
-      "original": "John",
+      "original": "Timothy",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7296,18 +7258,35 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "John"
+      "replacement": "Timothy"
     },
     {
-      "original": "Granite Range",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
+      "original": "Pearl",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
       "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
       },
-      "replacement": "Granite Range"
+      "replacement": "Pearl"
+    },
+    {
+      "original": "Harbor",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Harbor"
     },
     {
       "original": "City",
@@ -7400,7 +7379,7 @@
       "replacement": "Arabian"
     },
     {
-      "original": "Donna",
+      "original": "Robert",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -7412,7 +7391,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Donna"
+      "replacement": "Robert"
     },
     {
       "original": "Los",
@@ -7475,7 +7454,7 @@
       "replacement": "International"
     },
     {
-      "original": "Rachel",
+      "original": "Brian",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -7488,10 +7467,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Rachel"
+      "replacement": "Brian"
     },
     {
-      "original": "Midland Territory",
+      "original": "Urban Territory",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -7499,27 +7478,27 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Midland Territory"
+      "replacement": "Urban Territory"
     },
     {
-      "original": "Dec. 26",
+      "original": "Dec. 19",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "Dec. 26"
+      "replacement": "Dec. 19"
     },
     {
-      "original": "Apr 17",
+      "original": "Apr 10",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "Apr 17"
+      "replacement": "Apr 10"
     },
     {
       "original": "Aeroroutes",
@@ -7634,7 +7613,7 @@
       "replacement": "Simple"
     },
     {
-      "original": "Donna",
+      "original": "Jerry",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7645,7 +7624,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Donna"
+      "replacement": "Jerry"
     },
     {
       "original": "39",
@@ -7658,14 +7637,14 @@
       "replacement": "39"
     },
     {
-      "original": "2025-12-05",
+      "original": "2025-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2025-12-05"
+      "replacement": "2025-11-28"
     },
     {
       "original": "Its",
@@ -7679,37 +7658,7 @@
       "replacement": "Its"
     },
     {
-      "original": "Garden",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      },
-      "replacement": "Garden"
-    },
-    {
-      "original": "City",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      },
-      "replacement": "City"
-    },
-    {
-      "original": "Island Territory",
+      "original": "Crystal Bay",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -7717,10 +7666,21 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Island Territory"
+      "replacement": "Crystal Bay"
     },
     {
-      "original": "Summerville",
+      "original": "Mountain Valley",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Mountain Valley"
+    },
+    {
+      "original": "Ironwood",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7731,7 +7691,7 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Summerville"
+      "replacement": "Ironwood"
     },
     {
       "original": "Gatwick",
@@ -7748,7 +7708,7 @@
       "replacement": "Gatwick"
     },
     {
-      "original": "Summerville",
+      "original": "Oldtown",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7759,10 +7719,10 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Summerville"
+      "replacement": "Oldtown"
     },
     {
-      "original": "Oakmont",
+      "original": "Eagle",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7773,7 +7733,21 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Oakmont"
+      "replacement": "Eagle"
+    },
+    {
+      "original": "Point",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Point"
     },
     {
       "original": "Advertisement",
@@ -7800,22 +7774,20 @@
       "replacement": "Article"
     },
     {
-      "original": "Jonathan",
+      "original": "James",
       "type": "properNoun",
-      "confidence": 0.1499999999999999,
+      "confidence": 0.6499999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
+        "unknownInDictionary_detail": "100% unknown"
       },
-      "replacement": "Jonathan"
+      "replacement": "James"
     },
     {
-      "original": "Ruby Coast",
+      "original": "Spruce Mountain",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -7823,7 +7795,7 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Ruby Coast"
+      "replacement": "Spruce Mountain"
     },
     {
       "original": "Airport",
@@ -7840,9 +7812,9 @@
       "replacement": "Airport"
     },
     {
-      "original": "Jonathan",
+      "original": "James",
       "type": "properNoun",
-      "confidence": 0.3999999999999999,
+      "confidence": 0.8999999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
@@ -7850,11 +7822,9 @@
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
         "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
+        "insideLink_detail": "text_in_link"
       },
-      "replacement": "Jonathan"
+      "replacement": "James"
     },
     {
       "original": "Terminal",
@@ -7955,20 +7925,18 @@
       "replacement": "This"
     },
     {
-      "original": "Jonathan",
+      "original": "James",
       "type": "properNoun",
-      "confidence": 0.29999999999999993,
+      "confidence": 0.7999999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
+        "notSentenceStart": 0.15
       },
-      "replacement": "Jonathan"
+      "replacement": "James"
     },
     {
       "original": "30",
@@ -7981,19 +7949,17 @@
       "replacement": "30"
     },
     {
-      "original": "Jonathan",
+      "original": "James",
       "type": "properNoun",
-      "confidence": 0.1499999999999999,
+      "confidence": 0.6499999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
+        "unknownInDictionary_detail": "100% unknown"
       },
-      "replacement": "Jonathan"
+      "replacement": "James"
     },
     {
       "original": "More",
@@ -8042,7 +8008,7 @@
       "replacement": "More"
     },
     {
-      "original": "Raymond",
+      "original": "Mary",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -8055,7 +8021,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Raymond"
+      "replacement": "Mary"
     },
     {
       "original": "Disneyland",
@@ -8077,7 +8043,7 @@
       "replacement": "Disneyland"
     },
     {
-      "original": "David",
+      "original": "Linda",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -8090,10 +8056,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "David"
+      "replacement": "Linda"
     },
     {
-      "original": "Margaret",
+      "original": "Larry",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -8106,7 +8072,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Margaret"
+      "replacement": "Larry"
     },
     {
       "original": "1",
@@ -8135,7 +8101,7 @@
       "replacement": "Big"
     },
     {
-      "original": "Ryan",
+      "original": "Katherine",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -8148,7 +8114,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Ryan"
+      "replacement": "Katherine"
     },
     {
       "original": "3",
@@ -8161,7 +8127,7 @@
       "replacement": "3"
     },
     {
-      "original": "Springfield",
+      "original": "Zenith",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -8173,7 +8139,21 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Springfield"
+      "replacement": "Zenith"
+    },
+    {
+      "original": "City",
+      "type": "properNoun",
+      "confidence": 0.7,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "City"
     },
     {
       "original": "50,000",
@@ -8201,7 +8181,7 @@
       "replacement": "Why"
     },
     {
-      "original": "Northern Territory",
+      "original": "Bay Region",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -8209,10 +8189,10 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Northern Territory"
+      "replacement": "Bay Region"
     },
     {
-      "original": "Emerald Ocean",
+      "original": "Cypress Lake",
       "type": "location",
       "confidence": 0.9,
       "meetsThreshold": true,
@@ -8220,20 +8200,20 @@
         "patternMatch": 1,
         "gazetteerMatch": 0
       },
-      "replacement": "Emerald Ocean"
+      "replacement": "Cypress Lake"
     },
     {
-      "original": "Dec 21, 2025",
+      "original": "Dec 14, 2025",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "Dec 21, 2025"
+      "replacement": "Dec 14, 2025"
     },
     {
-      "original": "John",
+      "original": "Karen",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -8245,10 +8225,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "John"
+      "replacement": "Karen"
     },
     {
-      "original": "Rebecca",
+      "original": "Emma",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -8261,7 +8241,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Rebecca"
+      "replacement": "Emma"
     },
     {
       "original": "Freelance",
@@ -8291,7 +8271,7 @@
       "replacement": "Writer"
     },
     {
-      "original": "John",
+      "original": "Karen",
       "type": "properNoun",
       "confidence": 0.6499999999999999,
       "threshold": 0.95,
@@ -8301,38 +8281,10 @@
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown"
       },
-      "replacement": "John"
-    },
-    {
-      "original": "Rebecca",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
-      "replacement": "Rebecca"
-    },
-    {
-      "original": "Karen",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      },
       "replacement": "Karen"
     },
     {
-      "original": "Heather",
+      "original": "Emma",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -8343,27 +8295,55 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Heather"
+      "replacement": "Emma"
     },
     {
-      "original": "487",
+      "original": "Angela",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Angela"
+    },
+    {
+      "original": "Jacob",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      },
+      "replacement": "Jacob"
+    },
+    {
+      "original": "305",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "487"
+      "replacement": "305"
     },
     {
-      "original": "2,648",
+      "original": "3,438",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2,648"
+      "replacement": "3,438"
     },
     {
       "original": "Can",
@@ -8379,14 +8359,14 @@
       "replacement": "Can"
     },
     {
-      "original": "483",
+      "original": "617",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "483"
+      "replacement": "617"
     },
     {
       "original": "We",
@@ -8402,7 +8382,7 @@
       "replacement": "We"
     },
     {
-      "original": "Justin",
+      "original": "Betty",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -8413,32 +8393,30 @@
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
       },
-      "replacement": "Justin"
+      "replacement": "Betty"
     },
     {
-      "original": "487",
+      "original": "305",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "487"
+      "replacement": "305"
     },
     {
-      "original": "Barbara",
+      "original": "Brian",
       "type": "properNoun",
-      "confidence": 0.95,
+      "confidence": 0.6499999999999999,
       "threshold": 0.95,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "unknownInDictionary_detail": "100% unknown"
       },
-      "replacement": "John"
+      "replacement": "Brian"
     },
     {
       "original": "Now",
@@ -8490,7 +8468,7 @@
       "replacement": "1"
     },
     {
-      "original": "Deborah",
+      "original": "Tyler",
       "type": "properNoun",
       "confidence": 0.8999999999999999,
       "threshold": 0.95,
@@ -8502,10 +8480,10 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Deborah"
+      "replacement": "Tyler"
     },
     {
-      "original": "Margaret",
+      "original": "Aaron",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -8518,7 +8496,7 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link"
       },
-      "replacement": "Margaret"
+      "replacement": "Aaron"
     },
     {
       "original": "2",
@@ -8529,6 +8507,120 @@
         "patternMatch": 1
       },
       "replacement": "2"
+    },
+    {
+      "original": "Eric",
+      "type": "properNoun",
+      "confidence": 0.8999999999999999,
+      "threshold": 0.95,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "Eric"
+    },
+    {
+      "original": "Jasper Creek",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Jasper Creek"
+    },
+    {
+      "original": "Amanda",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link"
+      },
+      "replacement": "Amanda"
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      },
+      "replacement": "3"
+    },
+    {
+      "original": "Cypress Lake",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Cypress Lake"
+    },
+    {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      },
+      "replacement": "4"
+    },
+    {
+      "original": "Quartz Peak",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      },
+      "replacement": "Quartz Peak"
+    },
+    {
+      "original": "400,000",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      },
+      "replacement": "400,000"
+    },
+    {
+      "original": "40",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      },
+      "replacement": "40"
+    },
+    {
+      "original": "5",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      },
+      "replacement": "5"
     },
     {
       "original": "Famous",
@@ -8566,182 +8658,6 @@
       "replacement": "Deborah"
     },
     {
-      "original": "3",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      },
-      "replacement": "3"
-    },
-    {
-      "original": "Emerald Ocean",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      },
-      "replacement": "Emerald Ocean"
-    },
-    {
-      "original": "Thomas",
-      "type": "properNoun",
-      "confidence": 0.8999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Thomas"
-    },
-    {
-      "original": "Thomas",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Thomas"
-    },
-    {
-      "original": "Jessica",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Jessica"
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      },
-      "replacement": "4"
-    },
-    {
-      "original": "Margaret",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Emerald Ocean",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      },
-      "replacement": "Emerald Ocean"
-    },
-    {
-      "original": "5",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      },
-      "replacement": "5"
-    },
-    {
-      "original": "Angela",
-      "type": "properNoun",
-      "confidence": 0.8999999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Angela"
-    },
-    {
-      "original": "Zenith",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Zenith"
-    },
-    {
-      "original": "City",
-      "type": "properNoun",
-      "confidence": 0.7,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "City"
-    },
-    {
-      "original": "Mark",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link"
-      },
-      "replacement": "Mark"
-    },
-    {
       "original": "Let's",
       "type": "properNoun",
       "confidence": 0.6499999999999999,
@@ -8755,20 +8671,18 @@
       "replacement": "Let's"
     },
     {
-      "original": "Barbara",
+      "original": "Brian",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
       "threshold": 0.95,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "notSentenceStart": 0.15
       },
-      "replacement": "John"
+      "replacement": "Brian"
     },
     {
       "original": "Cross",
@@ -9861,14 +9775,14 @@
       "replacement": "Logo"
     },
     {
-      "original": "2025-12-05",
+      "original": "2025-11-28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       },
-      "replacement": "2025-12-05"
+      "replacement": "2025-11-28"
     },
     {
       "original": "Hearst",
