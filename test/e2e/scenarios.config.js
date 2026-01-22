@@ -64,7 +64,7 @@ const SCENARIOS = [
     name: 'zillow-listing',
     description: 'Zillow property listing with address, price, and details',
     url: 'https://www.zillow.com/homedetails/479-Kentucky-Ave-Berkeley-CA-94707/24847894_zpid/',
-    enabledTypes: ['money', 'quantity', 'dates', 'properNouns', 'locations', 'addresses'],
+    enabledTypes: ['money', 'quantities', 'dates', 'properNouns', 'locations', 'addresses'],
     viewport: { width: 1280, height: 1400 },
     waitAfterLoad: 5000,
     headed: true, // Zillow has bot protection
