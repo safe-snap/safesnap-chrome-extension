@@ -1,11 +1,11 @@
 {
   "scenario": "zillow-listing",
   "step": "original",
-  "timestamp": "2026-01-22T04:28:33.604Z",
+  "timestamp": "2026-01-22T04:32:31.483Z",
   "settings": {
     "enabledTypes": [
       "money",
-      "quantity",
+      "quantities",
       "dates",
       "properNouns",
       "locations",

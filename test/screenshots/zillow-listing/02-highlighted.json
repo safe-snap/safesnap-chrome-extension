@@ -1,11 +1,11 @@
 {
   "scenario": "zillow-listing",
   "step": "highlighted",
-  "timestamp": "2026-01-22T04:28:36.085Z",
+  "timestamp": "2026-01-22T04:32:33.969Z",
   "settings": {
     "enabledTypes": [
       "money",
-      "quantity",
+      "quantities",
       "dates",
       "properNouns",
       "locations",
@@ -2587,7 +2587,7 @@
       }
     },
     {
-      "original": "5,757",
+      "original": "5,760",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2621,7 +2621,7 @@
       }
     },
     {
-      "original": "23",
+      "original": "27",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17461,7 +17461,16 @@
       }
     },
     {
-      "original": "19",
+      "original": "20",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "20",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17471,15 +17480,6 @@
     },
     {
       "original": "50",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "14",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -18097,7 +18097,7 @@
       }
     },
     {
-      "original": "01",
+      "original": "31",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -18106,7 +18106,7 @@
       }
     },
     {
-      "original": "21",
+      "original": "22",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,

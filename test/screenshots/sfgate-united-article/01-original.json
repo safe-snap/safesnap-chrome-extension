@@ -1,7 +1,7 @@
 {
   "scenario": "sfgate-united-article",
   "step": "original",
-  "timestamp": "2026-01-22T04:28:58.092Z",
+  "timestamp": "2026-01-22T04:32:55.908Z",
   "settings": {
     "enabledTypes": [
       "dates",

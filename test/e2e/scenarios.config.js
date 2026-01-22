@@ -49,7 +49,7 @@ const SCENARIOS = [
     name: 'calculator-net-tax',
     description: 'Tax calculator with income, withholding, and deduction data',
     url: 'https://www.calculator.net/tax-calculator.html?cfilestatus=MarriedJoint&callowance=2&callowanceold=0&ctaxyear=2025&cage=30&csalaryincome=125%2C000&cwithheld=26%2C000&csalarystate=12%2C000&csalarylocal=0&chasbusiness=no&cbusinessincome=0&cestimatedtax=0&cmedicarewage=0&cage2=30&csalaryincome2=122%2C000&cwithheld2=40%2C000&csalarystate2=11%2C000&csalarylocal2=0&chasbusiness2=no&cbusinessincome2=0&cestimatedtax2=0&cmedicarewage2=0&cssincome=0&cinterestincome=0&cordinarydividends=1%2C111&cqualifieddividends=0&crentalincome=0&cshortcapitalgain=0&clongcapitalgain=0&cotherincome=0&cstatetaxrate=0&ctips=0&covertime=0&ccar=0&cira=0&csalestax=0&cmortgage=23%2C444&cdonations=02%2C222&cstudentloan=0&cchildcare=0&ctuition=0&ctuition2=0&ctuition3=0&ctuition4=0&cotherdeductable=0&printit=0&x=Calculate',
-    enabledTypes: ['money', 'quantity', 'dates', 'properNouns'],
+    enabledTypes: ['money', 'quantities', 'dates', 'properNouns'],
     viewport: { width: 1280, height: 1200 },
     waitAfterLoad: 2000,
     steps: ['original', 'highlighted', 'protected'],
@@ -81,7 +81,7 @@ const SCENARIOS = [
     name: 'wikipedia-san-francisco-blackout',
     description: 'Wikipedia article about San Francisco',
     url: 'https://en.wikipedia.org/wiki/San_Francisco',
-    enabledTypes: ['dates', 'properNouns', 'quantity', 'locations'],
+    enabledTypes: ['dates', 'properNouns', 'quantities', 'locations'],
     viewport: { width: 1280, height: 900 },
     waitAfterLoad: 2000,
     zoom: 1, // 50% zoom
@@ -98,7 +98,7 @@ const SCENARIOS = [
     name: 'sfgate-united-article',
     description: 'SFGate news article (requires headed mode)',
     url: 'https://www.sfgate.com/travel/article/united-unveiling-most-luxurious-jet-two-major-sfo-21297088.php',
-    enabledTypes: ['dates', 'properNouns', 'quantity', 'locations'],
+    enabledTypes: ['dates', 'properNouns', 'quantities', 'locations'],
     viewport: { width: 1280, height: 1900 },
     waitAfterLoad: 5000,
     headed: true, // Force visible browser to bypass bot detection
