@@ -19,8 +19,9 @@ import {
   isHighlightEnabled,
   initializeHighlightMode,
   refreshHighlightsWithSettings,
+  getDetectionResults,
 } from './modules/highlight-mode.js';
-import { loadSettings, getSetting } from './modules/settings.js';
+import { loadSettings, getSetting, setSetting } from './modules/settings.js';
 import { refreshAllPanelPositions } from './modules/notification-panel.js';
 
 // Prevent multiple initializations
@@ -44,6 +45,7 @@ console.log(`[SafeSnap Debug] DOM ready state on script load: ${document.readySt
 let detector = null;
 let replacer = null;
 let consistencyMapper = null;
+let lastDetectionResults = null; // Store last detection results for API access
 
 // Initialize on load
 (async () => {
@@ -80,7 +82,15 @@ let consistencyMapper = null;
       enableHighlightMode(detector, getOriginalTextForNode, enabledTypes);
     }
   };
+  window.SafeSnap.disableHighlights = () => disableHighlightMode();
   window.SafeSnap.restoreOriginal = () => restoreOriginal();
+  window.SafeSnap.setSetting = (key, value) => setSetting(key, value);
+  window.SafeSnap.setProperNounThreshold = (threshold) => {
+    if (detector) {
+      detector.setProperNounThreshold(threshold);
+    }
+  };
+  window.SafeSnap.getDetectionResults = () => getDetectionResultsAPI();
   window.SafeSnap.isInitialized = true;
   console.log('[SafeSnap Debug] SafeSnap API exposed on window.SafeSnap');
 
@@ -241,6 +251,15 @@ async function protectPII(enabledTypes) {
     // Call core protection logic
     const entities = await protectPIICore(enabledTypes, detector, replacer, consistencyMapper);
 
+    // Store detection results for API access
+    lastDetectionResults = entities.map((entity) => ({
+      original: entity.original,
+      type: entity.type,
+      confidence: entity.confidence,
+      context: entity.context,
+      replacement: consistencyMapper.get(entity.type, entity.original) || entity.original,
+    }));
+
     // Highlights are automatically preserved after PII protection
     // The refreshHighlightsWithSettings() function now checks if PII is protected
     // and skips re-detection to maintain original highlight colors
@@ -258,8 +277,9 @@ async function protectPII(enabledTypes) {
 function restoreOriginal() {
   restoreOriginalCore();
 
-  // Clear consistency mapper
+  // Clear consistency mapper and stored results
   consistencyMapper.clear();
+  lastDetectionResults = null;
 
   // Refresh highlights if they're currently showing
   if (isHighlightEnabled()) {
@@ -268,4 +288,27 @@ function restoreOriginal() {
       enableHighlightMode(detector, getOriginalTextForNode);
     }, 100);
   }
+}
+
+/**
+ * Get detection results for E2E testing and debugging
+ * Returns results from either highlight mode or protection mode
+ * @returns {Array<Object>|null} Detection results with type, original, confidence, replacement
+ */
+function getDetectionResultsAPI() {
+  // If highlight mode is active, get results from there (includes score breakdown)
+  const highlightResults = getDetectionResults();
+  if (highlightResults && highlightResults.length > 0) {
+    // Enhance with replacement info from consistency mapper if PII is protected
+    if (getProtectionStatus()) {
+      return highlightResults.map((result) => ({
+        ...result,
+        replacement: consistencyMapper.get(result.type, result.original) || result.original,
+      }));
+    }
+    return highlightResults;
+  }
+
+  // Otherwise, return stored protection results
+  return lastDetectionResults;
 }

@@ -41,6 +41,13 @@ export function getSetting(key) {
 }
 
 /**
+ * Set a setting value programmatically (useful for E2E tests)
+ */
+export function setSetting(key, value) {
+  userSettings[key] = value;
+}
+
+/**
  * Get banner position styles based on position setting
  */
 export function getBannerPositionStyles(position) {

@@ -1,0 +1,7370 @@
+{
+  "scenario": "calculator-net-tax",
+  "step": "highlighted",
+  "timestamp": "2026-01-21T22:01:50.863Z",
+  "settings": {
+    "enabledTypes": [
+      "money",
+      "quantity",
+      "dates",
+      "properNouns"
+    ],
+    "properNounSensitivity": 1,
+    "protectionMode": "random",
+    "zoom": 1
+  },
+  "summary": {
+    "totalDetections": 623,
+    "byType": {
+      "properNoun": 476,
+      "date": 28,
+      "money": 64,
+      "quantity": 55
+    },
+    "protectedCount": 204,
+    "rejectedCount": 419
+  },
+  "detections": [
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Calculator",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Estimated",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Refund",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$36,694",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Total",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$248,111",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Total",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Deductions",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$48,666",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Taxable",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$199,445",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Regular",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Taxes",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$33,706",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Alternative",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Minimum",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$0",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Net",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Investment",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$0",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "All",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Credits",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$4,400",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Total",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Credits",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$29,306",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Marginal",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Rate",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "22",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Pre-payments",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$66,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Estimated",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Refund",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$36,694",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Calculator",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "File",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Status",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Single",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Married",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Filing",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Jointly",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Married",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Filing",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Separately",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Head",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Household",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Qualified",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Widow",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "No",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Young",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Dependents",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Age",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "0",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "16",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "No",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Dependents",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Age",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "17",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Year",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Person",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Husband",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Earned",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Age",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Wages",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Tips",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Compensation",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Federal",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Withheld",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "State",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Withheld",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "17",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Local",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Withheld",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "19",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Has",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Business",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Self",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Employment",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Business",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Estimated",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Paid",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Medicare",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Wages",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "5",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "0",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Person",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Wife",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Earned",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Age",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Wages",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Tips",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Compensation",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Federal",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Withheld",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "State",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Withheld",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "17",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Local",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Withheld",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "19",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Has",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Business",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Self",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Employment",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Business",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Estimated",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Paid",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Medicare",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Wages",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "5",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "0",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Family",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Incomes",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Social",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Security",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Ordinary",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Dividends",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Qualified",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Dividends",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Passive",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Incomes",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Short-term",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Capital",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Gains",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Long-term",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Capital",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Gains",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "State",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Local",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Rate",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Deductions",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Credits",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Tips",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Overtime",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Car",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Max",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "$10,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Contributions",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Real",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Estate",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Mortgage",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Charitable",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Donations",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Student",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Max",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "$2,500",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Person",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Child",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Dependent",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Care",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Expense",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Max",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "$3,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Person",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$6,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "13",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "College",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Education",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Expense",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Student",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Student",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Student",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Student",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Deductibles",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Taxable",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Relevant",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Taking",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "401",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Taxable",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Most",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "However",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Short-term",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Capital",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Gains",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Losses",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Long-term",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Capital",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Gains",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Losses",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Taxation",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Ordinary",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Dividends",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "All",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Ordinary",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Qualified",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Dividends",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "These",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "There",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Passive",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Incomes",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Making",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Passive",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Any",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Exemptions",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Broadly",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "They",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Deductions",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "They",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "There",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Form",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Modified",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Adjusted",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Gross",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "These",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Student",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "One-half",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Qualified",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Tuition",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Passive",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Social",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Security",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "137",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Rental",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Any",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Tips",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Car",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Seniors",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Above-the",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Deductions",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "They",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Schedules",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Adjustments",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "One",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Please",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Below",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Traditional",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Most",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "If",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Modified",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Adjusted",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Gross",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Student",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Form",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Those",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Modified",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Adjusted",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Gross",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$100,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$200,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Qualified",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Must",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Moving",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "50",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Tips",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2028",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$25,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$150,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$300,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Overtime",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2028",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$12,500",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$25,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$150,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$300,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Car",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2028",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$10,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$100,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$200,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Deduction",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2028",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "65",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$6,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$12,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$75,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$150,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Below-the",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Deductions",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Standard",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Deduction",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Itemized",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Deductions",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Schedule",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$1,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$1,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Please",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Examples",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Mortgage",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$750,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2026",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Loans",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Charitable",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Only",
+      "type": "properNoun",
+      "confidence": 0,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Handouts",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Medical",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Any",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Medical",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "If",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "10",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "7.5",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "65",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Note",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Sales",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Sometimes",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Taxpayers",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2026",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$40,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$40,400",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$10,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Modified",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Adjusted",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Gross",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$500,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$505,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2026",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Most",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "However",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Examples",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Out-of",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Not",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "12",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$250",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Paying",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Believe",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Job",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Examples",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Smoking",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Participating",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Disaster",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "If",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Business",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Any",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "However",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Try",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Any",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Schedule",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Business-related",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Some",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Standard",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Itemized",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Deductions",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Although",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Most",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "However",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Instead",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Some",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Congress",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$15,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$30,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2024",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$14,600",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$29,200",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Credits",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Congress",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "$1,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$12,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$11,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Non-refundable",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "$0",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$0",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Any",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "$0",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "If",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "$0",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Refundable",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Due",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Calculator",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "However",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Just",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Also",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Please",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Examples",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.6,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Earned",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$70,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Families",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Foreign",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Children",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Child",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "$2,200",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$1,700",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$200,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$400,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Child",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Dependent",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Care",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "About",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "20",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "50",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$3,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$6,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "13",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Like",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Adoption",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "This",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Education",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Retirement",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Saver's",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Non-refundable",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "50",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "30",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "10",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$2,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$4,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Must",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "18",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "American",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Opportunity",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Generally",
+      "type": "properNoun",
+      "confidence": 0,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "There",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "$2,500",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "If",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "$0",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "40",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "$1,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Lifetime",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Learning",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Unlike",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "$2,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "American",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Opportunity",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Lifetime",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Learning",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Environmental",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Residential",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Energy",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Residential",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "However",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Non-business",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Energy",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Property",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Credit",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Equipment",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Department",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Energy",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Alternative",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Minimum",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "It",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "If",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "However",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Lower",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "401",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Reduce",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Increase",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Generally",
+      "type": "properNoun",
+      "confidence": 0,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Assistant",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "may",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Search",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Financial",
+      "type": "properNoun",
+      "confidence": 0.7,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Calculators",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Mortgage",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Auto",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Payment",
+      "type": "properNoun",
+      "confidence": 0.8500000000000001,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Retirement",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Amortization",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Investment",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Currency",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Inflation",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Finance",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Mortgage",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Payoff",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Income",
+      "type": "properNoun",
+      "confidence": 0.8500000000000001,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Compound",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Salary",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Rate",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Sales",
+      "type": "properNoun",
+      "confidence": 0.8500000000000001,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tax",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "More",
+      "type": "properNoun",
+      "confidence": 0.8500000000000001,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Financial",
+      "type": "properNoun",
+      "confidence": 0.8499999999999999,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Calculators",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Financial",
+      "type": "properNoun",
+      "confidence": 0.7,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Fitness",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Health",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Math",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.8500000000000001,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "2008",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2026",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Financial",
+      "type": "properNoun",
+      "confidence": 0.7,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Fitness",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Health",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Math",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Other",
+      "type": "properNoun",
+      "confidence": 0.8500000000000001,
+      "threshold": 1,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    }
+  ]
+}

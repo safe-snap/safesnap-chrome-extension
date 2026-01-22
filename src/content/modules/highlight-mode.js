@@ -37,6 +37,42 @@ export function isHighlightEnabled() {
 }
 
 /**
+ * Get current detection results with metadata
+ * Returns array of detected PII entities with type, score, breakdown, and replacement info
+ * @returns {Array<Object>} Array of detection results
+ */
+export function getDetectionResults() {
+  const isPIIProtected = getProtectionStatus();
+
+  return highlightCandidates.map((candidate) => {
+    const result = {
+      original: candidate.original,
+      type: candidate.type,
+      confidence: candidate.confidence,
+      threshold: candidate.threshold,
+      meetsThreshold:
+        candidate.threshold !== undefined
+          ? candidate.confidence >= candidate.threshold
+          : candidate.confidence >= 0.75,
+      scoreBreakdown: candidate.scoreBreakdown || {},
+    };
+
+    // If PII is protected, include replacement info
+    if (isPIIProtected && candidate.node) {
+      const replacementInfo = getReplacementInfo(candidate.node, candidate.start, candidate.end);
+      if (replacementInfo) {
+        // Get the replacement text from the current DOM
+        const currentText = candidate.node.textContent;
+        const replacement = currentText.substring(replacementInfo.start, replacementInfo.end);
+        result.replacement = replacement;
+      }
+    }
+
+    return result;
+  });
+}
+
+/**
  * Check if running in Chrome extension context
  */
 function isExtensionContext() {

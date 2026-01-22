@@ -86,3 +86,155 @@ The project has comprehensive test coverage across multiple areas:
   - User workflow validation
 
 **Total**: 343 tests pass ✅
+
+---
+
+## E2E Screenshot Scenarios
+
+The E2E test suite includes scenario-based testing that captures screenshots at various stages of PII detection and protection. These screenshots are used in [docs/DEMONSTRATION.md](docs/DEMONSTRATION.md).
+
+### Running Scenarios
+
+```bash
+# Run all scenarios
+bunx playwright test test/e2e/scenarios.spec.js
+
+# Run specific scenario
+bunx playwright test test/e2e/scenarios.spec.js -g "zillow-listing"
+bunx playwright test test/e2e/scenarios.spec.js -g "calculator-net-tax"
+bunx playwright test test/e2e/scenarios.spec.js -g "sfgate-united-article"
+bunx playwright test test/e2e/scenarios.spec.js -g "wikipedia-san-francisco-blackout"
+
+# Run with visible browser (headed mode)
+bunx playwright test test/e2e/scenarios.spec.js --headed
+
+# Run with debug output
+DEBUG=pw:api bunx playwright test test/e2e/scenarios.spec.js
+```
+
+### Prerequisites
+
+1. Install Playwright browsers:
+
+   ```bash
+   bunx playwright install chromium
+   ```
+
+2. Build the extension:
+   ```bash
+   bun run build
+   ```
+
+### Output Location
+
+Screenshots are saved to:
+
+```
+test/screenshots/<scenario-name>/
+├── 01-original.png          # Page before SafeSnap
+├── 01-original.json         # Metadata (empty detections)
+├── 02-highlighted.png       # PII highlighted
+├── 02-highlighted.json      # Highlight candidates
+├── 03-protected.png         # PII replaced
+├── 03-protected.json        # Full detection results
+├── 04-protected-highlighted.png  # (if step enabled)
+└── 04-protected-highlighted.json
+```
+
+### Adding New Scenarios
+
+Edit `test/e2e/scenarios.config.js`:
+
+```javascript
+{
+  name: 'my-new-scenario',
+  description: 'Description of what this tests',
+  url: 'https://example.com/page-with-pii',
+  enabledTypes: ['money', 'dates', 'properNouns', 'locations'],
+  viewport: { width: 1280, height: 900 },
+  waitAfterLoad: 2000,
+  steps: ['original', 'highlighted', 'protected'],
+  protectionMode: 'random',  // or 'blackout'
+  properNounSensitivity: 0.75,  // 0.5 = more detections, 0.95 = fewer
+}
+```
+
+### Available PII Types
+
+| Type          | Description             | Examples                                  |
+| ------------- | ----------------------- | ----------------------------------------- |
+| `money`       | Currency amounts        | `$1,250.00`, `€50`, `£100`                |
+| `dates`       | Date patterns           | `Jan 15, 2024`, `2024-01-15`, `2024`      |
+| `properNouns` | Names and proper nouns  | `John Smith`, `Microsoft`                 |
+| `locations`   | Place names             | `San Francisco`, `California`, `Bay Area` |
+| `addresses`   | Street addresses        | `123 Main St`, `456 Oak Ave`              |
+| `emails`      | Email addresses         | `user@example.com`                        |
+| `phones`      | Phone numbers           | `(555) 123-4567`, `+1-555-123-4567`       |
+| `ssn`         | Social Security Numbers | `123-45-6789`                             |
+| `creditCards` | Credit card numbers     | `4532-1234-5678-9010`                     |
+| `ipAddresses` | IP addresses            | `192.168.1.1`, `10.0.0.1`                 |
+| `quantity`    | Numbers and quantities  | `1,234`, `5.67`                           |
+
+### Scenario Configuration Options
+
+| Option                  | Type    | Description                     |
+| ----------------------- | ------- | ------------------------------- |
+| `name`                  | string  | Unique identifier (folder name) |
+| `description`           | string  | What the scenario tests         |
+| `url`                   | string  | Page URL to capture             |
+| `enabledTypes`          | array   | PII types to detect             |
+| `viewport`              | object  | `{ width, height }` in pixels   |
+| `waitAfterLoad`         | number  | Delay after page load (ms)      |
+| `headed`                | boolean | Show browser window             |
+| `slowMo`                | number  | Slow down actions (ms)          |
+| `skipInCI`              | boolean | Skip in CI environment          |
+| `steps`                 | array   | Screenshot sequence             |
+| `zoom`                  | number  | Page zoom (1 = 100%)            |
+| `protectionMode`        | string  | `'random'` or `'blackout'`      |
+| `properNounSensitivity` | number  | Detection threshold (0.5-1.0)   |
+
+### Bot Protection
+
+Some sites (Zillow, news sites) have bot protection that may block headless browsers. For these:
+
+```javascript
+{
+  headed: true,      // Show browser window
+  slowMo: 100,       // Slow down to appear human
+  skipInCI: true,    // Don't run in CI
+}
+```
+
+### Detection Metadata
+
+Each screenshot includes a JSON metadata file with detection details:
+
+```json
+{
+  "scenario": "zillow-listing",
+  "step": "protected",
+  "timestamp": "2026-01-21T18:09:30.958Z",
+  "settings": {
+    "enabledTypes": ["money", "dates", "properNouns", "locations", "addresses"],
+    "protectionMode": "random"
+  },
+  "summary": {
+    "totalDetections": 664,
+    "byType": { "money": 137, "location": 61, "date": 74, "address": 17 }
+  },
+  "detections": [{ "original": "$1,399,000", "type": "money", "replacement": "$194,808" }]
+}
+```
+
+### Analyzing Metadata
+
+```bash
+# View detection summary
+cat test/screenshots/zillow-listing/03-protected.json | jq '.summary'
+
+# List unique money detections
+cat test/screenshots/zillow-listing/03-protected.json | jq '[.detections[] | select(.type == "money")] | unique_by(.original) | .[] | {original, replacement}'
+
+# Count detections by type
+cat test/screenshots/zillow-listing/03-protected.json | jq '.summary.byType'
+```

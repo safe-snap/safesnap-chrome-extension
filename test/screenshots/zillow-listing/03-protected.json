@@ -1,0 +1,19 @@
+{
+  "scenario": "zillow-listing",
+  "step": "protected",
+  "timestamp": "2026-01-21T22:02:07.803Z",
+  "settings": {
+    "enabledTypes": [
+      "money",
+      "quantity",
+      "dates",
+      "properNouns",
+      "locations",
+      "addresses"
+    ],
+    "protectionMode": "random",
+    "zoom": 1
+  },
+  "summary": null,
+  "detections": null
+}

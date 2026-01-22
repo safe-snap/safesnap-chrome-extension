@@ -765,6 +765,7 @@ export const enDictionary = {
     'department',
     'sales',
     'revenue',
+    'tax',
     'profit',
     'loss',
     'income',

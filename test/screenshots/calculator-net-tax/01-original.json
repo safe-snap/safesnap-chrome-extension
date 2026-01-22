@@ -1,0 +1,18 @@
+{
+  "scenario": "calculator-net-tax",
+  "step": "original",
+  "timestamp": "2026-01-21T22:01:48.704Z",
+  "settings": {
+    "enabledTypes": [
+      "money",
+      "quantity",
+      "dates",
+      "properNouns"
+    ],
+    "properNounSensitivity": 1,
+    "protectionMode": "random",
+    "zoom": 1
+  },
+  "summary": null,
+  "detections": null
+}

@@ -1,0 +1,18 @@
+{
+  "scenario": "sfgate-united-article",
+  "step": "original",
+  "timestamp": "2026-01-21T22:02:29.276Z",
+  "settings": {
+    "enabledTypes": [
+      "dates",
+      "properNouns",
+      "quantity",
+      "locations"
+    ],
+    "properNounSensitivity": 0.95,
+    "protectionMode": "random",
+    "zoom": 1
+  },
+  "summary": null,
+  "detections": null
+}
