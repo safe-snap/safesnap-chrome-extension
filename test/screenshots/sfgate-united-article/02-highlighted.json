@@ -1,7 +1,7 @@
 {
   "scenario": "sfgate-united-article",
   "step": "highlighted",
-  "timestamp": "2026-01-22T04:47:11.999Z",
+  "timestamp": "2026-01-22T17:46:17.231Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -14,14 +14,14 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 696,
+    "totalDetections": 687,
     "byType": {
-      "properNoun": 557,
-      "location": 71,
+      "properNoun": 547,
+      "location": 72,
       "quantity": 52,
       "date": 16
     },
-    "protectedCount": 269,
+    "protectedCount": 260,
     "rejectedCount": 427
   },
   "detections": [
@@ -1746,26 +1746,7 @@
       }
     },
     {
-      "original": "Giants",
-      "type": "properNoun",
-      "confidence": 0.8499999999999999,
-      "threshold": 0.95,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Jung",
+      "original": "Trump",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -1774,7 +1755,6 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
         "appearsInPageLinks": 0.3,
@@ -1782,41 +1762,7 @@
       }
     },
     {
-      "original": "Hoo",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Lee",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Customs",
+      "original": "Calif",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,
@@ -1876,31 +1822,27 @@
     {
       "original": "Jim",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
       "threshold": 0.95,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "notSentenceStart": 0.15
       }
     },
     {
       "original": "Glab",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
       "threshold": 0.95,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "notSentenceStart": 0.15
       }
     },
     {
@@ -1919,39 +1861,6 @@
     {
       "original": "Jim",
       "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Glab",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Freelance",
-      "type": "properNoun",
       "confidence": 0.6499999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
@@ -1962,7 +1871,7 @@
       }
     },
     {
-      "original": "Writer",
+      "original": "Glab",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7753,39 +7662,6 @@
     {
       "original": "Jim",
       "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Glab",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Freelance",
-      "type": "properNoun",
       "confidence": 0.6499999999999999,
       "threshold": 0.95,
       "meetsThreshold": false,
@@ -7796,7 +7672,7 @@
       }
     },
     {
-      "original": "Writer",
+      "original": "Glab",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.95,
@@ -7806,35 +7682,6 @@
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "Jim",
-      "type": "properNoun",
-      "confidence": 0.95,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Glab",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
       }
     },
     {
@@ -7868,7 +7715,7 @@
       }
     },
     {
-      "original": "309",
+      "original": "599",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7877,7 +7724,7 @@
       }
     },
     {
-      "original": "3,477",
+      "original": "1,628",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7898,7 +7745,7 @@
       }
     },
     {
-      "original": "622",
+      "original": "252",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -7934,7 +7781,7 @@
       }
     },
     {
-      "original": "309",
+      "original": "599",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8002,48 +7849,6 @@
       }
     },
     {
-      "original": "Peet's",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Coffee",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "insideLink": 0.25,
-        "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
       "original": "Newsom",
       "type": "properNoun",
       "confidence": 1,
@@ -8087,26 +7892,7 @@
       }
     },
     {
-      "original": "3",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Bay Area",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      }
-    },
-    {
-      "original": "4",
+      "original": "2",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8143,6 +7929,60 @@
       }
     },
     {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Multiple",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Bay Area",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      }
+    },
+    {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
       "original": "5",
       "type": "quantity",
       "confidence": 1,
@@ -8152,11 +7992,11 @@
       }
     },
     {
-      "original": "Famous",
+      "original": "Peet's",
       "type": "properNoun",
-      "confidence": 0.7,
+      "confidence": 1,
       "threshold": 0.95,
-      "meetsThreshold": false,
+      "meetsThreshold": true,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
@@ -8164,13 +8004,11 @@
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
         "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
+        "appearsInPageLinks_detail": "word_in_page_links"
       }
     },
     {
-      "original": "Vegas",
+      "original": "Coffee",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.95,

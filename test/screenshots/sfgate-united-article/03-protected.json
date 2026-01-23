@@ -1,7 +1,7 @@
 {
   "scenario": "sfgate-united-article",
   "step": "protected",
-  "timestamp": "2026-01-22T04:47:14.718Z",
+  "timestamp": "2026-01-22T17:46:19.965Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -14,15 +14,15 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 257,
+    "totalDetections": 248,
     "byType": {
-      "properNoun": 127,
+      "properNoun": 117,
       "quantity": 52,
       "date": 16,
-      "location": 62
+      "location": 63
     },
     "protectedCount": 0,
-    "rejectedCount": 257
+    "rejectedCount": 248
   },
   "detections": [
     {
@@ -30,1617 +30,1561 @@
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Samuel"
+      "replacement": "Stephen"
     },
     {
-      "original": "Jung",
+      "original": "Trump",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Joshua"
+      "replacement": "Maria"
     },
     {
-      "original": "Hoo",
+      "original": "Trump",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Edward"
+      "replacement": "Maria"
     },
     {
-      "original": "Lee",
+      "original": "Calif",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Rachel"
+      "replacement": "Carol"
     },
     {
-      "original": "Customs",
+      "original": "Calif",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Amanda"
+      "replacement": "Carol"
     },
     {
-      "original": "United",
+      "original": "Calif",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Carol"
     },
     {
-      "original": "United",
+      "original": "Calif",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
-    },
-    {
-      "original": "United",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Carol"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
     },
     {
       "original": "United",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Debra"
+      "replacement": "Jerry"
+    },
+    {
+      "original": "United",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jerry"
+    },
+    {
+      "original": "United",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jerry"
+    },
+    {
+      "original": "United",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jerry"
     },
     {
       "original": "2",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "3"
+      "replacement": "4"
     },
     {
       "original": "2",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "3"
+      "replacement": "4"
     },
     {
       "original": "2",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "3"
-    },
-    {
-      "original": "Jim",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Jim",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Jim",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Jim",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Glab",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "James"
-    },
-    {
-      "original": "Glab",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "James"
-    },
-    {
-      "original": "Glab",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "James"
-    },
-    {
-      "original": "Glab",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "James"
+      "replacement": "4"
     },
     {
       "original": "Jan 17, 2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Dec 3, 2025"
+      "replacement": "Jan 15, 2026"
     },
     {
       "original": "Jan 17, 2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Dec 3, 2025"
+      "replacement": "Jan 15, 2026"
     },
     {
       "original": "Boeing",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Raymond"
     },
     {
       "original": "Boeing",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Raymond"
     },
     {
       "original": "Boeing",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Raymond"
     },
     {
       "original": "Boeing",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Raymond"
     },
     {
       "original": "Boeing",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Raymond"
     },
     {
       "original": "Boeing",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Raymond"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "787",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1250"
+      "replacement": "1404"
     },
     {
       "original": "9",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "14"
-    },
-    {
-      "original": "9",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "14"
-    },
-    {
-      "original": "9",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "14"
-    },
-    {
-      "original": "9",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "14"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Airlines",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Hong Kong",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "State Territory"
-    },
-    {
-      "original": "San",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "San",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "Francisco",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "David"
-    },
-    {
-      "original": "Francisco",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "David"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Delta",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "California",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Thornbury"
-    },
-    {
-      "original": "California",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Thornbury"
-    },
-    {
-      "original": "California",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Thornbury"
-    },
-    {
-      "original": "California",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Thornbury"
-    },
-    {
-      "original": "California",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Thornbury"
-    },
-    {
-      "original": "California",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Thornbury"
-    },
-    {
-      "original": "Starlink",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Patricia"
-    },
-    {
-      "original": "Starlink",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Patricia"
-    },
-    {
-      "original": "Starlink",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Patricia"
-    },
-    {
-      "original": "Starlink",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Patricia"
-    },
-    {
-      "original": "Starlink",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Patricia"
-    },
-    {
-      "original": "Wi-Fi",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Eric"
-    },
-    {
-      "original": "Wi-Fi",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Eric"
-    },
-    {
-      "original": "Wi-Fi",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Eric"
-    },
-    {
-      "original": "Alaska",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Elmwood"
-    },
-    {
-      "original": "Alaska",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Elmwood"
-    },
-    {
-      "original": "Los Angeles",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Maritime District"
-    },
-    {
-      "original": "Los Angeles",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Maritime District"
-    },
-    {
-      "original": "Los Angeles",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Maritime District"
-    },
-    {
-      "original": "Los Angeles",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Maritime District"
-    },
-    {
-      "original": "2026",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-11-17"
-    },
-    {
-      "original": "2026",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-11-17"
-    },
-    {
-      "original": "2026",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-11-17"
-    },
-    {
-      "original": "2026",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-11-17"
-    },
-    {
-      "original": "Clear",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Clear",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Clear",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Clear",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Clear",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Northgate"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Northgate"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Northgate"
-    },
-    {
-      "original": "Dreamliners",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Anna"
-    },
-    {
-      "original": "Dreamliners",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Anna"
-    },
-    {
-      "original": "Flying",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "Flying",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "Flying",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "Flying",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "Flying",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Harbor District"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Harbor District"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Harbor District"
-    },
-    {
-      "original": "Singapore",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Northgate"
-    },
-    {
-      "original": "London",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Eagle Point"
-    },
-    {
-      "original": "London",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Eagle Point"
-    },
-    {
-      "original": "London",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Eagle Point"
-    },
-    {
-      "original": "London",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Eagle Point"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "40"
-    },
-    {
-      "original": "27",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "43"
-    },
-    {
-      "original": "19",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "30"
-    },
-    {
-      "original": "Dallas",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Kingsley"
-    },
-    {
-      "original": "Fort Worth",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "State Territory"
-    },
-    {
-      "original": "Brisbane",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Meadowbrook"
-    },
-    {
-      "original": "Auckland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Riverside"
-    },
-    {
-      "original": "Chicago",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Eagle Point"
-    },
-    {
-      "original": "Philadelphia",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Ridgewood"
-    },
-    {
-      "original": "New York",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Pine District"
-    },
-    {
-      "original": "767",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "1219"
-    },
-    {
-      "original": "59",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "94"
-    },
-    {
-      "original": "27.8",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "44.2"
-    },
-    {
-      "original": "30",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "48"
-    },
-    {
-      "original": "30",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "48"
-    },
-    {
-      "original": "10",
       "type": "quantity",
       "confidence": 1,
       "context": {},
       "replacement": "16"
     },
     {
-      "original": "2031",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2030-11-17"
-    },
-    {
-      "original": "2025",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2024-11-17"
-    },
-    {
-      "original": "2025",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2024-11-17"
-    },
-    {
-      "original": "7",
+      "original": "9",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "16"
     },
     {
-      "original": "7",
+      "original": "9",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "16"
     },
     {
-      "original": "5",
+      "original": "9",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "8"
+      "replacement": "16"
     },
     {
-      "original": "5",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "8"
-    },
-    {
-      "original": "2024",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2023-11-17"
-    },
-    {
-      "original": "2024",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2023-11-17"
-    },
-    {
-      "original": "1,190",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "1,891"
-    },
-    {
-      "original": "Canada",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Plainsland"
-    },
-    {
-      "original": "Mexico",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Meadowland"
-    },
-    {
-      "original": "March 1",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "January 15"
-    },
-    {
-      "original": "24",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "38"
-    },
-    {
-      "original": "Central Coast",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "Emerald Ocean"
-    },
-    {
-      "original": "Central Coast",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "Emerald Ocean"
-    },
-    {
-      "original": "Once-in",
+      "original": "Airlines",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Scott"
+      "replacement": "Kevin"
     },
     {
-      "original": "Monterey Bay",
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Airlines",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Hong Kong",
       "type": "location",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "context": {},
-      "replacement": "Chestnut Valley"
+      "replacement": "Hill Country"
     },
     {
-      "original": "Calif",
+      "original": "San",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "George"
+    },
+    {
+      "original": "San",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "George"
+    },
+    {
+      "original": "Francisco",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Karen"
     },
     {
-      "original": "Calif",
+      "original": "Francisco",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Karen"
     },
     {
-      "original": "Calif",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Karen"
-    },
-    {
-      "original": "Tragedy",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Sublime's",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Helen"
-    },
-    {
-      "original": "Minneapolis",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Eagle Point"
-    },
-    {
-      "original": "Minneapolis",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Eagle Point"
-    },
-    {
-      "original": "San Diego",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Peninsula Region"
-    },
-    {
-      "original": "Minnesota",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Fairmont"
-    },
-    {
-      "original": "Santa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Santa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Santa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Santa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Santa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Las Vegas",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Lake District"
-    },
-    {
-      "original": "Monterey",
+      "original": "Delta",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Ashley"
     },
     {
-      "original": "Fresno",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Ivywood"
-    },
-    {
-      "original": "650",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "1033"
-    },
-    {
-      "original": "551",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "875"
-    },
-    {
-      "original": "105",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "167"
-    },
-    {
-      "original": "Preferred",
+      "original": "Delta",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Ronald"
+      "replacement": "Ashley"
     },
     {
-      "original": "Source",
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Delta",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
+      "original": "California",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
+      "original": "Starlink",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Maria"
+    },
+    {
+      "original": "Starlink",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Maria"
+    },
+    {
+      "original": "Starlink",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Maria"
+    },
+    {
+      "original": "Starlink",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Maria"
+    },
+    {
+      "original": "Starlink",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Maria"
+    },
+    {
+      "original": "Wi-Fi",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Rebecca"
     },
     {
-      "original": "55",
-      "type": "quantity",
+      "original": "Wi-Fi",
+      "type": "properNoun",
       "confidence": 1,
-      "context": {},
-      "replacement": "87"
+      "context": "company_or_person",
+      "replacement": "Rebecca"
     },
     {
-      "original": "2.74",
-      "type": "quantity",
+      "original": "Wi-Fi",
+      "type": "properNoun",
       "confidence": 1,
-      "context": {},
-      "replacement": "4.35"
+      "context": "company_or_person",
+      "replacement": "Rebecca"
     },
     {
-      "original": "United Kingdom",
+      "original": "Alaska",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Newland"
+      "replacement": "Hillcrest"
     },
     {
-      "original": "16",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "25"
-    },
-    {
-      "original": "16",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "25"
-    },
-    {
-      "original": "Play",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amanda"
-    },
-    {
-      "original": "Play",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amanda"
-    },
-    {
-      "original": "Play",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amanda"
-    },
-    {
-      "original": "Lufthansa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Lufthansa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Lufthansa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Lufthansa",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "850",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "1350"
-    },
-    {
-      "original": "Belgium",
+      "original": "Alaska",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Ashford"
+      "replacement": "Hillcrest"
     },
     {
-      "original": "Brussels",
+      "original": "Los Angeles",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Fairmont"
+      "replacement": "Upper Valley"
     },
     {
-      "original": "Italy",
+      "original": "Los Angeles",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Oldcastle"
+      "replacement": "Upper Valley"
     },
     {
-      "original": "France",
+      "original": "Los Angeles",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Midlandia"
+      "replacement": "Upper Valley"
     },
     {
-      "original": "Qatar",
+      "original": "Los Angeles",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Yorktown"
+      "replacement": "Upper Valley"
     },
     {
-      "original": "Saudia",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Angela"
-    },
-    {
-      "original": "Saudia",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Angela"
-    },
-    {
-      "original": "December",
+      "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "November"
+      "replacement": "2025-12-30"
     },
     {
-      "original": "Ontario",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "Boise",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amanda"
-    },
-    {
-      "original": "Idaho",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Unionville"
-    },
-    {
-      "original": "Orange County",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "Limestone Bay"
-    },
-    {
-      "original": "Washington",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Yorktown"
-    },
-    {
-      "original": "175",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "278"
-    },
-    {
-      "original": "Jan. 20",
+      "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Dec. 6"
+      "replacement": "2025-12-30"
     },
     {
-      "original": "Barbara",
+      "original": "2026",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2025-12-30"
+    },
+    {
+      "original": "2026",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2025-12-30"
+    },
+    {
+      "original": "Clear",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Steven"
+      "replacement": "Samuel"
     },
     {
-      "original": "Barbara",
+      "original": "Clear",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Steven"
+      "replacement": "Samuel"
     },
     {
-      "original": "Atlanta",
+      "original": "Clear",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Clear",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Clear",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pinehurst"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pinehurst"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pinehurst"
+    },
+    {
+      "original": "Dreamliners",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patricia"
+    },
+    {
+      "original": "Dreamliners",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patricia"
+    },
+    {
+      "original": "Flying",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nicole"
+    },
+    {
+      "original": "Flying",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nicole"
+    },
+    {
+      "original": "Flying",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nicole"
+    },
+    {
+      "original": "Flying",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nicole"
+    },
+    {
+      "original": "Flying",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nicole"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Archipelago District"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Archipelago District"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Archipelago District"
+    },
+    {
+      "original": "Singapore",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Riverdale"
+    },
+    {
+      "original": "London",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Northgate"
+    },
+    {
+      "original": "London",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Northgate"
+    },
+    {
+      "original": "London",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Northgate"
+    },
+    {
+      "original": "London",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Northgate"
+    },
+    {
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "45"
+    },
+    {
+      "original": "27",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "48"
+    },
+    {
+      "original": "19",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "34"
+    },
+    {
+      "original": "Dallas",
       "type": "location",
       "confidence": 0.95,
       "context": {},
       "replacement": "Garden City"
     },
     {
+      "original": "Fort Worth",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Hill Country"
+    },
+    {
+      "original": "Brisbane",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Riverside"
+    },
+    {
+      "original": "Auckland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Elmwood"
+    },
+    {
+      "original": "Chicago",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Meadowbrook"
+    },
+    {
+      "original": "Philadelphia",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Lakewood"
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Central Highlands"
+    },
+    {
+      "original": "767",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "1368"
+    },
+    {
+      "original": "59",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "105"
+    },
+    {
+      "original": "27.8",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "49.6"
+    },
+    {
+      "original": "30",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "54"
+    },
+    {
+      "original": "30",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "54"
+    },
+    {
+      "original": "10",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "18"
+    },
+    {
+      "original": "2031",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2030-12-30"
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2024-12-30"
+    },
+    {
+      "original": "2025",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2024-12-30"
+    },
+    {
+      "original": "7",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "12"
+    },
+    {
+      "original": "7",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "12"
+    },
+    {
+      "original": "5",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "9"
+    },
+    {
+      "original": "5",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "9"
+    },
+    {
+      "original": "2024",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2023-12-30"
+    },
+    {
+      "original": "2024",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2023-12-30"
+    },
+    {
+      "original": "1,190",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "2,122"
+    },
+    {
+      "original": "Canada",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Newland"
+    },
+    {
+      "original": "Mexico",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Bayshore"
+    },
+    {
+      "original": "March 1",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "February 27"
+    },
+    {
+      "original": "24",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "43"
+    },
+    {
+      "original": "Central Coast",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Garnet Bay"
+    },
+    {
+      "original": "Central Coast",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Garnet Bay"
+    },
+    {
+      "original": "Once-in",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jason"
+    },
+    {
+      "original": "Monterey Bay",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Coral Sea"
+    },
+    {
+      "original": "Tragedy",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Katherine"
+    },
+    {
+      "original": "Sublime's",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Rachel"
+    },
+    {
+      "original": "Minneapolis",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Foxborough"
+    },
+    {
+      "original": "Minneapolis",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Foxborough"
+    },
+    {
+      "original": "San Diego",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pine District"
+    },
+    {
+      "original": "Minnesota",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Westfield"
+    },
+    {
+      "original": "Santa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "Santa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "Santa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "Santa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "Santa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "Las Vegas",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Upper Valley"
+    },
+    {
+      "original": "Monterey",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Gregory"
+    },
+    {
+      "original": "Fresno",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Stonegate"
+    },
+    {
+      "original": "650",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "1159"
+    },
+    {
+      "original": "551",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "983"
+    },
+    {
+      "original": "105",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "187"
+    },
+    {
+      "original": "Preferred",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Joseph"
+    },
+    {
+      "original": "Source",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Emily"
+    },
+    {
+      "original": "55",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "98"
+    },
+    {
+      "original": "2.74",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "4.89"
+    },
+    {
+      "original": "United Kingdom",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Freeland"
+    },
+    {
+      "original": "16",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "29"
+    },
+    {
+      "original": "16",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "29"
+    },
+    {
+      "original": "Play",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Andrew"
+    },
+    {
+      "original": "Play",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Andrew"
+    },
+    {
+      "original": "Play",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Andrew"
+    },
+    {
+      "original": "Lufthansa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Edward"
+    },
+    {
+      "original": "Lufthansa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Edward"
+    },
+    {
+      "original": "Lufthansa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Edward"
+    },
+    {
+      "original": "Lufthansa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Edward"
+    },
+    {
+      "original": "850",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "1516"
+    },
+    {
+      "original": "Belgium",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Ivywood"
+    },
+    {
+      "original": "Brussels",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Yorktown"
+    },
+    {
+      "original": "Italy",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Goldfield"
+    },
+    {
+      "original": "France",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Riviera"
+    },
+    {
+      "original": "Qatar",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Westfield"
+    },
+    {
+      "original": "Saudia",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Carolyn"
+    },
+    {
+      "original": "Saudia",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Carolyn"
+    },
+    {
+      "original": "December",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "October"
+    },
+    {
+      "original": "Ontario",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Katherine"
+    },
+    {
+      "original": "Boise",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Amy"
+    },
+    {
+      "original": "Idaho",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Highland Park"
+    },
+    {
+      "original": "Orange County",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Hickory Hills"
+    },
+    {
+      "original": "Washington",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Zenith City"
+    },
+    {
+      "original": "175",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "312"
+    },
+    {
+      "original": "Jan. 20",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "Jan. 18"
+    },
+    {
+      "original": "Barbara",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samantha"
+    },
+    {
+      "original": "Barbara",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samantha"
+    },
+    {
+      "original": "Atlanta",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Pleasantville"
+    },
+    {
       "original": "Salt Lake",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Magnolia Bay"
+      "replacement": "Hickory Hills"
     },
     {
       "original": "Jeddah",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Mary"
+      "replacement": "Jacob"
     },
     {
       "original": "Saudi Arabia",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Bay Region"
+      "replacement": "Archipelago District"
     },
     {
       "original": "Jan. 22",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Dec. 8"
+      "replacement": "Jan. 20"
     },
     {
       "original": "May 14",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Mar 30"
+      "replacement": "May 12"
     },
     {
       "original": "39",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "62"
+      "replacement": "70"
     },
     {
       "original": "Paris",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Brookside"
+      "replacement": "Harborview"
     },
     {
       "original": "Rome",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Jasper Creek"
+      "replacement": "Ashford"
     },
     {
       "original": "Oakland San Francisco Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Cypress Lake"
+      "replacement": "Willow Creek"
     },
     {
       "original": "Motorists",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Paul"
+      "replacement": "Ryan"
     },
     {
       "original": "Highway",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Christine"
+      "replacement": "Emily"
     },
     {
       "original": "1",
@@ -1661,7 +1605,7 @@
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Sarah"
+      "replacement": "Carol"
     },
     {
       "original": "3",
@@ -1682,147 +1626,140 @@
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Larchmont"
+      "replacement": "Springfield"
     },
     {
       "original": "50,000",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "79,435"
+      "replacement": "89,174"
     },
     {
       "original": "Bay Area",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Pine River"
+      "replacement": "Onyx Ocean"
     },
     {
       "original": "Bay Area",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Pine River"
+      "replacement": "Onyx Ocean"
     },
     {
       "original": "Mini",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Christopher"
+      "replacement": "Jeffrey"
     },
     {
       "original": "Crossword",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Joshua"
+      "replacement": "David"
     },
     {
-      "original": "309",
+      "original": "599",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "491"
+      "replacement": "1068"
     },
     {
-      "original": "309",
+      "original": "599",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "491"
+      "replacement": "1068"
     },
     {
-      "original": "3,477",
+      "original": "1,628",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "5,524"
+      "replacement": "2,904"
     },
     {
-      "original": "622",
+      "original": "252",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "988"
+      "replacement": "449"
     },
     {
       "original": "Californians",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Brian"
-    },
-    {
-      "original": "Peet's",
-      "type": "properNoun",
-      "confidence": 0.95,
-      "context": "company_or_person",
-      "replacement": "Stephen"
-    },
-    {
-      "original": "Coffee",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Deborah"
+      "replacement": "Sharon"
     },
     {
       "original": "Newsom",
       "type": "properNoun",
       "confidence": 0.95,
       "context": "company_or_person",
-      "replacement": "Deborah"
+      "replacement": "Jonathan"
     },
     {
       "original": "Switzerland",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
-    },
-    {
-      "original": "Trump",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jessica"
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "6"
+      "replacement": "Crystal Bay"
     },
     {
       "original": "New Bay Area",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Walnut Grove"
+      "replacement": "Marble Falls"
     },
     {
       "original": "400,000",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "635,477"
+      "replacement": "713,394"
     },
     {
       "original": "40",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "64"
+      "replacement": "71"
     },
     {
-      "original": "Vegas",
+      "original": "Multiple",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "7"
+    },
+    {
+      "original": "Peet's",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "context": "company_or_person",
+      "replacement": "Kimberly"
+    },
+    {
+      "original": "Coffee",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Michael"
+      "replacement": "Stephanie"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "scenario": "wikipedia-san-francisco-blackout",
   "step": "protected",
-  "timestamp": "2026-01-22T04:47:02.590Z",
+  "timestamp": "2026-01-22T17:46:08.182Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -14,3110 +14,86 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 4152,
+    "totalDetections": 4151,
     "byType": {
-      "location": 1385,
-      "date": 1224,
-      "quantity": 1538,
+      "quantity": 1539,
+      "date": 1223,
+      "location": 1384,
       "properNoun": 5
     },
     "protectedCount": 0,
-    "rejectedCount": 4152
+    "rejectedCount": 4151
   },
   "detections": [
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
+      "replacement": "██"
     },
     {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
       "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "San Francisco",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "███ █████████"
-    },
-    {
-      "original": "January 24",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "███████ ██"
+      "replacement": "██"
     },
     {
       "original": "1906",
@@ -3267,11 +243,3084 @@
       "replacement": "████"
     },
     {
-      "original": "190",
-      "type": "quantity",
-      "confidence": 1,
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
       "context": {},
-      "replacement": "███"
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
     },
     {
       "original": "190",
@@ -3288,6 +3337,13 @@
       "replacement": "███"
     },
     {
+      "original": "190",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "███"
+    },
+    {
       "original": "37",
       "type": "quantity",
       "confidence": 1,
@@ -3419,69 +3475,6 @@
       "confidence": 1,
       "context": {},
       "replacement": "███"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
     },
     {
       "original": "37.783",
