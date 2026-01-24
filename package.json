@@ -19,7 +19,8 @@
     "package": "bun run build && bun run scripts/package.js",
     "generate-icons": "bun run scripts/generate-icons.js",
     "generate-badge": "bun run test:coverage && node scripts/generate-coverage-badge.js",
-    "version": "node scripts/bump-version.js"
+    "version": "node scripts/bump-version.js",
+    "screenshot-ui": "bun run build && bunx playwright install chromium && bun run scripts/screenshot-ui.js"
   },
   "keywords": [
     "chrome-extension",
