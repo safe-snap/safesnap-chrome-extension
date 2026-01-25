@@ -42,10 +42,11 @@ test.describe('SafeSnap Extension - Basic Functionality', () => {
     expect(manifest.permissions).toContain('activeTab');
     expect(manifest.permissions).toContain('storage');
     expect(manifest.permissions).toContain('tabs');
-    expect(manifest.host_permissions).toContain('<all_urls>');
+    expect(manifest.permissions).toContain('scripting');
     expect(manifest.background.service_worker).toBe('background.js');
-    expect(manifest.content_scripts).toBeDefined();
-    expect(manifest.content_scripts[0].matches).toContain('<all_urls>');
+    // Note: host_permissions and content_scripts removed in favor of on-demand injection
+    expect(manifest.host_permissions).toBeUndefined();
+    expect(manifest.content_scripts).toBeUndefined();
   });
 
   test('should load test page successfully', async ({ page }) => {
