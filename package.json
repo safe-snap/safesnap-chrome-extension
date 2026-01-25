@@ -1,6 +1,6 @@
 {
   "name": "safesnap",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Privacy-first screenshot tool with automatic PII detection",
   "main": "src/background/background.js",
   "scripts": {
