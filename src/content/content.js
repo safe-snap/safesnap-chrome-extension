@@ -141,6 +141,11 @@ if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.onMessage)
 
     // Handle type-based messages
     switch (message.type) {
+      case 'PING':
+        // Used by popup to check if content script is already injected
+        sendResponse({ success: true });
+        break;
+
       case 'PROTECT_PII':
         protectPII(message.enabledTypes)
           .then(() => {

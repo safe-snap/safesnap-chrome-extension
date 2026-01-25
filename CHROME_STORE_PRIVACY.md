@@ -28,17 +28,17 @@ SafeSnap requires the `downloads` permission to save the protected screenshot to
 
 ---
 
-### host_permissions (`<all_urls>`)
+### scripting
 
 **Justification:**
 
-SafeSnap requires broad host permissions to function on any website the user visits. The extension's purpose is to protect PII in screenshots of ANY web page - including internal company tools, CRM systems, email clients, banking sites, healthcare portals, and other sensitive applications. Users need PII protection regardless of which domain they are viewing. The content script must be able to:
+SafeSnap requires the `scripting` permission to inject content scripts on-demand when the user opens the extension popup. This works in conjunction with `activeTab` - when the user clicks the SafeSnap icon, the extension injects the necessary scripts to:
 
 1. Read page content to detect PII (names, emails, phone numbers, money amounts, dates, etc.)
 2. Apply visual redactions to the page before screenshot capture
 3. Display a privacy banner indicating protection status
 
-Without broad host permissions, users would be unable to protect screenshots on most websites where they actually need privacy protection. All processing happens locally in the browser - no page content is ever transmitted externally.
+Scripts are only injected into the active tab when the user explicitly interacts with the extension. This on-demand approach respects user privacy by not running code on pages until requested.
 
 ---
 

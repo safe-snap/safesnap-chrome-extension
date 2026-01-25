@@ -18,42 +18,15 @@
     },
     "default_title": "SafeSnap - PII Protection Screenshot Tool"
   },
-  "permissions": [
-    "activeTab",
-    "storage",
-    "tabs",
-    "downloads"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "permissions": ["activeTab", "storage", "tabs", "downloads", "scripting"],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ],
-      "css": [
-        "banner.css"
-      ],
-      "run_at": "document_idle"
-    }
-  ],
   "options_page": "settings.html",
   "web_accessible_resources": [
     {
-      "resources": [
-        "assets/dictionaries/*.json",
-        "assets/icons/*.svg"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "resources": ["assets/dictionaries/*.json", "assets/icons/*.svg"],
+      "matches": ["<all_urls>"]
     }
   ],
   "content_security_policy": {

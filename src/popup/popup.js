@@ -4,6 +4,35 @@ import i18n from '../i18n/en.js';
 
 console.log('SafeSnap popup loaded');
 
+/**
+ * Ensure content script is injected into the tab
+ * Uses on-demand injection via background service worker
+ * @param {Object} tab - Chrome tab object
+ * @returns {Promise<boolean>} True if content script is ready
+ */
+async function ensureContentScriptInjected(tab) {
+  try {
+    // Try to ping the content script to see if it's already loaded
+    await chrome.tabs.sendMessage(tab.id, { type: 'PING' });
+    return true; // Already injected
+  } catch (_error) {
+    // Content script not loaded, request injection via background
+    console.log('Content script not loaded, injecting...');
+    const response = await chrome.runtime.sendMessage({
+      type: 'INJECT_CONTENT_SCRIPT',
+      tabId: tab.id,
+    });
+
+    if (!response || !response.success) {
+      throw new Error(response?.error || 'Failed to inject content script');
+    }
+
+    // Wait for content script to initialize
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    return true;
+  }
+}
+
 // Initialize UI text with i18n strings
 function initializeUIText() {
   // Header
@@ -121,6 +150,15 @@ async function initializePopup() {
       tab.url.startsWith('edge://') ||
       tab.url.startsWith('about:')
     ) {
+      updateStatus(i18n.errorCannotRunOnThisPage, 'error');
+      return;
+    }
+
+    // Ensure content script is injected (on-demand injection)
+    try {
+      await ensureContentScriptInjected(tab);
+    } catch (error) {
+      console.error('Failed to inject content script:', error);
       updateStatus(i18n.errorCannotRunOnThisPage, 'error');
       return;
     }
