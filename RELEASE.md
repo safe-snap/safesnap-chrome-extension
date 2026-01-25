@@ -72,14 +72,14 @@ Edit `CHANGELOG.md` and add release notes for the new version:
 git add manifest.json package.json CHANGELOG.md
 
 # Commit with conventional commit format
-git commit -m "chore: bump version to v1.1.0"
+git commit -m "chore: bump version to v0.0.3"
 
 # Create annotated tag
-git tag -a v1.1.0 -m "Release v1.1.0"
+git tag -a v0.0.3 -m "Release v0.0.3"
 
 # Push commits and tags
 git push origin main
-git push origin v1.1.0
+git push origin v0.0.3
 ```
 
 ### Step 4: GitHub Actions Creates the Release
@@ -162,8 +162,8 @@ grep '"version":' package.json
 # Fix manually if needed, then:
 git add manifest.json package.json
 git commit --amend --no-edit
-git tag -f v1.1.0  # Force update tag
-git push -f origin v1.1.0
+git tag -f v0.0.3  # Force update tag
+git push -f origin v0.0.3
 ```
 
 ### Failed Release Build
@@ -173,7 +173,7 @@ If the automated release fails:
 1. Check the Actions tab: https://github.com/safe-snap/safesnap-chrome-extension/actions
 2. Review the error logs
 3. Fix the issue locally
-4. Delete the tag: `git tag -d v1.1.0 && git push origin :refs/tags/v1.1.0`
+4. Delete the tag: `git tag -d v0.0.3 && git push origin :refs/tags/v0.0.3`
 5. Start over from Step 1
 
 ## Publishing to Chrome Web Store
