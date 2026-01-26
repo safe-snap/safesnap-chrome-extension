@@ -1,7 +1,7 @@
 {
   "scenario": "zillow-listing",
   "step": "protected",
-  "timestamp": "2026-01-26T04:36:56.677Z",
+  "timestamp": "2026-01-26T04:50:05.110Z",
   "settings": {
     "enabledTypes": [
       "money",
@@ -15,17 +15,17 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 990,
+    "totalDetections": 993,
     "byType": {
       "properNoun": 387,
       "money": 139,
-      "quantity": 316,
+      "quantity": 319,
       "location": 58,
       "date": 71,
       "address": 19
     },
     "protectedCount": 0,
-    "rejectedCount": 990
+    "rejectedCount": 993
   },
   "detections": [
     {
@@ -33,133 +33,133 @@
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Aaron"
     },
     {
       "original": "Skip",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Aaron"
     },
     {
       "original": "Skip",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Aaron"
     },
     {
       "original": "Skip",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Aaron"
     },
     {
       "original": "Skip",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Aaron"
     },
     {
       "original": "Skip",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Aaron"
     },
     {
       "original": "Skip",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Aaron"
     },
     {
       "original": "$1,399,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$516,986"
+      "replacement": "$479,308"
     },
     {
       "original": "$1,399,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$516,986"
+      "replacement": "$479,308"
     },
     {
       "original": "479",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "177"
+      "replacement": "164"
     },
     {
       "original": "479",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "177"
+      "replacement": "164"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "Kentucky",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Greenfield"
+      "replacement": "Valley Springs"
     },
     {
       "original": "3",
@@ -492,6 +492,13 @@
     },
     {
       "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "1"
+    },
+    {
+      "original": "2",
       "type": "quantity",
       "confidence": 1,
       "context": {},
@@ -894,420 +901,420 @@
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "659"
+      "replacement": "611"
     },
     {
       "original": "1,784",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "659"
+      "replacement": "611"
     },
     {
       "original": "1,784",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "659"
+      "replacement": "611"
     },
     {
       "original": "1,784",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "659"
+      "replacement": "611"
     },
     {
       "original": "Est",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Sandra"
+      "replacement": "Jonathan"
     },
     {
       "original": "$8,598",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$3,177"
+      "replacement": "$2,946"
     },
     {
       "original": "Single",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Jeffrey"
     },
     {
       "original": "Single",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Jeffrey"
     },
     {
       "original": "Single",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Jeffrey"
     },
     {
       "original": "Single",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Jeffrey"
     },
     {
       "original": "Residence",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Alexander"
+      "replacement": "Matthew"
     },
     {
       "original": "Residence",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Alexander"
+      "replacement": "Matthew"
     },
     {
       "original": "Built",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Amy"
+      "replacement": "Samuel"
     },
     {
       "original": "1927",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "1926-12-05"
+      "replacement": "1927-01-26"
     },
     {
       "original": "1927",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "1926-12-05"
+      "replacement": "1927-01-26"
     },
     {
       "original": "5,227.2",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1,931.7"
+      "replacement": "1,790.9"
     },
     {
       "original": "5,227.2",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "1,931.7"
+      "replacement": "1,790.9"
     },
     {
       "original": "Square",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donna"
+      "replacement": "Matthew"
     },
     {
       "original": "Square",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donna"
+      "replacement": "Matthew"
     },
     {
       "original": "Feet",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donna"
+      "replacement": "Katherine"
     },
     {
       "original": "Feet",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donna"
+      "replacement": "Katherine"
     },
     {
       "original": "Lot",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ryan"
+      "replacement": "Paul"
     },
     {
       "original": "Lot",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ryan"
+      "replacement": "Paul"
     },
     {
       "original": "$1,672,100",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$617,907"
+      "replacement": "$572,874"
     },
     {
       "original": "$1,672,100",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$617,907"
+      "replacement": "$572,874"
     },
     {
       "original": "$784",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$290"
+      "replacement": "$269"
     },
     {
       "original": "$784",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$290"
+      "replacement": "$269"
     },
     {
       "original": "$784",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$290"
+      "replacement": "$269"
     },
     {
       "original": "What's",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donald"
+      "replacement": "David"
     },
     {
       "original": "Tandem",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Christopher"
+      "replacement": "Steven"
     },
     {
       "original": "Front",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Patrick"
+      "replacement": "Raymond"
     },
     {
       "original": "Updated",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ashley"
+      "replacement": "Thomas"
     },
     {
       "original": "Stunning",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Elizabeth"
+      "replacement": "Susan"
     },
     {
       "original": "Cragmont",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Robert"
+      "replacement": "Jonathan"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Onyx Ocean"
+      "replacement": "Coral Sea"
     },
     {
       "original": "Golden",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Sarah"
+      "replacement": "Susan"
     },
     {
       "original": "Golden",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Sarah"
+      "replacement": "Susan"
     },
     {
       "original": "Golden",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Sarah"
+      "replacement": "Susan"
     },
     {
       "original": "Gate",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Michelle"
+      "replacement": "Paul"
     },
     {
       "original": "Gate",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Michelle"
+      "replacement": "Paul"
     },
     {
       "original": "Gate",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Michelle"
+      "replacement": "Paul"
     },
     {
       "original": "Bridge",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Sarah"
+      "replacement": "Kathleen"
     },
     {
       "original": "Angel Island",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Juniper Range"
+      "replacement": "Fir Ridge"
     },
     {
       "original": "San Francisco",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Peninsula Region"
+      "replacement": "Mainland Region"
     },
     {
       "original": "San Francisco",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Peninsula Region"
+      "replacement": "Mainland Region"
     },
     {
       "original": "19",
@@ -1317,67 +1324,60 @@
       "replacement": "7"
     },
     {
-      "original": "7,079",
+      "original": "7,081",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "2,616"
+      "replacement": "2,426"
     },
     {
       "original": "485",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "179"
+      "replacement": "166"
     },
     {
       "original": "485",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "179"
+      "replacement": "166"
     },
     {
-      "original": "28",
+      "original": "11",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "10"
+      "replacement": "4"
     },
     {
-      "original": "28",
+      "original": "11",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "10"
+      "replacement": "4"
     },
     {
-      "original": "28",
+      "original": "11",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "10"
+      "replacement": "4"
     },
     {
-      "original": "28",
+      "original": "11",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "10"
+      "replacement": "4"
     },
     {
       "original": "January 21, 2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "December 25, 2025"
-    },
-    {
-      "original": "05",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "2"
+      "replacement": "February 15, 2026"
     },
     {
       "original": "05",
@@ -1391,21 +1391,21 @@
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Quartz Peak"
+      "replacement": "Chestnut Valley"
     },
     {
       "original": "Kw Advisors East Bay",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Quartz Peak"
+      "replacement": "Chestnut Valley"
     },
     {
       "original": "Travel",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ronald"
+      "replacement": "Donald"
     },
     {
       "original": "5",
@@ -1468,203 +1468,182 @@
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Samuel"
+      "replacement": "Joseph"
     },
     {
       "original": "Calculator",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Barbara"
     },
     {
       "original": "Calculator",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Barbara"
     },
     {
       "original": "60",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "22"
+      "replacement": "21"
     },
     {
       "original": "60",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "22"
+      "replacement": "21"
     },
     {
       "original": "60",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "22"
+      "replacement": "21"
     },
     {
       "original": "60",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "22"
+      "replacement": "21"
     },
     {
       "original": "Jan 26",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Dec 30"
+      "replacement": "Feb 20"
     },
     {
       "original": "Jan 27",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Dec 31"
+      "replacement": "Feb 21"
     },
     {
       "original": "Jan 28",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jan 1"
+      "replacement": "Feb 22"
     },
     {
       "original": "Jan 29",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jan 2"
+      "replacement": "Feb 23"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "William"
     },
     {
       "original": "Next",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
-    },
-    {
-      "original": "11",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "4"
-    },
-    {
-      "original": "11",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "4"
-    },
-    {
-      "original": "11",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "4"
+      "replacement": "William"
     },
     {
       "original": "00",
@@ -1741,63 +1720,63 @@
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "11"
+      "replacement": "10"
     },
     {
       "original": "12",
@@ -1819,6 +1798,13 @@
       "confidence": 1,
       "context": {},
       "replacement": "4"
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "0"
     },
     {
       "original": "1",
@@ -2322,27 +2308,34 @@
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "3"
+      "replacement": "2"
     },
     {
       "original": "Facts",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Brian"
+      "replacement": "Christopher"
     },
     {
       "original": "Interior",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Justin"
+      "replacement": "James"
     },
     {
       "original": "Interior",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
+      "replacement": "James"
+    },
+    {
+      "original": "Bedrooms",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
       "replacement": "Justin"
     },
     {
@@ -2350,301 +2343,294 @@
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ashley"
+      "replacement": "Justin"
     },
     {
       "original": "Bedrooms",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ashley"
-    },
-    {
-      "original": "Bedrooms",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Ashley"
+      "replacement": "Justin"
     },
     {
       "original": "Bathrooms",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Timothy"
+      "replacement": "Richard"
     },
     {
       "original": "Rooms",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Samuel"
+      "replacement": "Kevin"
     },
     {
       "original": "Room",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Betty"
     },
     {
       "original": "Room",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Betty"
     },
     {
       "original": "Room",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Betty"
     },
     {
       "original": "Main",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Maria"
+      "replacement": "Margaret"
     },
     {
       "original": "Dining",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Janet"
+      "replacement": "Paul"
     },
     {
       "original": "Dining Area",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Coastal Range"
+      "replacement": "Bay Region"
     },
     {
       "original": "Kitchen",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Kitchen",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Features",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Steven"
-    },
-    {
-      "original": "Features",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Steven"
-    },
-    {
-      "original": "Features",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Steven"
-    },
-    {
-      "original": "Features",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Steven"
-    },
-    {
-      "original": "Dishwasher",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Michelle"
-    },
-    {
-      "original": "Dishwasher",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Michelle"
-    },
-    {
-      "original": "Eat-in",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "George"
-    },
-    {
-      "original": "Refrigerator",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Richard"
-    },
-    {
-      "original": "Refrigerator",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Richard"
-    },
-    {
-      "original": "Heating",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Mary"
-    },
-    {
-      "original": "Gas",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Susan"
-    },
-    {
-      "original": "Fireplace",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Daniel"
-    },
-    {
-      "original": "Fireplace",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Daniel"
-    },
-    {
-      "original": "Cooling",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Karen"
-    },
-    {
-      "original": "Air",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Air",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Appliances",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Jeffrey"
-    },
-    {
-      "original": "Included",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Jessica"
-    },
-    {
-      "original": "Laundry",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Larry"
-    },
-    {
-      "original": "Hookups",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Paul"
-    },
-    {
-      "original": "Upper",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
       "replacement": "Patrick"
     },
     {
+      "original": "Kitchen",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Patrick"
+    },
+    {
+      "original": "Features",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Features",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Features",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Features",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Dishwasher",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Janet"
+    },
+    {
+      "original": "Dishwasher",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Janet"
+    },
+    {
+      "original": "Eat-in",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Brandon"
+    },
+    {
+      "original": "Refrigerator",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Patrick"
+    },
+    {
+      "original": "Refrigerator",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Patrick"
+    },
+    {
+      "original": "Heating",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Jason"
+    },
+    {
+      "original": "Gas",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "William"
+    },
+    {
+      "original": "Fireplace",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Christine"
+    },
+    {
+      "original": "Fireplace",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Christine"
+    },
+    {
+      "original": "Cooling",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Dennis"
+    },
+    {
+      "original": "Air",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Dorothy"
+    },
+    {
+      "original": "Air",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Dorothy"
+    },
+    {
+      "original": "Appliances",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Justin"
+    },
+    {
+      "original": "Included",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Karen"
+    },
+    {
+      "original": "Laundry",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Edward"
+    },
+    {
+      "original": "Hookups",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Deborah"
+    },
+    {
+      "original": "Upper",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Shirley"
+    },
+    {
       "original": "Level",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Elizabeth"
+      "replacement": "Patrick"
     },
     {
       "original": "Flooring",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Amy"
+      "replacement": "Paul"
     },
     {
       "original": "Carpet",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Kimberly"
+      "replacement": "Brandon"
     },
     {
       "original": "Wood",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Mary"
+      "replacement": "Patrick"
     },
     {
       "original": "Living",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Larry"
+      "replacement": "Michael"
     },
     {
       "original": "Parking",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ashley"
+      "replacement": "Emily"
     },
     {
       "original": "Parking",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ashley"
+      "replacement": "Emily"
     },
     {
       "original": "Parking",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ashley"
+      "replacement": "Emily"
     },
     {
       "original": "Below",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jeffrey"
+      "replacement": "Melissa"
     },
     {
       "original": "Building",
@@ -2658,294 +2644,294 @@
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Mary"
+      "replacement": "Dennis"
     },
     {
       "original": "Garage",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Mary"
+      "replacement": "Dennis"
     },
     {
       "original": "Levels",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Amanda"
+      "replacement": "Eric"
     },
     {
       "original": "Stories",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "Melissa"
     },
     {
       "original": "Patio",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Amanda"
+      "replacement": "Michelle"
     },
     {
       "original": "Terrace",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "Debra"
     },
     {
       "original": "Terrace",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jason"
+      "replacement": "Debra"
     },
     {
       "original": "Pool",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "Joseph"
     },
     {
       "original": "Pool",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "Joseph"
     },
     {
       "original": "Size",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donald"
+      "replacement": "Dorothy"
     },
     {
       "original": "Size",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donald"
+      "replacement": "Dorothy"
     },
     {
       "original": "Sloped",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Matthew"
+      "replacement": "Margaret"
     },
     {
       "original": "Yard",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Nicole"
+      "replacement": "Scott"
     },
     {
       "original": "Parcel",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Kimberly"
+      "replacement": "Benjamin"
     },
     {
       "original": "Construction",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Margaret"
+      "replacement": "Laura"
     },
     {
       "original": "Contemporary",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "James"
+      "replacement": "Pamela"
     },
     {
       "original": "Materials",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Daniel"
+      "replacement": "Linda"
     },
     {
       "original": "Brick",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Elizabeth"
+      "replacement": "Robert"
     },
     {
       "original": "Stucco",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "George"
+      "replacement": "Daniel"
     },
     {
       "original": "Frame",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Stephen"
+      "replacement": "Katherine"
     },
     {
       "original": "Roof",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Matthew"
+      "replacement": "Katherine"
     },
     {
       "original": "Composition",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Gary"
+      "replacement": "Matthew"
     },
     {
       "original": "Condition",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Steven"
+      "replacement": "Stephanie"
     },
     {
       "original": "Existing",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Nicholas"
+      "replacement": "Jessica"
     },
     {
       "original": "Utilities",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Michelle"
+      "replacement": "Jennifer"
     },
     {
       "original": "Utilities",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Michelle"
+      "replacement": "Jennifer"
     },
     {
       "original": "Solar",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Matthew"
+      "replacement": "Gary"
     },
     {
       "original": "Sewer",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Thomas"
+      "replacement": "John"
     },
     {
       "original": "Sewer",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Thomas"
+      "replacement": "John"
     },
     {
       "original": "Water",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Sharon"
+      "replacement": "Jerry"
     },
     {
       "original": "Community",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "James"
+      "replacement": "Kevin"
     },
     {
       "original": "Community",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "James"
+      "replacement": "Kevin"
     },
     {
       "original": "Security",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Larry"
+      "replacement": "Shirley"
     },
     {
       "original": "Smoke",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Nicholas"
+      "replacement": "Katherine"
     },
     {
       "original": "Detector",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Scott"
+      "replacement": "Larry"
     },
     {
       "original": "Subdivision",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Betty"
+      "replacement": "Donna"
     },
     {
       "original": "North",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Andrew"
+      "replacement": "Scott"
     },
     {
       "original": "North",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Andrew"
+      "replacement": "Scott"
     },
     {
       "original": "North",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Andrew"
+      "replacement": "Scott"
     },
     {
       "original": "No Location Region",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Hill Country"
+      "replacement": "South Bay"
     },
     {
       "original": "$989,400",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$365,623"
+      "replacement": "$338,976"
     },
     {
       "original": "$989,400",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$365,623"
+      "replacement": "$338,976"
     },
     {
       "original": "$1",
@@ -3008,84 +2994,91 @@
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Frank"
+      "replacement": "Jason"
     },
     {
       "original": "1/6/2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "12/10/2025"
+      "replacement": "1/31/2026"
     },
     {
       "original": "1/6/2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "12/10/2025"
+      "replacement": "1/31/2026"
     },
     {
       "original": "Excl",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Joshua"
     },
     {
       "original": "Cash",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Ashley"
+      "replacement": "Janet"
     },
     {
       "original": "Loan",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Melissa"
+      "replacement": "Christopher"
     },
     {
       "original": "Estimated",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Barbara"
     },
     {
       "original": "Estimated",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Barbara"
     },
     {
       "original": "Estimated",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Catherine"
+      "replacement": "Barbara"
     },
     {
       "original": "$1.59",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$0.59"
+      "replacement": "$0.54"
     },
     {
       "original": "$1.76",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$0.65"
+      "replacement": "$0.60"
     },
     {
       "original": "$7,078",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$2,616"
+      "replacement": "$2,425"
+    },
+    {
+      "original": "31",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "11"
     },
     {
       "original": "31",
@@ -3120,189 +3113,189 @@
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "4"
+      "replacement": "3"
     },
     {
       "original": "10",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "4"
+      "replacement": "3"
     },
     {
       "original": "10",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "4"
+      "replacement": "3"
     },
     {
       "original": "10",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "4"
+      "replacement": "3"
     },
     {
       "original": "1/5/26",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-09"
+      "replacement": "2026-01-30"
     },
     {
       "original": "2018",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2017-12-05"
+      "replacement": "2018-01-26"
     },
     {
       "original": "2020",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2019-12-05"
+      "replacement": "2020-01-26"
     },
     {
       "original": "2022",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2021-12-05"
+      "replacement": "2022-01-26"
     },
     {
       "original": "2024",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2023-12-05"
+      "replacement": "2024-01-26"
     },
     {
       "original": "2024",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2023-12-05"
+      "replacement": "2024-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-12-05"
+      "replacement": "2026-01-26"
     },
     {
       "original": "$2",
@@ -3316,595 +3309,595 @@
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$590,894"
+      "replacement": "$547,829"
     },
     {
       "original": "$1,599,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$590,894"
+      "replacement": "$547,829"
     },
     {
       "original": "545",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "201"
+      "replacement": "187"
     },
     {
       "original": "Colusa",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Kathleen"
+      "replacement": "Scott"
     },
     {
       "original": "Colusa",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Kathleen"
+      "replacement": "Scott"
     },
     {
       "original": "Sold",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anna"
+      "replacement": "Maria"
     },
     {
       "original": "Sold",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anna"
+      "replacement": "Maria"
     },
     {
       "original": "Sold",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anna"
+      "replacement": "Maria"
     },
     {
       "original": "Sold",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anna"
+      "replacement": "Maria"
     },
     {
       "original": "Janette",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Helen"
+      "replacement": "Gregory"
     },
     {
       "original": "Corby",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Margaret"
+      "replacement": "Larry"
     },
     {
       "original": "$1,050,288",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$388,123"
+      "replacement": "$359,837"
     },
     {
       "original": "981",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "363"
+      "replacement": "336"
     },
     {
       "original": "Indian",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Joseph"
+      "replacement": "Janet"
     },
     {
       "original": "Rock",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Kathleen"
+      "replacement": "Kimberly"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Off",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Debra"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "Market",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Stephen"
     },
     {
       "original": "608",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "225"
+      "replacement": "208"
     },
     {
       "original": "Alissa",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Christine"
+      "replacement": "Amy"
     },
     {
       "original": "Custer",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jessica"
+      "replacement": "Timothy"
     },
     {
       "original": "$1,750,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$646,695"
+      "replacement": "$599,563"
     },
     {
       "original": "$1,750,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$646,695"
+      "replacement": "$599,563"
     },
     {
       "original": "$1,750,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$646,695"
+      "replacement": "$599,563"
     },
     {
       "original": "540",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "200"
+      "replacement": "185"
     },
     {
       "original": "Neilson",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Andrew"
+      "replacement": "Daniel"
     },
     {
       "original": "St",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Pamela"
     },
     {
       "original": "St",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Pamela"
     },
     {
       "original": "St",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Pamela"
     },
     {
       "original": "St",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Pamela"
     },
     {
       "original": "Kira",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Paul"
+      "replacement": "Jessica"
     },
     {
       "original": "$1,600,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$591,264"
+      "replacement": "$548,172"
     },
     {
       "original": "1141 Oxford St",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "7126 Church Ct"
+      "replacement": "6104 Fourth Dr"
     },
     {
       "original": "Sarah Ridge",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Fir Ridge"
+      "replacement": "Garnet Bay"
     },
     {
       "original": "6.4",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "2.4"
+      "replacement": "2.2"
     },
     {
       "original": "Report",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Paul"
+      "replacement": "Shirley"
     },
     {
       "original": "Report",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Paul"
+      "replacement": "Shirley"
     },
     {
       "original": "Report",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Paul"
+      "replacement": "Shirley"
     },
     {
       "original": "Report",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Paul"
+      "replacement": "Shirley"
     },
     {
       "original": "Report",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Paul"
+      "replacement": "Shirley"
     },
     {
       "original": "12/22/2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "11/25/2025"
+      "replacement": "01/16/2026"
     },
     {
       "original": "$1,495,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$552,462"
+      "replacement": "$512,198"
     },
     {
       "original": "$1,495,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$552,462"
+      "replacement": "$512,198"
     },
     {
       "original": "$1,495,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$552,462"
+      "replacement": "$512,198"
     },
     {
       "original": "$1,495,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$552,462"
+      "replacement": "$512,198"
     },
     {
       "original": "$838",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$310"
+      "replacement": "$287"
     },
     {
       "original": "$838",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$310"
+      "replacement": "$287"
     },
     {
       "original": "11/28/2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "11/01/2025"
+      "replacement": "12/23/2025"
     },
     {
       "original": "14.6",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "5.4"
+      "replacement": "5.0"
     },
     {
       "original": "11/10/2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "10/14/2025"
+      "replacement": "12/05/2025"
     },
     {
       "original": "$981",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$363"
+      "replacement": "$336"
     },
     {
       "original": "$981",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$363"
+      "replacement": "$336"
     },
     {
       "original": "10/29/2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "10/02/2025"
+      "replacement": "11/23/2025"
     },
     {
       "original": "16.7",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "6.2"
+      "replacement": "5.7"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2024-12-05"
+      "replacement": "2025-01-26"
     },
     {
       "original": "95.4",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "35.3"
+      "replacement": "32.7"
     },
     {
       "original": "$9,616",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$3,553"
+      "replacement": "$3,295"
     },
     {
       "original": "14.3",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "5.3"
+      "replacement": "4.9"
     },
     {
       "original": "$506,441",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$187,150"
+      "replacement": "$173,511"
     },
     {
       "original": "2023",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2022-12-05"
+      "replacement": "2023-01-26"
     },
     {
       "original": "$11,215",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$4,144"
+      "replacement": "$3,842"
     },
     {
       "original": "1.5",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "0.6"
+      "replacement": "0.5"
     },
     {
       "original": "1.5",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "0.6"
+      "replacement": "0.5"
     },
     {
       "original": "$496,512",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$183,481"
+      "replacement": "$170,109"
     },
     {
       "original": "$ 8,598",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$3,177"
+      "replacement": "$2,946"
     },
     {
       "original": "$671",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$248"
+      "replacement": "$230"
     },
     {
       "original": "$142",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$52"
+      "replacement": "$49"
     },
     {
       "original": "$466",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$172"
+      "replacement": "$160"
     },
     {
       "original": "$466",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$172"
+      "replacement": "$160"
     },
     {
       "original": "$6,710",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$2,480"
+      "replacement": "$2,299"
     },
     {
       "original": "$0",
@@ -3918,7 +3911,7 @@
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$525"
+      "replacement": "$487"
     },
     {
       "original": "may",
@@ -4079,133 +4072,133 @@
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Alexander"
+      "replacement": "Ryan"
     },
     {
       "original": "Marketplace",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Brenda"
+      "replacement": "Matthew"
     },
     {
       "original": "1/25/2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "12/29/2025"
+      "replacement": "2/19/2026"
     },
     {
       "original": "Loading",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Margaret"
+      "replacement": "Robert"
     },
     {
       "original": "Loading",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Margaret"
+      "replacement": "Robert"
     },
     {
       "original": "Boost",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "Michelle"
     },
     {
       "original": "Earn",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Richard"
+      "replacement": "Karen"
     },
     {
       "original": "Foyer",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donna"
+      "replacement": "Samuel"
     },
     {
       "original": "First",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Barbara"
+      "replacement": "Melissa"
     },
     {
       "original": "Zone",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Betty"
+      "replacement": "Steven"
     },
     {
       "original": "Getting",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Patricia"
+      "replacement": "Melissa"
     },
     {
       "original": "52",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "19"
+      "replacement": "18"
     },
     {
       "original": "100",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "37"
+      "replacement": "34"
     },
     {
       "original": "100",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "37"
+      "replacement": "34"
     },
     {
       "original": "100",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "37"
+      "replacement": "34"
     },
     {
       "original": "Somewhat",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Joseph"
+      "replacement": "Kevin"
     },
     {
       "original": "Somewhat",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Joseph"
+      "replacement": "Kevin"
     },
     {
       "original": "37",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "14"
+      "replacement": "13"
     },
     {
       "original": "Transit",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Jessica"
+      "replacement": "Deborah"
     },
     {
       "original": "8",
@@ -4233,91 +4226,91 @@
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Heather"
+      "replacement": "Tyler"
     },
     {
       "original": "Oaks",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "Jason"
     },
     {
       "original": "Elementary",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Helen"
+      "replacement": "Ryan"
     },
     {
       "original": "School",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Sandra"
+      "replacement": "Brian"
     },
     {
       "original": "School",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Sandra"
+      "replacement": "Brian"
     },
     {
       "original": "School",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Sandra"
+      "replacement": "Brian"
     },
     {
       "original": "School",
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Sandra"
+      "replacement": "Brian"
     },
     {
       "original": "Grades",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "George"
     },
     {
       "original": "Grades",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "George"
     },
     {
       "original": "Grades",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "George"
     },
     {
       "original": "Distance",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Edward"
+      "replacement": "James"
     },
     {
       "original": "Distance",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Edward"
+      "replacement": "James"
     },
     {
       "original": "Distance",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Edward"
+      "replacement": "James"
     },
     {
       "original": "0.8",
@@ -4331,28 +4324,28 @@
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jeffrey"
+      "replacement": "Jerry"
     },
     {
       "original": "Luther",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Scott"
+      "replacement": "Jason"
     },
     {
       "original": "King",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Gregory"
+      "replacement": "Catherine"
     },
     {
       "original": "Middle",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Raymond"
+      "replacement": "Deborah"
     },
     {
       "original": "9",
@@ -4373,7 +4366,7 @@
       "type": "properNoun",
       "confidence": 0.75,
       "context": "company_or_person",
-      "replacement": "Donald"
+      "replacement": "Stephanie"
     },
     {
       "original": "2.3",
@@ -4387,161 +4380,161 @@
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$585,647"
+      "replacement": "$542,964"
     },
     {
       "original": "475",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "176"
+      "replacement": "163"
     },
     {
       "original": "$1,756,100",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$648,949"
+      "replacement": "$601,653"
     },
     {
       "original": "483",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "178"
+      "replacement": "165"
     },
     {
       "original": "$1,297,300",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$479,404"
+      "replacement": "$444,465"
     },
     {
       "original": "469",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "173"
+      "replacement": "161"
     },
     {
       "original": "$1,626,300",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$600,983"
+      "replacement": "$557,183"
     },
     {
       "original": "$2,069,500",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$764,763"
+      "replacement": "$709,026"
     },
     {
       "original": "482",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "178"
+      "replacement": "165"
     },
     {
       "original": "Vassar",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anna"
+      "replacement": "Sharon"
     },
     {
       "original": "Vassar",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anna"
+      "replacement": "Sharon"
     },
     {
       "original": "$978,100",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$361,447"
+      "replacement": "$335,104"
     },
     {
       "original": "476",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "176"
+      "replacement": "163"
     },
     {
       "original": "$1,778,600",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$657,263"
+      "replacement": "$609,362"
     },
     {
       "original": "480",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "177"
+      "replacement": "164"
     },
     {
       "original": "$1,825,700",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$674,669"
+      "replacement": "$625,499"
     },
     {
       "original": "484",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "179"
+      "replacement": "166"
     },
     {
       "original": "Local",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Michael"
+      "replacement": "Catherine"
     },
     {
       "original": "Local",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Michael"
+      "replacement": "Catherine"
     },
     {
       "original": "Current",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Alexander"
     },
     {
       "original": "California",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Harbor Springs"
+      "replacement": "Willowbrook"
     },
     {
       "original": "California",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Harbor Springs"
+      "replacement": "Willowbrook"
     },
     {
       "original": "California",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Harbor Springs"
+      "replacement": "Willowbrook"
     },
     {
       "original": "Similar",
@@ -4555,2408 +4548,2436 @@
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$553,571"
+      "replacement": "$513,226"
     },
     {
       "original": "371",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "137"
+      "replacement": "127"
     },
     {
       "original": "Ocean",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "Juniper Range"
+      "replacement": "Willow Creek"
     },
     {
       "original": "Kensington",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jonathan"
+      "replacement": "Aaron"
     },
     {
       "original": "Kensington",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jonathan"
+      "replacement": "Aaron"
     },
     {
       "original": "Kensington",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jonathan"
+      "replacement": "Aaron"
     },
     {
       "original": "Diana",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Justin"
+      "replacement": "Larry"
     },
     {
       "original": "Yonkouski",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jacob"
+      "replacement": "Linda"
     },
     {
       "original": "$1,595,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$589,416"
+      "replacement": "$546,459"
     },
     {
       "original": "$1,595,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$589,416"
+      "replacement": "$546,459"
     },
     {
       "original": "582",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "215"
+      "replacement": "199"
     },
     {
       "original": "582",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "215"
+      "replacement": "199"
     },
     {
       "original": "Euclid",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Raymond"
+      "replacement": "Dorothy"
     },
     {
       "original": "Euclid",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Raymond"
+      "replacement": "Dorothy"
     },
     {
       "original": "David",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Helen"
+      "replacement": "Joseph"
     },
     {
       "original": "Valdez",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Emily"
+      "replacement": "Linda"
     },
     {
       "original": "$1,295,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$478,554"
+      "replacement": "$443,677"
     },
     {
       "original": "$1,295,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$478,554"
+      "replacement": "$443,677"
     },
     {
       "original": "$1,295,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$478,554"
+      "replacement": "$443,677"
     },
     {
       "original": "2435 Bonar St",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "1256 Park Blvd"
+      "replacement": "1689 Forest Way"
     },
     {
       "original": "2435 Bonar St",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "1256 Park Blvd"
+      "replacement": "1689 Forest Way"
     },
     {
       "original": "Perry",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Emma"
+      "replacement": "Barbara"
     },
     {
       "original": "Riani",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Robert"
+      "replacement": "Donna"
     },
     {
       "original": "$1,328,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$490,749"
+      "replacement": "$454,983"
     },
     {
       "original": "61",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "23"
+      "replacement": "21"
     },
     {
       "original": "Cowper",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Matthew"
+      "replacement": "Larry"
     },
     {
       "original": "Lisa",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Kevin"
+      "replacement": "Rachel"
     },
     {
       "original": "Robesch",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Scott"
+      "replacement": "Barbara"
     },
     {
       "original": "$1,195,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$441,600"
+      "replacement": "$409,416"
     },
     {
       "original": "$1,195,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$441,600"
+      "replacement": "$409,416"
     },
     {
       "original": "2728 Dohr St",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "2948 Lake Ct"
+      "replacement": "9693 Church St"
     },
     {
       "original": "2728 Dohr St",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "2948 Lake Ct"
+      "replacement": "9693 Church St"
     },
     {
       "original": "Sari",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jerry"
+      "replacement": "Edward"
     },
     {
       "original": "Cooper",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Margaret"
+      "replacement": "Andrew"
     },
     {
       "original": "Cooper",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Margaret"
+      "replacement": "Andrew"
     },
     {
       "original": "$1,095,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$404,646"
+      "replacement": "$375,155"
     },
     {
       "original": "$1,095,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$404,646"
+      "replacement": "$375,155"
     },
     {
       "original": "$1,095,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$404,646"
+      "replacement": "$375,155"
     },
     {
       "original": "2304 Edwards St",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "5271 Center St"
+      "replacement": "8465 Pine Rd"
     },
     {
       "original": "2304 Edwards St",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "5271 Center St"
+      "replacement": "8465 Pine Rd"
     },
     {
       "original": "Monica",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anthony"
+      "replacement": "Raymond"
     },
     {
       "original": "Monica",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Anthony"
+      "replacement": "Raymond"
     },
     {
       "original": "Chung",
       "type": "properNoun",
       "confidence": 0.95,
       "context": "company_or_person",
-      "replacement": "Andrew"
+      "replacement": "Benjamin"
     },
     {
       "original": "Chung",
       "type": "properNoun",
       "confidence": 0.95,
       "context": "company_or_person",
-      "replacement": "Andrew"
+      "replacement": "Benjamin"
     },
     {
       "original": "Andersen",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Eric"
+      "replacement": "Joseph"
     },
     {
       "original": "Jung",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Karen"
+      "replacement": "Heather"
     },
     {
       "original": "Co",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Stephanie"
+      "replacement": "Amanda"
     },
     {
       "original": "1328 Marin Ave",
       "type": "address",
       "confidence": 0.7,
       "context": {},
-      "replacement": "1359 Third St"
+      "replacement": "2122 River Ct"
     },
     {
       "original": "Albany",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Kathleen"
-    },
-    {
-      "original": "Albany",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Kathleen"
-    },
-    {
-      "original": "Albany",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Kathleen"
-    },
-    {
-      "original": "Albany",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Kathleen"
-    },
-    {
-      "original": "Tania",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Rachel"
-    },
-    {
-      "original": "Balazs",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Cynthia"
-    },
-    {
-      "original": "Jacard",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Nancy"
-    },
-    {
-      "original": "$1,150,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$424,971"
-    },
-    {
-      "original": "918",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "339"
-    },
-    {
-      "original": "Pomona",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Timothy"
-    },
-    {
-      "original": "Ann",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Linda"
-    },
-    {
-      "original": "Newton",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "David"
-    },
-    {
-      "original": "Cane",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Steven"
-    },
-    {
-      "original": "$1,695,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$626,370"
-    },
-    {
-      "original": "1524 Blake St",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "1005 Second Blvd"
-    },
-    {
-      "original": "Santino",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Rebecca"
-    },
-    {
-      "original": "Muscardin",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jennifer"
-    },
-    {
-      "original": "2533 Grant St",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "1490 Second Ct"
-    },
-    {
-      "original": "Jessica",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Lisa"
-    },
-    {
-      "original": "Johnson",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Ryan"
-    },
-    {
-      "original": "Vanguard",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Robert"
-    },
-    {
-      "original": "Vanguard",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Robert"
-    },
-    {
-      "original": "Properties",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Anthony"
-    },
-    {
-      "original": "Properties",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Anthony"
-    },
-    {
-      "original": "Properties",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Anthony"
-    },
-    {
-      "original": "$1,298,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$479,663"
-    },
-    {
-      "original": "5914 Zinn Dr",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "1904 Park Ave"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Pinehurst"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Pinehurst"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Pinehurst"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Pinehurst"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Pinehurst"
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Pinehurst"
-    },
-    {
-      "original": "Michael",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emma"
-    },
-    {
-      "original": "Jimenez",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Linda"
-    },
-    {
-      "original": "$1,100,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$406,494"
-    },
-    {
-      "original": "5950 Monterey Ave",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "4684 Cedar Ave"
-    },
-    {
-      "original": "Richmond",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Catherine"
-    },
-    {
-      "original": "Richmond",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Catherine"
-    },
-    {
-      "original": "Marc",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Ryan"
-    },
-    {
-      "original": "Guay",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "$995,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$367,692"
-    },
-    {
-      "original": "$995,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$367,692"
-    },
-    {
-      "original": "$995,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$367,692"
-    },
-    {
-      "original": "935",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "346"
-    },
-    {
-      "original": "935",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "346"
-    },
-    {
-      "original": "Virginia",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Fairmont"
-    },
-    {
-      "original": "Virginia",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Fairmont"
-    },
-    {
-      "original": "Grace",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Andrew"
-    },
-    {
-      "original": "Bishop",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Samuel"
-    },
-    {
-      "original": "1427 Bay St",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "4791 Forest St"
-    },
-    {
-      "original": "Kate",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "$899,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$332,216"
-    },
-    {
-      "original": "962",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "355"
-    },
-    {
-      "original": "2829 California St",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "2131 Second Ln"
-    },
-    {
-      "original": "Bhima",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mary"
-    },
-    {
-      "original": "$1,189,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$439,383"
-    },
-    {
-      "original": "1678 Trestle Glen Rd",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "1650 Center Blvd"
-    },
-    {
-      "original": "Na'im",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Samantha"
-    },
-    {
-      "original": "$997,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$368,431"
-    },
-    {
-      "original": "760",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "281"
-    },
-    {
-      "original": "Josue",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Stephen"
-    },
-    {
-      "original": "Gomez",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "William"
-    },
-    {
-      "original": "55",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "20"
-    },
-    {
-      "original": "Las",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Nancy"
-    },
-    {
-      "original": "Casas",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Katherine"
-    },
-    {
-      "original": "Dr",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Elizabeth"
-    },
-    {
-      "original": "Dr",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Elizabeth"
-    },
-    {
-      "original": "Rafael",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Carol"
-    },
-    {
-      "original": "Nicholas",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Christine"
-    },
-    {
-      "original": "Compass",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Kenneth"
-    },
-    {
-      "original": "165",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "61"
-    },
-    {
-      "original": "Macarthur",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Anthony"
-    },
-    {
-      "original": "Blvd",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Janet"
-    },
-    {
-      "original": "Tiffany",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Elizabeth"
-    },
-    {
-      "original": "Pavon",
-      "type": "properNoun",
-      "confidence": 0.95,
-      "context": "company_or_person",
-      "replacement": "Margaret"
-    },
-    {
-      "original": "$1,280,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$473,011"
-    },
-    {
-      "original": "611",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "226"
-    },
-    {
-      "original": "Pennsylvania",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Valley Springs"
-    },
-    {
-      "original": "Ahsha",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "James"
-    },
-    {
-      "original": "Murphy",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Donald"
-    },
-    {
-      "original": "Deemed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Dorothy"
-    },
-    {
-      "original": "Deemed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Dorothy"
-    },
-    {
-      "original": "Deemed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Dorothy"
-    },
-    {
-      "original": "Deemed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Dorothy"
-    },
-    {
-      "original": "Guaranteed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "Guaranteed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "Guaranteed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "Guaranteed",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "Broker",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Sharon"
-    },
-    {
-      "original": "Broker",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Sharon"
-    },
-    {
-      "original": "Broker",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Sharon"
-    },
-    {
-      "original": "Broker",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Sharon"
-    },
-    {
-      "original": "2026-01-25",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-12-29"
-    },
-    {
-      "original": "2026-01-25",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-12-29"
-    },
-    {
-      "original": "2026-01-25",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-12-29"
-    },
-    {
-      "original": "2026-01-25",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-12-29"
-    },
-    {
-      "original": "2026-01-25",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2025-12-29"
-    },
-    {
-      "original": "20",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "7"
-    },
-    {
-      "original": "20",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "7"
-    },
-    {
-      "original": "20",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "7"
-    },
-    {
-      "original": "20",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "7"
-    },
-    {
-      "original": "20",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "7"
-    },
-    {
-      "original": "08",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "3"
-    },
-    {
-      "original": "08",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "3"
-    },
-    {
-      "original": "California Alameda County",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "Central Highlands"
-    },
-    {
-      "original": "Dublin",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Ivywood"
-    },
-    {
-      "original": "Canada",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Islandia"
-    },
-    {
-      "original": "Canada",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Islandia"
-    },
-    {
-      "original": "Canada",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Islandia"
-    },
-    {
-      "original": "Canada",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Islandia"
-    },
-    {
-      "original": "New York",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Border Region"
-    },
-    {
-      "original": "New York",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "Border Region"
-    },
-    {
-      "original": "442",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "163"
-    },
-    {
-      "original": "442",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "163"
-    },
-    {
-      "original": "2006",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2005-12-05"
-    },
-    {
-      "original": "2006",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2005-12-05"
-    },
-    {
-      "original": "2006",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2005-12-05"
-    },
-    {
-      "original": "2006",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "2005-12-05"
-    },
-    {
-      "original": "75",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "28"
-    },
-    {
-      "original": "2951 Linden Ave",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "6165 Second Rd"
-    },
-    {
-      "original": "$1,875,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$692,887"
-    },
-    {
-      "original": "2,605",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "963"
-    },
-    {
-      "original": "45",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "17"
-    },
-    {
-      "original": "1,935",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "715"
-    },
-    {
-      "original": "49",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "18"
-    },
-    {
-      "original": "111",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "41"
-    },
-    {
-      "original": "Fairlawn",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Benjamin"
-    },
-    {
-      "original": "$799,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$295,262"
-    },
-    {
-      "original": "1,587",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "586"
-    },
-    {
-      "original": "Split-level",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "35",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "13"
-    },
-    {
-      "original": "1711 Carleton St",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "3602 Oak Way"
-    },
-    {
-      "original": "$699,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$258,308"
-    },
-    {
-      "original": "1,975",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "730"
-    },
-    {
-      "original": "Detached",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Gary"
-    },
-    {
-      "original": "40",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "15"
-    },
-    {
-      "original": "1,559",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "576"
-    },
-    {
-      "original": "Defining",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "William"
-    },
-    {
-      "original": "1960",
-      "type": "date",
-      "confidence": 0.8,
-      "context": {},
-      "replacement": "1959-12-05"
-    },
-    {
-      "original": "El",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amanda"
-    },
-    {
-      "original": "El",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amanda"
-    },
-    {
-      "original": "El",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amanda"
-    },
-    {
-      "original": "Dorado",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Katherine"
-    },
-    {
-      "original": "$1,995,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$737,232"
-    },
-    {
-      "original": "3,241",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "1,198"
-    },
-    {
-      "original": "1,194",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "441"
-    },
-    {
-      "original": "1,945",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "719"
-    },
-    {
-      "original": "38",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "14"
-    },
-    {
-      "original": "1,628",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "602"
-    },
-    {
-      "original": "46",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "17"
-    },
-    {
-      "original": "1372 Henry St",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "7491 Forest St"
-    },
-    {
-      "original": "$925,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$341,824"
-    },
-    {
-      "original": "1,174",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "434"
-    },
-    {
-      "original": "Condo",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Rachel"
-    },
-    {
-      "original": "Gated",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Emma"
-    },
-    {
-      "original": "33",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "12"
-    },
-    {
-      "original": "33",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "12"
-    },
-    {
-      "original": "3033 Ellis St",
-      "type": "address",
-      "confidence": 0.7,
-      "context": {},
-      "replacement": "1490 Hill Way"
-    },
-    {
-      "original": "$999,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$369,170"
-    },
-    {
-      "original": "1,533",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "567"
-    },
-    {
-      "original": "26",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "10"
-    },
-    {
-      "original": "58",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "21"
-    },
-    {
-      "original": "23",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "8"
-    },
-    {
-      "original": "Based",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Amy"
-    },
-    {
-      "original": "24",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "9"
-    },
-    {
-      "original": "02",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "1"
-    },
-    {
-      "original": "Sale California Alameda County",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "State Territory"
-    },
-    {
-      "original": "You'll",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Ryan"
-    },
-    {
-      "original": "Love",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Mary"
-    },
-    {
-      "original": "Bedroom",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "Bedroom",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "Bedroom",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "Bedroom",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "Bedroom",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "Bedroom",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "Choose",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Anna"
-    },
-    {
-      "original": "Amenity",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Christopher"
-    },
-    {
-      "original": "Luxury",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Sarah"
-    },
-    {
-      "original": "Luxury",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Sarah"
-    },
-    {
-      "original": "Select",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Andrew"
-    },
-    {
-      "original": "Condos",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Justin"
-    },
-    {
-      "original": "Duplexes",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Sarah"
-    },
-    {
-      "original": "Triplexes",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Sharon"
-    },
-    {
-      "original": "Land",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Laura"
-    },
-    {
-      "original": "Popular",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Carolyn"
-    },
-    {
-      "original": "Searches",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Amy"
-    },
-    {
-      "original": "Newest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jeffrey"
-    },
-    {
-      "original": "Listings",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Heather"
-    },
-    {
-      "original": "Tours",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Anna"
-    },
-    {
-      "original": "Conditioning",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Linda"
-    },
-    {
-      "original": "Story",
-      "type": "properNoun",
-      "confidence": 0.75,
-      "context": "company_or_person",
-      "replacement": "Linda"
-    },
-    {
-      "original": "Housing Market Alameda County",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "River Valley"
-    },
-    {
-      "original": "Zip",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "Zip",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "Codes",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Susan"
-    },
-    {
-      "original": "Values",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Heather"
-    },
-    {
-      "original": "Francisco",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jacob"
-    },
-    {
-      "original": "$1,268,418",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$468,731"
-    },
-    {
-      "original": "$687,039",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$253,888"
-    },
-    {
-      "original": "$589,382",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$217,800"
-    },
-    {
-      "original": "$1,104,987",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$408,337"
-    },
-    {
-      "original": "Pablo",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Robert"
-    },
-    {
-      "original": "$553,007",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$204,358"
-    },
-    {
-      "original": "Lafayette",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amy"
-    },
-    {
-      "original": "$1,821,810",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$673,231"
-    },
-    {
-      "original": "Cerrito",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Donald"
-    },
-    {
-      "original": "$1,073,673",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$396,765"
-    },
-    {
-      "original": "Hercules",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Mark"
-    },
-    {
-      "original": "$735,366",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$271,747"
-    },
-    {
-      "original": "$1,188,007",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$439,016"
-    },
-    {
-      "original": "Orinda",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jason"
-    },
-    {
-      "original": "$1,874,781",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$692,806"
-    },
-    {
-      "original": "Pinole",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Stephanie"
-    },
-    {
-      "original": "$707,254",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$261,358"
-    },
-    {
-      "original": "Moraga",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Helen"
-    },
-    {
-      "original": "$1,574,558",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$581,862"
-    },
-    {
-      "original": "Emeryville",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Gary"
-    },
-    {
-      "original": "$440,123",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$162,643"
-    },
-    {
-      "original": "Sobrante",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Dorothy"
-    },
-    {
-      "original": "$658,511",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$243,346"
-    },
-    {
-      "original": "Piedmont",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Gregory"
-    },
-    {
-      "original": "$2,266,748",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$837,654"
-    },
-    {
-      "original": "Tiburon",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jason"
-    },
-    {
-      "original": "$2,848,177",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$1,052,515"
-    },
-    {
-      "original": "$1,415,673",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$523,147"
-    },
-    {
-      "original": "Belvedere",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Catherine"
-    },
-    {
-      "original": "$4,556,552",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$1,683,827"
-    },
-    {
-      "original": "Canyon",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "Ruby Coast"
-    },
-    {
-      "original": "Neighborhood",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Scott"
-    },
-    {
-      "original": "Ashby",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "William"
-    },
-    {
-      "original": "$1,081,241",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$399,562"
-    },
-    {
-      "original": "Southwest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Michelle"
-    },
-    {
-      "original": "$992,691",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$366,839"
-    },
-    {
-      "original": "$1,207,153",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$446,091"
-    },
-    {
-      "original": "Downtown",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Ashley"
-    },
-    {
-      "original": "Gourmet",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Daniel"
-    },
-    {
-      "original": "Ghetto",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "$1,343,694",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$496,548"
-    },
-    {
-      "original": "$1,163,665",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$430,021"
-    },
-    {
-      "original": "Poet's",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Benjamin"
-    },
-    {
-      "original": "Corner",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "$1,083,082",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$400,242"
-    },
-    {
-      "original": "Northwest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Pamela"
-    },
-    {
-      "original": "$1,000,991",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$369,906"
-    },
-    {
-      "original": "Paradise",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Helen"
-    },
-    {
-      "original": "Park",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Larry"
     },
     {
-      "original": "$788,696",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$291,455"
-    },
-    {
-      "original": "$736,822",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$272,285"
-    },
-    {
-      "original": "$1,409,983",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$521,045"
-    },
-    {
-      "original": "Dartmouth",
+      "original": "Albany",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Dorothy"
+      "replacement": "Larry"
     },
     {
-      "original": "$1,132,956",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$418,672"
-    },
-    {
-      "original": "Solano Hill",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "Suburban District"
-    },
-    {
-      "original": "$1,122,622",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$414,853"
-    },
-    {
-      "original": "Marin",
+      "original": "Albany",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Dorothy"
+      "replacement": "Larry"
     },
     {
-      "original": "$1,450,219",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$535,914"
-    },
-    {
-      "original": "Code",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Daniel"
-    },
-    {
-      "original": "$558,472",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$206,378"
-    },
-    {
-      "original": "$592,749",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$219,044"
-    },
-    {
-      "original": "$1,109,378",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$409,959"
-    },
-    {
-      "original": "$1,110,896",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$410,520"
-    },
-    {
-      "original": "$521,830",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$192,837"
-    },
-    {
-      "original": "$1,071,828",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$396,083"
-    },
-    {
-      "original": "$894,193",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$330,440"
-    },
-    {
-      "original": "$1,197,586",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$442,556"
-    },
-    {
-      "original": "$1,182,281",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$436,900"
-    },
-    {
-      "original": "$1,520,099",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$561,737"
-    },
-    {
-      "original": "$1,091,273",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$403,269"
-    },
-    {
-      "original": "$544,139",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$201,081"
-    },
-    {
-      "original": "$1,883,314",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$695,959"
-    },
-    {
-      "original": "$1,519,114",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$561,373"
-    },
-    {
-      "original": "$1,642,480",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$606,962"
-    },
-    {
-      "original": "$1,236,225",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$456,834"
-    },
-    {
-      "original": "$970,071",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$358,480"
-    },
-    {
-      "original": "Proceeds",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "Lisa"
-    },
-    {
-      "original": "Cheap",
-      "type": "properNoun",
-      "confidence": 0.75,
-      "context": "company_or_person",
-      "replacement": "Angela"
-    },
-    {
-      "original": "Under",
+      "original": "Albany",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jerry"
+      "replacement": "Larry"
     },
     {
-      "original": "Under",
+      "original": "Tania",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jerry"
+      "replacement": "Jacob"
     },
     {
-      "original": "Under",
+      "original": "Balazs",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jerry"
+      "replacement": "Laura"
     },
     {
-      "original": "Under",
+      "original": "Jacard",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Jerry"
+      "replacement": "Brian"
     },
     {
-      "original": "Under",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Jerry"
-    },
-    {
-      "original": "$500",
+      "original": "$1,150,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$185"
+      "replacement": "$393,999"
     },
     {
-      "original": "$600",
-      "type": "money",
+      "original": "918",
+      "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "$222"
+      "replacement": "315"
     },
     {
-      "original": "$700",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$259"
-    },
-    {
-      "original": "$800",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$296"
-    },
-    {
-      "original": "$900",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$333"
-    },
-    {
-      "original": "Reduced",
+      "original": "Pomona",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Eric"
     },
     {
-      "original": "Considered",
+      "original": "Ann",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Mary"
+      "replacement": "Helen"
     },
     {
-      "original": "Renting",
+      "original": "Newton",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Benjamin"
+      "replacement": "Deborah"
     },
     {
-      "original": "Apartments",
+      "original": "Cane",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Larry"
+    },
+    {
+      "original": "$1,695,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$580,720"
+    },
+    {
+      "original": "1524 Blake St",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "7569 Spring Ct"
+    },
+    {
+      "original": "Santino",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nancy"
+    },
+    {
+      "original": "Muscardin",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Sarah"
+    },
+    {
+      "original": "2533 Grant St",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "9119 Main Ln"
+    },
+    {
+      "original": "Jessica",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Mark"
+    },
+    {
+      "original": "Johnson",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Gary"
+    },
+    {
+      "original": "Vanguard",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Thomas"
+    },
+    {
+      "original": "Vanguard",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Thomas"
+    },
+    {
+      "original": "Properties",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Properties",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Properties",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "$1,298,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$444,705"
+    },
+    {
+      "original": "5914 Zinn Dr",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "9172 Hill Ln"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Meadowbrook"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Meadowbrook"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Meadowbrook"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Meadowbrook"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Meadowbrook"
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Meadowbrook"
+    },
+    {
+      "original": "Michael",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Susan"
     },
     {
-      "original": "Apartments",
+      "original": "Jimenez",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Susan"
+      "replacement": "Carol"
     },
     {
-      "original": "Townhomes",
+      "original": "$1,100,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$376,868"
+    },
+    {
+      "original": "5950 Monterey Ave",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "7558 Pine Ave"
+    },
+    {
+      "original": "Richmond",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Richmond",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Marc",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Margaret"
+    },
+    {
+      "original": "Guay",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Shirley"
+    },
+    {
+      "original": "$995,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$340,895"
+    },
+    {
+      "original": "$995,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$340,895"
+    },
+    {
+      "original": "$995,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$340,895"
+    },
+    {
+      "original": "935",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "320"
+    },
+    {
+      "original": "935",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "320"
+    },
+    {
+      "original": "Virginia",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Maplewood"
+    },
+    {
+      "original": "Virginia",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Maplewood"
+    },
+    {
+      "original": "Grace",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Eric"
+    },
+    {
+      "original": "Bishop",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Karen"
+    },
+    {
+      "original": "1427 Bay St",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "2856 River Blvd"
+    },
+    {
+      "original": "Kate",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "Emily"
     },
     {
-      "original": "Disclaimer",
+      "original": "$899,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$308,004"
+    },
+    {
+      "original": "962",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "330"
+    },
+    {
+      "original": "2829 California St",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "1680 Cedar Ave"
+    },
+    {
+      "original": "Bhima",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Daniel"
+    },
+    {
+      "original": "$1,189,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$407,360"
+    },
+    {
+      "original": "1678 Trestle Glen Rd",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "5646 Oak Way"
+    },
+    {
+      "original": "Na'im",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Catherine"
+    },
+    {
+      "original": "$997,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$341,580"
+    },
+    {
+      "original": "760",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "260"
+    },
+    {
+      "original": "Josue",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Rebecca"
+    },
+    {
+      "original": "Gomez",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Brenda"
+    },
+    {
+      "original": "55",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "19"
+    },
+    {
+      "original": "Las",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Brenda"
+    },
+    {
+      "original": "Casas",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Eric"
+    },
+    {
+      "original": "Dr",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "George"
+    },
+    {
+      "original": "Dr",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "George"
+    },
+    {
+      "original": "Rafael",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Christine"
+    },
+    {
+      "original": "Nicholas",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patricia"
+    },
+    {
+      "original": "Compass",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Justin"
+    },
+    {
+      "original": "165",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "57"
+    },
+    {
+      "original": "Macarthur",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Blvd",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patrick"
+    },
+    {
+      "original": "Tiffany",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jerry"
+    },
+    {
+      "original": "Pavon",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "$1,280,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$438,538"
+    },
+    {
+      "original": "611",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "209"
+    },
+    {
+      "original": "Pennsylvania",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Kingsport"
+    },
+    {
+      "original": "Ahsha",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kimberly"
+    },
+    {
+      "original": "Murphy",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Deemed",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Anna"
+      "replacement": "Steven"
     },
     {
-      "original": "Pitney",
+      "original": "Deemed",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Steven"
+    },
+    {
+      "original": "Deemed",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Steven"
+    },
+    {
+      "original": "Deemed",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Steven"
+    },
+    {
+      "original": "Guaranteed",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Larry"
+    },
+    {
+      "original": "Guaranteed",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Larry"
+    },
+    {
+      "original": "Guaranteed",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Larry"
+    },
+    {
+      "original": "Guaranteed",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Larry"
+    },
+    {
+      "original": "Broker",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Broker",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Broker",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Broker",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "2026-01-25",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2026-02-19"
+    },
+    {
+      "original": "2026-01-25",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2026-02-19"
+    },
+    {
+      "original": "2026-01-25",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2026-02-19"
+    },
+    {
+      "original": "2026-01-25",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2026-02-19"
+    },
+    {
+      "original": "2026-01-25",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2026-02-19"
+    },
+    {
+      "original": "20",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "7"
+    },
+    {
+      "original": "20",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "7"
+    },
+    {
+      "original": "20",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "7"
+    },
+    {
+      "original": "20",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "7"
+    },
+    {
+      "original": "20",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "7"
+    },
+    {
+      "original": "38",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "13"
+    },
+    {
+      "original": "38",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "13"
+    },
+    {
+      "original": "38",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "13"
+    },
+    {
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "9"
+    },
+    {
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "9"
+    },
+    {
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "9"
+    },
+    {
+      "original": "California Alameda County",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Western Plains"
+    },
+    {
+      "original": "Dublin",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Oldtown"
+    },
+    {
+      "original": "Canada",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Southvale"
+    },
+    {
+      "original": "Canada",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Southvale"
+    },
+    {
+      "original": "Canada",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Southvale"
+    },
+    {
+      "original": "Canada",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Southvale"
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Metro Region"
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "Metro Region"
+    },
+    {
+      "original": "442",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "151"
+    },
+    {
+      "original": "442",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "151"
+    },
+    {
+      "original": "2006",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2006-01-26"
+    },
+    {
+      "original": "2006",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2006-01-26"
+    },
+    {
+      "original": "2006",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2006-01-26"
+    },
+    {
+      "original": "2006",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "2006-01-26"
+    },
+    {
+      "original": "75",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "26"
+    },
+    {
+      "original": "2951 Linden Ave",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "6875 Hill St"
+    },
+    {
+      "original": "$1,875,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$642,389"
+    },
+    {
+      "original": "2,605",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "892"
+    },
+    {
+      "original": "45",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "15"
+    },
+    {
+      "original": "1,935",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "663"
+    },
+    {
+      "original": "49",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "17"
+    },
+    {
+      "original": "111",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "38"
+    },
+    {
+      "original": "Fairlawn",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Barbara"
+    },
+    {
+      "original": "$799,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$273,743"
+    },
+    {
+      "original": "1,587",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "544"
+    },
+    {
+      "original": "Split-level",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Carolyn"
+    },
+    {
+      "original": "35",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "12"
+    },
+    {
+      "original": "1711 Carleton St",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "7769 Fourth Way"
+    },
+    {
+      "original": "$699,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$239,483"
+    },
+    {
+      "original": "1,975",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "677"
+    },
+    {
+      "original": "Detached",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
       "replacement": "Matthew"
     },
     {
+      "original": "40",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "14"
+    },
+    {
+      "original": "1,559",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "534"
+    },
+    {
+      "original": "Defining",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Donna"
+    },
+    {
+      "original": "1960",
+      "type": "date",
+      "confidence": 0.8,
+      "context": {},
+      "replacement": "1960-01-26"
+    },
+    {
+      "original": "El",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Rachel"
+    },
+    {
+      "original": "El",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Rachel"
+    },
+    {
+      "original": "El",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Rachel"
+    },
+    {
+      "original": "Dorado",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nicholas"
+    },
+    {
+      "original": "$1,995,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$683,502"
+    },
+    {
+      "original": "3,241",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "1,110"
+    },
+    {
+      "original": "1,194",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "409"
+    },
+    {
+      "original": "1,945",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "666"
+    },
+    {
+      "original": "1,628",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "558"
+    },
+    {
+      "original": "46",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "16"
+    },
+    {
+      "original": "1372 Henry St",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "3544 Market Rd"
+    },
+    {
+      "original": "$925,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$316,912"
+    },
+    {
+      "original": "1,174",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "402"
+    },
+    {
+      "original": "Condo",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Laura"
+    },
+    {
+      "original": "Gated",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Donna"
+    },
+    {
+      "original": "33",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "11"
+    },
+    {
+      "original": "33",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "11"
+    },
+    {
+      "original": "3033 Ellis St",
+      "type": "address",
+      "confidence": 0.7,
+      "context": {},
+      "replacement": "3570 Park Ct"
+    },
+    {
+      "original": "$999,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$342,265"
+    },
+    {
+      "original": "1,533",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "525"
+    },
+    {
+      "original": "26",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "9"
+    },
+    {
+      "original": "58",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "20"
+    },
+    {
+      "original": "36",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "12"
+    },
+    {
+      "original": "36",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "12"
+    },
+    {
+      "original": "Based",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Cynthia"
+    },
+    {
+      "original": "24",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "8"
+    },
+    {
+      "original": "09",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "3"
+    },
+    {
+      "original": "Sale California Alameda County",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Upper Valley"
+    },
+    {
+      "original": "You'll",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Kathleen"
+    },
+    {
+      "original": "Love",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Michael"
+    },
+    {
+      "original": "Bedroom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Bedroom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Bedroom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Bedroom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Bedroom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Bedroom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "Choose",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Christopher"
+    },
+    {
+      "original": "Amenity",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Dennis"
+    },
+    {
+      "original": "Luxury",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Luxury",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jonathan"
+    },
+    {
+      "original": "Select",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Ronald"
+    },
+    {
+      "original": "Condos",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Janet"
+    },
+    {
+      "original": "Duplexes",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Melissa"
+    },
+    {
+      "original": "Triplexes",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Steven"
+    },
+    {
+      "original": "Land",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Deborah"
+    },
+    {
+      "original": "Popular",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Cynthia"
+    },
+    {
+      "original": "Searches",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Alexander"
+    },
+    {
+      "original": "Newest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patrick"
+    },
+    {
+      "original": "Listings",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ashley"
+    },
+    {
+      "original": "Tours",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Scott"
+    },
+    {
+      "original": "Conditioning",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Mary"
+    },
+    {
+      "original": "Story",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "Janet"
+    },
+    {
+      "original": "Housing Market Alameda County",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Forest Region"
+    },
+    {
+      "original": "Zip",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ryan"
+    },
+    {
+      "original": "Zip",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Ryan"
+    },
+    {
+      "original": "Codes",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Thomas"
+    },
+    {
+      "original": "Values",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "James"
+    },
+    {
+      "original": "Francisco",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Larry"
+    },
+    {
+      "original": "$1,268,418",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$434,570"
+    },
+    {
+      "original": "$687,039",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$235,385"
+    },
+    {
+      "original": "$589,382",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$201,927"
+    },
+    {
+      "original": "$1,104,987",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$378,577"
+    },
+    {
+      "original": "Pablo",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Sarah"
+    },
+    {
+      "original": "$553,007",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$189,464"
+    },
+    {
+      "original": "Lafayette",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Laura"
+    },
+    {
+      "original": "$1,821,810",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$624,166"
+    },
+    {
+      "original": "Cerrito",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Justin"
+    },
+    {
+      "original": "$1,073,673",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$367,848"
+    },
+    {
+      "original": "Hercules",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Raymond"
+    },
+    {
+      "original": "$735,366",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$251,942"
+    },
+    {
+      "original": "$1,188,007",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$407,020"
+    },
+    {
+      "original": "Orinda",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Susan"
+    },
+    {
+      "original": "$1,874,781",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$642,314"
+    },
+    {
+      "original": "Pinole",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Helen"
+    },
+    {
+      "original": "$707,254",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$242,311"
+    },
+    {
+      "original": "Moraga",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Benjamin"
+    },
+    {
+      "original": "$1,574,558",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$539,455"
+    },
+    {
+      "original": "Emeryville",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Anna"
+    },
+    {
+      "original": "$440,123",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$150,789"
+    },
+    {
+      "original": "Sobrante",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Christopher"
+    },
+    {
+      "original": "$658,511",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$225,611"
+    },
+    {
+      "original": "Piedmont",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Jacob"
+    },
+    {
+      "original": "$2,266,748",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$776,605"
+    },
+    {
+      "original": "Tiburon",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "John"
+    },
+    {
+      "original": "$2,848,177",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$975,807"
+    },
+    {
+      "original": "$1,415,673",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$485,020"
+    },
+    {
+      "original": "Belvedere",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Sharon"
+    },
+    {
+      "original": "$4,556,552",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$1,561,109"
+    },
+    {
+      "original": "Canyon",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Elm Basin"
+    },
+    {
+      "original": "Neighborhood",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Anna"
+    },
+    {
+      "original": "Ashby",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Amy"
+    },
+    {
+      "original": "$1,081,241",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$370,441"
+    },
+    {
+      "original": "Southwest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Frank"
+    },
+    {
+      "original": "$992,691",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$340,103"
+    },
+    {
+      "original": "$1,207,153",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$413,580"
+    },
+    {
+      "original": "Downtown",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "David"
+    },
+    {
+      "original": "Gourmet",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Stephen"
+    },
+    {
+      "original": "Ghetto",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Aaron"
+    },
+    {
+      "original": "$1,343,694",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$460,360"
+    },
+    {
+      "original": "$1,163,665",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$398,680"
+    },
+    {
+      "original": "Poet's",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Deborah"
+    },
+    {
+      "original": "Corner",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "George"
+    },
+    {
+      "original": "$1,083,082",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$371,072"
+    },
+    {
+      "original": "Northwest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Stephanie"
+    },
+    {
+      "original": "$1,000,991",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$342,947"
+    },
+    {
+      "original": "Paradise",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Laura"
+    },
+    {
+      "original": "Park",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Anna"
+    },
+    {
+      "original": "$788,696",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$270,213"
+    },
+    {
+      "original": "$736,822",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$252,441"
+    },
+    {
+      "original": "$1,409,983",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$483,071"
+    },
+    {
+      "original": "Dartmouth",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Scott"
+    },
+    {
+      "original": "$1,132,956",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$388,159"
+    },
+    {
+      "original": "Solano Hill",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "Urban District"
+    },
+    {
+      "original": "$1,122,622",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$384,619"
+    },
+    {
+      "original": "Marin",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Dennis"
+    },
+    {
+      "original": "$1,450,219",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$496,856"
+    },
+    {
+      "original": "Code",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Donna"
+    },
+    {
+      "original": "$558,472",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$191,337"
+    },
+    {
+      "original": "$592,749",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$203,080"
+    },
+    {
+      "original": "$1,109,378",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$380,081"
+    },
+    {
+      "original": "$1,110,896",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$380,601"
+    },
+    {
+      "original": "$521,830",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$178,783"
+    },
+    {
+      "original": "$1,071,828",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$367,216"
+    },
+    {
+      "original": "$894,193",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$306,357"
+    },
+    {
+      "original": "$1,197,586",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$410,302"
+    },
+    {
+      "original": "$1,182,281",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$405,058"
+    },
+    {
+      "original": "$1,520,099",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$520,797"
+    },
+    {
+      "original": "$1,091,273",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$373,878"
+    },
+    {
+      "original": "$544,139",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$186,426"
+    },
+    {
+      "original": "$1,883,314",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$645,238"
+    },
+    {
+      "original": "$1,519,114",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$520,460"
+    },
+    {
+      "original": "$1,642,480",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$562,726"
+    },
+    {
+      "original": "$1,236,225",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$423,540"
+    },
+    {
+      "original": "$970,071",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$332,354"
+    },
+    {
+      "original": "Proceeds",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Carol"
+    },
+    {
+      "original": "Cheap",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "Cynthia"
+    },
+    {
+      "original": "Under",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Paul"
+    },
+    {
+      "original": "Under",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Paul"
+    },
+    {
+      "original": "Under",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Paul"
+    },
+    {
+      "original": "Under",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Paul"
+    },
+    {
+      "original": "Under",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Paul"
+    },
+    {
+      "original": "$500",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$171"
+    },
+    {
+      "original": "$600",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$206"
+    },
+    {
+      "original": "$700",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$240"
+    },
+    {
+      "original": "$800",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$274"
+    },
+    {
+      "original": "$900",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$308"
+    },
+    {
+      "original": "Reduced",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "William"
+    },
+    {
+      "original": "Considered",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Deborah"
+    },
+    {
+      "original": "Renting",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Stephanie"
+    },
+    {
+      "original": "Apartments",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Apartments",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Kevin"
+    },
+    {
+      "original": "Townhomes",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Nicole"
+    },
+    {
+      "original": "Disclaimer",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Pitney",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "Betty"
+    },
+    {
       "original": "Bowes",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "Donald"
+      "replacement": "Stephanie"
     },
     {
       "original": "Mexico",
       "type": "location",
       "confidence": 0.95,
       "context": {},
-      "replacement": "Coastland"
+      "replacement": "Valleybrook"
     }
   ]
 }

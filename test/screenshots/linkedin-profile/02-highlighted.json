@@ -1,7 +1,7 @@
 {
   "scenario": "linkedin-profile",
   "step": "highlighted",
-  "timestamp": "2026-01-26T04:36:39.713Z",
+  "timestamp": "2026-01-26T04:49:48.087Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -13,14 +13,14 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 547,
+    "totalDetections": 686,
     "byType": {
-      "properNoun": 501,
-      "location": 21,
+      "properNoun": 632,
+      "location": 29,
       "date": 25
     },
-    "protectedCount": 342,
-    "rejectedCount": 205
+    "protectedCount": 458,
+    "rejectedCount": 228
   },
   "detections": [
     {
@@ -139,7 +139,7 @@
       }
     },
     {
-      "original": "Sign",
+      "original": "Join",
       "type": "properNoun",
       "confidence": 0.8499999999999999,
       "threshold": 0.75,
@@ -158,7 +158,7 @@
       }
     },
     {
-      "original": "Join",
+      "original": "Sign",
       "type": "properNoun",
       "confidence": 0.8499999999999999,
       "threshold": 0.75,
@@ -6103,6 +6103,19 @@
       }
     },
     {
+      "original": "Genesys",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
       "original": "San Francisco Bay Area",
       "type": "location",
       "confidence": 0.9,
@@ -6113,7 +6126,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6122,6 +6135,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6187,6 +6215,19 @@
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Bloomberg",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
       }
     },
     {
@@ -6200,7 +6241,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6209,6 +6250,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6274,6 +6330,19 @@
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Partners",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
       }
     },
     {
@@ -6287,7 +6356,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6296,6 +6365,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6364,7 +6448,7 @@
       }
     },
     {
-      "original": "Greater",
+      "original": "Jack",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6376,6 +6460,117 @@
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Managing",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Director",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Nitor",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Partners",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Gold",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Partner",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Jack",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "He",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Greater",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
       }
     },
     {
@@ -6389,7 +6584,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6398,6 +6593,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6466,18 +6676,30 @@
       }
     },
     {
-      "original": "Greater",
+      "original": "Retrocausal",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.29999999999999993,
       "threshold": 0.75,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Greater",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
       }
     },
     {
@@ -6491,7 +6713,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6500,6 +6722,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6578,7 +6815,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6587,6 +6824,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6657,14 +6909,13 @@
     {
       "original": "Los",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
+      "confidence": 0.6499999999999999,
       "threshold": 0.75,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
+        "unknownInDictionary_detail": "100% unknown"
       }
     },
     {
@@ -6681,7 +6932,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6690,6 +6941,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6758,7 +7024,37 @@
       }
     },
     {
-      "original": "Waltham",
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Dangelmaier",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Fintech",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.75,
@@ -6771,7 +7067,72 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "Strategic",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Advisor",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Payments",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Advisory",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Team",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Ralph",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6780,6 +7141,572 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "His",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Over",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "His",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Top",
+      "type": "properNoun",
+      "confidence": 0.25,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Ernst",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Young",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Entrepreneur",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Year",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Boston",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "Business",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Journal",
+      "type": "properNoun",
+      "confidence": 0.29999999999999993,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Innovator",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Year",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Recently",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Beta",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Gamma",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Sigma",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Stonehill",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "College",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Fintech",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "He",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Brandeis",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Babson",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Harvard",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Stonehill",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "College",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "His",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Throughout",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "His",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Fintech",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Outside",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Patriot",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "He",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Weston",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Massachusetts",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "Boston",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "Waltham",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6858,7 +7785,7 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6867,6 +7794,21 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -6935,7 +7877,7 @@
       }
     },
     {
-      "original": "Aspen",
+      "original": "Science",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "threshold": 0.75,
@@ -6948,7 +7890,19 @@
       }
     },
     {
-      "original": "Connect",
+      "original": "Aspen",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "View",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -6957,6 +7911,1234 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Marc",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Chesley",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Marc",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Chesley",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Desert",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      }
+    },
+    {
+      "original": "Rotor",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Greater Phoenix Area",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Denys",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Zhadanov",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Denys",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Zhadanov",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Alter",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "London",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Roberto",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Medrano",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Roberto",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Medrano",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Earth",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Labs",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Holdings",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Los Angeles Metropolitan Area",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Joe",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Zawadzki",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Joe",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Zawadzki",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Christian",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Barbosa",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Christian",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Barbosa",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Panda",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Video",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Greater",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Orlando",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Elissa",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Murphy",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Elissa",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Murphy",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "San Francisco Bay Area",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tom",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Eacobacci",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Tom",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Eacobacci",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Guidepost",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Growth",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Equity",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Fort",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Lauderdale",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Aaron",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Martin",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Aaron",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Martin",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Amazon",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Greater Seattle Area",
+      "type": "location",
+      "confidence": 0.9,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1,
+        "gazetteerMatch": 0
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Neha",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Parikh",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Neha",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Parikh",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Uber",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "David",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Pakman",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "David",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Pakman",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "insideLink": 0.25,
+        "insideLink_detail": "text_in_link",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -7001,308 +9183,6 @@
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Others",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "Satya",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Satya",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "San Francisco Bay Area",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      }
-    },
-    {
-      "original": "Satya",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Greater Edmonton Metropolitan Area",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      }
-    },
-    {
-      "original": "Satya",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Jing'an",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      }
-    },
-    {
-      "original": "District",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      }
-    },
-    {
-      "original": "Satya",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Delhi",
-      "type": "location",
-      "confidence": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 0,
-        "gazetteerMatch": 1
-      }
-    },
-    {
-      "original": "India",
-      "type": "location",
-      "confidence": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 0,
-        "gazetteerMatch": 1
-      }
-    },
-    {
-      "original": "Satya",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Satya",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
       }

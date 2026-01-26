@@ -1,7 +1,7 @@
 {
   "scenario": "linkedin-profile",
   "step": "protected",
-  "timestamp": "2026-01-26T04:36:42.365Z",
+  "timestamp": "2026-01-26T04:49:50.756Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -13,14 +13,14 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 325,
+    "totalDetections": 441,
     "byType": {
-      "properNoun": 276,
-      "location": 24,
+      "properNoun": 387,
+      "location": 29,
       "date": 25
     },
     "protectedCount": 0,
-    "rejectedCount": 325
+    "rejectedCount": 441
   },
   "detections": [
     {
@@ -29,41 +29,6 @@
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "████"
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Nadella",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
     },
     {
       "original": "Nadella",
@@ -309,6 +274,13 @@
       "confidence": 0.75,
       "context": "company_or_person",
       "replacement": "██████"
+    },
+    {
+      "original": "Business",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "████████"
     },
     {
       "original": "Business",
@@ -1200,6 +1172,13 @@
       "replacement": "███████ ███████ ████"
     },
     {
+      "original": "Greater Seattle Area",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "███████ ███████ ████"
+    },
+    {
       "original": "Board",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
@@ -1382,6 +1361,13 @@
       "replacement": "███████"
     },
     {
+      "original": "Science",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
       "original": "Excited",
       "type": "properNoun",
       "confidence": 1,
@@ -1408,6 +1394,13 @@
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "████████"
+    },
+    {
+      "original": "Team",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "████"
     },
     {
       "original": "Team",
@@ -1730,6 +1723,146 @@
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "█████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "View",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
     },
     {
       "original": "View",
@@ -1767,137 +1900,235 @@
       "replacement": "█████"
     },
     {
-      "original": "Bates\n      \n \n              San Francisco Bay",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "█████\n      \n \n              ███ █████████ ███"
-    },
-    {
-      "original": "Area",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "████"
-    },
-    {
-      "original": "Area",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "████"
-    },
-    {
-      "original": "Area",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "████"
-    },
-    {
-      "original": "Connect",
+      "original": "Bates",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "███████"
+      "replacement": "█████"
     },
     {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Connect",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Charles",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Charles",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███████"
-    },
-    {
-      "original": "Phillips",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "████████"
-    },
-    {
-      "original": "Phillips",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "████████"
-    },
-    {
-      "original": "York",
+      "original": "Genesys",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "████"
+      "replacement": "███████"
+    },
+    {
+      "original": "San Francisco Bay Area",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "███ █████████ ███ ████"
+    },
+    {
+      "original": "San Francisco Bay Area",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "███ █████████ ███ ████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Profile",
+      "type": "properNoun",
+      "confidence": 0.75,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Charles",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Charles",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Phillips",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Phillips",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Bloomberg",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ ████"
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ ████"
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ ████"
+    },
+    {
+      "original": "New York",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ ████"
     },
     {
       "original": "Neil",
@@ -1928,32 +2159,32 @@
       "replacement": "█████"
     },
     {
-      "original": "Cleveland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "█████████"
+      "original": "Partners",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████████"
     },
     {
-      "original": "Cleveland",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "█████████"
+      "original": "Partners",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████████"
     },
     {
-      "original": "Boston",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "██████"
+      "original": "Jack",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
     },
     {
-      "original": "Boston",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "██████"
+      "original": "Jack",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
     },
     {
       "original": "Jack",
@@ -1984,88 +2215,137 @@
       "replacement": "██████"
     },
     {
-      "original": "Greater",
+      "original": "Managing",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Nitor",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Partner",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
       "context": "company_or_person",
       "replacement": "███████"
     },
     {
       "original": "Greater",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
       "context": "company_or_person",
       "replacement": "███████"
     },
     {
-      "original": "Rick",
+      "original": "Greater",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "████"
+      "replacement": "███████"
     },
     {
-      "original": "Rick",
+      "original": "Greater",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "████"
+      "replacement": "███████"
     },
     {
-      "original": "Faulk",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "█████"
-    },
-    {
-      "original": "Faulk",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "█████"
-    },
-    {
-      "original": "Toufi",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "█████"
-    },
-    {
-      "original": "Toufi",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "█████"
-    },
-    {
-      "original": "Saliba",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "██████"
-    },
-    {
-      "original": "Saliba",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "██████"
-    },
-    {
-      "original": "San",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "███"
-    },
-    {
-      "original": "Francisco",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
+      "original": "Cleveland",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
       "replacement": "█████████"
+    },
+    {
+      "original": "Rick",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "Rick",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "Faulk",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Faulk",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Boston",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "██████"
+    },
+    {
+      "original": "Boston",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "██████"
+    },
+    {
+      "original": "Boston",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "██████"
+    },
+    {
+      "original": "Toufi",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Toufi",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Saliba",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Saliba",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "San Francisco",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███ █████████"
     },
     {
       "original": "Dheeraj",
@@ -2124,6 +2404,62 @@
       "replacement": "█████"
     },
     {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Ralph",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
       "original": "Dangelmaier",
       "type": "properNoun",
       "confidence": 1,
@@ -2136,6 +2472,167 @@
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "██████████"
+    },
+    {
+      "original": "Dangelmaier",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████████"
+    },
+    {
+      "original": "Fintech",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Fintech",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Fintech",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Advisor",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Advisory",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Ernst",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Entrepreneur",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████████"
+    },
+    {
+      "original": "Innovator",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "Gamma",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Sigma",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Stonehill",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "Stonehill",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "College",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "College",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Brandeis",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Babson",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Harvard",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Throughout",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "Outside",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Patriot",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Weston",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Massachusetts",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "████████████"
     },
     {
       "original": "Waltham",
@@ -2145,20 +2642,6 @@
       "replacement": "███████"
     },
     {
-      "original": "Minneapolis",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "██████████"
-    },
-    {
-      "original": "Minneapolis",
-      "type": "location",
-      "confidence": 0.95,
-      "context": {},
-      "replacement": "██████████"
-    },
-    {
       "original": "Linda",
       "type": "properNoun",
       "confidence": 1,
@@ -2185,6 +2668,13 @@
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "███████"
+    },
+    {
+      "original": "Minneapolis",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "██████████"
     },
     {
       "original": "Michael",
@@ -2222,53 +2712,375 @@
       "replacement": "█████"
     },
     {
-      "original": "Explore",
+      "original": "Marc",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "Chesley\n      \n      \n           \n            \n        Marc Chesley\n      \n \n              \n        Desert",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "███████\n      \n      \n           \n            \n        ████ ███████\n      \n \n              \n        ██████"
+    },
+    {
+      "original": "Rotor",
       "type": "properNoun",
       "confidence": 0.7999999999999999,
       "context": "company_or_person",
-      "replacement": "███████"
+      "replacement": "█████"
     },
     {
-      "original": "Others",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "context": "company_or_person",
-      "replacement": "██████"
-    },
-    {
-      "original": "Nadella\n      \n \n              San Francisco Bay",
+      "original": "Greater Phoenix Area",
       "type": "location",
       "confidence": 0.9,
       "context": {},
-      "replacement": "███████\n      \n \n              ███ █████████ ███"
+      "replacement": "███████ ███████ ████"
     },
     {
-      "original": "Nadella\n      \n \n              Greater Edmonton Metropolitan",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "███████\n      \n \n              ███████ ████████ ███████████"
-    },
-    {
-      "original": "District",
-      "type": "location",
-      "confidence": 0.9,
-      "context": {},
-      "replacement": "████████"
-    },
-    {
-      "original": "Delhi",
+      "original": "Denys",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
       "replacement": "█████"
     },
     {
-      "original": "India",
+      "original": "Denys",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Zhadanov",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Zhadanov",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Alter",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "London",
       "type": "location",
       "confidence": 0.95,
       "context": {},
+      "replacement": "██████"
+    },
+    {
+      "original": "Roberto",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Roberto",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Medrano",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Medrano",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Earth",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
       "replacement": "█████"
+    },
+    {
+      "original": "Labs",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "Holdings",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Los Angeles Metropolitan Area",
+      "type": "location",
+      "confidence": 0.9,
+      "context": {},
+      "replacement": "███ ███████ ███████████ ████"
+    },
+    {
+      "original": "Joe",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███"
+    },
+    {
+      "original": "Joe",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███"
+    },
+    {
+      "original": "Zawadzki",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Zawadzki",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████████"
+    },
+    {
+      "original": "Barbosa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Barbosa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███████"
+    },
+    {
+      "original": "Panda",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Orlando",
+      "type": "location",
+      "confidence": 0.95,
+      "context": {},
+      "replacement": "███████"
+    },
+    {
+      "original": "Elissa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Elissa",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Murphy",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Murphy",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Tom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███"
+    },
+    {
+      "original": "Tom",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "███"
+    },
+    {
+      "original": "Eacobacci",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "Eacobacci",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "Guidepost",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "Equity",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Fort",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "Lauderdale",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "█████████"
+    },
+    {
+      "original": "Aaron",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Aaron",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Martin",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Martin",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Amazon",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Neha",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "Neha",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "Parikh",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Parikh",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Uber",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "████"
+    },
+    {
+      "original": "David",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "David",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "█████"
+    },
+    {
+      "original": "Pakman",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Pakman",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "██████"
+    },
+    {
+      "original": "Explore",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "context": "company_or_person",
+      "replacement": "███████"
     },
     {
       "original": "2026",

@@ -1,7 +1,7 @@
 {
   "scenario": "calculator-net-tax",
   "step": "highlighted",
-  "timestamp": "2026-01-26T04:36:29.508Z",
+  "timestamp": "2026-01-26T04:49:37.328Z",
   "settings": {
     "enabledTypes": [
       "money",

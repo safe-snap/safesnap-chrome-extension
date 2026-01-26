@@ -1,7 +1,7 @@
 {
   "scenario": "zillow-listing",
   "step": "highlighted",
-  "timestamp": "2026-01-26T04:36:53.925Z",
+  "timestamp": "2026-01-26T04:50:02.347Z",
   "settings": {
     "enabledTypes": [
       "money",
@@ -15,17 +15,17 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 1891,
+    "totalDetections": 1893,
     "byType": {
-      "properNoun": 1286,
+      "properNoun": 1285,
       "money": 138,
-      "quantity": 317,
+      "quantity": 320,
       "location": 60,
       "date": 71,
       "address": 19
     },
-    "protectedCount": 1074,
-    "rejectedCount": 817
+    "protectedCount": 1077,
+    "rejectedCount": 816
   },
   "detections": [
     {
@@ -40,22 +40,6 @@
         "unknownInDictionary_detail": "100% unknown",
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Sign",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
       }
     },
     {
@@ -1609,22 +1593,6 @@
       }
     },
     {
-      "original": "Sign",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
       "original": "Join",
       "type": "properNoun",
       "confidence": 0.44999999999999996,
@@ -2372,7 +2340,7 @@
       }
     },
     {
-      "original": "7,079",
+      "original": "7,081",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2406,7 +2374,7 @@
       }
     },
     {
-      "original": "28",
+      "original": "11",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -12120,7 +12088,7 @@
       }
     },
     {
-      "original": "08",
+      "original": "38",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -12129,7 +12097,7 @@
       }
     },
     {
-      "original": "28",
+      "original": "25",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -15643,17 +15611,55 @@
       }
     },
     {
-      "original": "Stylish",
+      "original": "Open",
       "type": "properNoun",
-      "confidence": 0.1499999999999999,
+      "confidence": 0.09999999999999998,
       "threshold": 0.75,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Sat",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "31",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
       }
     },
     {
@@ -16850,7 +16856,7 @@
       }
     },
     {
-      "original": "05",
+      "original": "36",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -16859,7 +16865,7 @@
       }
     },
     {
-      "original": "23",
+      "original": "25",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17229,7 +17235,7 @@
       }
     },
     {
-      "original": "08",
+      "original": "38",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17238,7 +17244,7 @@
       }
     },
     {
-      "original": "28",
+      "original": "25",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17525,7 +17531,7 @@
       }
     },
     {
-      "original": "02",
+      "original": "36",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17534,7 +17540,7 @@
       }
     },
     {
-      "original": "28",
+      "original": "09",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,

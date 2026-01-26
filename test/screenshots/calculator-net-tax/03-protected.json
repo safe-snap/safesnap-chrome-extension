@@ -1,7 +1,7 @@
 {
   "scenario": "calculator-net-tax",
   "step": "protected",
-  "timestamp": "2026-01-26T04:36:32.115Z",
+  "timestamp": "2026-01-26T04:49:39.944Z",
   "settings": {
     "enabledTypes": [
       "money",
@@ -30,112 +30,112 @@
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "2025",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2025-02-07"
+      "replacement": "2025-02-23"
     },
     {
       "original": "$36,694",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$61,191"
+      "replacement": "$47,998"
     },
     {
       "original": "$36,694",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$61,191"
+      "replacement": "$47,998"
     },
     {
       "original": "$248,111",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$413,748"
+      "replacement": "$324,547"
     },
     {
       "original": "$48,666",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$81,155"
+      "replacement": "$63,659"
     },
     {
       "original": "$199,445",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$332,593"
+      "replacement": "$260,888"
     },
     {
       "original": "$33,706",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$56,208"
+      "replacement": "$44,090"
     },
     {
       "original": "$0",
@@ -191,42 +191,42 @@
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Shirley"
+      "replacement": "Rebecca"
     },
     {
       "original": "Investment",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Shirley"
+      "replacement": "Rebecca"
     },
     {
       "original": "$4,400",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$7,337"
+      "replacement": "$5,756"
     },
     {
       "original": "$29,306",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$48,871"
+      "replacement": "$38,334"
     },
     {
       "original": "22",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "37"
+      "replacement": "29"
     },
     {
       "original": "$66,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$110,061"
+      "replacement": "$86,333"
     },
     {
       "original": "0",
@@ -254,63 +254,63 @@
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "27"
+      "replacement": "21"
     },
     {
       "original": "17",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "28"
+      "replacement": "22"
     },
     {
       "original": "17",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "28"
+      "replacement": "22"
     },
     {
       "original": "17",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "28"
+      "replacement": "22"
     },
     {
       "original": "1",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "2"
+      "replacement": "1"
     },
     {
       "original": "1",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "2"
+      "replacement": "1"
     },
     {
       "original": "1",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "2"
+      "replacement": "1"
     },
     {
       "original": "1",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "2"
+      "replacement": "1"
     },
     {
       "original": "1",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "2"
+      "replacement": "1"
     },
     {
       "original": "2",
@@ -443,854 +443,854 @@
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "32"
+      "replacement": "25"
     },
     {
       "original": "19",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "32"
+      "replacement": "25"
     },
     {
       "original": "5",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "8"
-    },
-    {
-      "original": "5",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "8"
-    },
-    {
-      "original": "Loan",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Brandon"
-    },
-    {
-      "original": "Loan",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Brandon"
-    },
-    {
-      "original": "Loan",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Brandon"
-    },
-    {
-      "original": "Loan",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Brandon"
-    },
-    {
-      "original": "Interest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Interest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Interest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Interest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Interest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Interest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "Interest",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Emily"
-    },
-    {
-      "original": "$10,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$16,676"
-    },
-    {
-      "original": "$10,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$16,676"
-    },
-    {
-      "original": "$10,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$16,676"
-    },
-    {
-      "original": "Mortgage",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amy"
-    },
-    {
-      "original": "Mortgage",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amy"
-    },
-    {
-      "original": "Mortgage",
-      "type": "properNoun",
-      "confidence": 1,
-      "context": "company_or_person",
-      "replacement": "Amy"
-    },
-    {
-      "original": "$2,500",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$4,169"
-    },
-    {
-      "original": "$2,500",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$4,169"
-    },
-    {
-      "original": "$3,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$5,003"
-    },
-    {
-      "original": "$3,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$5,003"
-    },
-    {
-      "original": "$6,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$10,006"
-    },
-    {
-      "original": "$6,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$10,006"
-    },
-    {
-      "original": "$6,000",
-      "type": "money",
-      "confidence": 1,
-      "context": {},
-      "replacement": "$10,006"
-    },
-    {
-      "original": "13",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "22"
-    },
-    {
-      "original": "13",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "22"
-    },
-    {
-      "original": "3",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "5"
-    },
-    {
-      "original": "4",
       "type": "quantity",
       "confidence": 1,
       "context": {},
       "replacement": "7"
     },
     {
-      "original": "401",
+      "original": "5",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "669"
+      "replacement": "7"
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Michael"
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Michael"
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Michael"
+    },
+    {
+      "original": "Loan",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Michael"
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "Interest",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Samuel"
+    },
+    {
+      "original": "$10,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$13,081"
+    },
+    {
+      "original": "$10,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$13,081"
+    },
+    {
+      "original": "$10,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$13,081"
+    },
+    {
+      "original": "Mortgage",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patricia"
+    },
+    {
+      "original": "Mortgage",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patricia"
+    },
+    {
+      "original": "Mortgage",
+      "type": "properNoun",
+      "confidence": 1,
+      "context": "company_or_person",
+      "replacement": "Patricia"
+    },
+    {
+      "original": "$2,500",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$3,270"
+    },
+    {
+      "original": "$2,500",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$3,270"
+    },
+    {
+      "original": "$3,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$3,924"
+    },
+    {
+      "original": "$3,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$3,924"
+    },
+    {
+      "original": "$6,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$7,848"
+    },
+    {
+      "original": "$6,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$7,848"
+    },
+    {
+      "original": "$6,000",
+      "type": "money",
+      "confidence": 1,
+      "context": {},
+      "replacement": "$7,848"
+    },
+    {
+      "original": "13",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "17"
+    },
+    {
+      "original": "13",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "17"
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "4"
+    },
+    {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "5"
     },
     {
       "original": "401",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "669"
+      "replacement": "525"
+    },
+    {
+      "original": "401",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "525"
     },
     {
       "original": "137",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "228"
+      "replacement": "179"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "may",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "Jul"
+      "replacement": "Apr"
     },
     {
       "original": "$100,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$166,759"
+      "replacement": "$130,807"
     },
     {
       "original": "$100,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$166,759"
+      "replacement": "$130,807"
     },
     {
       "original": "$200,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$333,519"
+      "replacement": "$261,614"
     },
     {
       "original": "$200,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$333,519"
+      "replacement": "$261,614"
     },
     {
       "original": "$200,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$333,519"
+      "replacement": "$261,614"
     },
     {
       "original": "50",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "83"
+      "replacement": "65"
     },
     {
       "original": "50",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "83"
+      "replacement": "65"
     },
     {
       "original": "50",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "83"
+      "replacement": "65"
     },
     {
       "original": "2028",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2028-02-07"
+      "replacement": "2028-02-23"
     },
     {
       "original": "2028",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2028-02-07"
+      "replacement": "2028-02-23"
     },
     {
       "original": "2028",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2028-02-07"
+      "replacement": "2028-02-23"
     },
     {
       "original": "2028",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2028-02-07"
+      "replacement": "2028-02-23"
     },
     {
       "original": "$25,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$41,690"
+      "replacement": "$32,702"
     },
     {
       "original": "$25,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$41,690"
+      "replacement": "$32,702"
     },
     {
       "original": "$150,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$250,139"
+      "replacement": "$196,211"
     },
     {
       "original": "$150,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$250,139"
+      "replacement": "$196,211"
     },
     {
       "original": "$150,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$250,139"
+      "replacement": "$196,211"
     },
     {
       "original": "$300,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$500,278"
+      "replacement": "$392,421"
     },
     {
       "original": "$300,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$500,278"
+      "replacement": "$392,421"
     },
     {
       "original": "$12,500",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$20,845"
+      "replacement": "$16,351"
     },
     {
       "original": "65",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "108"
+      "replacement": "85"
     },
     {
       "original": "65",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "108"
+      "replacement": "85"
     },
     {
       "original": "$12,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$20,011"
+      "replacement": "$15,697"
     },
     {
       "original": "$12,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$20,011"
+      "replacement": "$15,697"
     },
     {
       "original": "$75,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$125,070"
+      "replacement": "$98,105"
     },
     {
       "original": "$1,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$1,668"
+      "replacement": "$1,308"
     },
     {
       "original": "$1,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$1,668"
+      "replacement": "$1,308"
     },
     {
       "original": "$1,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$1,668"
+      "replacement": "$1,308"
     },
     {
       "original": "$1,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$1,668"
+      "replacement": "$1,308"
     },
     {
       "original": "$750,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$1,250,695"
+      "replacement": "$981,053"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2026-02-07"
+      "replacement": "2026-02-23"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2026-02-07"
+      "replacement": "2026-02-23"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2026-02-07"
+      "replacement": "2026-02-23"
     },
     {
       "original": "2026",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2026-02-07"
+      "replacement": "2026-02-23"
     },
     {
       "original": "10",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "17"
+      "replacement": "13"
     },
     {
       "original": "10",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "17"
+      "replacement": "13"
     },
     {
       "original": "7.5",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "12.5"
+      "replacement": "9.8"
     },
     {
       "original": "$40,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$66,704"
+      "replacement": "$52,323"
     },
     {
       "original": "$40,400",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$67,371"
+      "replacement": "$52,846"
     },
     {
       "original": "$500,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$833,797"
+      "replacement": "$654,036"
     },
     {
       "original": "$505,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$842,135"
+      "replacement": "$660,576"
     },
     {
       "original": "12",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "20"
+      "replacement": "16"
     },
     {
       "original": "$250",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$417"
+      "replacement": "$327"
     },
     {
       "original": "$15,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$25,014"
+      "replacement": "$19,621"
     },
     {
       "original": "$30,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$50,028"
+      "replacement": "$39,242"
     },
     {
       "original": "2024",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2024-02-07"
+      "replacement": "2024-02-23"
     },
     {
       "original": "$14,600",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$24,347"
+      "replacement": "$19,098"
     },
     {
       "original": "$29,200",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$48,694"
+      "replacement": "$38,196"
     },
     {
       "original": "$11,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$18,344"
+      "replacement": "$14,389"
     },
     {
       "original": "$70,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$116,732"
+      "replacement": "$91,565"
     },
     {
       "original": "$2,200",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$3,669"
+      "replacement": "$2,878"
     },
     {
       "original": "$1,700",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$2,835"
+      "replacement": "$2,224"
     },
     {
       "original": "$400,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$667,038"
+      "replacement": "$523,228"
     },
     {
       "original": "20",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "33"
+      "replacement": "26"
     },
     {
       "original": "Retirement",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Steven"
+      "replacement": "George"
     },
     {
       "original": "Retirement",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Steven"
+      "replacement": "George"
     },
     {
       "original": "30",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "50"
+      "replacement": "39"
     },
     {
       "original": "$2,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$3,335"
+      "replacement": "$2,616"
     },
     {
       "original": "$2,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$3,335"
+      "replacement": "$2,616"
     },
     {
       "original": "$4,000",
       "type": "money",
       "confidence": 1,
       "context": {},
-      "replacement": "$6,670"
+      "replacement": "$5,232"
     },
     {
       "original": "18",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "30"
+      "replacement": "24"
     },
     {
       "original": "40",
       "type": "quantity",
       "confidence": 1,
       "context": {},
-      "replacement": "67"
+      "replacement": "52"
     },
     {
       "original": "Calculators",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Amy"
+      "replacement": "Jeffrey"
     },
     {
       "original": "Calculators",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Amy"
+      "replacement": "Jeffrey"
     },
     {
       "original": "Auto",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Katherine"
+      "replacement": "Frank"
     },
     {
       "original": "Amortization",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Karen"
     },
     {
       "original": "Currency",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Linda"
+      "replacement": "Patrick"
     },
     {
       "original": "Inflation",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Christine"
     },
     {
       "original": "Finance",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Carol"
+      "replacement": "Margaret"
     },
     {
       "original": "Payoff",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Kevin"
+      "replacement": "Joshua"
     },
     {
       "original": "Compound",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Dennis"
+      "replacement": "Sarah"
     },
     {
       "original": "Salary",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Ryan"
+      "replacement": "Carolyn"
     },
     {
       "original": "Fitness",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Sandra"
+      "replacement": "Dorothy"
     },
     {
       "original": "Fitness",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Sandra"
+      "replacement": "Dorothy"
     },
     {
       "original": "Health",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Linda"
+      "replacement": "Cynthia"
     },
     {
       "original": "Health",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Linda"
+      "replacement": "Cynthia"
     },
     {
       "original": "Math",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "Richard"
     },
     {
       "original": "Math",
       "type": "properNoun",
       "confidence": 1,
       "context": "company_or_person",
-      "replacement": "Rebecca"
+      "replacement": "Richard"
     },
     {
       "original": "2008",
       "type": "date",
       "confidence": 0.8,
       "context": {},
-      "replacement": "2008-02-07"
+      "replacement": "2008-02-23"
     }
   ]
 }
