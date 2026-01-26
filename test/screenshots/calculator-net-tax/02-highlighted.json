@@ -1,7 +1,7 @@
 {
   "scenario": "calculator-net-tax",
   "step": "highlighted",
-  "timestamp": "2026-01-22T17:45:36.951Z",
+  "timestamp": "2026-01-26T04:36:29.508Z",
   "settings": {
     "enabledTypes": [
       "money",
@@ -21,8 +21,8 @@
       "money": 64,
       "quantity": 55
     },
-    "protectedCount": 204,
-    "rejectedCount": 419
+    "protectedCount": 182,
+    "rejectedCount": 441
   },
   "detections": [
     {
@@ -40,13 +40,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -268,13 +266,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -332,13 +328,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -366,13 +360,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -413,13 +405,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -464,13 +454,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -501,13 +489,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 0.95,
+      "confidence": 0.6,
       "threshold": 1,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
       }
@@ -582,13 +568,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -896,13 +880,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 0.95,
+      "confidence": 0.6,
       "threshold": 1,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
       }
@@ -1101,13 +1083,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -1170,13 +1150,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -1241,13 +1219,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -1383,13 +1359,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -1640,13 +1614,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -1709,13 +1681,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -1780,13 +1750,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -1921,13 +1889,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -2322,13 +2288,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -2524,13 +2488,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -3417,13 +3379,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 0.95,
+      "confidence": 0.6,
       "threshold": 1,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
       }
@@ -3444,13 +3404,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 0.95,
+      "confidence": 0.6,
       "threshold": 1,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
       }
@@ -4956,13 +4914,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 0.95,
+      "confidence": 0.6,
       "threshold": 1,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
       }
@@ -5350,13 +5306,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 0.95,
+      "confidence": 0.6,
       "threshold": 1,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
       }
@@ -5545,13 +5499,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -5677,13 +5629,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -5747,13 +5697,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -5806,13 +5754,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -6604,13 +6550,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 1,
+      "confidence": 0.75,
       "threshold": 1,
-      "meetsThreshold": true,
+      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
         "appearsInPageLinks_detail": "word_in_page_links"
@@ -7016,8 +6960,6 @@
       "meetsThreshold": true,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",
@@ -7127,8 +7069,6 @@
       "meetsThreshold": true,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "insideLink": 0.25,
         "insideLink_detail": "text_in_link",

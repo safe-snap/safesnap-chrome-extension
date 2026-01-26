@@ -1,7 +1,7 @@
 {
   "scenario": "wikipedia-san-francisco-blackout",
   "step": "protected",
-  "timestamp": "2026-01-22T17:46:08.182Z",
+  "timestamp": "2026-01-26T04:37:09.421Z",
   "settings": {
     "enabledTypes": [
       "dates",
@@ -25,6 +25,13 @@
     "rejectedCount": 4151
   },
   "detections": [
+    {
+      "original": "25",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "██"
+    },
     {
       "original": "25",
       "type": "quantity",
@@ -8118,13 +8125,6 @@
       "replacement": "██"
     },
     {
-      "original": "00",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
       "original": "07",
       "type": "quantity",
       "confidence": 1,
@@ -8287,13 +8287,6 @@
     },
     {
       "original": "06",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "22",
       "type": "quantity",
       "confidence": 1,
       "context": {},
@@ -10184,13 +10177,6 @@
     },
     {
       "original": "58",
-      "type": "quantity",
-      "confidence": 1,
-      "context": {},
-      "replacement": "██"
-    },
-    {
-      "original": "59",
       "type": "quantity",
       "confidence": 1,
       "context": {},
@@ -29081,6 +29067,20 @@
       "confidence": 0.8,
       "context": {},
       "replacement": "████"
+    },
+    {
+      "original": "02",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "██"
+    },
+    {
+      "original": "04",
+      "type": "quantity",
+      "confidence": 1,
+      "context": {},
+      "replacement": "██"
     }
   ]
 }

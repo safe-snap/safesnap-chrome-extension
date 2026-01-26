@@ -1,0 +1,17 @@
+{
+  "scenario": "linkedin-profile",
+  "step": "original",
+  "timestamp": "2026-01-26T04:36:37.513Z",
+  "settings": {
+    "enabledTypes": [
+      "dates",
+      "properNouns",
+      "locations"
+    ],
+    "properNounSensitivity": 0.75,
+    "protectionMode": "blackout",
+    "zoom": 1
+  },
+  "summary": null,
+  "detections": null
+}

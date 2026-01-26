@@ -68,12 +68,39 @@ function ensureScreenshotDir(scenarioName) {
 
 /**
  * Inject SafeSnap content script into the page
+ * For strict CSP sites, we use CDP to bypass CSP restrictions
  */
 async function injectSafeSnapScript(page) {
   const contentScriptPath = path.resolve(__dirname, '../../dist/content.js');
   const contentScript = fs.readFileSync(contentScriptPath, 'utf-8');
 
-  await page.addScriptTag({ content: contentScript });
+  // Check if already injected
+  const alreadyInjected = await page
+    .evaluate(() => window.SafeSnap !== undefined && window.SafeSnap.isInitialized)
+    .catch(() => false);
+
+  if (alreadyInjected) {
+    console.log('[Test] SafeSnap already injected');
+    return;
+  }
+
+  // Use CDP to bypass CSP - this injects at the browser level, not page level
+  const client = await page.context().newCDPSession(page);
+
+  try {
+    await client.send('Runtime.evaluate', {
+      expression: contentScript,
+      awaitPromise: true,
+    });
+  } catch (cdpError) {
+    console.error('[Test] CDP injection failed:', cdpError.message);
+    // Fallback to regular injection (won't work on strict CSP sites)
+    try {
+      await page.addScriptTag({ path: contentScriptPath });
+    } catch (pathError) {
+      await page.addScriptTag({ content: contentScript });
+    }
+  }
 
   await page.waitForFunction(() => window.SafeSnap !== undefined && window.SafeSnap.isInitialized, {
     timeout: 10000,
@@ -453,14 +480,45 @@ async function runScenario(page, scenario) {
   console.log(`   Page title: ${pageTitle}`);
 
   // Check for bot detection pages
-  const bodyText = await page.evaluate(() => document.body.innerText.substring(0, 200));
-  if (
+  const bodyText = await page.evaluate(() => document.body.innerText.substring(0, 500));
+  const pageIsBlank = !pageTitle || pageTitle.trim() === '';
+  const hasBotDetection =
     bodyText.includes('Access to this page has been denied') ||
-    bodyText.includes('Press & Hold')
-  ) {
-    console.log(`   ⚠️ Bot detection triggered! Page content: ${bodyText.substring(0, 100)}...`);
-    if (!scenario.headed) {
-      console.log(`   💡 Tip: Add "headed: true" to this scenario config to use visible browser`);
+    bodyText.includes('Press & Hold') ||
+    bodyText.includes('Verify you are human') ||
+    bodyText.includes('captcha') ||
+    bodyText.includes('unusual traffic');
+
+  if (pageIsBlank || hasBotDetection) {
+    console.log(`   ⚠️ Page appears blocked or blank!`);
+    if (hasBotDetection) {
+      console.log(`   Bot detection text found: ${bodyText.substring(0, 100)}...`);
+    }
+
+    if (scenario.waitForUser && scenario.headed) {
+      console.log(`\n   ⏸️  PAUSED: Interact with the browser to bypass bot protection.`);
+      console.log(
+        `   📝 When the page loads correctly, press Enter in the terminal to continue...`
+      );
+
+      // Wait for user to press Enter
+      await new Promise((resolve) => {
+        const readline = require('readline');
+        const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+        rl.question('', () => {
+          rl.close();
+          resolve();
+        });
+      });
+
+      // Give the page a moment to stabilize after user interaction
+      await page.waitForTimeout(2000);
+      const newTitle = await page.title();
+      console.log(`   ▶️  Resuming... Page title: ${newTitle}`);
+    } else if (!scenario.headed) {
+      console.log(
+        `   💡 Tip: Add "headed: true" and "waitForUser: true" to interact with bot protection`
+      );
     }
   }
 

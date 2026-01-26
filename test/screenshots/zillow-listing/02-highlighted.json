@@ -1,7 +1,7 @@
 {
   "scenario": "zillow-listing",
   "step": "highlighted",
-  "timestamp": "2026-01-22T17:45:51.464Z",
+  "timestamp": "2026-01-26T04:36:53.925Z",
   "settings": {
     "enabledTypes": [
       "money",
@@ -15,17 +15,17 @@
     "zoom": 1
   },
   "summary": {
-    "totalDetections": 1908,
+    "totalDetections": 1891,
     "byType": {
-      "properNoun": 1292,
+      "properNoun": 1286,
       "money": 138,
-      "quantity": 329,
+      "quantity": 317,
       "location": 60,
-      "date": 72,
-      "address": 17
+      "date": 71,
+      "address": 19
     },
-    "protectedCount": 1089,
-    "rejectedCount": 819
+    "protectedCount": 1074,
+    "rejectedCount": 817
   },
   "detections": [
     {
@@ -1956,7 +1956,7 @@
       }
     },
     {
-      "original": "$1,672,700",
+      "original": "$1,672,100",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2363,7 +2363,7 @@
       }
     },
     {
-      "original": "16",
+      "original": "19",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2372,7 +2372,7 @@
       }
     },
     {
-      "original": "5,879",
+      "original": "7,079",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2381,7 +2381,7 @@
       }
     },
     {
-      "original": "435",
+      "original": "485",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2406,7 +2406,7 @@
       }
     },
     {
-      "original": "2",
+      "original": "28",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2431,7 +2431,16 @@
       }
     },
     {
-      "original": "15",
+      "original": "January 21, 2026",
+      "type": "date",
+      "confidence": 0.8,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "05",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -2742,7 +2751,7 @@
       }
     },
     {
-      "original": "Jan 22",
+      "original": "Jan 26",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -2751,7 +2760,7 @@
       }
     },
     {
-      "original": "Jan 23",
+      "original": "Jan 27",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -2760,7 +2769,7 @@
       }
     },
     {
-      "original": "Jan 24",
+      "original": "Jan 28",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -2769,7 +2778,7 @@
       }
     },
     {
-      "original": "Jan 25",
+      "original": "Jan 29",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -2787,6 +2796,60 @@
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "11",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "00",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "11",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "30",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "12",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "00",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
       }
     },
     {
@@ -4787,13 +4850,11 @@
     {
       "original": "Tax",
       "type": "properNoun",
-      "confidence": 0.6499999999999999,
+      "confidence": 0.3,
       "threshold": 0.75,
       "meetsThreshold": false,
       "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
+        "capitalizationPattern": 0.3
       }
     },
     {
@@ -5110,7 +5171,7 @@
       }
     },
     {
-      "original": "$1,672,700",
+      "original": "$1,672,100",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -5131,7 +5192,7 @@
       }
     },
     {
-      "original": "$1.57",
+      "original": "$1.59",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -5182,7 +5243,7 @@
       }
     },
     {
-      "original": "$6,511",
+      "original": "$7,078",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -5207,7 +5268,7 @@
       }
     },
     {
-      "original": "30",
+      "original": "31",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -5410,7 +5471,7 @@
       }
     },
     {
-      "original": "$1,312,000",
+      "original": "$1,599,000",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -5437,7 +5498,7 @@
       }
     },
     {
-      "original": "2",
+      "original": "1",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -5446,33 +5507,16 @@
       }
     },
     {
-      "original": "1922",
-      "type": "date",
-      "confidence": 0.8,
+      "original": "545",
+      "type": "quantity",
+      "confidence": 1,
       "meetsThreshold": true,
       "scoreBreakdown": {
         "patternMatch": 1
       }
     },
     {
-      "original": "San",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Antonio",
+      "original": "Colusa",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -5535,7 +5579,22 @@
       }
     },
     {
-      "original": "Bebe",
+      "original": "Janette",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Corby",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -5824,6 +5883,144 @@
       }
     },
     {
+      "original": "$1,750,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "540",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Neilson",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "St",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Berkeley",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Sold",
+      "type": "properNoun",
+      "confidence": 0.95,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Kira",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Halpern",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
       "original": "$1,600,000",
       "type": "money",
       "confidence": 1,
@@ -5907,144 +6104,6 @@
       "scoreBreakdown": {
         "patternMatch": 1,
         "gazetteerMatch": 0
-      }
-    },
-    {
-      "original": "$1,560,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "3",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "740",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Keeler",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Ave",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Berkeley",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Sold",
-      "type": "properNoun",
-      "confidence": 0.95,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Andrea",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Gordon",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
       }
     },
     {
@@ -6865,78 +6924,6 @@
       }
     },
     {
-      "original": "720",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "660",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "719",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "620",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "659",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "580",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "619",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "579",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
       "original": "Powered",
       "type": "properNoun",
       "confidence": 0.6499999999999999,
@@ -7284,7 +7271,7 @@
       }
     },
     {
-      "original": "1/22/2026",
+      "original": "1/25/2026",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -8246,7 +8233,7 @@
       }
     },
     {
-      "original": "$1,567,800",
+      "original": "$1,584,800",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8362,7 +8349,7 @@
       }
     },
     {
-      "original": "$1,734,600",
+      "original": "$1,756,100",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8478,7 +8465,7 @@
       }
     },
     {
-      "original": "$1,277,000",
+      "original": "$1,297,300",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8594,7 +8581,7 @@
       }
     },
     {
-      "original": "$1,615,800",
+      "original": "$1,626,300",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8710,7 +8697,7 @@
       }
     },
     {
-      "original": "$2,040,200",
+      "original": "$2,069,500",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8831,7 +8818,7 @@
       }
     },
     {
-      "original": "$962,900",
+      "original": "$978,100",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -8947,7 +8934,7 @@
       }
     },
     {
-      "original": "$1,769,200",
+      "original": "$1,778,600",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -9063,7 +9050,7 @@
       }
     },
     {
-      "original": "$1,816,200",
+      "original": "$1,825,700",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -10640,6 +10627,215 @@
       }
     },
     {
+      "original": "$1,298,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "5914 Zinn Dr",
+      "type": "address",
+      "confidence": 0.7,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 0,
+        "gazetteerMatch": 1
+      }
+    },
+    {
+      "original": "Sale",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Michael",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Jimenez",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$1,100,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "5950 Monterey Ave",
+      "type": "address",
+      "confidence": 0.7,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Richmond",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Sale",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Marc",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Guay",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
       "original": "$995,000",
       "type": "money",
       "confidence": 1,
@@ -10774,7 +10970,212 @@
       }
     },
     {
-      "original": "$1,100,000",
+      "original": "$1,295,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1427 Bay St",
+      "type": "address",
+      "confidence": 0.7,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Alameda",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Sale",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Kate",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$899,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "962",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2829 California St",
+      "type": "address",
+      "confidence": 0.7,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Berkeley",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Sale",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Bhima",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Sheridan",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "$1,189,000",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -10810,7 +11211,7 @@
       }
     },
     {
-      "original": "5950 Monterey Ave",
+      "original": "1678 Trestle Glen Rd",
       "type": "address",
       "confidence": 0.7,
       "meetsThreshold": false,
@@ -10819,18 +11220,13 @@
       }
     },
     {
-      "original": "Richmond",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
+      "original": "Oakland",
+      "type": "location",
+      "confidence": 0.95,
       "meetsThreshold": true,
       "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "patternMatch": 0,
+        "gazetteerMatch": 1
       }
     },
     {
@@ -10851,22 +11247,7 @@
       }
     },
     {
-      "original": "Marc",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Guay",
+      "original": "Na'im",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -10984,6 +11365,190 @@
     },
     {
       "original": "Gomez",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "$1,495,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "55",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Las",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Casas",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Dr",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "San",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Rafael",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Sale",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Nicholas",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Cooper",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Compass",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -11129,7 +11694,7 @@
       }
     },
     {
-      "original": "$1,398,000",
+      "original": "$1,280,000",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -11138,7 +11703,7 @@
       }
     },
     {
-      "original": "4",
+      "original": "3",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -11156,7 +11721,7 @@
       }
     },
     {
-      "original": "2",
+      "original": "1",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -11165,7 +11730,7 @@
       }
     },
     {
-      "original": "50",
+      "original": "611",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -11174,18 +11739,13 @@
       }
     },
     {
-      "original": "Hermosa",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
+      "original": "Pennsylvania",
+      "type": "location",
+      "confidence": 0.95,
       "meetsThreshold": true,
       "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
+        "patternMatch": 0,
+        "gazetteerMatch": 1
       }
     },
     {
@@ -11206,7 +11766,7 @@
       }
     },
     {
-      "original": "Oakland",
+      "original": "San Francisco",
       "type": "location",
       "confidence": 0.95,
       "meetsThreshold": true,
@@ -11233,7 +11793,7 @@
       }
     },
     {
-      "original": "Peter",
+      "original": "Ahsha",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -11248,7 +11808,7 @@
       }
     },
     {
-      "original": "Farsai",
+      "original": "Murphy",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -11263,52 +11823,7 @@
       }
     },
     {
-      "original": "$1,795,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "3",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "37",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Monticello",
+      "original": "Vanguard",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -11323,603 +11838,7 @@
       }
     },
     {
-      "original": "Ave",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Piedmont",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Sale",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Carla",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Higgins",
-      "type": "properNoun",
-      "confidence": 0.95,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "$1,485,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "3",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "58",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Avenue",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "San",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Anselmo",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Sale",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Noa",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Gold",
-      "type": "properNoun",
-      "confidence": 0.75,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Coldwell",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Banker",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Realty",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "$1,499,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "3",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2065",
-      "type": "date",
-      "confidence": 0.8,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Stewart",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Ave",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Walnut Creek",
-      "type": "location",
-      "confidence": 0.9,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1,
-        "gazetteerMatch": 0
-      }
-    },
-    {
-      "original": "Sale",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Lindsey",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Sindayen",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "$999,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2703 Mathews St",
-      "type": "address",
-      "confidence": 0.7,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Berkeley",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Sale",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Jeff",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Rosenberger",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "$1,195,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4671 Stauffer Pl",
-      "type": "address",
-      "confidence": 0.7,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Oakland",
-      "type": "location",
-      "confidence": 0.95,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 0,
-        "gazetteerMatch": 1
-      }
-    },
-    {
-      "original": "Sale",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Theresa",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Hope",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Broderick",
+      "original": "Properties",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -12183,7 +12102,7 @@
       }
     },
     {
-      "original": "2026-01-22",
+      "original": "2026-01-25",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -12192,7 +12111,7 @@
       }
     },
     {
-      "original": "09",
+      "original": "20",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -12201,7 +12120,7 @@
       }
     },
     {
-      "original": "43",
+      "original": "08",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -12210,7 +12129,7 @@
       }
     },
     {
-      "original": "21",
+      "original": "28",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -12231,7 +12150,7 @@
       }
     },
     {
-      "original": "12",
+      "original": "11",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -12240,7 +12159,7 @@
       }
     },
     {
-      "original": "30",
+      "original": "00",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -14345,7 +14264,7 @@
       }
     },
     {
-      "original": "76",
+      "original": "75",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -14393,239 +14312,6 @@
         "notSentenceStart": 0.15,
         "appearsInHeaderFooter": -0.5,
         "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "111",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Fairlawn",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Dr",
-      "type": "properNoun",
-      "confidence": 1,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links"
-      }
-    },
-    {
-      "original": "Berkeley",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "$799,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1,587",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "House",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "Show",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Open",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Sun",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Previous",
-      "type": "properNoun",
-      "confidence": 0.1499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      }
-    },
-    {
-      "original": "Next",
-      "type": "properNoun",
-      "confidence": 0.6499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
-      }
-    },
-    {
-      "original": "Use",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "Image",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "35",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
       }
     },
     {
@@ -14750,7 +14436,7 @@
       }
     },
     {
-      "original": "1",
+      "original": "2",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -14759,7 +14445,7 @@
       }
     },
     {
-      "original": "25",
+      "original": "1",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -14824,6 +14510,434 @@
     },
     {
       "original": "45",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "582",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Euclid",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Ave",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Berkeley",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "$1,595,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1,935",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "House",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Show",
+      "type": "properNoun",
+      "confidence": 0.09999999999999998,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Open",
+      "type": "properNoun",
+      "confidence": 0.09999999999999998,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Sat",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "31",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Previous",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Next",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Use",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Image",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "49",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "111",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Fairlawn",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Dr",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Berkeley",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "$799,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1,587",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "House",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Show",
+      "type": "properNoun",
+      "confidence": 0.09999999999999998,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Split-level",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Previous",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Next",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Use",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Image",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "35",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -14995,7 +15109,170 @@
       }
     },
     {
-      "original": "1923",
+      "original": "2435 Bonar St",
+      "type": "address",
+      "confidence": 0.7,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Berkeley",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "$1,295,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1,559",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "House",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Show",
+      "type": "properNoun",
+      "confidence": 0.09999999999999998,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Defining",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Previous",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Next",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Use",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Image",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "60",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1960",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -15004,7 +15281,22 @@
       }
     },
     {
-      "original": "Yolo",
+      "original": "El",
+      "type": "properNoun",
+      "confidence": 1,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links"
+      }
+    },
+    {
+      "original": "Dorado",
       "type": "properNoun",
       "confidence": 1,
       "threshold": 0.75,
@@ -15053,7 +15345,7 @@
       }
     },
     {
-      "original": "$1,899,000",
+      "original": "$1,995,000",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -15062,7 +15354,7 @@
       }
     },
     {
-      "original": "4",
+      "original": "6",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -15080,7 +15372,7 @@
       }
     },
     {
-      "original": "2,410",
+      "original": "3,241",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -15128,7 +15420,7 @@
       }
     },
     {
-      "original": "Sun",
+      "original": "Sat",
       "type": "properNoun",
       "confidence": 0.44999999999999996,
       "threshold": 0.75,
@@ -15148,6 +15440,15 @@
       }
     },
     {
+      "original": "4",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
       "original": "1",
       "type": "quantity",
       "confidence": 1,
@@ -15157,7 +15458,7 @@
       }
     },
     {
-      "original": "25",
+      "original": "31",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -15221,7 +15522,7 @@
       }
     },
     {
-      "original": "59",
+      "original": "60",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -15342,55 +15643,17 @@
       }
     },
     {
-      "original": "Open",
+      "original": "Stylish",
       "type": "properNoun",
-      "confidence": 0.09999999999999998,
+      "confidence": 0.1499999999999999,
       "threshold": 0.75,
       "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Sat",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "24",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
       }
     },
     {
@@ -15458,7 +15721,7 @@
       }
     },
     {
-      "original": "2543 Chilton Way",
+      "original": "2304 Edwards St",
       "type": "address",
       "confidence": 0.7,
       "meetsThreshold": false,
@@ -15484,638 +15747,36 @@
       }
     },
     {
-      "original": "Edmond",
+      "original": "Monica",
       "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "$849,000",
-      "type": "money",
       "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1,035",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "House",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
       "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "Show",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Open",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Sat",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
       "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "24",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Previous",
-      "type": "properNoun",
-      "confidence": 0.1499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      }
-    },
-    {
-      "original": "Next",
-      "type": "properNoun",
-      "confidence": 0.6499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
-      }
-    },
-    {
-      "original": "Use",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "Image",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "89",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1515 Derby St",
-      "type": "address",
-      "confidence": 0.7,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Berkeley",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
         "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
+        "appearsInPageLinks_detail": "word_in_page_links"
       }
     },
     {
-      "original": "$949,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1,355",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "House",
+      "original": "Chung",
       "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "Show",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Fully",
-      "type": "properNoun",
-      "confidence": 0.1499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      }
-    },
-    {
-      "original": "Previous",
-      "type": "properNoun",
-      "confidence": 0.1499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      }
-    },
-    {
-      "original": "Next",
-      "type": "properNoun",
-      "confidence": 0.6499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
-      }
-    },
-    {
-      "original": "Use",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "Image",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "59",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2700 Le Conte Ave",
-      "type": "address",
-      "confidence": 0.7,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "402",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Berkeley",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "$725,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "682",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Condo",
-      "type": "properNoun",
-      "confidence": 0.7999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "Show",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Open",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Sun",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "25",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Previous",
-      "type": "properNoun",
-      "confidence": 0.1499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      }
-    },
-    {
-      "original": "Next",
-      "type": "properNoun",
-      "confidence": 0.6499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
-      }
-    },
-    {
-      "original": "Use",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "Image",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "36",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "479",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Kentucky",
-      "type": "location",
       "confidence": 0.95,
+      "threshold": 0.75,
       "meetsThreshold": true,
       "scoreBreakdown": {
-        "patternMatch": 0,
-        "gazetteerMatch": 1
-      }
-    },
-    {
-      "original": "Ave",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "unknownInDictionary": 0.35,
         "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
         "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
+        "appearsInPageLinks_detail": "word_in_page_links"
       }
     },
     {
-      "original": "Berkeley",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "$1,399,000",
+      "original": "$1,095,000",
       "type": "money",
       "confidence": 1,
       "meetsThreshold": true,
@@ -16124,7 +15785,7 @@
       }
     },
     {
-      "original": "3",
+      "original": "5",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -16142,7 +15803,7 @@
       }
     },
     {
-      "original": "1,784",
+      "original": "1,945",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -16176,7 +15837,7 @@
       }
     },
     {
-      "original": "Classic",
+      "original": "Expansive",
       "type": "properNoun",
       "confidence": 0.1499999999999999,
       "threshold": 0.75,
@@ -16245,219 +15906,7 @@
       }
     },
     {
-      "original": "53",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1525 Tyler St",
-      "type": "address",
-      "confidence": 0.7,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Berkeley",
-      "type": "properNoun",
-      "confidence": 0.5999999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "notSentenceStart": 0.15,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "$1,195,000",
-      "type": "money",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1,226",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "House",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "Show",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Open",
-      "type": "properNoun",
-      "confidence": 0.09999999999999998,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "appearsInPageLinks": 0.3,
-        "appearsInPageLinks_detail": "word_in_page_links",
-        "appearsInHeaderFooter": -0.5,
-        "appearsInHeaderFooter_detail": "word_in_header_footer"
-      }
-    },
-    {
-      "original": "Sat",
-      "type": "properNoun",
-      "confidence": 0.44999999999999996,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "notSentenceStart": 0.15
-      }
-    },
-    {
-      "original": "2",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "4",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "24",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "Previous",
-      "type": "properNoun",
-      "confidence": 0.1499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown",
-        "nonNounPOS": -0.5,
-        "nonNounPOS_detail": "adjective"
-      }
-    },
-    {
-      "original": "Next",
-      "type": "properNoun",
-      "confidence": 0.6499999999999999,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3,
-        "unknownInDictionary": 0.35,
-        "unknownInDictionary_detail": "100% unknown"
-      }
-    },
-    {
-      "original": "Use",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "Image",
-      "type": "properNoun",
-      "confidence": 0.3,
-      "threshold": 0.75,
-      "meetsThreshold": false,
-      "scoreBreakdown": {
-        "capitalizationPattern": 0.3
-      }
-    },
-    {
-      "original": "1",
-      "type": "quantity",
-      "confidence": 1,
-      "meetsThreshold": true,
-      "scoreBreakdown": {
-        "patternMatch": 1
-      }
-    },
-    {
-      "original": "55",
+      "original": "38",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -16567,7 +16016,7 @@
       }
     },
     {
-      "original": "Thu",
+      "original": "Sat",
       "type": "properNoun",
       "confidence": 0.44999999999999996,
       "threshold": 0.75,
@@ -16575,6 +16024,15 @@
       "scoreBreakdown": {
         "capitalizationPattern": 0.3,
         "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
       }
     },
     {
@@ -16587,7 +16045,7 @@
       }
     },
     {
-      "original": "22",
+      "original": "31",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -16652,6 +16110,365 @@
     },
     {
       "original": "46",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1372 Henry St",
+      "type": "address",
+      "confidence": 0.7,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Berkeley",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "$925,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "2",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1,174",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Condo",
+      "type": "properNoun",
+      "confidence": 0.7999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Show",
+      "type": "properNoun",
+      "confidence": 0.09999999999999998,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Gated",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Previous",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Next",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Use",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Image",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "33",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3033 Ellis St",
+      "type": "address",
+      "confidence": 0.7,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Berkeley",
+      "type": "properNoun",
+      "confidence": 0.5999999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "notSentenceStart": 0.15,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "$999,000",
+      "type": "money",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "3",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "1,533",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "House",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "Show",
+      "type": "properNoun",
+      "confidence": 0.09999999999999998,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Open",
+      "type": "properNoun",
+      "confidence": 0.09999999999999998,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "appearsInPageLinks": 0.3,
+        "appearsInPageLinks_detail": "word_in_page_links",
+        "appearsInHeaderFooter": -0.5,
+        "appearsInHeaderFooter_detail": "word_in_header_footer"
+      }
+    },
+    {
+      "original": "Mon",
+      "type": "properNoun",
+      "confidence": 0.44999999999999996,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "notSentenceStart": 0.15
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "26",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "Previous",
+      "type": "properNoun",
+      "confidence": 0.1499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown",
+        "nonNounPOS": -0.5,
+        "nonNounPOS_detail": "adjective"
+      }
+    },
+    {
+      "original": "Next",
+      "type": "properNoun",
+      "confidence": 0.6499999999999999,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3,
+        "unknownInDictionary": 0.35,
+        "unknownInDictionary_detail": "100% unknown"
+      }
+    },
+    {
+      "original": "Use",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "Image",
+      "type": "properNoun",
+      "confidence": 0.3,
+      "threshold": 0.75,
+      "meetsThreshold": false,
+      "scoreBreakdown": {
+        "capitalizationPattern": 0.3
+      }
+    },
+    {
+      "original": "1",
+      "type": "quantity",
+      "confidence": 1,
+      "meetsThreshold": true,
+      "scoreBreakdown": {
+        "patternMatch": 1
+      }
+    },
+    {
+      "original": "58",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17015,7 +16832,7 @@
       }
     },
     {
-      "original": "2026-01-22",
+      "original": "2026-01-25",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -17024,7 +16841,7 @@
       }
     },
     {
-      "original": "09",
+      "original": "20",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17033,7 +16850,7 @@
       }
     },
     {
-      "original": "38",
+      "original": "05",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17042,7 +16859,7 @@
       }
     },
     {
-      "original": "24",
+      "original": "23",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17063,7 +16880,7 @@
       }
     },
     {
-      "original": "2026-01-22",
+      "original": "2026-01-25",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -17072,7 +16889,7 @@
       }
     },
     {
-      "original": "09",
+      "original": "20",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17081,7 +16898,7 @@
       }
     },
     {
-      "original": "30",
+      "original": "24",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17090,7 +16907,7 @@
       }
     },
     {
-      "original": "50",
+      "original": "33",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17394,7 +17211,7 @@
       }
     },
     {
-      "original": "2026-01-22",
+      "original": "2026-01-25",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -17403,7 +17220,7 @@
       }
     },
     {
-      "original": "09",
+      "original": "20",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17412,7 +17229,7 @@
       }
     },
     {
-      "original": "13",
+      "original": "08",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17421,7 +17238,7 @@
       }
     },
     {
-      "original": "17",
+      "original": "28",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17690,7 +17507,7 @@
       }
     },
     {
-      "original": "2026-01-22",
+      "original": "2026-01-25",
       "type": "date",
       "confidence": 0.8,
       "meetsThreshold": true,
@@ -17699,7 +17516,7 @@
       }
     },
     {
-      "original": "09",
+      "original": "20",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17708,7 +17525,7 @@
       }
     },
     {
-      "original": "36",
+      "original": "02",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,
@@ -17717,7 +17534,7 @@
       }
     },
     {
-      "original": "47",
+      "original": "28",
       "type": "quantity",
       "confidence": 1,
       "meetsThreshold": true,

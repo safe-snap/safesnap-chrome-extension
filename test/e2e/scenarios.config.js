@@ -22,6 +22,7 @@
  *   - waitAfterLoad: number - Delay after page load (ms)
  *   - headed: boolean       - Force visible browser (for bot-protected sites)
  *   - slowMo: number        - Slow down actions by ms (helps with bot detection)
+ *   - waitForUser: boolean  - Pause and wait for user to bypass bot protection (requires headed)
  *   - skipInCI: boolean     - Skip this scenario in CI environment
  *   - steps: array          - Screenshot sequence (see AVAILABLE STEPS below)
  *   - zoom: number           - Page zoom level (0.5 = 50%, 1 = 100%, default: 1)
@@ -58,6 +59,23 @@ const SCENARIOS = [
   },
 
   // -------------------------------------------------------------------------
+  // LinkedIn - Profile page with names, locations, job titles
+  // -------------------------------------------------------------------------
+  {
+    name: 'linkedin-profile',
+    description: 'LinkedIn profile page with names, locations, job titles',
+    url: 'https://www.linkedin.com/in/satyanadella/',
+    enabledTypes: ['dates', 'properNouns', 'locations'],
+    viewport: { width: 1280, height: 1200 },
+    waitAfterLoad: 2000,
+    headed: true, // LinkedIn has bot protection
+    slowMo: 2000,
+    steps: ['original', 'highlighted', 'protected'],
+    properNounSensitivity: 0.75, // Lower threshold = more detections
+    protectionMode: 'blackout',
+  },
+
+  // -------------------------------------------------------------------------
   // Zillow - Real estate listing with address, price, and property details
   // -------------------------------------------------------------------------
   {
@@ -69,6 +87,7 @@ const SCENARIOS = [
     waitAfterLoad: 5000,
     headed: true, // Zillow has bot protection
     slowMo: 2000,
+    waitForUser: true, // Pause for user to solve captcha/bot protection
     skipInCI: true,
     steps: ['original', 'highlighted', 'protected'],
     protectionMode: 'random',
@@ -103,7 +122,6 @@ const SCENARIOS = [
     waitAfterLoad: 5000,
     headed: true, // Force visible browser to bypass bot detection
     slowMo: 100, // Slow down to appear more human-like
-    skipInCI: true, // Skip in CI - bot detection will still block
     zoom: 1, // 100% zoom
     properNounSensitivity: 0.95, // Lower threshold = more detections
     steps: ['original', 'highlighted', 'protected', 'protected-highlighted'],
