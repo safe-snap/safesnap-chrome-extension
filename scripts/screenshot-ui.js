@@ -714,6 +714,33 @@ async function takeScreenshots() {
     console.log('   ✅ Saved: 5-privacy-first.png');
     await page5.close();
 
+
+    // Standalone Popup Screenshots (all tabs)
+    console.log('\n📸 Standalone Popup Screenshots (all tabs)...');
+    const popupTabs = [
+      { name: 'protect', label: 'Protect', selector: '[data-tab="protect"]', filename: 'popup-standalone-protect.png' },
+      { name: 'settings', label: 'Settings', selector: '[data-tab="settings"]', filename: 'popup-standalone-settings.png' },
+      { name: 'about', label: 'About', selector: '[data-tab="about"]', filename: 'popup-standalone-about.png' },
+    ];
+    for (const [i, tab] of popupTabs.entries()) {
+      const page = await browser.newPage();
+      await page.setViewportSize({ width: 400, height: 550 });
+      await page.goto(`${baseUrl}/popup.html`);
+      await page.waitForLoadState('networkidle');
+      await page.waitForTimeout(300);
+      if (tab.name !== 'protect') {
+        // Switch to the tab using the data-tab selector
+        await page.locator(tab.selector).click();
+        await page.waitForTimeout(300);
+      }
+      await page.screenshot({
+        path: path.join(SCREENSHOTS_DIR, tab.filename),
+        type: 'png',
+      });
+      console.log(`   ✅ Saved: ${tab.filename}`);
+      await page.close();
+    }
+
     // PROMO TILES
     console.log('\n' + '='.repeat(50));
     console.log('PROMO TILES');
