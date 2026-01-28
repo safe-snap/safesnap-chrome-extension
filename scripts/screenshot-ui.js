@@ -360,6 +360,184 @@ function createSmallPromoTile() {
 }
 
 /**
+ * Create standalone banner showcase (PII Protected banner)
+ */
+function createPIIProtectedBannerPage() {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+          width: 500px;
+          height: 200px;
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          overflow: hidden;
+          padding: 20px;
+        }
+        .banner {
+          background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+          color: white;
+          padding: 16px 24px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .banner-main {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .banner-icon {
+          width: 20px;
+          height: 20px;
+          fill: white;
+        }
+        .banner-title {
+          font-weight: 700;
+          font-size: 16px;
+        }
+        .banner-subtitle {
+          font-size: 12px;
+          opacity: 0.9;
+          margin-left: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="banner">
+        <div class="banner-main">
+          <svg class="banner-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+          </svg>
+          <span class="banner-title">PII Protected</span>
+        </div>
+        <div class="banner-subtitle">42 entities replaced</div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+/**
+ * Create standalone banner showcase (Highlights legend)
+ */
+function createHighlightsLegendPage() {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+          width: 400px;
+          height: 380px;
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          overflow: hidden;
+          padding: 20px;
+        }
+        .legend {
+          background: white;
+          border: 2px solid #e5e7eb;
+          border-radius: 8px;
+          padding: 16px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .legend-title {
+          font-weight: bold;
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+        }
+        .legend-title-icon {
+          width: 18px;
+          height: 18px;
+          fill: #1f2937;
+        }
+        .legend-items {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .legend-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 13px;
+        }
+        .legend-color {
+          width: 16px;
+          height: 16px;
+          border-radius: 3px;
+          flex-shrink: 0;
+        }
+        .color-blue { background: rgba(59, 130, 246, 0.4); border: 2px solid #3b82f6; }
+        .color-green { background: rgba(16, 185, 129, 0.4); border: 2px solid #10b981; }
+        .color-orange { background: rgba(245, 158, 11, 0.4); border: 2px solid #f59e0b; }
+        .color-red { background: rgba(239, 68, 68, 0.4); border: 2px solid #ef4444; }
+        .color-gray { background: rgba(156, 163, 175, 0.4); border: 2px solid #9ca3af; }
+        .legend-hint {
+          margin-top: 12px;
+          padding-top: 12px;
+          border-top: 1px solid #e5e7eb;
+          font-size: 11px;
+          color: #6b7280;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="legend">
+        <div class="legend-title">
+          <svg class="legend-title-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+          </svg>
+          What SafeSnap Detects
+        </div>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="legend-color color-blue"></div>
+            <span><strong>Blue:</strong> Pattern Match (Email, Phone, etc.)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color color-green"></div>
+            <span><strong>Green:</strong> Will be protected</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color color-orange"></div>
+            <span><strong>Orange:</strong> Close but not protected</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color color-red"></div>
+            <span><strong>Red:</strong> Unlikely to be protected</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color color-gray"></div>
+            <span><strong>Gray:</strong> Not a name</span>
+          </div>
+        </div>
+        <div class="legend-hint">
+          Hover over highlights to see why
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+/**
  * Create marquee promo tile (1400x560)
  */
 function createMarqueePromoTile() {
@@ -714,15 +892,29 @@ async function takeScreenshots() {
     console.log('   ✅ Saved: 5-privacy-first.png');
     await page5.close();
 
-
     // Standalone Popup Screenshots (all tabs)
     console.log('\n📸 Standalone Popup Screenshots (all tabs)...');
     const popupTabs = [
-      { name: 'protect', label: 'Protect', selector: '[data-tab="protect"]', filename: 'popup-standalone-protect.png' },
-      { name: 'settings', label: 'Settings', selector: '[data-tab="settings"]', filename: 'popup-standalone-settings.png' },
-      { name: 'about', label: 'About', selector: '[data-tab="about"]', filename: 'popup-standalone-about.png' },
+      {
+        name: 'protect',
+        label: 'Protect',
+        selector: '[data-tab="protect"]',
+        filename: 'popup-standalone-protect.png',
+      },
+      {
+        name: 'settings',
+        label: 'Settings',
+        selector: '[data-tab="settings"]',
+        filename: 'popup-standalone-settings.png',
+      },
+      {
+        name: 'about',
+        label: 'About',
+        selector: '[data-tab="about"]',
+        filename: 'popup-standalone-about.png',
+      },
     ];
-    for (const [i, tab] of popupTabs.entries()) {
+    for (const [_i, tab] of popupTabs.entries()) {
       const page = await browser.newPage();
       await page.setViewportSize({ width: 400, height: 550 });
       await page.goto(`${baseUrl}/popup.html`);
@@ -740,6 +932,53 @@ async function takeScreenshots() {
       console.log(`   ✅ Saved: ${tab.filename}`);
       await page.close();
     }
+
+    // BANNER SCREENSHOTS
+    console.log('\n' + '='.repeat(50));
+    console.log('BANNER SCREENSHOTS');
+    console.log('='.repeat(50));
+
+    // PII Protected Banner
+    console.log('\n📸 PII Protected Banner...');
+    const piiProtectedPage = await browser.newPage();
+    await piiProtectedPage.setViewportSize({ width: 500, height: 200 });
+
+    const piiProtectedHtml = createPIIProtectedBannerPage();
+    const piiProtectedPath = path.join(DIST_DIR, '_pii_protected_banner.html');
+    fs.writeFileSync(piiProtectedPath, piiProtectedHtml);
+    tempFiles.push(piiProtectedPath);
+
+    await piiProtectedPage.goto(`${baseUrl}/_pii_protected_banner.html`);
+    await piiProtectedPage.waitForLoadState('networkidle');
+    await piiProtectedPage.waitForTimeout(500);
+
+    await piiProtectedPage.screenshot({
+      path: path.join(SCREENSHOTS_DIR, 'banner-pii-protected.png'),
+      type: 'png',
+    });
+    console.log('   ✅ Saved: banner-pii-protected.png');
+    await piiProtectedPage.close();
+
+    // Highlights Legend Banner
+    console.log('📸 Highlights Legend Banner...');
+    const highlightsLegendPage = await browser.newPage();
+    await highlightsLegendPage.setViewportSize({ width: 400, height: 380 });
+
+    const highlightsLegendHtml = createHighlightsLegendPage();
+    const highlightsLegendPath = path.join(DIST_DIR, '_highlights_legend_banner.html');
+    fs.writeFileSync(highlightsLegendPath, highlightsLegendHtml);
+    tempFiles.push(highlightsLegendPath);
+
+    await highlightsLegendPage.goto(`${baseUrl}/_highlights_legend_banner.html`);
+    await highlightsLegendPage.waitForLoadState('networkidle');
+    await highlightsLegendPage.waitForTimeout(500);
+
+    await highlightsLegendPage.screenshot({
+      path: path.join(SCREENSHOTS_DIR, 'banner-highlights-legend.png'),
+      type: 'png',
+    });
+    console.log('   ✅ Saved: banner-highlights-legend.png');
+    await highlightsLegendPage.close();
 
     // PROMO TILES
     console.log('\n' + '='.repeat(50));
@@ -815,6 +1054,13 @@ async function takeScreenshots() {
       const stats = fs.statSync(path.join(SCREENSHOTS_DIR, file));
       const dimensions = file.includes('440x280') ? '440x280' : '1400x560';
       console.log(`   ${file} (${dimensions}, ${(stats.size / 1024).toFixed(1)} KB)`);
+    });
+
+    console.log('\nBANNER SCREENSHOTS:');
+    const banners = fs.readdirSync(SCREENSHOTS_DIR).filter((f) => f.startsWith('banner-'));
+    banners.forEach((file) => {
+      const stats = fs.statSync(path.join(SCREENSHOTS_DIR, file));
+      console.log(`   ${file} (${(stats.size / 1024).toFixed(1)} KB)`);
     });
 
     console.log(`\nLocation: ${SCREENSHOTS_DIR}`);
