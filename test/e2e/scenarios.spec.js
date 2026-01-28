@@ -601,10 +601,12 @@ test.describe('SafeSnap Scenarios', () => {
 
   // Generate a test for each scenario defined in scenarios.config.js
   for (const scenario of SCENARIOS) {
-    // Skip CI-only scenarios when running in CI
-    if (scenario.skipInCI && IS_CI) {
+    // Skip scenarios marked skipInCI, or headed scenarios in CI (no display server available)
+    if ((scenario.skipInCI && IS_CI) || (scenario.headed && IS_CI)) {
       test.skip(`${scenario.name}: ${scenario.description}`, async () => {
-        console.log(`Skipping "${scenario.name}" in CI environment`);
+        console.log(
+          `Skipping "${scenario.name}" in CI environment (headed: ${!!scenario.headed}, skipInCI: ${!!scenario.skipInCI})`
+        );
       });
       continue;
     }
