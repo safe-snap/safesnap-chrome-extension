@@ -79,7 +79,7 @@ jobs:
           echo "Changelog generated"
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           name: SafeSnap v${{ steps.version.outputs.version }}
           body_path: release_notes.md
