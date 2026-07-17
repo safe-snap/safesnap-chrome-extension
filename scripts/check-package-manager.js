@@ -18,39 +18,58 @@ if (isCI || isGitHubActions) {
 const execPath = process.env.npm_execpath || '';
 const userAgent = process.env.npm_config_user_agent || '';
 
-// Check if npm is being used
-const isNpm = execPath.includes('npm') || userAgent.includes('npm');
-const isYarn = execPath.includes('yarn') || userAgent.includes('yarn');
-const isPnpm = execPath.includes('pnpm') || userAgent.includes('pnpm');
+// Bun is present in process.versions.bun (most reliable) and also fakes an
+// npm-compatible user agent string like "bun/1.3.14 npm/9.x node/v22.x ..."
+// for tool compatibility — so it MUST be checked before the npm/yarn/pnpm
+// substring checks below, or Bun gets misidentified as npm.
+const isBun =
+  Boolean(process.versions && process.versions.bun) ||
+  execPath.includes('bun') ||
+  userAgent.startsWith('bun/');
+
+if (isBun) {
+  process.exit(0);
+}
+
+// Only trust the FIRST token of the user agent string for the actual
+// package manager identity (format is "<name>/<version> ...").
+const uaPackageManager = userAgent.split('/')[0].split(' ')[0];
+
+const isNpm = execPath.includes('npm') || uaPackageManager === 'npm';
+const isYarn = execPath.includes('yarn') || uaPackageManager === 'yarn';
+const isPnpm = execPath.includes('pnpm') || uaPackageManager === 'pnpm';
 
 if (isNpm || isYarn || isPnpm) {
   const packageManager = isYarn ? 'yarn' : isPnpm ? 'pnpm' : 'npm';
 
-  console.error('\n┌────────────────────────────────────────────────────────┐');
-  console.error('│                                                        │');
-  console.error(
-    '│  ❌  This project uses Bun, not ' + packageManager.padEnd(4) + '!                │'
-  );
-  console.error('│                                                        │');
-  console.error('│  Please install Bun and use it instead:               │');
-  console.error('│                                                        │');
-  console.error('│    Installation:                                       │');
-  console.error('│    $ curl -fsSL https://bun.sh/install | bash         │');
-  console.error('│                                                        │');
-  console.error('│    Then run:                                           │');
-  console.error('│    $ bun install                                       │');
-  console.error('│    $ bun run build                                     │');
-  console.error('│    $ bun test                                          │');
-  console.error('│                                                        │');
-  console.error('│  Why Bun?                                              │');
-  console.error('│  • 7-10x faster than npm                               │');
-  console.error('│  • Better developer experience                         │');
-  console.error('│  • 100% compatible with npm packages                   │');
-  console.error('│                                                        │');
-  console.error('│  See BUN_MIGRATION.md for more details.               │');
-  console.error('│                                                        │');
-  console.error('└────────────────────────────────────────────────────────┘\n');
+  const message = [
+    '',
+    '┌────────────────────────────────────────────────────────┐',
+    '│                                                        │',
+    `│  ❌  This project uses Bun, not ${packageManager.padEnd(4)}!                │`,
+    '│                                                        │',
+    '│  Please install Bun and use it instead:               │',
+    '│                                                        │',
+    '│    Installation:                                       │',
+    '│    $ curl -fsSL https://bun.sh/install | bash         │',
+    '│                                                        │',
+    '│    Then run:                                           │',
+    '│    $ bun install                                       │',
+    '│    $ bun run build                                     │',
+    '│    $ bun test                                          │',
+    '│                                                        │',
+    '│  Why Bun?                                              │',
+    '│  • 7-10x faster than npm                               │',
+    '│  • Better developer experience                         │',
+    '│  • 100% compatible with npm packages                   │',
+    '│                                                        │',
+    '│  See BUN_MIGRATION.md for more details.               │',
+    '│                                                        │',
+    '└────────────────────────────────────────────────────────┘',
+    '',
+  ].join('\n');
 
+  console.error(message);
   process.exit(1);
 }
 
