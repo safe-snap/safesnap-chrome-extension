@@ -46,7 +46,7 @@
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
     "@playwright/test": "^1.61.1",
-    "@types/chrome": "^0.0.251",
+    "@types/chrome": "^0.2.0",
     "babel-jest": "^29.7.0",
     "babel-loader": "^10.1.1",
     "copy-webpack-plugin": "^11.0.0",
