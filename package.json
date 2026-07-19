@@ -59,7 +59,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-webextension-mock": "^3.9.1",
     "prettier": "^3.9.5",
-    "style-loader": "^3.3.4",
+    "style-loader": "^4.0.0",
     "webpack": "^5.108.4",
     "webpack-cli": "^5.1.4"
   },
