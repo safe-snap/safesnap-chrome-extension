@@ -61,7 +61,7 @@
     "prettier": "^3.9.5",
     "style-loader": "^3.3.4",
     "webpack": "^5.108.4",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^7.0.0"
   },
   "jest": {
     "testEnvironment": "jsdom",
