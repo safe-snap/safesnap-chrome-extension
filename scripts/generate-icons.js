@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-env node */
 /**
  * Generate PNG icons from SVG
  *
@@ -54,7 +53,7 @@ function findConversionTool() {
     try {
       execSync(tool.test, { stdio: 'ignore' });
       return tool;
-    } catch (e) {
+    } catch (_error) {
       continue;
     }
   }
@@ -87,7 +86,7 @@ for (const size of sizes) {
     const cmd = tool.convert(size);
     execSync(cmd, { stdio: 'inherit' });
     console.log(`✓ Generated icon${size}.png`);
-  } catch (error) {
+  } catch (_error) {
     console.error(`✗ Failed to generate icon${size}.png`);
     process.exit(1);
   }

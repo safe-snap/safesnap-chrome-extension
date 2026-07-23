@@ -5,8 +5,6 @@
  * No external dependencies or services required
  */
 
-/* eslint-env node */
-
 const fs = require('fs');
 const path = require('path');
 

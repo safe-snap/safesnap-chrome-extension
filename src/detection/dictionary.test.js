@@ -2,12 +2,9 @@
  * Dictionary Tests
  */
 
-/* eslint-env node, jest */
-
 import { Dictionary } from './dictionary.js';
 
 // Mock Chrome storage API
-// eslint-disable-next-line no-global-assign
 global.chrome = {
   storage: {
     local: {

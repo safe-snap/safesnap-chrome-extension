@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-/* eslint-env node */
-
 /**
  * Screenshot UI Script for SafeSnap Chrome Extension
  *

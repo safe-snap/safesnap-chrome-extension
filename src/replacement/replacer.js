@@ -352,7 +352,7 @@ export class Replacer {
       const newDomain = this.companyPool.getRandomDomain();
       url.hostname = newDomain;
       return url.toString();
-    } catch (e) {
+    } catch (_error) {
       // If URL parsing fails, try simple domain replacement
       const domain = this.companyPool.getRandomDomain();
       return original.replace(/([a-z0-9-]+\.)+[a-z]{2,}/i, domain);
@@ -486,7 +486,7 @@ export class Replacer {
           return original;
         }
       }
-    } catch (e) {
+    } catch (_error) {
       return original;
     }
 

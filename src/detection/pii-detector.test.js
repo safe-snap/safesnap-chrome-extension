@@ -2,8 +2,6 @@
  * PIIDetector Tests
  */
 
-/* eslint-env node, jest */
-
 import { PIIDetector } from './pii-detector.js';
 
 // Mock DOM

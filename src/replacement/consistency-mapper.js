@@ -276,7 +276,7 @@ export class ConsistencyMapper {
         .replace(/^www\./, '')
         .replace(/\..+$/, '')
         .replace(/[^a-z0-9]/g, '');
-    } catch (e) {
+    } catch (_error) {
       return url
         .replace(/^(https?:\/\/)?(www\.)?/, '')
         .replace(/\..+$/, '')

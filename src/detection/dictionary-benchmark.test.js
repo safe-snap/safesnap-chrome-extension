@@ -347,7 +347,6 @@ async function fetch20kDictionary() {
   // Source: https://github.com/first20hours/google-10000-english (20k.txt)
   const fs = require('fs');
   const path = require('path');
-  // eslint-disable-next-line no-undef
   const filePath = path.join(__dirname, '../../test-data/20k.txt');
   const text = fs.readFileSync(filePath, 'utf8');
   return text.split('\n').filter((word) => word.trim() !== '');

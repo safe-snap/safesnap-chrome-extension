@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-/* eslint-env node */
-
 /**
  * This script ensures that Bun is used instead of npm/yarn/pnpm.
  * It runs before any npm install/run command.

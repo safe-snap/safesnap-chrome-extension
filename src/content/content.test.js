@@ -3,8 +3,6 @@
  * Tests for global PII replacement across DOM
  */
 
-/* eslint-env node, jest */
-
 import { PIIDetector } from '../detection/pii-detector.js';
 import { Replacer } from '../replacement/replacer.js';
 import { ConsistencyMapper } from '../replacement/consistency-mapper.js';

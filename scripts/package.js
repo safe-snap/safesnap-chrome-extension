@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-/* eslint-env node */
-
 /**
  * Package script for SafeSnap Chrome Extension
  * Creates a distributable .zip file from the dist folder
