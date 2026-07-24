@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SafeSnap",
-  "version": "0.0.5",
+  "version": "0.0.11",
   "description": "Share screenshots without exposing PII. Privacy-first tool for QA teams and product managers.",
   "author": "SafeSnap Community",
   "icons": {
