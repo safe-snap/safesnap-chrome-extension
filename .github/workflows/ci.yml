@@ -73,7 +73,7 @@ jobs:
           fi
 
       - name: Upload coverage reports
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         if: success()
         with:
           file: ./coverage/coverage-final.json
